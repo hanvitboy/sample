@@ -231,3 +231,4 @@ from tbl_member_auth
 where userid= '?';
 
 기무주현왔다가무
+신민석 왔다가무
