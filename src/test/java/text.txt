@@ -1,0 +1,139 @@
+프로젝트를 위한 요구사항
+
+- 프로젝트를 진행하기전에 고객의 요구사항을 인식하고 이를 설계하는 과정이 필요하다 - 요구사항 분석설계
+
+-고객이 원하는 내용이 무엇이고, 어느정도로 구현할 것인지?를 정하는 프로젝트의범위를 정하는것을 목적으로 한다.
+
+- 너무많은기능을 하려먼 요구사항이 방대해질수 있다 *** . 프로젝트에서 단계를 정확히 설정해주는것이 좋다.
+
+- 요구사항을 정의하고 데이터베이스 설계, 시스템 설계에서 가장 중요한 용어 == "도메인" (여기서는 게시물)
+
+고객의 요구사항
+-고객은 새로운 게시물을 작성할 수 있어야 한다.
+-고객은 기존의 게시물을 조회할 수 있어야 한다.
+-고객은 자기가 작성한 게시물을 삭제 또는 수정할 수 있어야 한다.
+-고객이 관심 있는 대상, 어떤 동작을 하기 위해 필요한 대상이 도메인
+-이 도메인을 데이터베이스로 설계, 클래스로 설계
+
+
+우리가 작성할 Controller
+BoardController
+작성해야할 기능 목록
+전체 목록 요청 /board/ list   get
+등록처리 / board / register/ post
+조회 / board/ get   get
+삭제/ board/ remove post
+수정 / board/ modify post
+
+페이징처리
+페이징처리를 하려면 sql을 변경해야되는데 필요한 파라미터가 뭐가있을지 생각
+페이지번호(pagenum), 한페이지당 몇개 데이터를 보여줄지(amount)=10
+1페이지 1~10 pagenum-1 * amount  < rownum <= pageNum * amount
+2페이지 11~20
+==> 클래스로 관리를 합니다.
+
+<![CDATA[sql]]>
+sql부분에 특수문자가 들어갈경우 xml파일에서 잘못 인식하는 경우를 막기위해 사용하는 처리방법
+(character Data 줄임말) sql 구문안에 부등호같은 특수문자가 들어갈때 사용
+xml 태그 만들때 <>이거로 만듬 그럴떄 부등호 where bno>0 이 >것이 태그라고 인식되버릴떄가있다
+
+화면 밑에 페이지 번호를 표시, 페이지 번호를 클릭할 수 있게
+<1 2 3 4 5>
+
+페이지 처리할때 필요한 정보들
+현재 페이지번호(pagenum),
+이전과 다음으로 이동 가능한 링크를 표시(prev,next)
+화면에서 보여지는 페이지의 시작, 마지막 (start, end)
+
+사용자가 5페이지를 보고 있다. - > 1~10 페이지까지 나타남
+사용자가 19페이지 보고있다. > 11~20 페이지 나타남
+페이지 끝번호 계산
+endpage	(int)(Math.ceil(현재페이지번호 / 10.0))*10;
+현재페이지가 1페이지 : 1 / 10.0 = 0.1   > 10
+현재페이지가 11페이지  > 20
+
+페이지 시작 번호
+끝번호 계산후 - 9
+startpage = endpage-9
+사실 끝번호는 전체 데이터수 (total)의 영향을 받는다.
+
+진짜 끝번호를 realend
+realend (int)Math.ceil(( total * 1.0 ) / amonut(10))
+if realend < endpage
+페이지 끝번호를 realend로 해야한다.
+
+이전페이지 / 다음페이지
+이전페이지 : 현재 페이지 -1 (시작페이지번호가 1보다 큰 경우만)
+다음페이지 : 현재페이지 + 1 (realend가 현재 endpage보다 작으면 못간다.)
+
+검색기능 : sql로 구현
+제목 / 내용 / 작성자
+
+검색결과가 여러개가 나올수 있다.
+여러개가 나오면 -> 여러개 결과가 200만개 ?? 페이지처리가 필요
+
+mybatis를 통해 검색 sql을 작성
+
+검색 조건이 상황에 따라 다르다
+사용자가 제목검색을한경우 
+사용자가 내용검색을한경우
+사용자가 제목+내용검색을 한경우
+
+mybatis의 동적 sql (jstl 태그랑 비슷함)
+if, choose , trim , foreach
+if는 테스트라는 속성과 함께 특정한 조건이 true가 되었을때
+포함된 sql을 사용하고자 할때 작성한다.
+예를들어서 우리가 단일항목으로 제목검색을 하는 상황 / 내용 / 작성자
+검색 조건이 T 이면 제목검색을할것이다.
+검색 조건이 c 이면 내용섬색을할것
+검색 조건이 w 면 작성자검색으랄것다.
+<if test="type == 'T'.toString()">
+(title like '%'||#{keyword}||'%')
+</if>
+<if test="type == 'C'.toString()">
+(content like '%'||#{keyword}||'%')
+</if>
+
+choose 는 여러 상황들중 하나의 상황에서만 동작합니다. if-else , jstl의 choose태그
+<choose>
+	<when test="type == 'T'.toString()">
+	(title like '%'||#{keyword}||'%')
+	</when>
+	<when test="type == 'C'.toString()">
+	(content like '%'||#{keyword}||'%')
+	</when>
+	<otherwise>
+	..아무조건도 해당되지않았을때..
+	</otherwise>
+</choose>
+
+sql 작성하는데 bno 값이 null이아니면 where 절을 추가해서 bno 값을 비교하고 싶다.
+select * from tbl_board
+<where>
+	<if test="bno != null">
+		bno = #{bno}
+	</if>
+</where>
+태그 안쪽 sql문이 생성되면 앞에 where 구문이 붙고, 그렇지않으면 생성되지않는다.
+bno 값이 존재경우 select * from tbl_board where bno = xxx;
+bno null  : select * from tbl_board;
+
+where 절 안에 and 나 or 로 조건을 추가 하고싶을 경우
+where bno = xxx and rownum <=10;
+<trim>태그
+
+<trim prefix ="and">
+	사용하고 싶은 sql문 쓰고
+</trim>
+and sql 이 붙는다. prefix suffix 사용가능
+
+<foreach> List, 배열, 맵등을 이용해서 반복처리 할때 사용하는 태그
+</foreach>
+
+getlistwithpaging -> 검색 결과 리스트
+(검색 조건이 없는 경우는 1페이지씩 가져온다.)
+(검색 조건이 있는경우 페이지수 계산을 해야하는데 이때 페이지수는 총 페이지수가 아니라
+검색 결과에 대한 페이지수를 계산)
+200건
+제목에 "새로" 가 포함된 게시물은 80건
+페이지수는 한페이지에 10개씩이라하면 8페이지
