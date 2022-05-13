@@ -230,4 +230,4 @@ select userid, auth
 from tbl_member_auth
 where userid= '?';
 
-기무주현왔다감
+기무주현왔다감ㅁㄴ
