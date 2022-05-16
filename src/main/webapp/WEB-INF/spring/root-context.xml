@@ -21,4 +21,15 @@
 	 	<property name ="password" value="1234"></property>
 	 
 	 </bean>
+	 
+	 <!-- sql세션 펙토리 추가 -->
+
+	<bean id="SqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	
+	<property name="dataSource" ref="dataSource"></property>
+
+</bean>
+<mybatis-spring:scan base-package="com.globalin.mapper"/>
+<context:component-scan base-package="com.globalin.service"></context:component-scan>
+	 
 </beans>
