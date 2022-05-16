@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.globalin.mapper.MemberMapper">
+
+<select id="getList" resultType="com.globalin.domain.MemberVO">
+	select * from tbl_member where IDX > 0
+</select>
+
+<insert id="insert">
+	insert into tbl_member values(member_seq.nextval, #{id}, #{name}, #{pw}, #{age}, #{height}, #{weight}, #{gender})
+</insert>
+
+<update id="update">
+	update tbl_member set pw=#{pw}, age=#{age}, height=#{height}, weight=#{weight}, gender=#{gender}
+	where id=#{id}
+</update>
+
+<delete id="delete">
+	delete from tbl_member where id=#{id} 
+</delete>
+
+<select id="read" resultType="com.globalin.domain.MemberVO">
+	select * from tbl_member where id=#{id}
+</select>
+
+
+</mapper>
