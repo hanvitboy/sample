@@ -16,4 +16,6 @@ public interface MemberMapper {
 	
 	public MemberVO read(String id);
 	
+	public int Login(MemberVO member) throws Exception;
+	
 }

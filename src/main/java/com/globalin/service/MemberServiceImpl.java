@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.globalin.dao.MemberDao;
 import com.globalin.domain.MemberVO;
 import com.globalin.mapper.MemberMapper;
 
@@ -46,6 +47,11 @@ public class MemberServiceImpl implements MemberService {
 	public List<MemberVO> getList() {
 		log.info("allmember.."); 
 		return mapper.getList();
+	}
+
+	@Override
+	public int Login(MemberVO member) throws Exception {
+		return mapper.Login(member);
 	}
 
 }

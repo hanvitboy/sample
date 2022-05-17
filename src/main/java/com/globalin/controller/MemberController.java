@@ -11,7 +11,7 @@ import com.globalin.domain.MemberVO;
 import com.globalin.service.MemberService;
 
 @Controller
-@RequestMapping("/member/*")
+@RequestMapping("/*")
 public class MemberController {
 
 	@Autowired

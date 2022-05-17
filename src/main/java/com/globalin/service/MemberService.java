@@ -17,4 +17,6 @@ public interface MemberService {
 	
 	public List<MemberVO> getList();
 	
+	public int Login(MemberVO vo) throws Exception;
+	
 }
