@@ -4,6 +4,7 @@ public class MemberVO {
 
 	private int idx, age, height, weight;
 	private String id, name, pw, gender;
+	
 	public int getIdx() {
 		return idx;
 	}

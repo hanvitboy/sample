@@ -2,6 +2,8 @@ package com.globalin.mapper;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import com.globalin.domain.MemberVO;
 
 public interface MemberMapper {
@@ -16,6 +18,8 @@ public interface MemberMapper {
 	
 	public MemberVO read(String id);
 	
-	public int Login(MemberVO member) throws Exception;
+	public String loginCheck(MemberVO vo, HttpSession session);
+	
+	public void logout(HttpSession session);
 	
 }

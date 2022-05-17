@@ -2,6 +2,8 @@ package com.globalin.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import com.globalin.domain.MemberVO;
 
 public interface MemberService {
@@ -17,6 +19,8 @@ public interface MemberService {
 	
 	public List<MemberVO> getList();
 	
-	public int Login(MemberVO vo) throws Exception;
+	 public String loginCheck(MemberVO member, HttpSession session);
+	 
+	 public void logout(HttpSession session);
 	
 }

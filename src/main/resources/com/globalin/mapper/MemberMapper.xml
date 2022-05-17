@@ -20,14 +20,12 @@
 </delete>
 
 <select id="read" resultType="com.globalin.domain.MemberVO">
-	select * from tbl_member where id=#{id} AND PASSWORD = #{pw}
+	select * from tbl_member where id=#{id}
 </select>
 
-<select id="Login" resultType="Int">
-        SELECT COUNT(*)
-          FROM tbl_member
-         WHERE ID = #{id}
-           AND pw = #{pw}
-    </select>
-
+ <select id="login_check" resultType="String">
+  select name
+  from member
+  where id=#{id} and pw=#{pw}
+ </select>
 </mapper>

@@ -2,12 +2,15 @@ package com.globalin.service;
 
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.globalin.dao.MemberDao;
+import com.globalin.dao.MemberDAO;
 import com.globalin.domain.MemberVO;
 import com.globalin.mapper.MemberMapper;
 
@@ -16,6 +19,9 @@ public class MemberServiceImpl implements MemberService {
 	
 	@Autowired
 	private MemberMapper mapper;
+	
+	@Autowired
+	MemberDAO memberDao;
 	
 	private static Logger log = LoggerFactory.getLogger(MemberServiceImpl.class);
 	
@@ -49,9 +55,22 @@ public class MemberServiceImpl implements MemberService {
 		return mapper.getList();
 	}
 
+
 	@Override
-	public int Login(MemberVO member) throws Exception {
-		return mapper.Login(member);
+	public String loginCheck(MemberVO member, HttpSession session) {
+		String name = memberDao.loginCheck(member);
+		 if (name != null) { // 세션 변수 저장
+		  session.setAttribute("userid", member.getId());
+		  session.setAttribute("name", name);
+		}
+		 return name; 
+		}
+	
+
+	@Override
+	public void logout(HttpSession session) {
+		session.invalidate(); // 세션 초기화
+		
 	}
 
 }
