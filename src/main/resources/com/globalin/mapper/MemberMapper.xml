@@ -7,7 +7,8 @@
 </select>
 
 <insert id="insert">
-	insert into tbl_member values(member_seq.nextval, #{id}, #{name}, #{pw}, #{age}, #{height}, #{weight}, #{gender})
+	insert into tbl_member values
+	(member_seq.nextval, #{id}, #{name}, #{pw}, #{age}, #{height}, #{weight}, #{gender})
 </insert>
 
 <update id="update">
@@ -23,9 +24,18 @@
 	select * from tbl_member where id=#{id}
 </select>
 
- <select id="login_check" resultType="String">
-  select name
-  from member
-  where id=#{id} and pw=#{pw}
- </select>
+<select id="login" resultType="com.globalin.domain.MemberVO" parameterType="String">
+	SELECT idx, 
+		   age,
+		   height,
+		   weight,
+		   id,
+		   name,
+		   pw,
+		   gender 
+	FROM tbl_member 
+	WHERE id=#{id} 
+	  AND pw=#{pw}
+</select>
+ 
 </mapper>

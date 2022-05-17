@@ -2,7 +2,7 @@ package com.globalin.mapper;
 
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
+import org.apache.ibatis.annotations.Param;
 
 import com.globalin.domain.MemberVO;
 
@@ -18,8 +18,6 @@ public interface MemberMapper {
 	
 	public MemberVO read(String id);
 	
-	public String loginCheck(MemberVO vo, HttpSession session);
-	
-	public void logout(HttpSession session);
+	public MemberVO login(@Param("id")String id, @Param("pw")String pw);
 	
 }

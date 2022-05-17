@@ -44,7 +44,7 @@
                         <h3 class="panel-title">Please Sign In</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form" method="post" action="/register">
+                        <form role="form" method="post" action="/controller/register">
                             <fieldset>
                                <input type="hidden" name="name" value="${member.name }">
                             
@@ -62,6 +62,13 @@
                                     <input class="form-control" placeholder="weight " name="weight " type="text" value="">
                                 </div>
                                 <div class="form-group">
+                                	<select name="actindex" id="actindex">
+                                		<option value="25">적은 활동량</option>
+                                		<option value="33">보통 활동량</option>
+                                		<option value="40">높은 활동량(육체노동)</option>
+                                	</select>
+                                </div>
+                                <div class="form-group">                                
                                     <input class="form-control" placeholder="gender " name="gender" type="text" value="">
                                 </div>
                                 <div class="checkbox">

@@ -10,7 +10,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.globalin.dao.MemberDAO;
 import com.globalin.domain.MemberVO;
 import com.globalin.mapper.MemberMapper;
 
@@ -53,22 +52,10 @@ public class MemberServiceImpl implements MemberService {
 		return mapper.getList();
 	}
 
-
-//	@Override
-//	public String loginCheck(MemberVO member, HttpSession session) {
-//		String name = memberDao.loginCheck(member);
-//		 if (name != null) {
-//		  session.setAttribute("userid", member.getId());
-//		  session.setAttribute("name", name);
-//		}
-//		 return name; 
-//		}
-//	
-//
-//	@Override
-//	public void logout(HttpSession session) {
-//		session.invalidate(); // 세션 초기화
-//		
-//	}
+	@Override
+	public MemberVO login(String id, String pw) {
+		log.info("login..");
+		return mapper.login(id, pw);
+	}
 
 }

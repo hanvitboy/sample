@@ -44,7 +44,7 @@
                         <h3 class="panel-title">Please Sign In</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form" method="post" action="/addinfo">
+                        <form role="form" method="post" action="/controller/addinfo">
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="userid" name="id" type="text" autofocus>
