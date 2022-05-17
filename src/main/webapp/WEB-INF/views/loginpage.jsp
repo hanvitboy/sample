@@ -41,7 +41,7 @@
           <button type="submit">LOGIN</button>
         </div>
         <div class="caption">
-          <a href="#">비밀번호를 잊어버리셨나요?</a>
+          <a href="#"> 비밀번호를 잊어버리셨나요?</a>
         </div>
       </form>
     </section>
