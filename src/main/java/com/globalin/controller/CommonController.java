@@ -14,4 +14,6 @@ public class CommonController {
 	public void registpage() {
 		
 	}
+	
+	
 }

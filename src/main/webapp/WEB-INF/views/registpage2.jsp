@@ -44,20 +44,26 @@
                         <h3 class="panel-title">Please Sign In</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form" method="post" action="/addinfo">
+                        <form role="form" method="post" action="/register">
                             <fieldset>
+                               
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="userid" name="id" type="text" autofocus>
+                                    <input class="form-control" placeholder="Age" name="age" type="text" value="">
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="pw" type="password" value="">
+                                    <input class="form-control" placeholder="Height" name="height" type="text" value="">
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Name" name="name" type="text" value="">
+                                    <input class="form-control" placeholder="weight " name="weight " type="text" value="">
                                 </div>
-                             
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="gender " name="gender" type="text" value="">
+                                </div>
+                                <div class="checkbox">
+                                  
+                                </div>
                                 <!-- Change this to a button or input when using this as a form -->
-                                <input type="submit" value="Next">
+                                <input type="submit" value="Regist">
                             </fieldset>
                         </form>
                     </div>
