@@ -40,7 +40,10 @@ public class MemberController {
 		mem.setPw(pw);
 		mem.setName(name);
 		
+		req.setAttribute("member", mem);
+		
 		return "registpage2";
+		
 	}
 	
 	
@@ -51,7 +54,7 @@ public class MemberController {
 		
 	}
 	
-	@PostMapping("/register")
+ @PostMapping("/register")
 	public String register(MemberVO member, RedirectAttributes rttr) {
 		service.register(member);
 		rttr.addFlashAttribute("result", member.getId());

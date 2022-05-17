@@ -15,7 +15,7 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="resources/css/style.css" />
   </head>
   <body>
     <section class="login-form">
@@ -41,7 +41,7 @@
           <button type="submit">LOGIN</button>
         </div>
         <div class="caption">
-          <a href="#"> 비밀번호를 잊어버리셨나요?</a>
+          <a href="#"> Do you forget password?</a>
         </div>
       </form>
     </section>

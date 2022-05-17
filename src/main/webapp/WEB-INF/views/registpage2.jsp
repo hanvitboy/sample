@@ -46,6 +46,11 @@
                     <div class="panel-body">
                         <form role="form" method="post" action="/register">
                             <fieldset>
+                               <input type="hidden" name="name" value="${member.name }">
+                            
+                               
+                               <input type="hidden" name="id" value="${member.id }">
+                               <input type="hidden" name="pw" value="${member.pw }">
                                
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Age" name="age" type="text" value="">
