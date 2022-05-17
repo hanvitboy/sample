@@ -22,6 +22,13 @@
 <input type="submit" value="regist">
 </form>
 
+<form action="withdrawalpage" method="post">
+<input type="submit" value="withdrawal">
+</form>
+
+<form action="listpage" method="get">
+<input type="submit" value="list">
+</form>
 
 </body>
 </html>

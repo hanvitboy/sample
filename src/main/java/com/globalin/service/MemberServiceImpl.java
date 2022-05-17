@@ -20,9 +20,7 @@ public class MemberServiceImpl implements MemberService {
 	@Autowired
 	private MemberMapper mapper;
 	
-	@Autowired
-	MemberDAO memberDao;
-	
+		
 	private static Logger log = LoggerFactory.getLogger(MemberServiceImpl.class);
 	
 	@Override
@@ -56,21 +54,21 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 
-	@Override
-	public String loginCheck(MemberVO member, HttpSession session) {
-		String name = memberDao.loginCheck(member);
-		 if (name != null) { // 세션 변수 저장
-		  session.setAttribute("userid", member.getId());
-		  session.setAttribute("name", name);
-		}
-		 return name; 
-		}
-	
-
-	@Override
-	public void logout(HttpSession session) {
-		session.invalidate(); // 세션 초기화
-		
-	}
+//	@Override
+//	public String loginCheck(MemberVO member, HttpSession session) {
+//		String name = memberDao.loginCheck(member);
+//		 if (name != null) {
+//		  session.setAttribute("userid", member.getId());
+//		  session.setAttribute("name", name);
+//		}
+//		 return name; 
+//		}
+//	
+//
+//	@Override
+//	public void logout(HttpSession session) {
+//		session.invalidate(); // 세션 초기화
+//		
+//	}
 
 }

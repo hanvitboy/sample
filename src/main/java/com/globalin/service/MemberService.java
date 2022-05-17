@@ -19,8 +19,8 @@ public interface MemberService {
 	
 	public List<MemberVO> getList();
 	
-	 public String loginCheck(MemberVO member, HttpSession session);
+	// public String loginCheck(MemberVO member, HttpSession session);
 	 
-	 public void logout(HttpSession session);
+	// public void logout(HttpSession session);
 	
 }

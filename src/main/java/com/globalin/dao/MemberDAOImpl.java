@@ -12,7 +12,6 @@ import com.globalin.domain.MemberVO;
 public class MemberDAOImpl implements MemberDAO{
 	
 	//Sql session 의존성
-	@Inject
 	SqlSession sqlSession;
 
 	@Override
