@@ -40,6 +40,11 @@
 <input type="submit" value="regist">
 </form>
 
+<form action="infopage" method="post">
+<input type="submit" value="myinfo">
+</form>
+
+
 <form action="withdrawalpage" method="post">
 <input type="submit" value="withdrawal">
 </form>

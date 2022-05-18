@@ -31,9 +31,13 @@ public class CommonController {
 		
 	}
 	
+	@PostMapping("/infopage")
+	public void infopage() {
+		
+	}
+	
 	@GetMapping("/listpage")  
 	public void listpage(Model model) {
-		System.out.println(service.getList());
 		model.addAttribute("list", service.getList());
 		
 	}

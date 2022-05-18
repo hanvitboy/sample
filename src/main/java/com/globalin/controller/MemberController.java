@@ -73,24 +73,13 @@ public class MemberController {
  @PostMapping("/modify")
 	public String modify(MemberVO member, RedirectAttributes rttr) {
 		
-		if(service.modify(member) == true) {
-			//1회용 속성인 flashAttribute 추가
-			rttr.addFlashAttribute("result", "success");
-		}
+		service.modify(member);
 		
 		return "home";
 			
 	}
  
  
-	@GetMapping({"/get", "/modify"})
-	public void get(@RequestParam("id") String id, Model model) {
-		//게시물의 정보를 전달
-		//서비스에서 member 정보 가져온 다음에
-		//model에 넣어주면 된다.
-		MemberVO member= service.get(id);	
-		model.addAttribute("member", member);
-	}
  
 	@PostMapping("/withdraw")
 	public String remove(HttpSession session) throws Exception
