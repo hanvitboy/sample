@@ -1,5 +1,6 @@
 package com.globalin.controller;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
@@ -60,10 +61,14 @@ public class MemberController {
 	}
 	
 	@PostMapping("/register")
-	public String register(MemberVO member, RedirectAttributes rttr, HttpServletRequest req) {
+	public String register(MemberVO member, RedirectAttributes rttr, HttpServletRequest req, HttpServletResponse resp) throws IOException {
 	 	log.info(req.getParameter("actindex"));
 	 	log.info(member.toString());
 	 	service.register(member);
+	 	resp.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = resp.getWriter();
+		out.println("<script>alert('회원가입을 환영합니다! 로그인 해주세요.'); </script>");
+		out.flush();
 		rttr.addFlashAttribute("result", member.getId());
 		return "home";
 	}
