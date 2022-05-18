@@ -59,7 +59,7 @@
                                     <input class="form-control" placeholder="Height" name="height" type="text" value="">
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="weight " name="weight " type="text" value="">
+                                    <input class="form-control" placeholder="Weight" name="weight" type="text" value="">
                                 </div>
                                 <div class="form-group">
                                 	<select name="actindex" id="actindex">
@@ -69,7 +69,7 @@
                                 	</select>
                                 </div>
                                 <div class="form-group">                                
-                                    <input class="form-control" placeholder="gender " name="gender" type="text" value="">
+                                    <input class="form-control" placeholder="gender" name="gender" type="text" value="">
                                 </div>
                                 <div class="checkbox">
                                   

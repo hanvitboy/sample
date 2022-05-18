@@ -8,11 +8,11 @@
 
 <insert id="insert">
 	insert into tbl_member values
-	(member_seq.nextval, #{id}, #{name}, #{pw}, #{age}, #{height}, #{weight}, #{gender})
+	(member_seq.nextval, #{id}, #{name}, #{pw}, #{age}, #{height}, #{weight}, #{gender}, #{actindex})
 </insert>
 
 <update id="update">
-	update tbl_member set pw=#{pw}, age=#{age}, height=#{height}, weight=#{weight}, gender=#{gender}
+	update tbl_member set pw=#{pw}, age=#{age}, height=#{height}, weight=#{weight}, gender=#{gender}, #{actindex}
 	where id=#{id}
 </update>
 
@@ -32,7 +32,8 @@
 		   id,
 		   name,
 		   pw,
-		   gender 
+		   gender,
+		   actindex 
 	FROM tbl_member 
 	WHERE id=#{id} 
 	  AND pw=#{pw}
