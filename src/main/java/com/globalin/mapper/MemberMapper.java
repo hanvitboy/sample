@@ -20,4 +20,6 @@ public interface MemberMapper {
 	
 	public MemberVO login(@Param("id")String id, @Param("pw")String pw);
 	
+	public MemberVO findpw(@Param("id")String id, @Param("name")String name, @Param("gender")String gender);
+	
 }

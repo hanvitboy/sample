@@ -114,8 +114,31 @@ public class MemberController {
 		return "home";
 	
 	}
-
-
-
-
+	@PostMapping("/findpw")
+	public String findpw(HttpServletRequest req, HttpServletResponse resp, HttpSession session) throws Exception {
+		String id = req.getParameter("id");
+		String name = req.getParameter("name");
+		String gender = req.getParameter("gender");
+		
+		log.info("findpw con : " + id + " / " + name + " / " + gender);
+		MemberVO mem = service.findpw(id, name, gender);
+		
+		if(mem != null) {
+			log.info("Member Exist");
+			resp.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = resp.getWriter();
+			out.println("<script>alert('"+ mem.getName()+"님의 비밀번호 : "+ mem.getPw() +"');</script>");
+			out.flush();
+			return "loginpage";
+		}else {
+			//없는디? 
+			resp.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = resp.getWriter();
+			out.println("<script>alert('일치하는 정보가 없습니다'); </script>");
+			out.flush();
+			return "findpwpage";
+		}
+	}
 }
+
+

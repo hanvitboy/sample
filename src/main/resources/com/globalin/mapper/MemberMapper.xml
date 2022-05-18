@@ -38,5 +38,12 @@
 	WHERE id=#{id} 
 	  AND pw=#{pw}
 </select>
- 
+ <select id="findpw" resultType="com.globalin.domain.MemberVO">
+	SELECT name,
+			pw
+	FROM tbl_member
+	WHERE id=#{id}
+	  AND name=#{name}
+	  AND gender=#{gender}	
+</select>
 </mapper>

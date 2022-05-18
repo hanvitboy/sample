@@ -41,7 +41,11 @@ public class CommonController {
 		model.addAttribute("list", service.getList());
 		
 	}
+	@PostMapping("/findpwpage")
+	public void findpwpage() {
+		
 	
+	}
 	
 	
 	

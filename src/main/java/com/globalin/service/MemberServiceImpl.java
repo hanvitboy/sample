@@ -57,5 +57,10 @@ public class MemberServiceImpl implements MemberService {
 		log.info("login..");
 		return mapper.login(id, pw);
 	}
+	@Override
+	public MemberVO findpw(String id, String name, String gender) {
+		log.info("findpw..오타 난대로 쓰는거봐 우웩");
+		return mapper.findpw(id, name, gender);
+	}
 
 }
