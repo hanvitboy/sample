@@ -38,6 +38,8 @@
   
   background-repeat: no-repeat;
   background-size: cover;
+  
+  
 }
   
   </style>
@@ -63,14 +65,11 @@
                   <a class="nav-list" href="#"><li>체중관리</li></a>
                   <a class="nav-list" href="#"><li>운동도우미</li></a>
                   <a class="nav-list" href="#"><li>음식</li></a>
-                      
                 </ul>
               </div>
-             <div class="message">
+             <div>
          <c:if test="${not empty login_user.name}">
-	<p>${login_user.name}님 반갑습니다.</p> </c:if>
-	
-
+	<p><input class="message" type="text" value='${login_user.name}님 반갑습니다.'></p> </c:if>
 <c:if test="${not empty login_user.name}">
 </c:if>
              </div>

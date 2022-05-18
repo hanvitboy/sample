@@ -48,7 +48,7 @@ public class sqltest {
 //	}
 	@Test
 	public void updateTest() {
-		MemberVO board =new MemberVO();
+		MemberVO member =new MemberVO();
 		
 		
 		mapper.delete("mango");
