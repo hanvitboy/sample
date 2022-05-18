@@ -113,7 +113,7 @@ public class MemberController {
 			//없는데?
 			resp.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = resp.getWriter();
-			out.println("<script>alert('대체 뭐함');</script>");
+			out.println("<script>alert('다시 확인해주세요');</script>");
 			out.flush();
 			return "loginpage";
 		}

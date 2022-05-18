@@ -21,10 +21,13 @@
 
 
 <P>  여기는 홈이로다 - ${login_user.name} </P>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/wc_cmQmjHSY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/wc_cmQmjHSY?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
 
 <form action="loginpage" method="post">
 <input type="submit" value="login">
+</form>
+<form action="logout" method="get">
+<input type="submit" value="logout">
 </form>
 
 <form action="registpage" method="post">
