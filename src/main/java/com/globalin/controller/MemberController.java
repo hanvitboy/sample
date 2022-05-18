@@ -68,13 +68,7 @@ public class MemberController {
 		return "home";
 	}
   
-	@PostMapping("/withdraw")
-	public String remove(@RequestParam("id") String id, RedirectAttributes rttr, String writer) {
-		if(service.remove(id)) {
-			rttr.addFlashAttribute("result", "success");
-		}
-		return "home";
-	}
+	
  
  @PostMapping("/modify")
 	public String modify(MemberVO member, RedirectAttributes rttr) {
@@ -98,6 +92,16 @@ public class MemberController {
 		model.addAttribute("member", member);
 	}
  
+	@PostMapping("/withdraw")
+	public String remove(HttpSession session) throws Exception
+	{	MemberVO member = (MemberVO) session.getAttribute("login_user");
+		
+		service.remove(member.getId());
+		session.invalidate();
+		
+		return "home";
+	}
+	
 	@PostMapping("/login")
 	public String login(HttpServletRequest req, HttpServletResponse resp, HttpSession session) throws Exception {
 		String id = req.getParameter("id");
