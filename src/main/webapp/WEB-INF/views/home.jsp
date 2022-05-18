@@ -4,56 +4,127 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
-<html>
-<head>
-	<title>Home</title>
-	<script>
-	
-	
-	</script>
-	
-</head>
-<body>
-<h1>
-	Hello world!  
-</h1>
 
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+   <link href="resources/css/style.css" rel="stylesheet">
+  
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  <style>
 
+  a{ color: inherit;
+  text-decoration: none;}
+ 
+  .main {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+  url("resources/assets/main.jpg");
+  
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+  
+  </style>
+  
+  </head>
+  <body>
+  
+    <section class="header-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="header">
+              <div class="logo">
+                <a href="#">
+                <img src="resources/assets/Logo.png" alt="Logo" />
+                  <p>
+                    <strong><span>fit</span>ness</strong>
+                  </p>
+                </a>
+              </div>
+              <div class="nav">
+                <ul>
+                  <a class="nav-list" href="#"><li>체중관리</li></a>
+                  <a class="nav-list" href="#"><li>운동도우미</li></a>
+                  <a class="nav-list" href="#"><li>음식</li></a>
+                      
+                </ul>
+              </div>
+             <div class="message">
+         <c:if test="${not empty login_user.name}">
+	<p>${login_user.name}님 반갑습니다.</p> </c:if>
+	
 
-<P>  여기는 홈이로다  </P>
 <c:if test="${not empty login_user.name}">
-	<p>${login_user.name}님 반갑습니다.</p>
 </c:if>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/wc_cmQmjHSY?autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
-<c:if test="${empty login_user.name}">
-<form action="loginpage" method="post">
-<input type="submit" value="login">
-</form>
-</c:if>
-<c:if test="${not empty login_user.name}">
+             </div>
+              <div class="button-group">
+           <c:if test="${empty login_user.name}">
+              <form id="actionForm" action="loginpage" method="post">
+                <a class="button-login" href="#" role="button">LOGIN</a>
+                </form>
+                <a class="button-signup" href="#">SIGNUP</a>
+                 </c:if>
+                 <c:if test="${not empty login_user.name}">
 <form action="logout" method="get">
 <input type="submit" value="logout">
 </form>
 </c:if>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<form action="registpage" method="post">
-<input type="submit" value="regist">
-</form>
-
-<form action="infopage" method="post">
-<input type="submit" value="myinfo">
-</form>
-
-
-<form action="withdrawalpage" method="post">
-<input type="submit" value="withdrawal">
-</form>
-
-<form action="listpage" method="get">
-<input type="submit" value="list">
-</form>
-
-
-
-</body>
+    <section class="main">
+  
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="main-title">
+              <h1>당신의 몸을 생각하며 만들었습니당.</h1>
+              <p>당신의 몸상태를 체크하세용.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+     <script type="text/javascript">
+     
+     var actionForm = $("#actionForm");
+            	$(document).ready(function(){
+            		$(".button-login").on("click",function(e){
+            			e.preventDefault();
+            			actionForm.val($(this).attr("href"));
+            			actionForm.attr("action", "/controller/loginpage");
+            			actionForm.submit();
+            		})
+            		$(".button-signup").on("click",function(e){
+            			e.preventDefault();
+            			actionForm.val($(this).attr("href"));
+            			actionForm.attr("action", "/controller/registpage");
+            			actionForm.submit();
+            		})
+            		
+            	})
+            	</script>
+  </body>
 </html>
