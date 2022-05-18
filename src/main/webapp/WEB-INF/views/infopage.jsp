@@ -17,7 +17,7 @@
           id : <input class="form-control" name="id" value="${login_user.id}" readonly>
                                 </div>
                                 <div class="form-group">
-                     비밀번호 : <input class="form-control"  name="pw" type="password" value="****">
+                     비밀번호 : <input class="form-control"  name="pw" type="password">
                                 </div>
                                 <div class="form-group">
                            이름: <input class="form-control" name="name" type="text" value="${login_user.name}" readonly>
