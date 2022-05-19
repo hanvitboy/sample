@@ -1,87 +1,79 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 	<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- MetisMenu CSS -->
-    <link href="/resources/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="/resources/dist/css/sb-admin-2.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="/resources/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
-
-<body>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-                <div class="login-panel panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Please Sign In</h3>
-                    </div>
-                    <div class="panel-body">
-                        <form role="form" method="post" action="/controller/addinfo">
-                            <fieldset>
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="userid" name="id" type="text" autofocus>
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="pw" type="password" value="">
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="Name" name="name" type="text" value="">
-                                </div>
-                             
-                                <!-- Change this to a button or input when using this as a form -->
-                                <input type="submit" value="Next">
-                            </fieldset>
-                        </form>
-                    </div>
-                </div>
-            </div>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>signup-form1</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    
+    
+    <link rel="stylesheet" href="resources/css/signup-form1.css" />
+  </head>
+ 
+  <body>
+    <section class="signup-form">
+      <h1>
+        <strong><span>fit</span>ness</strong>
+      </h1>
+      <h2>SIGNUP</h2>
+      <form class="actionForm" method="post" action="/controller/addinfo">
+        <div class="int-area">
+          <input
+            type="text"
+            name="name"
+            id="name"
+            autocomplete="off"
+            required
+          />
+          <label for="id">USER NAME</label>
         </div>
-    </div>
+        <div class="int-area">
+          <input type="text" name="id" id="id" autocomplete="off" required />
+          <label for="id">USER ID</label>
+        </div>
+        <div class="int-area">
+          <input
+            type="password"
+            name="pw"
+            id="pw"
+            autocomplete="off"
+            required
+          />
+          <label for="pw">PASSWORD</label>
+        </div>
+        <div class="btn-area">
+          <a class="btn-next" href="#" role="button">next</a>
+        </div>
+      </form>
+    </section>
+      <script type="text/javascript">
+     
+     var actionForm = $(".actionForm");
+            	$(document).ready(function(){
+            		$(".btn-next").on("click",function(e){
+            			e.preventDefault();
+            			actionForm.attr("action", "/controller/addinfo")
+            			.attr("method", "post");
+            			actionForm.submit();
+            		})
+            		
+            	})
+            	</script>
     
-    
-
-    <!-- jQuery -->
-    <script src="/resources/vendor/jquery/jquery.min.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="/resources/vendor/bootstrap/js/bootstrap.min.js"></script>
-
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="/resources/vendor/metisMenu/metisMenu.min.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="/resources/dist/js/sb-admin-2.js"></script>
-
-
-</body>
-
+  </body>
 </html>
 	

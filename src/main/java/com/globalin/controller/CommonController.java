@@ -44,7 +44,16 @@ public class CommonController {
 	@PostMapping("/findpwpage")
 	public void findpwpage() {
 		
+		
 	
+	}
+	
+	@PostMapping("/home")
+	public void homepage() {
+		
+	}
+	@GetMapping("/home")
+	public void homepage2() {
 	}
 	@PostMapping("/kcalcalpage")
 	public void kcalcalpage() {

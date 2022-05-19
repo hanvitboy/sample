@@ -41,59 +41,323 @@
   
   
 }
-  
+.header {
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+  padding: 15px 0;
+}
+
+.button-group .button-login {
+  color: #000;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  border: 2px solid #f7ca18;
+  border-radius: 4px;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+  text-align: center;
+  padding: 4px 8px;
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+.button-group .button-login:hover {
+  color: #fff !important;
+  background-color: transparent;
+  text-shadow: none;
+}
+
+.button-group .button-login:hover:before {
+  top: 0%;
+  bottom: auto;
+  height: 100%;
+}
+
+.button-group .button-login:before {
+  display: block;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 0px;
+  width: 100%;
+  z-index: -1;
+  content: "";
+  color: #000 !important;
+  background: #f7ca18;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}
+
+.button-group .button-logout {
+  color: #000;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  border: 2px solid #f7ca18;
+  border-radius: 4px;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+  text-align: center;
+  padding: 4px 8px;
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+.button-group .button-logout:hover {
+  color: #fff !important;
+  background-color: transparent;
+  text-shadow: ntwo;
+}
+.button-group .button-logout:hover:before {
+  bottom: 0%;
+  top: auto;
+  height: 100%;
+}
+.button-group .button-logout:before {
+  display: block;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  height: 0px;
+  width: 100%;
+  z-index: -1;
+  content: "";
+  color: #000 !important;
+  background: #f7ca18;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}
+
+.button-group .button-info {
+  color: #000;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  border: 2px solid #f7ca18;
+  border-radius: 4px;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+  text-align: center;
+  padding: 4px 8px;
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+.button-group .button-info:hover {
+  color: #fff !important;
+  background-color: transparent;
+  text-shadow: none;
+}
+
+.button-group .button-info:hover:before {
+  top: 0%;
+  bottom: auto;
+  height: 100%;
+}
+
+.button-group .button-info:before {
+  display: block;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 0px;
+  width: 100%;
+  z-index: -1;
+  content: "";
+  color: #000 !important;
+  background: #f7ca18;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}
+
+.button-group .button-list {
+  color: #000;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  border: 2px solid #f7ca18;
+  border-radius: 4px;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+  text-align: center;
+  padding: 4px 8px;
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+.button-group .button-list:hover {
+  color: #fff !important;
+  background-color: transparent;
+  text-shadow: none;
+}
+
+.button-group .button-list:hover:before {
+  top: 0%;
+  bottom: auto;
+  height: 100%;
+}
+
+.button-group .button-list:before {
+  display: block;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 0px;
+  width: 100%;
+  z-index: -1;
+  content: "";
+  color: #000 !important;
+  background: #f7ca18;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}
+
+.button-group .button-signup {
+  color: #000;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  border: 2px solid #f7ca18;
+  border-radius: 4px;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+  text-align: center;
+  padding: 4px 8px;
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+.button-group .button-signup:hover {
+  color: #fff !important;
+  background-color: transparent;
+  text-shadow: ntwo;
+}
+.button-group .button-signup:hover:before {
+  bottom: 0%;
+  top: auto;
+  height: 100%;
+}
+.button-group .button-signup:before {
+  display: block;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  height: 0px;
+  width: 100%;
+  z-index: -1;
+  content: "";
+  color: #000 !important;
+  background: #f7ca18;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}
+
+.message{
+   margin-right: 20px;
+ 	display : flex;
+ 	align-items: center;
+ 	font-weight:bold;
+ 	color:gray;
+   animation: notificationAnimation 1s ease-in-out;
+  }
+
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 300px;
+}
+
+
+  @keyframes notificationAnimation {
+    0% {
+      transform: scale(0.5);
+    }
+    40% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+	.header-left,
+	.header-right{
+	display: flex;
+	}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 30px;
+  width: 200px;
+}
+
+.nav .nav-list li
+{	display: flex;
+	justify-content: center;
+	width:120px;
+}
+
   </style>
   
   </head>
   <body>
   
     <section class="header-top">
-      <div class="container">
+  <div class="container-fluid">
         <div class="row">
           <div class="col-12">
             <div class="header">
+            <div class="header-left">
               <div class="logo">
-                <a href="#">
+               <form class="actionForm" action="home" method="get">
+                <a class="button-home" href="#">
                 <img src="resources/assets/Logo.png" alt="Logo" />
                   <p>
                     <strong><span>fit</span>ness</strong>
                   </p>
                 </a>
+                </form>
               </div>
               <div class="nav">
                 <ul>
-                <form id="actionForm" method="post">
-                  <a class="nav-list"  href="#"><li>체중관리</li></a>
+                <form class="actionForm" method="post">
+                  <a class="nav-list" href="#"><li class="abc">체중관리</li></a>
                   </form>
-                  
-                  <a class="nav-list" href="#"><li>운동도우미</li></a>
-               
-                  <a class="nav-list" href="#"><li>음식</li></a>
+                  <a class="nav-list" href="#"><li class="abc">운동도우미</li></a>
+                  <a class="nav-list" href="#"><li class="abc">음식</li></a>
                 </ul>
               </div>
-             <div>
+              </div>
+             <div class="header-right">
          <c:if test="${not empty login_user.name}">
-	<p><input class="message" type="text" value='${login_user.name}님 반갑습니다.'></p> </c:if>
+         <div class="message">
+	<span>Welcome, ${login_user.name}</span>
+	</div> </c:if>
 <c:if test="${not empty login_user.name}">
 </c:if>
-             </div>
+             
               <div class="button-group">
+              
            <c:if test="${empty login_user.name}">
-              <form id="actionForm" action="loginpage" method="post">
+              <form class="actionForm" action="loginpage" method="post">
                 <a class="button-login" href="#" role="button">LOGIN</a>
                 </form>
                 <a class="button-signup" href="#">SIGNUP</a>
+                
                  </c:if>
                  <c:if test="${not empty login_user.name}">
-<form action="logout" method="get">
-<input type="submit" value="logout">
+                 <form class="actionForm" action="infopage" method="post">
+                   <a class="button-info" href="#">Mypage</a>
+                   </form>
+<form class="actionForm" action="logout" method="get">
+<a class="button-logout" href="#" role="button">LOGOUT</a>
 </form>
+<form class="actionForm" action="listpage" method="get">
+ <a class="button-list" href="#" role="button">LIST</a>
+</form>
+</div>
 </c:if>
+</div>
+</div>
+</div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
+          
     </section>
 
     <section class="main">
@@ -112,24 +376,44 @@
     
      <script type="text/javascript">
      
+     var actionForm = $(".actionForm");
             	$(document).ready(function(){
-			     var actionForm = $("#actionForm");
             		$(".button-login").on("click",function(e){
             			e.preventDefault();
-            			actionForm.attr("action", "/controller/loginpage");
+            			actionForm.attr("action", "/controller/loginpage").attr("method", "post");
             			actionForm.submit();
             		})
             		$(".button-signup").on("click",function(e){
             			e.preventDefault();
-            			actionForm.attr("action", "/controller/registpage");
+            			actionForm.attr("action", "/controller/registpage").attr("method", "post");
+            			actionForm.submit();
+            		})
+            		$(".button-logout").on("click",function(e){
+            			e.preventDefault();
+            			actionForm.attr("action", "/controller/logout");
+            			actionForm.submit();
+            		})
+            		$(".button-info").on("click",function(e){
+            			e.preventDefault();
+            			actionForm.attr("action", "/controller/infopage");
+            			actionForm.submit();
+            		})
+            		$(".button-list").on("click",function(e){
+            			e.preventDefault();
+            			actionForm.attr("action", "/controller/listpage");
+            			actionForm.submit();
+            		})
+            		
+            			$(".button-home").on("click",function(e){
+            			e.preventDefault();
+            			actionForm.attr("action", "/controller/home").attr("method", "post");
             			actionForm.submit();
             		})
             		$(".nav-list").on("click",function(e){
             			e.preventDefault();
-            			actionForm.attr("action", "/controller/kcalcalpage");
+            			actionForm.attr("action", "/controller/kcalcalpage").attr("method", "post");
             			actionForm.submit();
             		})
-            		
             	})
             	</script>
   </body>
