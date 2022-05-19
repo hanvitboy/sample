@@ -2,8 +2,17 @@ package com.globalin.domain;
 
 public class MemberVO {
 
-	private int idx, age, height, weight, actindex;
+	private int idx, age, height, weight, actindex, onedaykcal;
 	private String id, name, pw, gender;
+
+	public int getOnedaykcal() {
+		return onedaykcal;
+	}
+
+	public void setOnedaykcal(int onedaykcal) {
+		this.onedaykcal = onedaykcal;
+	}
+
 
 	public int getActindex() {
 		return actindex;
@@ -80,7 +89,8 @@ public class MemberVO {
 	@Override
 	public String toString() {
 		return "MemberVO [idx=" + idx + ", age=" + age + ", height=" + height + ", weight=" + weight + ", actindex="
-				+ actindex + ", id=" + id + ", name=" + name + ", pw=" + pw + ", gender=" + gender + "]";
+				+ actindex + ", onedaykcal=" + onedaykcal + ", id=" + id + ", name=" + name + ", pw=" + pw + ", gender="
+				+ gender + "]";
 	}
 
 }

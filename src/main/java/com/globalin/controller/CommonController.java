@@ -46,6 +46,13 @@ public class CommonController {
 		
 	
 	}
+	@PostMapping("/kcalcalpage")
+	public void kcalcalpage() {
+		
+		System.out.println("entered?");
+		
+	
+	}
 	
 	
 	

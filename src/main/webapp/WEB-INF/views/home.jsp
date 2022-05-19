@@ -62,8 +62,12 @@
               </div>
               <div class="nav">
                 <ul>
-                  <a class="nav-list" href="#"><li>체중관리</li></a>
+                <form id="actionForm" method="post">
+                  <a class="nav-list"  href="#"><li>체중관리</li></a>
+                  </form>
+                  
                   <a class="nav-list" href="#"><li>운동도우미</li></a>
+               
                   <a class="nav-list" href="#"><li>음식</li></a>
                 </ul>
               </div>
@@ -108,18 +112,21 @@
     
      <script type="text/javascript">
      
-     var actionForm = $("#actionForm");
             	$(document).ready(function(){
+			     var actionForm = $("#actionForm");
             		$(".button-login").on("click",function(e){
             			e.preventDefault();
-            			actionForm.val($(this).attr("href"));
             			actionForm.attr("action", "/controller/loginpage");
             			actionForm.submit();
             		})
             		$(".button-signup").on("click",function(e){
             			e.preventDefault();
-            			actionForm.val($(this).attr("href"));
             			actionForm.attr("action", "/controller/registpage");
+            			actionForm.submit();
+            		})
+            		$(".nav-list").on("click",function(e){
+            			e.preventDefault();
+            			actionForm.attr("action", "/controller/kcalcalpage");
             			actionForm.submit();
             		})
             		
