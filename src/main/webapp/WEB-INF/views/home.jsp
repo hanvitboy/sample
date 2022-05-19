@@ -395,7 +395,7 @@
             		})
             		$(".button-info").on("click",function(e){
             			e.preventDefault();
-            			actionForm.attr("action", "/controller/infopage");
+            			actionForm.attr("action", "/controller/infopage").attr("method", "post");
             			actionForm.submit();
             		})
             		$(".button-list").on("click",function(e){

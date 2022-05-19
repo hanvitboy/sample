@@ -7,12 +7,12 @@
 </select>
 
 <insert id="insert">
-	insert into tbl_member values
-	(member_seq.nextval, #{id}, #{name}, #{pw}, #{age}, #{height}, #{weight}, #{gender}, #{actindex})
+	insert into tbl_member(idx, id, name, pw, age, height, weight, gender, actindex)
+	values (member_seq.nextval, #{id}, #{name}, #{pw}, #{age}, #{height}, #{weight}, #{gender}, #{actindex})
 </insert>
 
 <update id="update">
-	update tbl_member set pw=#{pw}, age=#{age}, height=#{height}, weight=#{weight}, gender=#{gender}, actindex=#{actindex}
+	update tbl_member set pw=#{pw}, age=#{age}, height=#{height}, weight=#{weight}, gender=#{gender}, actindex=#{actindex}, ONEDAYKCAL=#{onedaykcal}
 	where id=#{id}
 </update>
 
