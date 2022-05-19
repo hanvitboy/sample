@@ -75,7 +75,7 @@ li {
   width: 100%;
   height: 100vh;
   background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-    url(assets/login.jpg);
+    url(resources/assets/login.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -159,7 +159,7 @@ li {
 }
     
     </style>
-    <link rel="stylesheet" href="../login.css" />
+    <link rel="stylesheet" href="resources/css/login.css" />
     
   </head>
   <body>

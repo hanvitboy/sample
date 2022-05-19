@@ -24,7 +24,7 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="resources/css/style.css" />
   <style>
 
   a{ color: inherit;
@@ -318,8 +318,10 @@
                 <form class="actionForm" method="post">
                   <a class="nav-list" href="#"><li class="abc">체중관리</li></a>
                   </form>
+                 
                   <a class="nav-list" href="#"><li class="abc">운동도우미</li></a>
                   <a class="nav-list" href="#"><li class="abc">음식</li></a>
+               
                 </ul>
               </div>
               </div>
