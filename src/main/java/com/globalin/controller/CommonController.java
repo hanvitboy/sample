@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.globalin.service.BoardService;
 import com.globalin.service.MemberService;
 
 @Controller
@@ -21,6 +22,9 @@ public class CommonController {
 	
 	@Autowired
 	private MemberService service;
+	
+	@Autowired
+	private BoardService bservice;
 	
 	
 	@PostMapping("/loginpage")
@@ -73,6 +77,10 @@ public class CommonController {
 
 
 	
+	}
+	@RequestMapping("/boardpage")
+	public void boardpage(Model model) {
+		model.addAttribute("list", bservice.getList());
 	}
 	
 	

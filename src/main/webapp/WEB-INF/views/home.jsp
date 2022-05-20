@@ -320,8 +320,11 @@
                   </form>
                  
                   <a class="nav-list" href="#"><li class="abc">운동도우미</li></a>
+                  
                   <a class="nav-list" href="#"><li class="abc">음식</li></a>
-               
+               	
+               	<a class="nav-listboard" href="#"><li class="abc">자유게시판</li></a>
+               	
                 </ul>
               </div>
               </div>
@@ -414,6 +417,11 @@
             		$(".nav-list").on("click",function(e){
             			e.preventDefault();
             			actionForm.attr("action", "/controller/kcalcalpage").attr("method", "post");
+            			actionForm.submit();
+            		})
+            		$(".nav-listboard").on("click",function(e){
+            			e.preventDefault();
+            			actionForm.attr("action", "/controller/boardpage").attr("method", "post");
             			actionForm.submit();
             		})
             	})

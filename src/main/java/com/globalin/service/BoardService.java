@@ -6,14 +6,19 @@ import com.globalin.domain.BoardVO;
 
 public interface BoardService {
 	
-	public void register(BoardVO board);
-	
+	// 하나 가져오기
 	public BoardVO get(int bno);
 	
+	// 삽입하기
+	public void register(BoardVO board);
+	
+	// 수정하기
 	public boolean modify(BoardVO board);
 	
+	// 삭제하기
 	public boolean remove(int bno);
 	
+	// 리스트가져오기
 	public List<BoardVO> getList();
 
 }
