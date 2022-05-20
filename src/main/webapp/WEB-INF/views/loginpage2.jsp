@@ -165,9 +165,9 @@ li {
   <body>
     <section class="login-form">
       <h1>
-           <a href="http://localhost:9090/controller/"><strong><span>fit</span>ness</strong></a>
+        <a href="http://localhost:9090/controller/"><strong><span>fit</span>ness</strong></a>
       </h1>
-      <form method="post" action="/controller/login">
+      <form method="post" action="/controller/login2">
         <div class="int-area">
           <input type="text" name="id" id="id" autocomplete="off" required />
           <label for="id">USER ID</label>

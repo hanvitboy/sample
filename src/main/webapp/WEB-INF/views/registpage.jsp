@@ -27,7 +27,7 @@
   <body>
     <section class="signup-form">
       <h1>
-        <strong><span>fit</span>ness</strong>
+       <a href="http://localhost:9090/controller/"><strong><span>fit</span>ness</strong></a>
       </h1>
       <h2>SIGNUP</h2>
       <form class="actionForm" method="post" action="/controller/addinfo">

@@ -50,5 +50,17 @@ public class HomeController {
         return "home";        
         
     }
+	@RequestMapping(value="logout", method=RequestMethod.POST)
+    public String logoutMainPOST(HttpServletRequest request) throws Exception{
+        
+        logger.info("logoutMainpost메서드 진입");
+       
+        HttpSession session = request.getSession();
+        
+        session.invalidate();
+        
+        return "home";        
+        
+    }
 	
 }

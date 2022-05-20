@@ -23,6 +23,22 @@
 	
 	<context:component-scan base-package="com.globalin.controller" />
 	
+
+
+<beans:bean id="CalInterceptor" 
+            class="com.globalin.interceptor.CalInterceptor"/>
+
+<interceptors>
+  
+  
+  <interceptor>
+    <!-- login 인증이 필요한 URI 들 -->
+    <mapping path="/infopage"/>
+    <mapping path="/listpage"/>
+    <mapping path="/kcalcalpage"/>
+    <beans:ref bean="CalInterceptor"/>
+  </interceptor>
+</interceptors>
 	
 	
 </beans:beans>

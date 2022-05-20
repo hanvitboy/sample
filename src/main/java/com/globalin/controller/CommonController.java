@@ -69,20 +69,25 @@ public class CommonController {
 	
 	@PostMapping("/kcalcalpage")
 	public String kcalcalpage(HttpSession session) {
-		 if(session.getAttribute("login_user") == null) {
-	          
-	            return "loginpage";
-	        }
+		
 	        return "kcalcalpage";
 
 
 	
 	}
+	@GetMapping("/kcalcalpage")
+	public String kcalcalpage2(HttpSession session) {
+		
+        return "kcalcalpage";
+
+
+
+}
+	
 	@RequestMapping("/boardpage")
 	public void boardpage(Model model) {
 		model.addAttribute("list", bservice.getList());
 	}
-	
 	
 	
 }

@@ -119,6 +119,30 @@ public class MemberController {
 		return "home";
 	
 	}
+	
+	@PostMapping("/login2")
+	public String login2(HttpServletRequest req, HttpServletResponse resp, HttpSession session) throws Exception {
+		String id = req.getParameter("id");
+		String pw = req.getParameter("pw");
+		
+		MemberVO mem = service.login(id, pw);
+		
+		if(mem != null) {
+			//id,pw가 검증되었다면
+			session.setAttribute("login_user", mem);
+			log.warn(mem.toString());			
+		}else {
+			//없는데?
+			resp.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = resp.getWriter();
+			out.println("<script>alert('다시 확인해주세요');</script>");
+			out.flush();
+			return "loginpage2";
+		}
+				
+		return "kcalcalpage";
+	
+	}
 	@PostMapping("/findpw")
 	public String findpw(HttpServletRequest req, HttpServletResponse resp, HttpSession session) throws Exception {
 		String id = req.getParameter("id");
