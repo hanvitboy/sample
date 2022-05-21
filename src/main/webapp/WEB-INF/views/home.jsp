@@ -46,6 +46,8 @@
   align-items: center;
   justify-content:space-between;
   padding: 15px 0;
+   margin-left: 180px;
+  margin-right:300px;
 }
 
 .button-group .button-login {
@@ -243,6 +245,9 @@
   background: #f7ca18;
   transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
 }
+.welcome{
+width:100px;
+}
 
 .message{
    margin-right: 20px;
@@ -291,7 +296,85 @@
 	justify-content: center;
 	width:120px;
 }
+.card {
+  background: #000000d0;
+  color: white;
+  padding: 3px;
+  border-radius: 30px;
+  width: 250px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position:absolute;
+  top: 100px;
+  right:20px;
+  overflow: hidden;
+}
 
+h1.temp {
+  margin: 0;
+ 
+}
+
+.detail-info{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.condition-box {
+  align-items: center;
+}
+
+.description {
+  text-transform: capitalize;
+  margin-left: 8px;
+}
+
+.weather.loading {
+
+  visibility: hidden;
+  max-height: 20px;
+  position: relative;
+}
+
+.weatherBox{
+display:flex;
+
+align-items: center;
+
+}
+.weather-info-box,
+.condition-box{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+condition-box
+
+.weather.loading:after {
+  visibility: visible;
+  content: "Loading...";
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 20px;
+}
+.flex,
+.description,
+.humidity,
+.wind{
+  font-size: 1px;
+}
+
+.temp{
+  font-size:18px;
+}
+.city{
+font-size: 12px;
+
+}
   </style>
   
   </head>
@@ -366,13 +449,30 @@
     </section>
 
     <section class="main">
-  
+     <div class="card">
+        <div class="weather loading">
+          <div class="weatherBox">
+            <div class="weather-info-box">
+              <div class="city">Weather in Denver</div>
+              <div class="temp">51°C</div>
+            </div>
+            <div class="condition-box">
+              <img
+                src="https://openweathermap.org/img/wn/04n.png"
+                alt=""
+                class="icon"
+              />
+              <div class="description">Cloudy</div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="container">
         <div class="row">
           <div class="col-12">
             <div class="main-title">
-              <h1>당신의 몸을 생각하며 만들었습니당.</h1>
-              <p>당신의 몸상태를 체크하세용.</p>
+              <h1>당신의 몸을 생각하며 만들었습니다.</h1>
+              <p>당신의 몸상태를 체크하세요.</p>
             </div>
           </div>
         </div>
@@ -380,7 +480,44 @@
     </section>
     
      <script type="text/javascript">
-     
+     let weather = {
+ 		    apiKey: "04677bb1adfaf876f2efbe954841c0b5",
+ 		    fetchWeather: function (city) {
+ 		      fetch(
+ 		        "https://api.openweathermap.org/data/2.5/weather?q=" +
+ 		          city +
+ 		          "&units=metric&appid=" +
+ 		          this.apiKey
+ 		      )
+ 		        .then((response) => {
+ 		          if (!response.ok) {
+ 		            alert("No weather found.");
+ 		            throw new Error("No weather found.");
+ 		          }
+ 		          return response.json();
+ 		        })
+ 		        .then((data) => this.displayWeather(data));
+ 		    },
+ 		    displayWeather: function (data) {
+ 		      const { name } = data;
+ 		      const { icon, description } = data.weather[0];
+ 		      const { temp } = data.main;
+ 		  
+ 		      document.querySelector(".city").innerText = "Weather in " + name;
+ 		      document.querySelector(".icon").src =
+ 		        "https://openweathermap.org/img/wn/" + icon + ".png";
+ 		      document.querySelector(".description").innerText = description;
+ 		      document.querySelector(".temp").innerText = temp + "°C";
+ 		      document.querySelector(".weather").classList.remove("loading");
+ 		    
+ 		    },
+ 		  
+ 		  };
+ 		  
+ 		  
+ 		    ;
+ 		  
+ 		  weather.fetchWeather("Seoul");
      var actionForm = $(".actionForm");
             	$(document).ready(function(){
             		$(".button-login").on("click",function(e){
