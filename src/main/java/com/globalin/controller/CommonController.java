@@ -30,6 +30,17 @@ public class CommonController {
 	@PostMapping("/loginpage")
 	public void loginpage() {
 	}
+	@GetMapping("/loginpage2")
+	public void loginpage3() {
+	}
+	
+	@PostMapping("/loginpage2")
+	public void loginpage4() {
+	}
+	
+	@GetMapping("/loginpage")
+	public void loginpage2() {
+	}
 	
 	@PostMapping("/registpage")
 	public void registpage() {
