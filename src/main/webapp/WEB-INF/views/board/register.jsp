@@ -29,6 +29,9 @@
 
 		<!-- 초기화 -->
 		<button type="reset" class="btn btn-default">reset</button>
+		
+		<!-- 리스트 -->
+		<button type="button" onclick="location.href='/controller/boardpage'">list</button>
 	</form>
 	
 

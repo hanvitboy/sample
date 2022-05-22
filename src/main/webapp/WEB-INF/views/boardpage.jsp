@@ -36,6 +36,7 @@
             	<div class="col-lg-12">
             		<div class="panel panel-default">
             			<div class="panel-heading">Board List Page
+            			<a href="http://localhost:9090/controller/"><strong><span>home</span></strong></a>
             			<button id="regBtn" type="button" class="btn btn-xs pull-right">Register
 					New Board</button>
             			</div>
