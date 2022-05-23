@@ -1,6 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+   pageEncoding="UTF-8"%>
+<% request.setCharacterEncoding("UTF-8"); %>
+
     <%@ taglib uri ="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -19,6 +22,10 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="resources/css/mypage.css" />
+   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+ 
+  
+  
   </head>
   <body>
     <div class="container">
@@ -40,14 +47,15 @@
         <div class="col-12">
           <div class="member-infos">
             <div class="member-info">
-              <form id="user-form" method="post" action="/controller/modify">
+       <form class="actionForm" method="post" action="">
+              <div id="user-form">
                 <div class="user-name">USER NAME<input type="text" name="name" value="${login_user.name }" /></div>
-                <div class="user-id">USER ID<input type="text" name="id" value="${login_user.id }"/></div>
+                <div class="user-id">USER ID<input type="text" name="id" value="${login_user.id }" readonly/></div>
                 <div class="user-pw">PASSWORD<input type="password" name="pw" value="${login_user.pw }"/></div>
-              </form>
+              </div>
             </div>
             <div class="member-info">
-              <form id="user-form" action="">
+              <div id="user-form">
                 <div class="user-age">AGE<input type="number" name="age" value="${login_user.age }"/></div>
                 <div class="user-height">
                   HEIGHT<input type="number" name="height" value="${login_user.height }" /><span>cm</span>
@@ -93,6 +101,7 @@
                     name="gender"
                     class="input-radio"
                     value="MAN"
+                      <c:if test="${login_user.gender == 'MAN'}"> checked </c:if>
                   />
                   <label for="man" class="form-radio">man</label>
                   <input
@@ -101,24 +110,41 @@
                     name="gender"
                     class="input-radio"
                     value="WOMAN"
+                    <c:if test="${login_user.gender == 'WOMAN'}"> checked </c:if>
                   />
                   <label for="woman" class="form-radio">woman</label>
+          </form>
                 </div>
-              </form>
+              </div>
             </div>
           </div>
+          
           <div>
-            <form id="btn-form">
+            <div id="btn-form">
               <div class="button-area">
-                <a class="btn-next" href="#" role="button">modify</a>
-                <a class="btn-next" href="#" role="button">withdrawal</a>
-                <a class="btn-next" href="#" role="button">home</a>
+                <a id="modify" class="btn-next" href="#" role="button">modify</a>
+                <a id="withdrawal" class="btn-next" href="#" role="button">withdrawal</a>
+                <a id="home" class="btn-next" href="http://localhost:9090/controller/" role="button">home</a>
               </div>
-            </form>
+            </div>
           </div>
         </div>
       </div>
     </div>
+     <script type="text/javascript">
+     
+     var actionForm = $(".actionForm");
+            	$(document).ready(function(){
+            		$("#modify").on("click",function(e){
+            			e.preventDefault();
+            			actionForm.attr("action", "/controller/modify").attr("method", "post");
+            			actionForm.submit();
+            		})
+            		
+            	})
+            	</script>
+    
+    
   </body>
 </html>
     

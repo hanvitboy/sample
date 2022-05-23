@@ -12,7 +12,7 @@
 </insert>
 
 <update id="update">
-	update tbl_member set pw=#{pw}, age=#{age}, height=#{height}, weight=#{weight}, gender=#{gender}, actindex=#{actindex}, ONEDAYKCAL=#{onedaykcal}
+	update tbl_member set name=#{name}, pw=#{pw}, age=#{age}, height=#{height}, weight=#{weight}, gender=#{gender}, actindex=#{actindex}
 	where id=#{id}
 </update>
 
