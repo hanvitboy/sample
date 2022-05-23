@@ -242,15 +242,15 @@ li {
         <div class="int-area">
           <input
             type="text"
-            name="name"
-            id="name"
+            name="id"
+            id="id"
             autocomplete="off"
             required
           />
           <label for="id">USER ID</label>
         </div>
         <div class="int-area">
-          <input type="text" name="id" id="id" autocomplete="off" required />
+          <input type="text" name="name" id="name" autocomplete="off" required />
           <label for="id">USER NAME</label>
         </div>
         <div class="gender-info">
@@ -281,7 +281,6 @@ li {
           </div>
         </div>
         </div>
-        </form>
         <div class="btn-area">
           <a class="btn-next" href="#" role="button">find</a>
         </div>
