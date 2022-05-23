@@ -78,23 +78,28 @@ textarea{
 		<input name="updateDate" readonly="readonly" value='<fmt:formatDate pattern="yyyy/MM/dd" value="${pageInfo.updateDate}"/>' >
 	</div>		
 	<div class="btn_wrap">
-		<a class="btn" id="list_btn">목록 페이지</a> 
-		<a class="btn" id="modify_btn">수정 하기</a>
-	</div> 	
-	<form id="infoForm" action="/board/modify" method="get">
+		<a class="btn" id="list_btn">목록 페이지</a>
+		<form id="infoForm" method="get">
 		<input type="hidden" id="bno" name="bno" value='<c:out value="${pageInfo.bno}"/>'>
+		</form>
+	</div> 	
+		<c:if test="${login_user.name eq pageInfo.writer}"> 
+		<a class="btn" id="modify_btn">수정 하기</a>
+	<form id="infoForm" action="/board/modify" >
 	</form>
+	</c:if>
 <script>
 	let form = $("#infoForm");
 	
 	$("#list_btn").on("click", function(e){
-		form.find("#bno").remove();
+		console.log("sexy");
+		<!--form.find("#bno").remove();-->
 		form.attr("action", "/controller/boardpage");
 		form.submit();
 	});
 	
 	$("#modify_btn").on("click", function(e){
-		form.attr("action", "controller/board/modify");
+		form.attr("action", "/controller/board/modify").attr("method","post");		
 		form.submit();
 	});	
 </script>	
