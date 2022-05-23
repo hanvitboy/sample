@@ -57,6 +57,12 @@ public class BoardController {
 		return "board/register";
 	}
 	
+	@GetMapping("/get")
+	public void boardGetPageGET(int bno, Model model) {
+		
+		model.addAttribute("pageInfo", service.getpage(bno));
+	}
+	
 	
 	
 	

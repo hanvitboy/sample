@@ -3,7 +3,7 @@
 <mapper namespace="com.globalin.mapper.BoardMapper">
 
 	<!-- 하나 가져오기 -->
-	<select id="read" resultType="com.globalin.domain.BoardVO">
+	<select id="getpage" resultType="com.globalin.domain.BoardVO">
 		select * from tbl_board where
 		bno=#{bno}
 	</select>

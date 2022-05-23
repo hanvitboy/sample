@@ -7,7 +7,7 @@ import com.globalin.domain.BoardVO;
 public interface BoardMapper {
 
 	// 하나 가져오기
-	public BoardVO read(int bno);
+	public BoardVO getpage(int bno);
 
 	// 삽입하기
 	public void insert(BoardVO board);

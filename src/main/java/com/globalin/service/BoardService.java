@@ -7,13 +7,13 @@ import com.globalin.domain.BoardVO;
 public interface BoardService {
 	
 	// 하나 가져오기
-	public BoardVO get(int bno);
+	public BoardVO getpage(int bno);
 	
 	// 삽입하기
 	public void register(BoardVO board);
 	
 	// 수정하기
-	public boolean modify(BoardVO board);
+	public int modify(BoardVO board);
 	
 	// 삭제하기
 	public boolean remove(int bno);

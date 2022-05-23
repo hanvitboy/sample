@@ -19,9 +19,9 @@ public class BoardServiceImpl implements BoardService {
 	private BoardMapper mapper;
 
 	@Override
-	public BoardVO get(int bno) {
+	public BoardVO getpage(int bno) {
 		log.info("get...");
-		return mapper.read(bno);
+		return mapper.getpage(bno);
 	}
 
 	@Override
@@ -31,9 +31,9 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public boolean modify(BoardVO board) {
+	public int modify(BoardVO board) {
 		log.info("modify...");
-		return mapper.update(board) == 1;
+		return mapper.update(board);
 	}
 
 	@Override
