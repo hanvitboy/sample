@@ -1,0 +1,471 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+}
+
+/* Reset CSS */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+}
+
+button:focus,
+button:active,
+input:focus,
+input:active,
+textarea:focus,
+textarea:active {
+  outline: none;
+  box-shadow: none;
+}
+
+ol,
+ul,
+li {
+  list-style-type: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+/* header */
+.header-top {
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 99;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 30px;
+}
+
+.logo a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: inherit;
+}
+
+.logo img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: auto;
+  margin-right: 8px;
+}
+
+.logo p {
+  font-size: 30px;
+  text-align: center;
+  text-decoration: none;
+  margin-bottom: 0;
+}
+
+.logo p span {
+  color: #f7ca18;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 577px;
+}
+
+.nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+.nav .nav-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  letter-spacing: 0.2em;
+  margin-right: 30px;
+}
+
+.nav .nav-list:hover {
+  color: #f7ca18;
+}
+
+.nav .nav-list li {
+  width: 120px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-group .button-login {
+  color: #000;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  border: 2px solid #f7ca18;
+  border-radius: 4px;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+  text-align: center;
+  padding: 4px 8px;
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+.button-group .button-login:hover {
+  color: #fff !important;
+  background-color: transparent;
+  text-shadow: none;
+}
+
+.button-group .button-login:hover:before {
+  top: 0%;
+  bottom: auto;
+  height: 100%;
+}
+
+.button-group .button-login:before {
+  display: block;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 0px;
+  width: 100%;
+  z-index: -1;
+  content: "";
+  color: #000 !important;
+  background: #f7ca18;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}
+
+.button-group .button-signup {
+  color: #000;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  border: 2px solid #f7ca18;
+  border-radius: 4px;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+  text-align: center;
+  padding: 4px 8px;
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+.button-group .button-signup:hover {
+  color: #fff !important;
+  background-color: transparent;
+  text-shadow: ntwo;
+}
+.button-group .button-signup:hover:before {
+  bottom: 0%;
+  top: auto;
+  height: 100%;
+}
+.button-group .button-signup:before {
+  display: block;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  height: 0px;
+  width: 100%;
+  z-index: -1;
+  content: "";
+  color: #000 !important;
+  background: #f7ca18;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}
+
+/* 
+  Project: Checkbox Group Tiles
+  Created: Saturday, 5 March 2022
+  Author: Jamshid Elmi 
+  Tutorial: https://youtu.be/ZNzp_y78vlY
+*/
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+/* varialbles */
+:root {
+  --primary-color:  #2676ab;
+  --dark-color:     #494949;
+  --darker-color:   #00000066;
+}
+/* reset */
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e1e1e1;
+
+}
+.checkbox-group{
+  
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 600px;
+  height:90vh;
+  background-color: #bbd3e094;
+  
+  
+}
+
+.checkbox-input { display: none; }
+
+.checkbox-tile {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 0.5rem;
+  border: 2.5px solid transparent;
+  background-color: white;
+  box-shadow: 0 5px 10px #00000022;
+  transition: 0.25s ease;
+  cursor: pointer;
+}
+
+.checkbox-group > * {
+  margin: 0.5rem;
+}
+.checkbox-icon i{
+  font-size: 2rem;
+}
+
+.showUp{
+  position: absolute;
+  width:90%;
+  height:22%;
+  bottom:0;
+
+  font-size: 0.7rem;
+  font-weight: bold;
+  
+  
+  transform: scale(0);
+  transition: 0.4s ease;
+  
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+ border: 2.5px solid  var(--darker-color);
+ box-shadow: 0 5px 10px #00000022;
+  
+  }
+  
+/* checkbox icon */
+.checkbox-tile::before {
+  content: "";
+  position: absolute;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 3px solid var(--darker-color);
+  border-radius: 50%;
+  top: 0.25rem;
+  left: 00.25rem;
+  transition: 0.25s ease;
+  background-image: url("check.png");
+  background-size: 35px;
+  background-position: 50%;
+  transform: scale(0);
+}
+
+.checkbox-tile:hover::before {
+  transform: scale(1);
+}
+
+.checkbox-tile:hover {
+  border-color: var(--darker-color);
+}
+
+
+
+.checkbox-input:hover + .checkbox-tile .showUp{
+  transform: scale(1);
+}
+
+.checkbox-icon {
+  transition: 0.4s ease;
+  color: var(--dark-color);
+}
+
+.checkbox-label {
+  color: var(--dark-color);
+  transition: 0.4s ease;
+  font-weight: 500;
+}
+
+/* checked */
+.checkbox-input:checked + .checkbox-tile {
+  border-color: var(--primary-color);
+} 
+
+.checkbox-input:checked + .checkbox-tile::before {
+  border-color: var(--primary-color);
+  background-color: var(--primary-color);
+  transform: scale(1);
+} 
+
+.checkbox-input:checked + .checkbox-tile .checkbox-icon,
+.checkbox-input:checked + .checkbox-tile .checkbox-label {
+  color: var(--primary-color);
+}
+
+
+.checkbox-input:checked + .checkbox-tile .showUp{
+  transform:scale(0);
+
+}
+
+
+
+
+
+
+.Boxes{
+  margin-top: 10vh;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 15px;
+  width: 100%;
+  scroll-snap-type: y mandatory;
+  overflow-y:scroll;
+  height: 90vh;
+
+  
+  
+}
+
+.Box1{
+height:100vh;
+background: 
+    url(https://www.treadmillreviews.com/wp-content/uploads/2018/02/shutterstock_253442953.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+border-radius: 20px;
+box-shadow: 0 24px 38px rgba(0,0,0,0.10), 0 20px 20px rgba(0,0,0,0.10);
+
+
+scroll-snap-align: start;
+}
+
+.Box2{
+  height:100vh;
+  background: 
+  url(https://www.stmarysbythesea.org/wp-content/uploads/sermons/2018/11/bread-and-milk.jpg);
+background-repeat: no-repeat;
+background-size: cover;
+  border-radius: 20px;
+  box-shadow: 0 24px 38px rgba(0,0,0,0.10), 0 20px 20px rgba(0,0,0,0.10);
+
+  scroll-snap-align: start;
+}
+
+.Box3{
+  height:100vh;
+  background: 
+  url(https://media2.cgtrader.com/variants/i5y1Y3FT1rARurR1XpKd4SXk/e44aa6a6359827c9089792cde0c079681b83d3b5c3037cc0525c25607e54355b/Burger_2K.png);
+background-repeat: no-repeat;
+background-size: cover;
+  border-radius: 20px;
+  box-shadow: 0 24px 38px rgba(0,0,0,0.10), 0 20px 20px rgba(0,0,0,0.10);
+
+  scroll-snap-align: start;
+}
+.Box4{
+  height:100vh;
+  background: 
+  url(https://th.bing.com/th/id/R.6f23d639454cd2d4564f9dbafad3b73f?rik=U8PBWhqMq0SAFg&riu=http%3a%2f%2fkookstudiodegarde.nl%2fwp-content%2fuploads%2f2020%2f03%2fbbqq-scaled.jpg&ehk=v%2fA14Sk0nc%2fqgfTHi9RnY%2fBkX4cc1SmoZw6dSEoayQM%3d&risl=&pid=ImgRaw&r=0);
+background-repeat: no-repeat;
+background-size: cover;
+  border-radius: 20px;
+  box-shadow: 0 24px 38px rgba(0,0,0,0.10), 0 20px 20px rgba(0,0,0,0.10);
+
+  scroll-snap-align: start;
+}
+
+
+
+.BoxTitle{
+  color: white;
+  height: 50px;
+  display:flex;
+  justify-content: center;
+ align-items: center;
+border-top-left-radius: 15px;
+border-top-right-radius: 15px;
+ width: 100%;
+ font-weight: 600;
+ font-size:20px;
+ background-color: black;
+}
+
+.fixedCalBox{
+width:250px;
+height: 100px;
+
+
+font-size: 13px;
+font-weight: 600;
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+align-items: center;
+background-color: black;
+color:white;
+border-radius: 30px;
+box-shadow:10px 20px 50px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.10);
+border: 4px solid yellow;
+
+position:fixed;
+bottom:40px;
+right:50px;
+overflow: hidden;
+
+}
+
+.kcalFromBack1,
+#kcalFromBack2{
+  font-weight: 700;
+  font-size: 17px;
+  text-shadow: 2px 2px blueviolet;
+}

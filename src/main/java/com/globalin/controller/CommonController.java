@@ -26,24 +26,16 @@ public class CommonController {
 	private BoardService bservice;
 	
 	
-	@PostMapping("/loginpage")
+	@RequestMapping("/loginpage")
 	public void loginpage() {
 	}
-	@GetMapping("/loginpage2")
-	public void loginpage3() {
-	}
 	
-	@PostMapping("/loginpage2")
+	@RequestMapping("/loginpage2")
 	public void loginpage4() {
 	}
-	
-	@GetMapping("/loginpage")
-	public void loginpage2() {
-	}
-	
+		
 	@PostMapping("/registpage")
 	public void registpage() {
-		
 	}
 	
 	@PostMapping("/withdrawalpage")
@@ -56,7 +48,7 @@ public class CommonController {
 		
 	}
 	
-	@GetMapping("/listpage")  
+	@RequestMapping("/listpage")  
 	public void listpage(Model model) {
 		model.addAttribute("list", service.getList());
 		

@@ -399,14 +399,14 @@ font-size: 12px;
               <div class="nav">
                 <ul>
                 <form class="actionForm" method="post">
-                  <a class="nav-list" href="#"><li class="abc">체중관리</li></a>
+                  <a id="calo" class="nav-list" href="#"><li>체중관리</li></a>
                   </form>
                  
-                  <a class="nav-list" href="#"><li class="abc">운동도우미</li></a>
+                  <a class="nav-list" href="#"><li>운동도우미</li></a>
                   
-                  <a class="nav-list" href="#"><li class="abc">음식</li></a>
+                  <a class="nav-list" href="#"><li>음식</li></a>
                	
-               	<a class="nav-listboard" href="#"><li class="abc">자유게시판</li></a>
+               	<a class="nav-listboard" href="#"><li>자유게시판</li></a>
                	
                 </ul>
               </div>
@@ -426,20 +426,21 @@ font-size: 12px;
                 <a class="button-login" href="#" role="button">LOGIN</a>
                 </form>
                 <a class="button-signup" href="#">SIGNUP</a>
-                
                  </c:if>
+                 
                  <c:if test="${not empty login_user.name}">
                  <form class="actionForm" action="infopage" method="post">
                    <a class="button-info" href="#">Mypage</a>
                    </form>
 <form class="actionForm" action="logout" method="get">
 <a class="button-logout" href="#" role="button">LOGOUT</a>
-</form>
+</form></c:if>
+ <c:if test="${login_user.id == 'admin'}">
 <form class="actionForm" action="listpage" method="get">
  <a class="button-list" href="#" role="button">LIST</a>
-</form>
+</form> </c:if>
 </div>
-</c:if>
+
 </div>
 </div>
 </div>
@@ -554,7 +555,7 @@ font-size: 12px;
             			actionForm.attr("action", "/controller/home").attr("method", "post");
             			actionForm.submit();
             		})
-            		$(".nav-list").on("click",function(e){
+            		$("#calo").on("click",function(e){
             			e.preventDefault();
             			actionForm.attr("action", "/controller/kcalcalpage").attr("method", "post");
             			actionForm.submit();
