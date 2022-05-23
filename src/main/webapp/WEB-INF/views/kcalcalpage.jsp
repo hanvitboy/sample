@@ -16,8 +16,63 @@
   justify-content: center;
   align-items: center;
 
+}
+
+.calSubmit{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.calSumit_btn {
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 40px;
+
+  border: 3px solid #f7ca18;
+  border-radius: 5px;
+  margin: 15px auto;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+  color: #999;
+  transition: all 0.9s, color 0.3;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+.fixedCalBox{
+width:250px;
+height: 300px;
 
 
+font-size: 13px;
+font-weight: 600;
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+align-items: center;
+background-color: black;
+color:white;
+border-radius: 30px;
+box-shadow:10px 20px 50px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.10);
+border: 4px solid yellow;
+
+position:fixed;
+bottom:40px;
+right:50px;
+overflow: hidden;
+
+}
+
+
+
+.calSumit_btn:hover {
+  color: #fff;
+  box-shadow: 200px 0 0 0 #f7ca18 inset;
+  background-color: #f7ca18;
+  transition: all 0.5s;
 }
 
 
@@ -471,99 +526,99 @@ $(document).ready(function() {
           </div>
           <div class="checkbox">
             <label class="checkbox-wrapper">
-              <input type="checkbox" class="checkbox-input" />
+              <input type="checkbox" class="checkbox-input"  value="150"/>
               <span class="checkbox-tile">
                 <span class="checkbox-icon">
                   <i class="fas fa-seedling"></i
                 ></span>
                 <span class="checkbox-label">salad</span>
-                <div class="showUp">444 kcls</div></span
+                <div class="showUp">150 kcls</div></span
               >
             </label>
           </div>
           <div class="checkbox">
             <label class="checkbox-wrapper">
-              <input type="checkbox" class="checkbox-input" />
+              <input type="checkbox" class="checkbox-input" value="300"/>
               <span class="checkbox-tile">
                 <span class="checkbox-icon"><i class="fas fa-fish"></i></span>
                 <span class="checkbox-label">grilled-fish</span>
-                <div class="showUp">444 kcls</div></span
+                <div class="showUp">300 kcls</div></span
               >
             </label>
           </div>
           <div class="checkbox">
             <label class="checkbox-wrapper">
-              <input type="checkbox" class="checkbox-input" />
+              <input type="checkbox" class="checkbox-input" value="550"/>
               <span class="checkbox-tile">
                 <span class="checkbox-icon"
                   ><i class="fas fa-cookie"></i>
                 </span>
                 <span class="checkbox-label">snack</span>
-                <div class="showUp">444 kcls</div></span
+                <div class="showUp">550 kcls</div></span
               >
             </label>
           </div>
           <div class="checkbox">
             <label class="checkbox-wrapper">
-              <input type="checkbox" class="checkbox-input" />
+              <input type="checkbox" class="checkbox-input" value="600"/>
               <span class="checkbox-tile">
                 <span class="checkbox-icon">
                   <i class="fas fa-cheese"></i>
                 </span>
                 <span class="checkbox-label">cake</span>
-                <div class="showUp">444 kcls</div></span
+                <div class="showUp">600 kcls</div></span
               >
             </label>
           </div>
           <div class="checkbox">
             <label class="checkbox-wrapper">
-              <input type="checkbox" class="checkbox-input" />
+              <input type="checkbox" class="checkbox-input" value="220"/>
               <span class="checkbox-tile">
                 <span class="checkbox-icon"
                   ><i class="fas fa-ice-cream"></i>
                 </span>
                 <span class="checkbox-label">ice-cream</span>
-                <div class="showUp">444 kcls</div></span
+                <div class="showUp">220 kcls</div></span
               >
             </label>
           </div>
           <div class="checkbox">
             <label class="checkbox-wrapper">
-              <input type="checkbox" class="checkbox-input" />
+              <input type="checkbox" class="checkbox-input" value="750"/>
               <span class="checkbox-tile">
                 <span class="checkbox-icon"><i class="fas fa-bacon"></i> </span>
                 <span class="checkbox-label">pork-belly</span>
-                <div class="showUp">444 kcls</div></span
+                <div class="showUp">750 kcls</div></span
               >
             </label>
           </div>
           <div class="checkbox">
             <label class="checkbox-wrapper">
-              <input type="checkbox" class="checkbox-input" />
+              <input type="checkbox" class="checkbox-input" value="800"/>
               <span class="checkbox-tile">
                 <span class="checkbox-icon"
                   ><i class="fas fa-drumstick-bite"></i>
                 </span>
                 <span class="checkbox-label">chicken</span>
-                <div class="showUp">444 kcls</div></span
+                <div class="showUp">800 kcls</div></span
               >
             </label>
           </div>
           <div class="checkbox">
             <label class="checkbox-wrapper">
-              <input type="checkbox" class="checkbox-input" />
+              <input type="checkbox" class="checkbox-input" value="100"/>
               <span class="checkbox-tile">
                 <span class="checkbox-icon"
                   ><i class="fas fa-candy-cane"></i>
                 </span>
                 <span class="checkbox-label">candy</span>
-                <div class="showUp">444 kcls</div></span
+                <div class="showUp">100 kcls</div></span
               >
             </label>
           </div>
           <div class="checkbox">
             <label class="checkbox-wrapper">
-              <input type="checkbox" class="checkbox-input" />
+              <input type="checkbox" class="checkbox-input" value="444"/>
               <span class="checkbox-tile">
                 <span class="checkbox-icon"><i class="fas fa-beer"></i> </span>
                 <span class="checkbox-label">alcohol</span>
@@ -574,178 +629,179 @@ $(document).ready(function() {
         </div>
       </section>
       <section class="Box3">
-        <div class="BoxTitle">
+               <div class="BoxTitle">
           <span
-            ><i class="fa-solid fa-spoon"></i>Consume calories for lunch</span
+            ><i class="fa-solid fa-spoon"></i>Consume calories for
+            Breakfast</span
           >
         </div>
         <div class="checkbox-group">
           <div class="checkbox">
             <label class="checkbox-wrapper">
-              <input type="checkbox" class="checkbox-input" />
+              <input type="checkbox" class="checkbox-input" value="155"/>
               <span class="checkbox-tile">
                 <span class="checkbox-icon">
                   <i class="fas fa-egg"></i>
                 </span>
                 <span class="checkbox-label">egg</span>
-                <div class="showUp">444 kcls</div></span
+                <div class="showUp">155 kcls</div></span
               >
             </label>
           </div>
           <div class="checkbox">
             <label class="checkbox-wrapper">
-              <input type="checkbox" class="checkbox-input" />
+              <input type="checkbox" class="checkbox-input" value="264"/>
               <span class="checkbox-tile">
                 <span class="checkbox-icon"
                   ><i class="fa-solid fa-bread-slice"></i
                 ></span>
                 <span class="checkbox-label">bread</span>
-                <div class="showUp">444 kcls</div></span
+                <div class="showUp">264 kcls</div></span
               >
             </label>
           </div>
           <div class="checkbox">
             <label class="checkbox-wrapper">
-              <input type="checkbox" class="checkbox-input" />
+              <input type="checkbox" class="checkbox-input" value="600"/>
               <span class="checkbox-tile">
                 <span class="checkbox-icon">
                   <i class="fas fa-pizza-slice"></i>
                 </span>
 
                 <span class="checkbox-label">pizza</span>
-                <div class="showUp">444 kcls</div></span
+                <div class="showUp">600 kcls</div></span
               >
             </label>
           </div>
           <div class="checkbox">
             <label class="checkbox-wrapper">
-              <input type="checkbox" class="checkbox-input" />
+              <input type="checkbox" class="checkbox-input" value="100"/>
               <span class="checkbox-tile">
                 <span class="checkbox-icon">
                   <i class="fa-solid fa-apple-whole"></i
                 ></span>
                 <span class="checkbox-label">apple</span>
-                <div class="showUp">444 kcls</div></span
+                <div class="showUp">100 kcls</div></span
               >
             </label>
           </div>
           <div class="checkbox">
             <label class="checkbox-wrapper">
-              <input type="checkbox" class="checkbox-input" />
+              <input type="checkbox" class="checkbox-input" value="580"/>
               <span class="checkbox-tile">
                 <span class="checkbox-icon">
                   <i class="fa-solid fa-burger"></i>
                 </span>
                 <span class="checkbox-label">burger</span>
-                <div class="showUp">444 kcls</div></span
+                <div class="showUp">580 kcls</div></span
               >
             </label>
           </div>
           <div class="checkbox">
             <label class="checkbox-wrapper">
-              <input type="checkbox" class="checkbox-input" />
+              <input type="checkbox" class="checkbox-input" value="500" />
               <span class="checkbox-tile">
                 <span class="checkbox-icon"><i class="fas fa-hotdog"></i></span>
                 <span class="checkbox-label">hotdog</span>
-                <div class="showUp">444 kcls</div></span
+                <div class="showUp">500 kcls</div></span
               >
             </label>
           </div>
           <div class="checkbox">
             <label class="checkbox-wrapper">
-              <input type="checkbox" class="checkbox-input" />
+              <input type="checkbox" class="checkbox-input"  value="150"/>
               <span class="checkbox-tile">
                 <span class="checkbox-icon">
                   <i class="fas fa-seedling"></i
                 ></span>
                 <span class="checkbox-label">salad</span>
-                <div class="showUp">444 kcls</div></span
+                <div class="showUp">150 kcls</div></span
               >
             </label>
           </div>
           <div class="checkbox">
             <label class="checkbox-wrapper">
-              <input type="checkbox" class="checkbox-input" />
+              <input type="checkbox" class="checkbox-input" value="300"/>
               <span class="checkbox-tile">
                 <span class="checkbox-icon"><i class="fas fa-fish"></i></span>
                 <span class="checkbox-label">grilled-fish</span>
-                <div class="showUp">444 kcls</div></span
+                <div class="showUp">300 kcls</div></span
               >
             </label>
           </div>
           <div class="checkbox">
             <label class="checkbox-wrapper">
-              <input type="checkbox" class="checkbox-input" />
+              <input type="checkbox" class="checkbox-input" value="550"/>
               <span class="checkbox-tile">
                 <span class="checkbox-icon"
                   ><i class="fas fa-cookie"></i>
                 </span>
                 <span class="checkbox-label">snack</span>
-                <div class="showUp">444 kcls</div></span
+                <div class="showUp">550 kcls</div></span
               >
             </label>
           </div>
           <div class="checkbox">
             <label class="checkbox-wrapper">
-              <input type="checkbox" class="checkbox-input" />
+              <input type="checkbox" class="checkbox-input" value="600"/>
               <span class="checkbox-tile">
                 <span class="checkbox-icon">
                   <i class="fas fa-cheese"></i>
                 </span>
                 <span class="checkbox-label">cake</span>
-                <div class="showUp">444 kcls</div></span
+                <div class="showUp">600 kcls</div></span
               >
             </label>
           </div>
           <div class="checkbox">
             <label class="checkbox-wrapper">
-              <input type="checkbox" class="checkbox-input" />
+              <input type="checkbox" class="checkbox-input" value="220"/>
               <span class="checkbox-tile">
                 <span class="checkbox-icon"
                   ><i class="fas fa-ice-cream"></i>
                 </span>
                 <span class="checkbox-label">ice-cream</span>
-                <div class="showUp">444 kcls</div></span
+                <div class="showUp">220 kcls</div></span
               >
             </label>
           </div>
           <div class="checkbox">
             <label class="checkbox-wrapper">
-              <input type="checkbox" class="checkbox-input" />
+              <input type="checkbox" class="checkbox-input" value="750"/>
               <span class="checkbox-tile">
                 <span class="checkbox-icon"><i class="fas fa-bacon"></i> </span>
                 <span class="checkbox-label">pork-belly</span>
-                <div class="showUp">444 kcls</div></span
+                <div class="showUp">750 kcls</div></span
               >
             </label>
           </div>
           <div class="checkbox">
             <label class="checkbox-wrapper">
-              <input type="checkbox" class="checkbox-input" />
+              <input type="checkbox" class="checkbox-input" value="800"/>
               <span class="checkbox-tile">
                 <span class="checkbox-icon"
                   ><i class="fas fa-drumstick-bite"></i>
                 </span>
                 <span class="checkbox-label">chicken</span>
-                <div class="showUp">444 kcls</div></span
+                <div class="showUp">800 kcls</div></span
               >
             </label>
           </div>
           <div class="checkbox">
             <label class="checkbox-wrapper">
-              <input type="checkbox" class="checkbox-input" />
+              <input type="checkbox" class="checkbox-input" value="100"/>
               <span class="checkbox-tile">
                 <span class="checkbox-icon"
                   ><i class="fas fa-candy-cane"></i>
                 </span>
                 <span class="checkbox-label">candy</span>
-                <div class="showUp">444 kcls</div></span
+                <div class="showUp">100 kcls</div></span
               >
             </label>
           </div>
           <div class="checkbox">
             <label class="checkbox-wrapper">
-              <input type="checkbox" class="checkbox-input" />
+              <input type="checkbox" class="checkbox-input" value="444"/>
               <span class="checkbox-tile">
                 <span class="checkbox-icon"><i class="fas fa-beer"></i> </span>
                 <span class="checkbox-label">alcohol</span>
@@ -756,183 +812,184 @@ $(document).ready(function() {
         </div>
       </section>
       <section class="Box4">
-        <div class="BoxTitle">
+               <div class="BoxTitle">
           <span
-            ><i class="fa-solid fa-spoon"></i>Consume calories for dinner</span
+            ><i class="fa-solid fa-spoon"></i>Consume calories for
+            Breakfast</span
           >
         </div>
         <div class="checkbox-group">
           <div class="checkbox">
             <label class="checkbox-wrapper">
-              <input type="checkbox" class="checkbox-input" />
+              <input type="checkbox" class="checkbox-input" value="155"/>
               <span class="checkbox-tile">
                 <span class="checkbox-icon">
                   <i class="fas fa-egg"></i>
                 </span>
                 <span class="checkbox-label">egg</span>
-                <div class="showUp">444 kcls</div></span
+                <div class="showUp">155 kcls</div></span
               >
             </label>
           </div>
           <div class="checkbox">
             <label class="checkbox-wrapper">
-              <input type="checkbox" class="checkbox-input" />
+              <input type="checkbox" class="checkbox-input" value="264"/>
               <span class="checkbox-tile">
                 <span class="checkbox-icon"
                   ><i class="fa-solid fa-bread-slice"></i
                 ></span>
                 <span class="checkbox-label">bread</span>
-                <div class="showUp">444 kcls</div></span
+                <div class="showUp">264 kcls</div></span
               >
             </label>
           </div>
           <div class="checkbox">
             <label class="checkbox-wrapper">
-              <input type="checkbox" class="checkbox-input" />
+              <input type="checkbox" class="checkbox-input" value="600"/>
               <span class="checkbox-tile">
                 <span class="checkbox-icon">
                   <i class="fas fa-pizza-slice"></i>
                 </span>
 
                 <span class="checkbox-label">pizza</span>
-                <div class="showUp">444 kcls</div></span
+                <div class="showUp">600 kcls</div></span
               >
             </label>
           </div>
           <div class="checkbox">
             <label class="checkbox-wrapper">
-              <input type="checkbox" class="checkbox-input" />
+              <input type="checkbox" class="checkbox-input" value="100"/>
               <span class="checkbox-tile">
                 <span class="checkbox-icon">
                   <i class="fa-solid fa-apple-whole"></i
                 ></span>
                 <span class="checkbox-label">apple</span>
-                <div class="showUp">444 kcls</div></span
+                <div class="showUp">100 kcls</div></span
               >
             </label>
           </div>
           <div class="checkbox">
             <label class="checkbox-wrapper">
-              <input type="checkbox" class="checkbox-input" />
+              <input type="checkbox" class="checkbox-input" value="580"/>
               <span class="checkbox-tile">
                 <span class="checkbox-icon">
                   <i class="fa-solid fa-burger"></i>
                 </span>
                 <span class="checkbox-label">burger</span>
-                <div class="showUp">444 kcls</div></span
+                <div class="showUp">580 kcls</div></span
               >
             </label>
           </div>
           <div class="checkbox">
             <label class="checkbox-wrapper">
-              <input type="checkbox" class="checkbox-input" />
+              <input type="checkbox" class="checkbox-input" value="500" />
               <span class="checkbox-tile">
                 <span class="checkbox-icon"><i class="fas fa-hotdog"></i></span>
                 <span class="checkbox-label">hotdog</span>
-                <div class="showUp">444 kcls</div></span
+                <div class="showUp">500 kcls</div></span
               >
             </label>
           </div>
           <div class="checkbox">
             <label class="checkbox-wrapper">
-              <input type="checkbox" class="checkbox-input" />
+              <input type="checkbox" class="checkbox-input"  value="150"/>
               <span class="checkbox-tile">
                 <span class="checkbox-icon">
                   <i class="fas fa-seedling"></i
                 ></span>
                 <span class="checkbox-label">salad</span>
-                <div class="showUp">444 kcls</div></span
+                <div class="showUp">150 kcls</div></span
               >
             </label>
           </div>
           <div class="checkbox">
             <label class="checkbox-wrapper">
-              <input type="checkbox" class="checkbox-input" />
+              <input type="checkbox" class="checkbox-input" value="300"/>
               <span class="checkbox-tile">
                 <span class="checkbox-icon"><i class="fas fa-fish"></i></span>
                 <span class="checkbox-label">grilled-fish</span>
-                <div class="showUp">444 kcls</div></span
+                <div class="showUp">300 kcls</div></span
               >
             </label>
           </div>
           <div class="checkbox">
             <label class="checkbox-wrapper">
-              <input type="checkbox" class="checkbox-input" />
+              <input type="checkbox" class="checkbox-input" value="550"/>
               <span class="checkbox-tile">
                 <span class="checkbox-icon"
                   ><i class="fas fa-cookie"></i>
                 </span>
                 <span class="checkbox-label">snack</span>
-                <div class="showUp">444 kcls</div></span
+                <div class="showUp">550 kcls</div></span
               >
             </label>
           </div>
           <div class="checkbox">
             <label class="checkbox-wrapper">
-              <input type="checkbox" class="checkbox-input" />
+              <input type="checkbox" class="checkbox-input" value="600"/>
               <span class="checkbox-tile">
                 <span class="checkbox-icon">
                   <i class="fas fa-cheese"></i>
                 </span>
                 <span class="checkbox-label">cake</span>
-                <div class="showUp">444 kcls</div></span
+                <div class="showUp">600 kcls</div></span
               >
             </label>
           </div>
           <div class="checkbox">
             <label class="checkbox-wrapper">
-              <input type="checkbox" class="checkbox-input" />
+              <input type="checkbox" class="checkbox-input" value="220"/>
               <span class="checkbox-tile">
                 <span class="checkbox-icon"
                   ><i class="fas fa-ice-cream"></i>
                 </span>
                 <span class="checkbox-label">ice-cream</span>
-                <div class="showUp">444 kcls</div></span
+                <div class="showUp">220 kcls</div></span
               >
             </label>
           </div>
           <div class="checkbox">
             <label class="checkbox-wrapper">
-              <input type="checkbox" class="checkbox-input" />
+              <input type="checkbox" class="checkbox-input" value="750"/>
               <span class="checkbox-tile">
                 <span class="checkbox-icon"><i class="fas fa-bacon"></i> </span>
                 <span class="checkbox-label">pork-belly</span>
-                <div class="showUp">444 kcls</div></span
+                <div class="showUp">750 kcls</div></span
               >
             </label>
           </div>
           <div class="checkbox">
             <label class="checkbox-wrapper">
-              <input type="checkbox" class="checkbox-input" />
+              <input type="checkbox" class="checkbox-input" value="800"/>
               <span class="checkbox-tile">
                 <span class="checkbox-icon"
                   ><i class="fas fa-drumstick-bite"></i>
                 </span>
                 <span class="checkbox-label">chicken</span>
-                <div class="showUp">444 kcls</div></span
+                <div class="showUp">800 kcls</div></span
               >
             </label>
           </div>
           <div class="checkbox">
             <label class="checkbox-wrapper">
-              <input type="checkbox" class="checkbox-input" />
+              <input type="checkbox" class="checkbox-input" value="100"/>
               <span class="checkbox-tile">
                 <span class="checkbox-icon"
                   ><i class="fas fa-candy-cane"></i>
                 </span>
                 <span class="checkbox-label">candy</span>
-                <div class="showUp">444 kcls</div></span
+                <div class="showUp">100 kcls</div></span
               >
             </label>
           </div>
           <div class="checkbox">
             <label class="checkbox-wrapper">
-              <input type="checkbox" class="checkbox-input" />
+              <input type="checkbox" class="checkbox-input" value="444"/>
               <span class="checkbox-tile">
                 <span class="checkbox-icon"><i class="fas fa-beer"></i> </span>
                 <span class="checkbox-label">alcohol</span>
-                <div class="showUp">444 kcls</div></span>
-                </form>
+                <div class="showUp">444 kcls</div></span
+              >
             </label>
           </div>
         </div>
@@ -948,6 +1005,10 @@ $(document).ready(function() {
         <span>Kcal disparity:</span> <input id="kcalFromBack2" value="${login_user.onedaykcal }" readonly/>
         <span>kcals</span>
       </div>
+      <div class="calSubmit">
+        <input class="calSumit_btn" type="submit" value="SUBMIT" />
+      </div>
+      
     </div>
  
     <script
