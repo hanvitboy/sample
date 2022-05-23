@@ -310,7 +310,7 @@
               <input
                 type="radio"
                 id="Woman"
-                name="Gender"
+                name="gender"
                 class="input-radio"
                 value="WOMAN"
                 required
