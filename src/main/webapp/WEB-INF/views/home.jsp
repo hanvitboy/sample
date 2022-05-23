@@ -414,7 +414,7 @@ font-size: 12px;
              <div class="header-right">
          <c:if test="${not empty login_user.name}">
          <div class="message">
-	<span>Welcome, ${login_user.name}</span>
+	<span>Welcome, ${login_user.name}<i class="fas fa-birthday-cake"></i></span>
 	</div> </c:if>
 <c:if test="${not empty login_user.name}">
 </c:if>
@@ -518,6 +518,9 @@ font-size: 12px;
  		    ;
  		  
  		  weather.fetchWeather("Seoul");
+ 		  
+ 		
+ 		  
      var actionForm = $(".actionForm");
             	$(document).ready(function(){
             		$(".button-login").on("click",function(e){
@@ -563,5 +566,9 @@ font-size: 12px;
             		})
             	})
             	</script>
+            	 <script
+ 	      src="https://kit.fontawesome.com/99b96296a9.js"
+ 	      crossorigin="anonymous"
+ 	    ></script>
   </body>
 </html>
