@@ -21,6 +21,6 @@ public interface MemberService {
 	
 	public MemberVO login(String id,String pw);
 	
-	public MemberVO findpw(String id,String name,String gender);
+	public MemberVO findpw(String id,String name,String gender);	
 	
 }

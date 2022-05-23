@@ -73,6 +73,7 @@
 								<th>REGDATE</th>
 								<th>UPDATEDATE</th>
 								<th>REPLYCOUNT</th>
+								<th>Hit</th>
 							</tr>
 						</thead>
 
@@ -95,6 +96,7 @@
 										value="${board.regdate }" /></td>
 								<td><fmt:formatDate pattern="yyyy/MM/dd"
 										value="${board.updateDate }" /></td>
+										<td><c:out value="${board.hit }" /></td>
 
 							</tr>
 

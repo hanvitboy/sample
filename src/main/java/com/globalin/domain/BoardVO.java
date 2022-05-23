@@ -4,9 +4,15 @@ import java.util.Date;
 
 public class BoardVO {
 	
-	private int bno, replyCnt;
+	private int bno,replyCnt,hit;
 	private String title,content,writer;
 	private Date regdate, updateDate;
+	public int getHit() {
+		return hit;
+	}
+	public void setHit(int hit) {
+		this.hit = hit;
+	}
 	public int getBno() {
 		return bno;
 	}
@@ -51,8 +57,8 @@ public class BoardVO {
 	}
 	@Override
 	public String toString() {
-		return "BoardVO [bno=" + bno + ", replyCnt=" + replyCnt + ", title=" + title + ", content=" + content
-				+ ", writer=" + writer + ", regdate=" + regdate + ", updateDate=" + updateDate + "]";
+		return "BoardVO [bno=" + bno + ", replyCnt=" + replyCnt + ", hit=" + hit + ", title=" + title + ", content="
+				+ content + ", writer=" + writer + ", regdate=" + regdate + ", updateDate=" + updateDate + "]";
 	}
 
 }

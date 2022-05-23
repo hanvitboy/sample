@@ -19,8 +19,9 @@ public class BoardServiceImpl implements BoardService {
 	private BoardMapper mapper;
 
 	@Override
-	public BoardVO getpage(int bno) {
+	public BoardVO getpage(int bno) throws Exception {
 		log.info("get...");
+		mapper.boardHit(bno);
 		return mapper.getpage(bno);
 	}
 
@@ -55,6 +56,12 @@ public class BoardServiceImpl implements BoardService {
 	public List<BoardVO> getList() {
 		log.info("getlist...");
 		return mapper.getList();
+	}
+
+	@Override
+	public void boardHit(int bno) throws Exception {
+		log.info("boardHit...");
+		mapper.boardHit(bno);
 	}
 
 }

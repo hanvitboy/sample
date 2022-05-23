@@ -7,7 +7,7 @@ import com.globalin.domain.BoardVO;
 public interface BoardService {
 	
 	// 하나 가져오기
-	public BoardVO getpage(int bno);
+	public BoardVO getpage(int bno) throws Exception;
 	
 	// 삽입하기
 	public void register(BoardVO board);
@@ -20,5 +20,7 @@ public interface BoardService {
 	
 	// 리스트가져오기
 	public List<BoardVO> getList();
+	
+	public void boardHit(int bno) throws Exception;
 
 }

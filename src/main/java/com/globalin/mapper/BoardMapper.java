@@ -20,5 +20,7 @@ public interface BoardMapper {
 
 	// 리스트가져오기
 	public List<BoardVO> getList();
+	
+	public void boardHit(int bno) throws Exception;
 
 }

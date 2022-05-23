@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.globalin.domain.BoardVO;
+import com.globalin.domain.MemberVO;
 import com.globalin.service.BoardService;
 
 @Controller
@@ -35,16 +36,8 @@ public class BoardController {
 	@PostMapping("/register")
 	public String register(BoardVO board, RedirectAttributes rttr, HttpServletRequest req, HttpServletResponse resp) throws UnsupportedEncodingException {
 		req.setCharacterEncoding("UTF-8");
-	
-		board = new BoardVO();
-		String title = req.getParameter("title");
-		String content = req.getParameter("content");
-		String writer = req.getParameter("writer");
-		board.setTitle(title);
-		board.setContent(content);
-		board.setWriter(writer);
+		log.info("############### "+ board.toString());	
 		
-		log.info("############### "+board.toString());
 		
 		service.register(board);
 		return "redirect:/boardpage";
@@ -58,12 +51,29 @@ public class BoardController {
 	}
 	
 	@GetMapping("/get")
-	public void boardGetPageGET(int bno, Model model) {
+	public void boardGetPageGET(int bno, Model model) throws Exception {
 		
 		model.addAttribute("pageInfo", service.getpage(bno));
 	}
 	
 	
+    @PostMapping("/modifyenter")
+    public void boardModifyPOST(int bno, Model model) throws Exception {
+        
+        model.addAttribute("pageInfo", service.getpage(bno));
+        
+    }
+    /* 페이지 수정 */
+    @RequestMapping("/modify")
+    public String boardModifyPOST(BoardVO board, RedirectAttributes rttr, HttpServletRequest req) {
+    	
+        service.modify(board);
+        
+        rttr.addFlashAttribute("result", "modify success");
+        
+        return "redirect:/boardpage";
+        
+    }
 	
 	
 	
