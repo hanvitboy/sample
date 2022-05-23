@@ -113,7 +113,7 @@
                     <c:if test="${login_user.gender == 'WOMAN'}"> checked </c:if>
                   />
                   <label for="woman" class="form-radio">woman</label>
-          </form>
+            </form>
                 </div>
               </div>
             </div>
@@ -123,7 +123,7 @@
             <div id="btn-form">
               <div class="button-area">
                 <a id="modify" class="btn-next" href="#" role="button">modify</a>
-                <a id="withdrawal" class="btn-next" href="#" role="button">withdrawal</a>
+                <a id="withdrawal" class="btn-next" href="javascript:void(0)" onClick="javascript:goPost()" role="button" >withdrawal</a>
                 <a id="home" class="btn-next" href="http://localhost:9090/controller/" role="button">home</a>
               </div>
             </div>
@@ -133,6 +133,19 @@
     </div>
      <script type="text/javascript">
      
+     function goPost(){
+    	    let f = document.createElement('form');
+    	    f.setAttribute('method', 'post');
+    	    f.setAttribute('action', '/controller/withdraw');
+    	    document.body.appendChild(f);
+    	    var result = confirm('Are you sure you want to leave?'); 
+    	    if(result) {  f.submit(); } 
+    	    else { return false; }
+
+    	   
+    	}
+
+     
      var actionForm = $(".actionForm");
             	$(document).ready(function(){
             		$("#modify").on("click",function(e){
@@ -140,6 +153,8 @@
             			actionForm.attr("action", "/controller/modify").attr("method", "post");
             			actionForm.submit();
             		})
+            		
+            		
             		
             	})
             	</script>
