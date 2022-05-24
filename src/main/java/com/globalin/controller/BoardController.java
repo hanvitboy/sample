@@ -87,6 +87,7 @@ public class BoardController {
         rttr.addFlashAttribute("result", "remove success");
         
         return "redirect:/boardpage";
+        
     }
 	
 	
