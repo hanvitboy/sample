@@ -49,6 +49,9 @@ textarea{
 	padding-left : 80px;
 	margin-top : 50px;
 }
+#delete_btn{
+    background-color: #f3e3e7;
+}
 </style>
 </head>
 <body>
@@ -81,7 +84,9 @@ textarea{
 	<div class="btn_wrap">
 		<a class="btn" id="list_btn">목록페이지</a>
 		<a class="btn" id="modify_btn">수정 완료</a>
+		<a class="btn" id="delete_btn">삭제</a>
 		<a class="btn" id="cancel_btn">수정 취소</a>
+		
 	
 	
 	
@@ -115,7 +120,13 @@ textarea{
     	e.preventDefault();
         form.attr("action", "/controller/board/get").attr("method","get");
         form.submit();
-    });    
+    });
+    /* 삭제 버튼 */
+    $("#delete_btn").on("click", function(e){
+        form.attr("action", "/controller/board/delete");
+        form.attr("method", "post");
+        form.submit();
+    });
  
 </script>	
 </body>

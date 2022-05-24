@@ -62,6 +62,10 @@ textarea{
 		<input name="title" readonly="readonly" value='<c:out value="${pageInfo.title}"/>' >
 	</div>
 	<div class="input_wrap">
+		<label>조회수</label>
+		<input name="title" readonly="readonly" value='<c:out value="${pageInfo.hit}"/>' >
+	</div>
+	<div class="input_wrap">
 		<label>게시판 내용</label>
 		<textarea rows="3" name="content" readonly="readonly"><c:out value="${pageInfo.content}"/></textarea>
 	</div>

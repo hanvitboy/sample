@@ -43,6 +43,26 @@
 				moveForm.attr("action", "/controller/board/get");
 				moveForm.submit();
 			});
+	let result = '<c:out value="${result}"/>';
+	
+	checkAlert(result);
+	console.log(result);
+	
+	function checkAlert(result){
+		
+		if(result === ''){
+			return;
+		}
+		if(result ==='regist success'){
+			alert("게시글의 등록이 성공적으로 완료되었습니다")
+		}
+		if(result ==='modify success'){
+			alert("게시글의 수정이 성공적으로 완료되었습니다")
+		}
+		if(result ==='remove success'){
+			alert("게시글의 삭제가 성공적으로 완료되었습니다")
+		}
+	}
 </script>
 </head>
 

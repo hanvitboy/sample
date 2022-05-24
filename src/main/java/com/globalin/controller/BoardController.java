@@ -40,6 +40,7 @@ public class BoardController {
 		
 		
 		service.register(board);
+		rttr.addFlashAttribute("result", "regist success");
 		return "redirect:/boardpage";
 	}
 	
@@ -73,6 +74,16 @@ public class BoardController {
         
         return "redirect:/boardpage";
         
+    }
+    /* 페이지 삭제 */
+    @PostMapping("/delete")
+    public String boardDeletePOST(int bno, RedirectAttributes rttr) {
+        
+        service.remove(bno);
+        
+        rttr.addFlashAttribute("result", "remove success");
+        
+        return "redirect:/boardpage";
     }
 	
 	

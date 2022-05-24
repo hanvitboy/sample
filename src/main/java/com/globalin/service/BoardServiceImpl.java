@@ -43,9 +43,7 @@ public class BoardServiceImpl implements BoardService {
 		int updateResult = mapper.delete(bno);
 		boolean result = false;// 리턴해줄값
 		if (updateResult > 0) {
-			// 회원정보 수정성공
-			// updateMember() 메소드의 실행결과는 영향을 받은 행의 개수
-			// 수정된 회원정보의 개수가 0개보다 크다.
+			
 			result = true;
 
 		}

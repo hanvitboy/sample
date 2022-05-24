@@ -39,5 +39,7 @@
     	HIT = HIT+1
     	WHERE BNO = #{bno}
     </update>
+    
+   
 
 </mapper>
