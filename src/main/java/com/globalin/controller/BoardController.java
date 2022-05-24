@@ -69,13 +69,13 @@ public class BoardController {
     }
     /* 페이지 수정 */
     @RequestMapping("/modify")
-    public String boardModifyPOST(BoardVO board, RedirectAttributes rttr, HttpServletRequest req) {
+    public void boardModifyPOST(BoardVO board, RedirectAttributes rttr, HttpServletRequest req, Model model, int bno) throws Exception {
     	
         service.modify(board);
         
         //rttr.addFlashAttribute("result", "modify success");
         
-        return "redirect:/boardpage";
+        model.addAttribute("pageInfo", service.getpage(bno));
         
     }
     /* 페이지 삭제 */
@@ -87,6 +87,7 @@ public class BoardController {
         rttr.addFlashAttribute("result", "remove success");
         
         return "redirect:/boardpage";
+        
     }
 	
 	
