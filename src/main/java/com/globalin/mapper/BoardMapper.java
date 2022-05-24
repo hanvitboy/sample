@@ -3,6 +3,7 @@ package com.globalin.mapper;
 import java.util.List;
 
 import com.globalin.domain.BoardVO;
+import com.globalin.domain.Criteria;
 
 public interface BoardMapper {
 
@@ -20,6 +21,9 @@ public interface BoardMapper {
 
 	// 리스트가져오기
 	public List<BoardVO> getList();
+	
+	// 리스트가져오기(페이징 처리)
+	public List<BoardVO> getListPaging(Criteria cri);
 	
 	public void boardHit(int bno) throws Exception;
 

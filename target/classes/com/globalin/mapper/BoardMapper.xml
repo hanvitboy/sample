@@ -34,6 +34,22 @@
 		order by bno desc
 	</select>
 	
+	<!-- 리스트가져오기 (페이징 처리) -->
+	<select id="getListPaging" resultType="com.globalin.domain.BoardVO">
+    
+    <![CDATA[
+        
+        select bno, title, content, writer, regdate, updatedate, hit from(
+        
+                select /*+INDEX_DESC(vam_board pk_board) */ rownum  as rn, bno, title, content, writer, regdate, updatedate, hit
+                  
+                from tbl_board where rownum <= #{pageNum} * #{amount}) 
+                
+        where rn > (#{pageNum} -1) * #{amount}
+    
+    ]]>
+    </select>
+	
 	<!-- 게시판 조회수 -->
     <update id="boardHit" parameterType="int">
     	UPDATE tbl_board SET
