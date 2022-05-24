@@ -24,7 +24,13 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="resources/css/style.css" />
+     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <style>
 
   a{ color: inherit;
@@ -473,6 +479,101 @@ font-size: 12px;
               <h1>당신의 몸을 생각하며 만들었습니다.</h1>
               <p>당신의 몸상태를 체크하세요.</p>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="main-information a">
+      <div class="main-info">
+        <div data-aos="fade-right">
+          <div class="main-info-explain">
+            <h1>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis
+              qui, animi consequatur cumque iste accusantium! Labore ea
+              reiciendis at quod totam. Tempora quidem eius soluta? Adipisci
+              ipsum veniam molestias vitae?
+            </p>
+            <div class="btn-area">
+              <a class="btn-next" href="#" role="button">体重管理</a>
+            </div>
+          </div>
+        </div>
+        <div data-aos="fade-left">
+          <div class="main-info-img">
+            <img
+              src="https://mocah.org/thumbs/589418-3840x2160-blonde.jpg"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="main-information b">
+      <div class="main-info">
+        <div data-aos="fade-down-right" data-aos-delay="100">
+          <div class="main-info-img">
+            <img src="https://mocah.org/thumbs/542157-vegetables.jpg" alt="" />
+          </div>
+        </div>
+        <div data-aos="fade-down-left" data-aos-delay="100">
+          <div class="main-info-explain">
+            <h1>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Asperiores debitis eius nam illum doloremque. Molestiae voluptas
+              hic cum, tenetur nesciunt, laboriosam nemo quis provident quae
+              accusamus magnam, alias odit fugiat!
+            </p>
+            <div class="btn-area">
+              <a class="btn-next" href="#" role="button">献立管理</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="main-information c">
+      <div class="main-info">
+        <div data-aos="zoom-in">
+          <div class="main-info-explain">
+            <h1>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Asperiores debitis eius nam illum doloremque. Molestiae voluptas
+              hic cum, tenetur nesciunt, laboriosam nemo quis provident quae
+              accusamus magnam, alias odit fugiat!
+            </p>
+            <div class="btn-area">
+              <a class="btn-next" href="#" role="button">運動サポート</a>
+            </div>
+          </div>
+        </div>
+        <div data-aos="zoom-in">
+          <div class="main-info-img">
+            <img
+              src="https://mocah.org/thumbs/545292-exercise-female.jpg"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="property">
+        <p>
+          © 2022 fitness Pty Ltd. Trademarks and brands are the property of
+          their respective owners.
+        </p>
+      </div>
+      <div class="number">
+        <p>이용약관</p>
+        <p>문의:010-0000-0000</p>
+      </div>
+    </footer>
 
     </section>
     
@@ -562,6 +663,8 @@ font-size: 12px;
             			actionForm.submit();
             		})
             	})
+            	
+            	AOS.init({duration: 1500,});
             	</script>
             	 <script
  	      src="https://kit.fontawesome.com/99b96296a9.js"
