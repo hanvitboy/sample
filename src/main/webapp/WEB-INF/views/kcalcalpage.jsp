@@ -1,15 +1,39 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri ="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
-</head>
+<html lang="ko">
+  <head>
+   <link href="resources/css/style.css" rel="stylesheet">
+  
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="resources/css/style.css" />
+     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <style>
+body {
+  font-family: "DM Sans", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
+}
 
 .header {
   display: flex;
@@ -410,14 +434,14 @@ $(document).ready(function() {
               <div class="nav">
                 <ul>
                 <form class="actionForm" method="post">
-                  <a id="calo" class="nav-list" href="#"><li>Ã¼Áß°ü¸®</li></a>
+                  <a id="calo" class="nav-list" href="#"><li>ä½“é‡ç®¡ç†</li></a>
                   </form>
                  
-                  <a class="nav-list" href="#"><li>¿îµ¿µµ¿ì¹Ì</li></a>
+                  <a class="nav-list" href="#"><li>çŒ®ç«‹ç®¡ç†</li></a>
                   
-                  <a class="nav-list" href="#"><li>À½½Ä</li></a>
+                  <a class="nav-list" href="#"><li>é‹å‹•æƒ…å ±</li></a>
                	
-               	<a id="nav-listboard" class="nav-list" href="#"><li>ÀÚÀ¯°Ô½ÃÆÇ</li></a>
+               	<a id="nav-listboard" class="nav-list" href="#"><li>æ²ç¤ºæ¿</li></a>
                	
                 </ul>
               </div>
