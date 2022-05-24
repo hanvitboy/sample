@@ -293,14 +293,18 @@ width: 180px;
 {	display: flex;
 	justify-content: center;
 	width:120px;
+	
+  font-family: "DM Sans", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
 }
+
 
 .TodayKcal,
 .recommendedKcal{
   display: flex;
   justify-content: center;
   align-items: center;
-
+ font-family: "Noto Sans JP", sans-serif;
 }
 
 .calSubmit{
@@ -1282,15 +1286,15 @@ $(document).ready(function() {
     <span></span>
     <div class="fixedCalBox">
       <div class="recommendedKcal">
-        <span>Recommend kcal:</span> <input id="kcalFromBack1" value="${login_user.onedaykcal}" readonly/></span>
+        <span>一日摂取可能量:</span> <input id="kcalFromBack1" value="${login_user.onedaykcal}" readonly/></span>
         <span>kcals</span>
       </div>
       <div class="TodayKcal">
-        <span>Kcal disparity:</span> <input id="kcalFromBack2" value="${login_user.onedaykcal }" readonly/>
+        <span>まだ食べれるカロリー:</span> <input id="kcalFromBack2" value="${login_user.onedaykcal }" readonly/>
         <span>kcals</span>
       </div>
       <div class="calSubmit">
-        <input class="calSumit_btn" type="submit" value="SUBMIT" />
+        <input class="calSumit_btn" type="submit" value="SAVE" />
       </div>
       
     </div>

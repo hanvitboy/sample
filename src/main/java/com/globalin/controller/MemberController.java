@@ -15,10 +15,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.globalin.domain.MemberRecVO;
 import com.globalin.domain.MemberVO;
+import com.globalin.service.MemberRecService;
 import com.globalin.service.MemberService;
 
 @Controller
@@ -27,6 +27,9 @@ public class MemberController {
 
 	@Autowired
 	private MemberService service;
+	
+	@Autowired
+	private MemberRecService service2;
 	
 	private static Logger log = LoggerFactory.getLogger(MemberController.class); 
 	
@@ -61,10 +64,11 @@ public class MemberController {
 	}
 	
 	@PostMapping("/register")
-	public String register(MemberVO member, HttpServletRequest req, HttpServletResponse resp, HttpSession session) throws IOException {
+	public String register(MemberVO member, MemberRecVO mv, HttpServletRequest req, HttpServletResponse resp, HttpSession session) throws IOException {
 	 	log.info(req.getParameter("actindex"));
 	 	log.info(member.toString());
 	 	service.register(member);
+	 	service2.register(mv);
 	 	resp.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = resp.getWriter();
 		out.println("<script>alert('회원가입을 환영합니다!'); </script>");
