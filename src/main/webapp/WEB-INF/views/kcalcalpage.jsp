@@ -10,6 +10,267 @@
 <title>Insert title here</title>
 </head>
 <style>
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+  padding: 15px 0;
+margin-right: 50px;
+margin-left:50px;
+}
+
+.button-group .button-login {
+  color: #000;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  border: 2px solid #f7ca18;
+  border-radius: 4px;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+  text-align: center;
+  padding: 4px 8px;
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+.button-group .button-login:hover {
+  color: #fff !important;
+  background-color: transparent;
+  text-shadow: none;
+}
+
+.button-group .button-login:hover:before {
+  top: 0%;
+  bottom: auto;
+  height: 100%;
+}
+
+.button-group .button-login:before {
+  display: block;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 0px;
+  width: 100%;
+  z-index: -1;
+  content: "";
+  color: #000 !important;
+  background: #f7ca18;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}
+
+.button-group .button-logout {
+  color: #000;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  border: 2px solid #f7ca18;
+  border-radius: 4px;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+  text-align: center;
+  padding: 4px 8px;
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+.button-group .button-logout:hover {
+  color: #fff !important;
+  background-color: transparent;
+  text-shadow: ntwo;
+}
+.button-group .button-logout:hover:before {
+  bottom: 0%;
+  top: auto;
+  height: 100%;
+}
+.button-group .button-logout:before {
+  display: block;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  height: 0px;
+  width: 100%;
+  z-index: -1;
+  content: "";
+  color: #000 !important;
+  background: #f7ca18;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}
+
+.button-group .button-info {
+  color: #000;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  border: 2px solid #f7ca18;
+  border-radius: 4px;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+  text-align: center;
+  padding: 4px 8px;
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+.button-group .button-info:hover {
+  color: #fff !important;
+  background-color: transparent;
+  text-shadow: none;
+}
+
+.button-group .button-info:hover:before {
+  top: 0%;
+  bottom: auto;
+  height: 100%;
+}
+
+.button-group .button-info:before {
+  display: block;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 0px;
+  width: 100%;
+  z-index: -1;
+  content: "";
+  color: #000 !important;
+  background: #f7ca18;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}
+
+.button-group .button-list {
+  color: #000;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  border: 2px solid #f7ca18;
+  border-radius: 4px;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+  text-align: center;
+  padding: 4px 8px;
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+.button-group .button-list:hover {
+  color: #fff !important;
+  background-color: transparent;
+  text-shadow: none;
+}
+
+.button-group .button-list:hover:before {
+  top: 0%;
+  bottom: auto;
+  height: 100%;
+}
+
+.button-group .button-list:before {
+  display: block;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 0px;
+  width: 100%;
+  z-index: -1;
+  content: "";
+  color: #000 !important;
+  background: #f7ca18;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}
+
+.button-group .button-signup {
+  color: #000;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  border: 2px solid #f7ca18;
+  border-radius: 4px;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+  text-align: center;
+  padding: 4px 8px;
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+.button-group .button-signup:hover {
+  color: #fff !important;
+  background-color: transparent;
+  text-shadow: ntwo;
+}
+.button-group .button-signup:hover:before {
+  bottom: 0%;
+  top: auto;
+  height: 100%;
+}
+.button-group .button-signup:before {
+  display: block;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  height: 0px;
+  width: 100%;
+  z-index: -1;
+  content: "";
+  color: #000 !important;
+  background: #f7ca18;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}
+.welcome{
+width:100px;
+}
+
+.message{
+    width:180px;
+   margin-right: 20px;
+ 	display : flex;
+ 	align-items: center;
+ 	font-weight:bold;
+ 	color:gray;
+   animation: notificationAnimation 1s ease-in-out;
+  }
+.message span{
+width: 180px;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+
+  @keyframes notificationAnimation {
+    0% {
+      transform: scale(0.5);
+    }
+    40% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+	.header-left,
+	.header-right{
+	display: flex;
+	}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 30px;
+  width: 200px;
+}
+
+.nav .nav-list li
+{	display: flex;
+	justify-content: center;
+	width:120px;
+}
+
 .TodayKcal,
 .recommendedKcal{
   display: flex;
@@ -94,6 +355,8 @@ overflow: hidden;
   text-shadow: 2px 2px blueviolet;
 }
 
+
+
 </style>
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <script type="text/javascript">
@@ -131,10 +394,8 @@ $(document).ready(function() {
  <link href="resources/css/calstyle.css" rel="stylesheet">
 <body>
   <section class="header-top">
-  <div class="container-fluid">
-        <div class="row">
-          <div class="col-12">
-            <div class="header">
+
+<div class="header">
             <div class="header-left">
               <div class="logo">
                <form class="actionForm" action="home" method="get">
@@ -156,7 +417,7 @@ $(document).ready(function() {
                   
                   <a class="nav-list" href="#"><li>음식</li></a>
                	
-               	<a class="nav-listboard" href="#"><li>자유게시판</li></a>
+               	<a id="nav-listboard" class="nav-list" href="#"><li>자유게시판</li></a>
                	
                 </ul>
               </div>
@@ -193,9 +454,8 @@ $(document).ready(function() {
 
 </div>
 </div>
-</div>
-              </div>
-            </div>
+
+           
           
     </section>
 
@@ -632,7 +892,7 @@ $(document).ready(function() {
                <div class="BoxTitle">
           <span
             ><i class="fa-solid fa-spoon"></i>Consume calories for
-            Breakfast</span
+            Lunch</span
           >
         </div>
         <div class="checkbox-group">
@@ -815,7 +1075,7 @@ $(document).ready(function() {
                <div class="BoxTitle">
           <span
             ><i class="fa-solid fa-spoon"></i>Consume calories for
-            Breakfast</span
+            Dinner</span
           >
         </div>
         <div class="checkbox-group">
@@ -1063,7 +1323,7 @@ $(document).ready(function() {
             			actionForm.attr("action", "/controller/kcalcalpage").attr("method", "post");
             			actionForm.submit();
             		})
-            		$(".nav-listboard").on("click",function(e){
+            		$("#nav-listboard").on("click",function(e){
             			e.preventDefault();
             			actionForm.attr("action", "/controller/boardpage").attr("method", "post");
             			actionForm.submit();

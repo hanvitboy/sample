@@ -29,8 +29,6 @@
             class="com.globalin.interceptor.CalInterceptor"/>
 
 <interceptors>
-  
-  
   <interceptor>
     <!-- login 인증이 필요한 URI 들 -->
     <mapping path="/infopage"/>

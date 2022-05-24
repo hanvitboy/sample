@@ -46,8 +46,8 @@
   align-items: center;
   justify-content:space-between;
   padding: 15px 0;
-   margin-left: 180px;
-  margin-right:300px;
+margin-right: 50px;
+margin-left:50px;
 }
 
 .button-group .button-login {
@@ -245,11 +245,10 @@
   background: #f7ca18;
   transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
 }
-.welcome{
-width:100px;
-}
+
 
 .message{
+    width:180px;
    margin-right: 20px;
  	display : flex;
  	align-items: center;
@@ -257,12 +256,14 @@ width:100px;
  	color:gray;
    animation: notificationAnimation 1s ease-in-out;
   }
-
+.message span{
+width: 180px;
+}
 .nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 300px;
+
 }
 
 
@@ -381,10 +382,8 @@ font-size: 12px;
   <body>
   
     <section class="header-top">
-  <div class="container-fluid">
-        <div class="row">
-          <div class="col-12">
-            <div class="header">
+
+<div class="header">
             <div class="header-left">
               <div class="logo">
                <form class="actionForm" action="home" method="get">
@@ -406,7 +405,7 @@ font-size: 12px;
                   
                   <a class="nav-list" href="#"><li>음식</li></a>
                	
-               	<a class="nav-listboard" href="#"><li>자유게시판</li></a>
+               	<a id="nav-listboard" class="nav-list" href="#"><li>자유게시판</li></a>
                	
                 </ul>
               </div>
@@ -443,9 +442,8 @@ font-size: 12px;
 
 </div>
 </div>
-</div>
-              </div>
-            </div>
+
+           
           
     </section>
 
@@ -475,9 +473,7 @@ font-size: 12px;
               <h1>당신의 몸을 생각하며 만들었습니다.</h1>
               <p>당신의 몸상태를 체크하세요.</p>
             </div>
-          </div>
-        </div>
-      </div>
+
     </section>
     
      <script type="text/javascript">
@@ -560,7 +556,7 @@ font-size: 12px;
             			actionForm.attr("action", "/controller/kcalcalpage").attr("method", "post");
             			actionForm.submit();
             		})
-            		$(".nav-listboard").on("click",function(e){
+            		$("#nav-listboard").on("click",function(e){
             			e.preventDefault();
             			actionForm.attr("action", "/controller/boardpage").attr("method", "post");
             			actionForm.submit();

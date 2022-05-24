@@ -91,7 +91,7 @@ li {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 577px;
+ 
 }
 
 .nav ul {
@@ -118,13 +118,13 @@ li {
   width: 120px;
 }
 
-.button-group {
+ .button-group {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.button-group .button-login {
+.button-group .button-login, .button-group .button-list {
   color: #000;
   cursor: pointer;
   display: block;
@@ -138,19 +138,19 @@ li {
   margin-right: 8px;
 }
 
-.button-group .button-login:hover {
+.button-group .button-login:hover, .button-group .button-list:hover {
   color: #fff !important;
   background-color: transparent;
   text-shadow: none;
 }
 
-.button-group .button-login:hover:before {
+.button-group .button-login:hover:before, .button-group .button-list:hover:before {
   top: 0%;
   bottom: auto;
   height: 100%;
 }
 
-.button-group .button-login:before {
+.button-group .button-login:before, .button-group .button-list:before {
   display: block;
   position: absolute;
   left: 0px;
@@ -164,7 +164,7 @@ li {
   transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
 }
 
-.button-group .button-signup {
+.button-group .button-signup, .button-group .button-info, .button-group .button-logout {
   color: #000;
   cursor: pointer;
   display: block;
@@ -178,17 +178,17 @@ li {
   margin-right: 8px;
 }
 
-.button-group .button-signup:hover {
+.button-group .button-signup:hover, .button-group .button-info:hover, .button-group .button-logout:hover {
   color: #fff !important;
   background-color: transparent;
   text-shadow: ntwo;
 }
-.button-group .button-signup:hover:before {
+.button-group .button-signup:hover:before, .button-group .button-info:hover:before, .button-group .button-logout:hover:before {
   bottom: 0%;
   top: auto;
   height: 100%;
 }
-.button-group .button-signup:before {
+.button-group .button-signup:before, .button-group .button-info:before, .button-group .button-logout:before {
   display: block;
   position: absolute;
   left: 0px;
@@ -201,6 +201,124 @@ li {
   background: #f7ca18;
   transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
 }
+ .button-group .button-logout {
+  color: #000;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  border: 2px solid #f7ca18;
+  border-radius: 4px;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+  text-align: center;
+  padding: 4px 8px;
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+.button-group .button-logout:hover {
+  color: #fff !important;
+  background-color: transparent;
+  text-shadow: ntwo;
+}
+.button-group .button-logout:hover:before {
+  bottom: 0%;
+  top: auto;
+  height: 100%;
+}
+.button-group .button-logout:before {
+  display: block;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  height: 0px;
+  width: 100%;
+  z-index: -1;
+  content: "";
+  color: #000 !important;
+  background: #f7ca18;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}
+
+.button-group .button-info {
+  color: #000;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  border: 2px solid #f7ca18;
+  border-radius: 4px;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+  text-align: center;
+  padding: 4px 8px;
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+.button-group .button-info:hover {
+  color: #fff !important;
+  background-color: transparent;
+  text-shadow: none;
+}
+
+.button-group .button-info:hover:before {
+  top: 0%;
+  bottom: auto;
+  height: 100%;
+}
+
+.button-group .button-info:before {
+  display: block;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 0px;
+  width: 100%;
+  z-index: -1;
+  content: "";
+  color: #000 !important;
+  background: #f7ca18;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}
+
+.button-group .button-list {
+  color: #000;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  border: 2px solid #f7ca18;
+  border-radius: 4px;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+  text-align: center;
+  padding: 4px 8px;
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+.button-group .button-list:hover {
+  color: #fff !important;
+  background-color: transparent;
+  text-shadow: none;
+}
+
+.button-group .button-list:hover:before {
+  top: 0%;
+  bottom: auto;
+  height: 100%;
+}
+
+.button-group .button-list:before {
+  display: block;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 0px;
+  width: 100%;
+  z-index: -1;
+  content: "";
+  color: #000 !important;
+  background: #f7ca18;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}
+ 
 
 /* main */
 
