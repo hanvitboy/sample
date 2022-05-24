@@ -51,13 +51,16 @@ public class BoardController {
 		return "board/register";
 	}
 	
+	/* 게시글 조회 */
 	@GetMapping("/get")
 	public void boardGetPageGET(int bno, Model model) throws Exception {
 		
+		service.boardHit(bno);
 		model.addAttribute("pageInfo", service.getpage(bno));
+		
 	}
 	
-	
+	/* 수정페이지 접속 */
     @PostMapping("/modifyenter")
     public void boardModifyPOST(int bno, Model model) throws Exception {
         
@@ -70,7 +73,7 @@ public class BoardController {
     	
         service.modify(board);
         
-        rttr.addFlashAttribute("result", "modify success");
+        //rttr.addFlashAttribute("result", "modify success");
         
         return "redirect:/boardpage";
         

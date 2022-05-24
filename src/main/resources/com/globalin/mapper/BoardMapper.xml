@@ -22,15 +22,16 @@
 	
 	<!-- 수정하기 -->
 	<update id="update">
-		update tbl_board set
-		title=#{title},content=#{content},writer=#{writer},updateDate =
-		sysdate where bno=#{bno}
+		update tbl_board 
+		set title=#{title},content=#{content},writer=#{writer},updateDate =sysdate
+		where bno=#{bno}
 	</update>
 
 	<!-- 리스트가져오기 -->
 	<select id="getList" resultType="com.globalin.domain.BoardVO">
-		select * from tbl_board where
-		bno > 0
+		select * from tbl_board 
+		where bno > 0
+		order by bno desc
 	</select>
 	
 	<!-- 게시판 조회수 -->

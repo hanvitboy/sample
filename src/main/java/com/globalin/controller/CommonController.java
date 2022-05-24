@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.globalin.service.BoardService;
 import com.globalin.service.MemberService;
 
+import jdk.internal.org.jline.utils.Log;
+
 @Controller
 @RequestMapping("/*")
 public class CommonController {
@@ -88,6 +90,7 @@ public class CommonController {
 	
 	@RequestMapping("/boardpage")
 	public void boardpage(Model model) {
+		System.out.println("go boardpage");
 		model.addAttribute("list", bservice.getList());
 	}
 	

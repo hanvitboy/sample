@@ -21,7 +21,7 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public BoardVO getpage(int bno) throws Exception {
 		log.info("get...");
-		mapper.boardHit(bno);
+		//mapper.boardHit(bno);
 		return mapper.getpage(bno);
 	}
 

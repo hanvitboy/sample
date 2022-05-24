@@ -42,6 +42,7 @@
 						+ $(this).attr("href") + "'>");
 				moveForm.attr("action", "/controller/board/get");
 				moveForm.submit();
+				
 			});
 	let result = '<c:out value="${result}"/>';
 	
