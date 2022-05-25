@@ -129,6 +129,7 @@ textarea{
 	$("#modify_btn").on("click", function(e){
 		form.attr("action", "/controller/board/modifyenter").attr("method","post");		
 		form.submit();
+		
 	});	
 </script>	
 </body>
