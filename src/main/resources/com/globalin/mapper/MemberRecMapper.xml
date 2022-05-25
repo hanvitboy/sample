@@ -3,13 +3,13 @@
 <mapper namespace="com.globalin.mapper.MemberRecMapper">
 
 <insert id="insert">
-	insert into tbl_member_rec(idx) values (member_seq.nextval)
+	insert into tbl_member_rec(idx) values (member_rec_seq.nextval)
 </insert>
 
 
 <update id="update">
   update tbl_member_rec set d1=#{d1},
-   d2=#{d2}, d3=#{d3}, d4=#{d4}, d5=#{d5}, d6=#{d6}, d7=#{d7}
+   d2=#{d2}, d3=#{d3}, d4=#{d4}, d5=#{d5}, d6=#{d6}, d7=#{d7}, next=#{next}
 	where idx=#{idx}
 </update>
 
@@ -18,9 +18,14 @@
 </delete>
 
 <select id="read" resultType="com.globalin.domain.MemberRecVO">
-	select d1,d2,d3,d4,d5,d6,d7 from tbl_member_rec where idx=#{idx}
+	select idx,d1,d2,d3,d4,d5,d6,d7,next from tbl_member_rec where idx=#{idx}
 </select>
 
+
+<update id="changenext">
+ update tbl_member_rec set next=#{next}
+ where idx=#{idx}
+</update>
 
 
 </mapper>

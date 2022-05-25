@@ -13,4 +13,6 @@ public interface MemberRecMapper {
 	public int delete(int idx);
 	
 	public MemberRecVO read(int idx);
+	
+	public int changenext(MemberRecVO mv);
 }

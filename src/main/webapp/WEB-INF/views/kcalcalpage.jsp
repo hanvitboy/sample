@@ -354,7 +354,29 @@ right:50px;
 overflow: hidden;
 
 }
+.exampleBox{
+width:250px;
+height: 350px;
 
+
+font-size: 13px;
+font-weight: 600;
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+align-items: center;
+background-color: black;
+color:white;
+border-radius: 30px;
+box-shadow:10px 20px 50px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.10);
+border: 4px solid yellow;
+
+position:fixed;
+bottom:50px;
+left:50px;
+overflow: hidden;
+
+}
 
 
 .calSumit_btn:hover {
@@ -413,7 +435,7 @@ $(document).ready(function() {
 			
 		})
 		*/
-		$("#kcalFromBack2").val(value);
+		var saveData = $("#kcalFromBack2").val(value);
 		
 	})
 	
@@ -487,13 +509,11 @@ $(document).ready(function() {
           
     </section>
 
-
 <main class="Boxes">
       <section class="Box1">
         <div class="BoxTitle">
           <span><i class="fa-solid fa-person"></i>Activity</span>
         </div>
-        <form>
         <div class="checkbox-group">
           <div class="checkbox">
             <label class="checkbox-wrapper">
@@ -1283,20 +1303,52 @@ $(document).ready(function() {
         </div>
       </section>
     </main>
-    <span></span>
+    
+      <form action="/controller/savekcal" method="post">
     <div class="fixedCalBox">
       <div class="recommendedKcal">
-        <span>一日摂取可能量:</span> <input id="kcalFromBack1" value="${login_user.onedaykcal}" readonly/></span>
+        <span>一日摂取可能量:</span> <input type="text" id="kcalFromBack1" value="${login_user.onedaykcal}" readonly/>
         <span>kcals</span>
       </div>
       <div class="TodayKcal">
-        <span>まだ食べれるカロリー:</span> <input id="kcalFromBack2" value="${login_user.onedaykcal }" readonly/>
+        <span>まだ食べれるカロリー:</span> <input type="text" id="kcalFromBack2" name="cal" value="${login_user.onedaykcal}" readonly/>
         <span>kcals</span>
       </div>
       <div class="calSubmit">
         <input class="calSumit_btn" type="submit" value="SAVE" />
-      </div>
+      </div>  
+    </div> </form>
       
+      <div class="exampleBox">
+      <div class="recommendedKcal">
+        <span>一日摂取可能量:</span> <input type="text" id="kcalFromBack1" value="${login_user.onedaykcal}" readonly/>
+        <span>kcals</span>
+      </div>
+      <div class="TodayKcal">
+        <span>まだ食べれるカロリー:</span> <input type="text" id="kcalFromBack2" name="cal" value="${login_user.onedaykcal}" readonly/>
+        <span>kcals</span>
+      </div>
+      <div class="TodayKcal">
+        <span>まだ食べれるカロリー:</span> <input type="text" id="kcalFromBack2" name="cal" value="${login_user.onedaykcal}" readonly/>
+        <span>kcals</span>
+      </div>
+      <div class="TodayKcal">
+        <span>まだ食べれるカロリー:</span> <input type="text" id="kcalFromBack2" name="cal" value="${login_user.onedaykcal}" readonly/>
+        <span>kcals</span>
+      </div>
+      <div class="TodayKcal">
+        <span>まだ食べれるカロリー:</span> <input type="text" id="kcalFromBack2" name="cal" value="${login_user.onedaykcal}" readonly/>
+        <span>kcals</span>
+      </div>
+      <div class="TodayKcal">
+        <span>まだ食べれるカロリー:</span> <input type="text" id="kcalFromBack2" name="cal" value="${login_user.onedaykcal}" readonly/>
+        <span>kcals</span>
+      </div>
+      <div class="TodayKcal">
+        <span>まだ食べれるカロリー:</span> <input type="text" id="kcalFromBack2" name="cal" value="${login_user.onedaykcal}" readonly/>
+        <span>kcals</span>
+      </div>
+   
     </div>
  
     <script

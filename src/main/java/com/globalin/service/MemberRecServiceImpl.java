@@ -34,4 +34,10 @@ return mapper2.update(mv)==1;
 		return mapper2.read(idx);
 	}
 
+	@Override
+	public boolean next(MemberRecVO mv) {
+	
+		return mapper2.changenext(mv)==1;
+	}
+
 }

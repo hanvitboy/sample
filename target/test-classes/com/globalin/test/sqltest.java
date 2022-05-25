@@ -11,8 +11,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.globalin.controller.MemberController;
-import com.globalin.domain.MemberVO;
-import com.globalin.mapper.MemberMapper;
+import com.globalin.domain.MemberRecVO;
+import com.globalin.mapper.MemberRecMapper;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
@@ -21,20 +21,21 @@ public class sqltest {
 	private static Logger log = LoggerFactory.getLogger(MemberController.class);
 	
 	@Autowired
-	private MemberMapper mapper;
+	private MemberRecMapper mapper;
+	
+	
 	
 	@Test
-	public void testGetList() {
-		
-		List<MemberVO> list = mapper.getList();
-		for (MemberVO b : list) {
-			log.info("sexy");
-			System.out.println(b);
-		}
-		
-	}
+	public void test() {
 	
-//	@Test
+		MemberRecVO mv = new MemberRecVO();
+		mv.setIdx(101);
+		mv.setD1(333);
+		mapper.update(mv);
+		
+		}
+	
+	//	@Test
 //	public void insertTest() {
 //		MemberVO board = new MemberVO();
 //		board.setId("mango");
@@ -46,16 +47,7 @@ public class sqltest {
 //		board.setPw("1541");
 //		mapper.insert(board);
 //	}
-	@Test
-	public void updateTest() {
-		MemberVO member =new MemberVO();
-		
-		
-		mapper.delete("mango");
-		
 	
-	
-	}
 	
 	
 

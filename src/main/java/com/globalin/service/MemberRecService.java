@@ -13,4 +13,5 @@ public interface MemberRecService {
 	
 	public MemberRecVO get(int idx);
 	
+	public boolean next (MemberRecVO mv);
 }

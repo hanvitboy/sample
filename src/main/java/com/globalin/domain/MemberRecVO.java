@@ -2,7 +2,15 @@ package com.globalin.domain;
 
 public class MemberRecVO {
 
-	private int idx,d1,d2,d3,d4,d5,d6,d7;
+	private int idx,d1,d2,d3,d4,d5,d6,d7,next;
+
+	public int getNext() {
+		return next;
+	}
+
+	public void setNext(int next) {
+		this.next = next;
+	}
 
 	public int getIdx() {
 		return idx;
@@ -71,7 +79,7 @@ public class MemberRecVO {
 	@Override
 	public String toString() {
 		return "MemberRecVO [idx=" + idx + ", d1=" + d1 + ", d2=" + d2 + ", d3=" + d3 + ", d4=" + d4 + ", d5=" + d5
-				+ ", d6=" + d6 + ", d7=" + d7 + "]";
+				+ ", d6=" + d6 + ", d7=" + d7 + ", next=" + next + "]";
 	}
 	
 }

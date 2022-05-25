@@ -312,7 +312,7 @@ body {
   top: 0.25rem;
   left: 00.25rem;
   transition: 0.25s ease;
-  background-image: url("check.png");
+  background-image: url("resources/assets/check.png");
   background-size: 35px;
   background-position: 50%;
   transform: scale(0);

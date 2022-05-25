@@ -77,24 +77,72 @@ public class MemberController {
 		String id = req.getParameter("id");
 		String pw = req.getParameter("pw");
 		MemberVO mem = service.login(id, pw);
+		MemberRecVO mv2 = service2.get(mem.getIdx());
+		session.setAttribute("user_kcal", mv2);
 		session.setAttribute("login_user", mem);
 		
 		return "home";
+	}
+	
+	@PostMapping("/savekcal")
+	public String savekcal(HttpServletRequest req, HttpSession session) {
+	
+		MemberRecVO mv = (MemberRecVO)session.getAttribute("user_kcal");
+		//MemberVO member = (MemberVO) session.getAttribute("login_user");
+		
+		//int idx = member.getIdx();
+		int cal = Integer.parseInt(req.getParameter("cal"));
+		
+		if(mv.getNext() == 1) {
+		    mv.setNext(2);
+		    mv.setD1(cal);
+		}
+		else if(mv.getNext() == 2) {
+			mv.setNext(3);
+			mv.setD2(cal);
+		}
+		else if(mv.getNext() == 3) {
+			mv.setNext(4);
+			mv.setD3(cal);
+		}
+		else if(mv.getNext() == 4) {
+			mv.setNext(5);
+			mv.setD4(cal);
+		}
+		else if(mv.getNext() == 5) {
+			mv.setNext(6);
+			mv.setD5(cal);
+		}
+		else if(mv.getNext() == 6) {
+			mv.setNext(7);
+			mv.setD6(cal);
+		}
+		else if(mv.getNext() == 7) {
+			mv.setNext(1);
+			mv.setD7(cal);
+		}
+
+		service2.modify(mv);
+		
+		return "kcalcalpage";
 	}
   
 	
  
  @PostMapping("/modify")
-	public String modify(MemberVO member, HttpServletRequest req, HttpSession session) {
+	public String modify(MemberVO member, MemberRecVO mv, HttpServletRequest req, HttpSession session) {
 	    String id = req.getParameter("id");
 		String pw = req.getParameter("pw");
 		
 		
 		service.modify(member);
+	
 		
+	
 		MemberVO mem = service.login(id, pw);
+		MemberRecVO mv2 = service2.get(mem.getIdx());
+		session.setAttribute("user_kcal", mv2);
 		session.setAttribute("login_user", mem);
-		
 		return "home";
 			
 	}
@@ -112,16 +160,17 @@ public class MemberController {
 	}
 	
 	@PostMapping("/login")
-	public String login(HttpServletRequest req, HttpServletResponse resp, HttpSession session) throws Exception {
+	public String login(MemberRecVO mv, HttpServletRequest req, HttpServletResponse resp, HttpSession session) throws Exception {
 		String id = req.getParameter("id");
 		String pw = req.getParameter("pw");
-		
 		MemberVO mem = service.login(id, pw);
 		
 		if(mem != null) {
 			//id,pw가 검증되었다면
+			MemberRecVO mv2 = service2.get(mem.getIdx());
+			session.setAttribute("user_kcal", mv2);
 			session.setAttribute("login_user", mem);
-			log.warn(mem.toString());			
+				log.warn(mem.toString());			
 		}else {
 			//없는데?
 			resp.setContentType("text/html; charset=UTF-8");
@@ -136,15 +185,19 @@ public class MemberController {
 	}
 	
 	@PostMapping("/login2")
-	public String login2(HttpServletRequest req, HttpServletResponse resp, HttpSession session) throws Exception {
+	public String login2(MemberRecVO mv, HttpServletRequest req, HttpServletResponse resp, HttpSession session) throws Exception {
 		String id = req.getParameter("id");
 		String pw = req.getParameter("pw");
 		
 		MemberVO mem = service.login(id, pw);
 		
+		
 		if(mem != null) {
 			//id,pw가 검증되었다면
+			MemberRecVO mv2 = service2.get(mem.getIdx());
 			session.setAttribute("login_user", mem);
+			session.setAttribute("user_kcal", mv);
+			
 			log.warn(mem.toString());			
 		}else {
 			//없는데?
