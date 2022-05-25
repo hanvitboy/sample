@@ -2,36 +2,36 @@ package com.globalin.domain;
 
 public class LikeVO {
 	
-	private String itmid;
+	private String ltmid;
 	
-	private int itbid;
+	private int ltbid;
 	
-	private int itlike;
+	private int ltlike;
 	
 	private int count;
 
-	public String getItmid() {
-		return itmid;
+	public String getLtmid() {
+		return ltmid;
 	}
 
-	public void setItmid(String itmid) {
-		this.itmid = itmid;
+	public void setLtmid(String ltmid) {
+		this.ltmid = ltmid;
 	}
 
-	public int getItbid() {
-		return itbid;
+	public int getLtbid() {
+		return ltbid;
 	}
 
-	public void setItbid(int itbid) {
-		this.itbid = itbid;
+	public void setLtbid(int ltbid) {
+		this.ltbid = ltbid;
 	}
 
-	public int getItlike() {
-		return itlike;
+	public int getLtlike() {
+		return ltlike;
 	}
 
-	public void setItlike(int itlike) {
-		this.itlike = itlike;
+	public void setLtlike(int ltlike) {
+		this.ltlike = ltlike;
 	}
 
 	public int getCount() {
@@ -44,7 +44,7 @@ public class LikeVO {
 
 	@Override
 	public String toString() {
-		return "likeVO [itmid=" + itmid + ", itbid=" + itbid + ", itlike=" + itlike + ", count=" + count + "]";
+		return "likeVO [ltmid=" + ltmid + ", ltbid=" + ltbid + ", ltlike=" + ltlike + ", count=" + count + "]";
 	}
 	
 

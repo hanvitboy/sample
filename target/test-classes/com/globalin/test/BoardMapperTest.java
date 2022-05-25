@@ -14,7 +14,6 @@ import com.globalin.controller.BoardController;
 import com.globalin.domain.Criteria;
 import com.globalin.mapper.BoardMapper;
 
-import jdk.internal.org.jline.utils.Log;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")

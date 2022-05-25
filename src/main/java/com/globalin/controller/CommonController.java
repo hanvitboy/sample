@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.globalin.service.BoardService;
 import com.globalin.service.MemberService;
 
-import jdk.internal.org.jline.utils.Log;
 
 @Controller
 @RequestMapping("/*")

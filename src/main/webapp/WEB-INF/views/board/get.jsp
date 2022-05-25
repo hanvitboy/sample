@@ -82,21 +82,21 @@ textarea{
 		<input name="updateDate" readonly="readonly" value='<fmt:formatDate pattern="yyyy/MM/dd" value="${pageInfo.updateDate}"/>' >
 	</div>
 	
-	<c:if test="${login_user.id == null }">
-	<img src="/resources/img/좋아요전.png" id="likeimg" width="60px" height="60px"
-		class="rounded-circle mt-2">
-		${b.like_count} <br><br>
-	추천 기능은 <a href="/member/login" type="button" id="newLogin"
-	class="btn btn-outline-success">로그인</a> 후 사용 가능합니다.
-	</c:if>
-	<c:if test="${login_user.id != null}">
-		<div>
-	<input type="hidden" id="like_check" value="${like.like_check}">
-	<img class="rounded-circle likeimg" id="likeimg" src="/resources/img/좋아요전.png"
-	width="60px" height="60px"> ${b.like_count}
-	</div>
-	</c:if>
-	
+	<td id="like">
+					<c:choose>
+						<c:when test="${ltlike ==0}">
+							<button type="button" class="btn btn-light" id="likebtn">좋아요</button>
+							<input type="hidden" id="likecheck" value="${ltlike }">
+						</c:when>					
+						<c:when test="${ltlike ==1}">
+							<button type="button" class="btn btn-danger" id="likebtn" style="background-color:red">좋아요</button>
+							<input type="hidden" id="likecheck" value="${ltlike }">
+						</c:when>
+					</c:choose>					
+				</td> 	
+		<input type="hidden" value="${login_user.id}" id="mid">
+		<input type="hidden" value="${pageInfo.bno}" id="bid">
+		<input type="hidden" value="${ltlike}" id="likecheck">
 	
 	
 	<div class="btn_wrap">
@@ -117,6 +117,49 @@ textarea{
 	
 	
 <script>
+$('#likebtn').click(function(){
+	likeupdate();
+});
+
+function likeupdate(){
+	var root = getContextPath(),
+	likeurl = "/like/likeupdate",
+	mid = $('#mid').val(),
+	bid = $('#bid').val(),
+	count = $('#likecheck').val(),
+	data = {"ltmid" : mid,
+			"ltbid" : bid,
+			"count" : count};
+	
+$.ajax({
+	url : root + likeurl,
+	type : 'POST',
+	data : JSON.stringify(data),
+	success : function(result){
+		console.log("수정" + result.result);
+		if(count == 1){
+			console.log("좋아요 취소");
+			 $('#likecheck').val(0);
+			 $('#likebtn').attr('class','btn btn-light');
+			 $('#likebtn').css('background-color', 'white');
+		}else if(count == 0){
+			console.log("좋아요!");
+			$('#likecheck').val(1);
+			$('#likebtn').attr('class','btn btn-danger');
+			$('#likebtn').css('background-color', '#db0d36');
+		}
+	}, error : function(request,status,error){
+		console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+	}
+	
+	});
+};
+
+function getContextPath() {
+    var hostIndex = location.href.indexOf( location.host ) + location.host.length;
+    return location.href.substring( hostIndex, location.href.indexOf('/', hostIndex + 1) );
+} 
+
 	let form = $("#infoForm2");
 	
 	

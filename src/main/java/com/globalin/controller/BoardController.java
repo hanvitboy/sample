@@ -77,7 +77,7 @@ public class BoardController {
 	
 	/* 게시글 조회 */
 	@GetMapping("/get")
-	public void boardGetPageGET(int bno, Model model, Criteria cri, HttpSession session) throws Exception {
+	public String boardGetPageGET(int bno, Model model, Criteria cri, HttpSession session) throws Exception {
 		MemberVO mem = (MemberVO) session.getAttribute("login_user");
 		
 		
@@ -85,24 +85,33 @@ public class BoardController {
 		model.addAttribute("pageInfo", service.getpage(bno));
 		model.addAttribute("cri",cri);
 		
-//		LikeVO likebean = new LikeVO();
-//		likebean.setItbid(bno);
-//		likebean.setItmid(mem.getId());
-//		
-//		int ltlike = 0;
-//		
-//		int check = likeservice.ltlikecount(likebean);
-//		
-//		if(check ==0) {
-//			
-//			likeservice.likeinsert(likebean);
-//			
-//		}else if(check==1) {
-//			
-//			ltlike = likeservice.ltlikegetinfo(likebean);
-//		}
-//		
-//		model.addAttribute("ltlike",ltlike);	
+		LikeVO likebean = new LikeVO();
+		likebean.setLtbid(bno);
+		try {
+			if(mem!=null) {
+				likebean.setLtmid(mem.getId());
+			}else {
+				return "redirect:/home";
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		int ltlike = 0;
+		
+		int check = likeservice.ltlikecount(likebean);
+		log.info("wtf "+check);
+		if(check ==0) {
+			
+			likeservice.likeinsert(likebean);
+			
+		}else if(check==1) {
+			
+			ltlike = likeservice.ltlikegetinfo(likebean);
+		}
+		
+		model.addAttribute("ltlike",ltlike);	
+		return null;
 		
 	}
 	

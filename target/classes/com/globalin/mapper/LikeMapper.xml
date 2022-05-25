@@ -20,7 +20,14 @@
 	
 	<update id="likeupdate" parameterType="com.globalin.domain.LikeVO">
 		update liketable
-		set <include refid="cal"></include>
+		set 
+		<if test="count == 1">
+			ltlike = 0
+		</if> 
+		
+		<if test="count == 0">
+			ltlike = ltlike + 1 
+		</if>
 		where ltmid=#{ltmid} and ltbid=#{ltbid}
 	</update>
 	
