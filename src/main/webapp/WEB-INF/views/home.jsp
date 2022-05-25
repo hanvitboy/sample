@@ -404,14 +404,14 @@ font-size: 12px;
               <div class="nav">
                 <ul>
                 <form class="actionForm" method="post">
-                  <a id="calo" class="nav-list" href="#"><li>체중관리</li></a>
+                  <a id="calo" class="nav-list" href="#"><li>体重管理</li></a>
                   </form>
                  
-                  <a class="nav-list" href="#"><li>운동도우미</li></a>
+                  <a class="nav-list" href="#"><li>献立管理</li></a>
                   
-                  <a class="nav-list" href="#"><li>음식</li></a>
+                  <a class="nav-list" href="#"><li>運動情報</li></a>
                	
-               	<a id="nav-listboard" class="nav-list" href="#"><li>자유게시판</li></a>
+               	<a id="nav-listboard" class="nav-list" href="#"><li>掲示板</li></a>
                	
                 </ul>
               </div>
@@ -476,8 +476,8 @@ font-size: 12px;
         <div class="row">
           <div class="col-12">
             <div class="main-title">
-              <h1>당신의 몸을 생각하며 만들었습니다.</h1>
-              <p>당신의 몸상태를 체크하세요.</p>
+              <h1>あなたの豊かなライフのために…</h1>
+              <p>あなたの体をチェックしてみてください。</p>
             </div>
           </div>
         </div>
@@ -488,12 +488,14 @@ font-size: 12px;
       <div class="main-info">
         <div data-aos="fade-right">
           <div class="main-info-explain">
-            <h1>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</h1>
+            <h1>理論上、1kgの体重減量をするためには7000カロリーを減らさなければなりません。</h1>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis
-              qui, animi consequatur cumque iste accusantium! Labore ea
-              reiciendis at quod totam. Tempora quidem eius soluta? Adipisci
-              ipsum veniam molestias vitae?
+              急激な減量は体に良くないので、基本一週間あたり0.5kgの減量をお勧めします。
+つまり1週間3500kcal、一日500kcalを減らしたほうが良いです。
+しかし、摂取量だけで500kcalを減らすと栄養不足、空腹感が激しくなる可能性があります。
+なので、運動で消耗するカロリーは増やし、食べ物で増されるカロリーは減らすことを共に行うべきです。
+そんなあなたのためにカロリー計算をサポートします。
+
             </p>
             <div class="btn-area">
               <a class="btn-next" href="#" role="button">体重管理</a>
@@ -520,12 +522,9 @@ font-size: 12px;
         </div>
         <div data-aos="fade-down-left" data-aos-delay="100">
           <div class="main-info-explain">
-            <h1>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</h1>
+            <h1>自分の体に優しい食べ物</h1>
             <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Asperiores debitis eius nam illum doloremque. Molestiae voluptas
-              hic cum, tenetur nesciunt, laboriosam nemo quis provident quae
-              accusamus magnam, alias odit fugiat!
+              あなたの美しい体のために、健康的な食べ物情報を提供します。
             </p>
             <div class="btn-area">
               <a class="btn-next" href="#" role="button">献立管理</a>
@@ -539,15 +538,15 @@ font-size: 12px;
       <div class="main-info">
         <div data-aos="zoom-in">
           <div class="main-info-explain">
-            <h1>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</h1>
+            <h1>自分の体が喜ぶ運動法</h1>
             <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Asperiores debitis eius nam illum doloremque. Molestiae voluptas
-              hic cum, tenetur nesciunt, laboriosam nemo quis provident quae
-              accusamus magnam, alias odit fugiat!
+             
+正しくない姿勢でする運動は体に逆効果を与える可能性があります。
+また、同じ部位の運動ばかりすると身体がアンバランスになります。
+素敵なあなたの体のために運動方法の映像を提供します。
             </p>
             <div class="btn-area">
-              <a class="btn-next" href="#" role="button">運動サポート</a>
+              <a class="btn-next" href="#" role="button">運動情報</a>
             </div>
           </div>
         </div>
@@ -570,8 +569,8 @@ font-size: 12px;
         </p>
       </div>
       <div class="number">
-        <p>이용약관</p>
-        <p>문의:010-0000-0000</p>
+        <p>利用規約</p>
+        <p>問い合わせ:090-0000-0000</p>
       </div>
     </footer>
 

@@ -2,10 +2,10 @@
   box-sizing: border-box;
   margin: 0;
   }
-  
   body {
   font-family: "DM Sans", sans-serif;
-  }
+  font-family: "Noto Sans JP", sans-serif;
+}
   
   /* Reset CSS */
   a {
@@ -36,6 +36,9 @@
   list-style-type: none;
   padding-left: 0;
   margin-left: 0;
+  
+  font-family: "Noto Sans JP", sans-serif;
+
   }
   
   /* header */
