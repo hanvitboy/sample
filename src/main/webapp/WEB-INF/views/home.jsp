@@ -659,7 +659,7 @@ font-size: 12px;
             		})
             		$("#nav-listboard").on("click",function(e){
             			e.preventDefault();
-            			actionForm.attr("action", "/controller/boardpage").attr("method", "post");
+            			actionForm.attr("action", "/controller/board/boardpage").attr("method", "get");
             			actionForm.submit();
             		})
             	})

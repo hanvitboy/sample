@@ -86,14 +86,12 @@ textarea{
 		<a class="btn" id="modify_btn">수정 완료</a>
 		<a class="btn" id="delete_btn">삭제</a>
 		<a class="btn" id="cancel_btn">수정 취소</a>
-		
-	
-	
-	
 	</div>	
 	</form>
-	<form id="infoForm" action="" method="post">
+	<form id="infoForm" action="" method="get">
 		<input type="hidden" id="bno" name="bno" value='<c:out value="${pageInfo.bno }"/>'>
+		<input type="hidden" name="pageNum" value='<c:out value="${cri.pageNum }"/>'> 
+		<input type="hidden" name="amount" value='<c:out value="${cri.amount }"/>'> 
 	</form>		
 	
 <script>
@@ -105,7 +103,7 @@ textarea{
     $("#list_btn").on("click", function(e){
     	e.preventDefault();
         
-        form.attr("action", "/controller/boardpage");
+        form.attr("action", "/controller/board/boardpage");
         form.submit();
     });
     

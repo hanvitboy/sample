@@ -25,6 +25,9 @@ public interface BoardMapper {
 	// 리스트가져오기(페이징 처리)
 	public List<BoardVO> getListPaging(Criteria cri);
 	
+	// 조회수 체크
 	public void boardHit(int bno) throws Exception;
 
+	// 전체 게시글 갯수 
+	public int getTotal();
 }

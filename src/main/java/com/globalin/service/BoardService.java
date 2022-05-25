@@ -3,6 +3,7 @@ package com.globalin.service;
 import java.util.List;
 
 import com.globalin.domain.BoardVO;
+import com.globalin.domain.Criteria;
 
 public interface BoardService {
 	
@@ -18,9 +19,15 @@ public interface BoardService {
 	// 삭제하기
 	public boolean remove(int bno);
 	
-	// 리스트가져오기
+	// 리스트가져오기(임시)
 	public List<BoardVO> getList();
 	
+	// 리스트가져오기 (페이징처리)
+	public List<BoardVO> getListPaging(Criteria cri);
+	
+	// 조회수 체크
 	public void boardHit(int bno) throws Exception;
-
+	
+	// 전체 게시글 갯수 
+	public int getTotal();
 }

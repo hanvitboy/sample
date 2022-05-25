@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.globalin.domain.BoardVO;
+import com.globalin.domain.Criteria;
 import com.globalin.mapper.BoardMapper;
 
 @Service
@@ -21,7 +22,6 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public BoardVO getpage(int bno) throws Exception {
 		log.info("get...");
-		//mapper.boardHit(bno);
 		return mapper.getpage(bno);
 	}
 
@@ -60,6 +60,18 @@ public class BoardServiceImpl implements BoardService {
 	public void boardHit(int bno) throws Exception {
 		log.info("boardHit...");
 		mapper.boardHit(bno);
+	}
+
+	@Override
+	public List<BoardVO> getListPaging(Criteria cri) {
+		log.info("getListPaging...");
+		return mapper.getListPaging(cri);
+	}
+
+	@Override
+	public int getTotal() {
+		log.info("getTotal...");
+		return mapper.getTotal();
 	}
 
 }

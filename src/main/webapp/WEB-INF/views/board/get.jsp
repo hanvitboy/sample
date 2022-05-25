@@ -83,23 +83,31 @@ textarea{
 	</div>		
 	<div class="btn_wrap">
 		<a class="btn" id="list_btn">목록 페이지</a>
-		<form id="infoForm" method="get">
+		<form id="infoForm1" method="get">
 		<input type="hidden" id="bno" name="bno" value='<c:out value="${pageInfo.bno}"/>'>
 		</form>
 	</div> 	
 		<c:if test="${login_user.name eq pageInfo.writer}"> 
 		<a class="btn" id="modify_btn">수정 하기</a>
-	<form id="infoForm" action="/board/modify" >
+		</c:if>
+	<form id="infoForm2" action="/board/modify" method="get" >
+		<input type="hidden" id="bno" name="bno" value='<c:out value="${pageInfo.bno }"/>'>
+		<input type="hidden" name="pageNum" value='<c:out value="${cri.pageNum }"/>'>
+		<input type="hidden" name="amount" value='<c:out value="${cri.amount }"/>'> 
+			
 	</form>
-	</c:if>
+	
+	
 <script>
-	let form = $("#infoForm");
+	let form = $("#infoForm2");
+	
 	
 	$("#list_btn").on("click", function(e){
 		
-		<!--form.find("#bno").remove();-->
-		form.attr("action", "/controller/boardpage");
+		form.find("#bno").remove();
+		form.attr("action", "/controller/board/boardpage");
 		form.submit();
+		
 	});
 	
 	$("#modify_btn").on("click", function(e){

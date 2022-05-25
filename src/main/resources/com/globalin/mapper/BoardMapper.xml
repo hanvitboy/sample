@@ -4,59 +4,73 @@
 
 	<!-- 하나 가져오기 -->
 	<select id="getpage" resultType="com.globalin.domain.BoardVO">
-		select * from tbl_board where
-		bno=#{bno}
+		SELECT * 
+		FROM tbl_board 
+		WHERE bno=#{bno}
+		
 	</select>
 	
 	<!-- 삽입하기 -->
 	<insert id="insert" parameterType="com.globalin.domain.BoardVO">
-		insert into tbl_board (bno,title, content, writer)
-		values
-		(seq_board.nextval,#{title}, #{content},#{writer})
+		INSERT INTO tbl_board (bno,title, content, writer)
+		VALUES (seq_board.nextval,#{title},#{content},#{writer})
+		
 	</insert>
 	
 	<!-- 삭제하기 -->
 	<delete id="delete">
-		delete from tbl_board where bno=#{bno}
+		DELETE FROM tbl_board
+		WHERE bno=#{bno}
+		
 	</delete>
 	
 	<!-- 수정하기 -->
 	<update id="update">
-		update tbl_board 
-		set title=#{title},content=#{content},writer=#{writer},updateDate =sysdate
-		where bno=#{bno}
+		UPDATE tbl_board 
+		SET title=#{title},content=#{content},writer=#{writer},updateDate =sysdate
+		WHERE bno=#{bno}
+		
 	</update>
 
 	<!-- 리스트가져오기 -->
-	<select id="getList" resultType="com.globalin.domain.BoardVO">
-		select * from tbl_board 
-		where bno > 0
-		order by bno desc
+	<select id="getList" resultType="com.globalin.domain.BoardVO">	
+		SELECT * 
+		FROM tbl_board 
+		WHERE bno > 0
+		ORDER BY bno DESC
+				
 	</select>
 	
 	<!-- 리스트가져오기 (페이징 처리) -->
-	<select id="getListPaging" resultType="com.globalin.domain.BoardVO">
-    
+	<select id="getListPaging" resultType="com.globalin.domain.BoardVO">    
     <![CDATA[
         
-        select bno, title, content, writer, regdate, updatedate, hit from(
-        
-                select /*+INDEX_DESC(vam_board pk_board) */ rownum  as rn, bno, title, content, writer, regdate, updatedate, hit
-                  
-                from tbl_board where rownum <= #{pageNum} * #{amount}) 
+        SELECT bno, title, content, writer, regdate, updatedate, hit
+        FROM(
+        	SELECT /*+INDEX_DESC(tbl_board) */ rownum  as rn, bno, title, content, writer, regdate, updatedate, hit
+            FROM tbl_board
+            WHERE rownum <= #{pageNum} * #{amount}
+            ) 
                 
-        where rn > (#{pageNum} -1) * #{amount}
+        WHERE rn > (#{pageNum} -1) * #{amount}
     
     ]]>
+    
     </select>
 	
 	<!-- 게시판 조회수 -->
-    <update id="boardHit" parameterType="int">
-    	UPDATE tbl_board SET
-    	HIT = HIT+1
+    <update id="boardHit" parameterType="int">    
+    	UPDATE tbl_board 
+    	SET hit = hit+1
     	WHERE BNO = #{bno}
+    	
     </update>
     
-   
+    <!-- 전체 게시글 갯수 -->
+   <select id="getTotal" resultType="int">    
+        SELECT count(*)
+        FROM tbl_board
+    
+    </select>
 
 </mapper>

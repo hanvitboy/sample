@@ -50,11 +50,7 @@ public class CommonController {
 		
 	}
 	
-	@RequestMapping("/listpage")  
-	public void listpage(Model model) {
-		model.addAttribute("list", service.getList());
-		
-	}
+
 	@PostMapping("/findpwpage")
 	public void findpwpage() {
 		
