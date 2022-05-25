@@ -53,10 +53,10 @@ public class CommonController {
 
 	@PostMapping("/findpwpage")
 	public void findpwpage() {
-		
-		
-	
 	}
+
+	@RequestMapping("/diet")
+	public void diet() {}
 	
 	@PostMapping("/home")
 	public void homepage() {

@@ -1,0 +1,220 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+}
+
+/* Reset CSS */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+}
+
+button:focus,
+button:active,
+input:focus,
+input:active,
+textarea:focus,
+textarea:active {
+  outline: none;
+  box-shadow: none;
+}
+
+ol,
+ul,
+li {
+  list-style-type: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+/* food-main */
+.food-main {
+  width: 100%;
+  height: 60vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url(https://c.wallhere.com/photos/2a/5e/food_vegetables_tomatoes_salad_Pepper_Garlic_Paprika-1949021.jpg!d);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.food-title {
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.food-title h1 {
+  font-size: 40px;
+}
+
+.food-text {
+  display: flex;
+  justify-content: space-between;
+}
+
+.food-text p {
+  border: 1px;
+}
+
+/* food-about */
+.food-information {
+  background-color: #424242;
+}
+
+.food-about {
+  display: flex;
+  height: 80vh;
+  background-color: #202020;
+}
+
+.food-desc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 600px;
+}
+
+.food-desc span {
+  color: #f7ca18;
+  font-size: 18px;
+}
+
+.food-desc h1 {
+  color: rgb(187, 187, 187);
+  font-size: 30px;
+  margin-bottom: 5px;
+}
+
+.food-desc p {
+  color: #fff;
+  font-size: 20px;
+}
+
+.food-wrap {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  max-height: auto;
+}
+
+.btn-area .btn-next {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 33px;
+  line-height: 40px;
+  border: 2px solid #f7ca18;
+  border-radius: 5px;
+  margin: 15px auto;
+  font-size: 15px;
+  text-align: center;
+  cursor: pointer;
+  color: rgb(187, 187, 187);
+  transition: all 0.9s, color 0.3;
+}
+
+.btn-area .btn-next:hover {
+  color: #fff;
+  box-shadow: 200px 0 0 0 #f7ca18 inset;
+  background-color: #f7ca18;
+  transition: all 0.5s;
+}
+
+.food-wrap img {
+  display: block;
+  width: 400px;
+  height: auto;
+  animation: up-down 1.4s infinite ease-in-out alternate;
+}
+
+@keyframes up-down {
+  form {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-20px);
+  }
+}
+
+/* food-information */
+.food-information {
+  width: 100%;
+  padding: 40px;
+}
+
+.food-card-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.food-card-title span {
+  color: #f7ca18;
+}
+
+.food-card-title h2 {
+  color: rgb(187, 187, 187);
+}
+
+.food-cards {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.card {
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 400px;
+  height: 500px;
+  border-radius: 5px;
+  overflow: hidden;
+  transition-duration: 1s;
+}
+
+.card:hover {
+  transform: scale(1.04);
+  transition: all 1s;
+}
+
+.card:hover h3 {
+  color: #f7ca18;
+  transition: all 1s;
+}
+
+.card img {
+  display: block;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.card h3 {
+  color: rgb(187, 187, 187);
+  margin-bottom: 8px;
+  font-size: 23px;
+}
+
+.card p {
+  color: #fff;
+}
+
+.card-content {
+  padding: 20px 20px 25px;
+}

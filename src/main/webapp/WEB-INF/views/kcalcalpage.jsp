@@ -475,7 +475,7 @@ $(document).ready(function() {
              <div class="header-right">
          <c:if test="${not empty login_user.name}">
          <div class="message">
-	<span>Welcome, ${login_user.name}<i class="fas fa-birthday-cake"></i></span>
+	<span>Welcome, ${login_user.name}様<i class="fas fa-birthday-cake"></i></span>
 	</div> </c:if>
 <c:if test="${not empty login_user.name}">
 </c:if>
@@ -1321,31 +1321,34 @@ $(document).ready(function() {
       
       <div class="exampleBox">
       <div class="recommendedKcal">
-        <span>一日摂取可能量:</span> <input type="text" id="kcalFromBack1" value="${login_user.onedaykcal}" readonly/>
+         <span>結果値がプラスならダイエット成功</span>
+      </div>
+      <div class="recommendedKcal">
+        <span>１回目やせたカロリー</span> <input type="text" id="kcalFromBack1" value="${user_kcal.d1}"   <c:if test='${user_kcal.next == 2}'>style="background-color: #f7ca18;"</c:if> readonly/>
         <span>kcals</span>
       </div>
       <div class="TodayKcal">
-        <span>まだ食べれるカロリー:</span> <input type="text" id="kcalFromBack2" name="cal" value="${login_user.onedaykcal}" readonly/>
+        <span>２回目やせたカロリー</span> <input type="text" id="kcalFromBack2" name="cal" value="${user_kcal.d2}"   <c:if test='${user_kcal.next == 3}'>style="background-color: #f7ca18;"</c:if> readonly/>
         <span>kcals</span>
       </div>
       <div class="TodayKcal">
-        <span>まだ食べれるカロリー:</span> <input type="text" id="kcalFromBack2" name="cal" value="${login_user.onedaykcal}" readonly/>
+        <span>３回目やせたカロリー</span> <input type="text" id="kcalFromBack2" name="cal" value="${user_kcal.d3}"   <c:if test='${user_kcal.next == 4}'>style="background-color: #f7ca18;"</c:if>  readonly/>
         <span>kcals</span>
       </div>
       <div class="TodayKcal">
-        <span>まだ食べれるカロリー:</span> <input type="text" id="kcalFromBack2" name="cal" value="${login_user.onedaykcal}" readonly/>
+        <span>４回目やせたカロリー</span> <input type="text" id="kcalFromBack2" name="cal" value="${user_kcal.d4}"   <c:if test='${user_kcal.next == 5}'>style="background-color: #f7ca18;"</c:if> readonly/>
         <span>kcals</span>
       </div>
       <div class="TodayKcal">
-        <span>まだ食べれるカロリー:</span> <input type="text" id="kcalFromBack2" name="cal" value="${login_user.onedaykcal}" readonly/>
+        <span>５回目やせたカロリー</span> <input type="text" id="kcalFromBack2" name="cal" value="${user_kcal.d5}"   <c:if test='${user_kcal.next == 6}'>style="background-color: #f7ca18;"</c:if> readonly/>
         <span>kcals</span>
       </div>
       <div class="TodayKcal">
-        <span>まだ食べれるカロリー:</span> <input type="text" id="kcalFromBack2" name="cal" value="${login_user.onedaykcal}" readonly/>
+        <span>６回目やせたカロリー</span> <input type="text" id="kcalFromBack2" name="cal" value="${user_kcal.d6}"    <c:if test='${user_kcal.next == 7}'>style="background-color: #f7ca18;"</c:if> readonly/>
         <span>kcals</span>
       </div>
       <div class="TodayKcal">
-        <span>まだ食べれるカロリー:</span> <input type="text" id="kcalFromBack2" name="cal" value="${login_user.onedaykcal}" readonly/>
+        <span>７回目やせたカロリー</span> <input type="text" id="kcalFromBack2" name="cal" value="${user_kcal.d7}"   <c:if test='${user_kcal.next == 1}'>style="background-color: #f7ca18;"</c:if> readonly/>
         <span>kcals</span>
       </div>
    
@@ -1405,7 +1408,7 @@ $(document).ready(function() {
             		})
             		$("#nav-listboard").on("click",function(e){
             			e.preventDefault();
-            			actionForm.attr("action", "/controller/boardpage").attr("method", "post");
+            			actionForm.attr("action", "/controller/board/boardpage").attr("method", "get");
             			actionForm.submit();
             		})
             	})

@@ -407,7 +407,7 @@ font-size: 12px;
                   <a id="calo" class="nav-list" href="#"><li>体重管理</li></a>
                   </form>
                  
-                  <a class="nav-list" href="#"><li>献立管理</li></a>
+                  <a class="nav-list" href="http://localhost:9090/controller/"><li>献立管理</li></a>
                   
                   <a class="nav-list" href="#"><li>運動情報</li></a>
                	
@@ -419,7 +419,7 @@ font-size: 12px;
              <div class="header-right">
          <c:if test="${not empty login_user.name}">
          <div class="message">
-	<span>Welcome, ${login_user.name}<i class="fas fa-birthday-cake"></i></span>
+	<span>Welcome, ${login_user.name}様<i class="fas fa-birthday-cake"></i></span>
 	</div> </c:if>
 <c:if test="${not empty login_user.name}">
 </c:if>
@@ -458,8 +458,8 @@ font-size: 12px;
         <div class="weather loading">
           <div class="weatherBox">
             <div class="weather-info-box">
-              <div class="city">Weather in Denver</div>
-              <div class="temp">51°C</div>
+              <div class="city">Weather in Tokyo</div>
+              <div class="temp">35°C</div>
             </div>
             <div class="condition-box">
               <img
@@ -614,7 +614,7 @@ font-size: 12px;
  		  
  		    ;
  		  
- 		  weather.fetchWeather("Seoul");
+ 		  weather.fetchWeather("Tokyo");
  		  
  		
  		  

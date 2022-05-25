@@ -71,7 +71,7 @@ public class MemberController {
 	 	service2.register(mv);
 	 	resp.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = resp.getWriter();
-		out.println("<script>alert('회원가입을 환영합니다!'); </script>");
+		out.println("<script>alert('ご加入ありがとうございます。'); </script>");
 		out.flush();
 		
 		String id = req.getParameter("id");
@@ -85,7 +85,7 @@ public class MemberController {
 	}
 	
 	@PostMapping("/savekcal")
-	public String savekcal(HttpServletRequest req, HttpSession session) {
+	public String savekcal(HttpServletRequest req, HttpServletResponse resp, HttpSession session) throws IOException {
 	
 		MemberRecVO mv = (MemberRecVO)session.getAttribute("user_kcal");
 		//MemberVO member = (MemberVO) session.getAttribute("login_user");
@@ -124,25 +124,42 @@ public class MemberController {
 
 		service2.modify(mv);
 		
+		int result = 0;
+		if(mv.getNext()==1) 
+			{result = 7;}
+				else{
+				result=	mv.getNext()-1;}
+				
+		
+		resp.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = resp.getWriter();
+		out.println("<script>alert('"+result+"回目のスロットにカロリーデーターを保存しました!'); </script>");
+		out.flush();
+		
+		
 		return "kcalcalpage";
 	}
   
 	
  
  @PostMapping("/modify")
-	public String modify(MemberVO member, MemberRecVO mv, HttpServletRequest req, HttpSession session) {
+	public String modify(MemberVO member, MemberRecVO mv, HttpServletRequest req, HttpSession session,HttpServletResponse resp) throws IOException {
 	    String id = req.getParameter("id");
 		String pw = req.getParameter("pw");
 		
 		
 		service.modify(member);
-	
-		
-	
 		MemberVO mem = service.login(id, pw);
 		MemberRecVO mv2 = service2.get(mem.getIdx());
 		session.setAttribute("user_kcal", mv2);
 		session.setAttribute("login_user", mem);
+	
+		resp.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = resp.getWriter();
+		out.println("<script>alert('ユーザー情報を更新しました。'); </script>");
+		out.flush();
+		
+		
 		return "home";
 			
 	}
@@ -150,11 +167,16 @@ public class MemberController {
  
  
 	@PostMapping("/withdraw")
-	public String remove(HttpSession session) throws Exception
+	public String remove(HttpSession session, HttpServletResponse resp) throws Exception
 	{	MemberVO member = (MemberVO) session.getAttribute("login_user");
 		
 		service.remove(member.getId());
+		service2.remove(member.getIdx());
 		session.invalidate();
+		resp.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = resp.getWriter();
+		out.println("<script>alert('本日までどうもありがとうございました。'); </script>");
+		out.flush();
 		
 		return "home";
 	}
@@ -175,7 +197,7 @@ public class MemberController {
 			//없는데?
 			resp.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = resp.getWriter();
-			out.println("<script>alert('다시 확인해주세요');</script>");
+			out.println("<script>alert('IDとPWをもう一度確認お願いします。');</script>");
 			out.flush();
 			return "loginpage";
 		}
@@ -196,14 +218,14 @@ public class MemberController {
 			//id,pw가 검증되었다면
 			MemberRecVO mv2 = service2.get(mem.getIdx());
 			session.setAttribute("login_user", mem);
-			session.setAttribute("user_kcal", mv);
+			session.setAttribute("user_kcal", mv2);
 			
 			log.warn(mem.toString());			
 		}else {
 			//없는데?
 			resp.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = resp.getWriter();
-			out.println("<script>alert('다시 확인해주세요');</script>");
+			out.println("<script>alert('IDとPWをもう一度確認お願いします。');</script>");
 			out.flush();
 			return "loginpage2";
 		}
@@ -224,14 +246,14 @@ public class MemberController {
 			log.info("Member Exist");
 			resp.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = resp.getWriter();
-			out.println("<script>alert('"+ mem.getName()+"님의 비밀번호 : "+ mem.getPw() +"');</script>");
+			out.println("<script>alert('"+ mem.getName()+"様の暗証番号 : "+ mem.getPw() +"');</script>");
 			out.flush();
 			return "loginpage";
 		}else {
 			//없는디? 
 			resp.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = resp.getWriter();
-			out.println("<script>alert('일치하는 정보가 없습니다'); </script>");
+			out.println("<script>alert('一致する情報がありません。'); </script>");
 			out.flush();
 			return "findpwpage";
 		}
