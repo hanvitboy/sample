@@ -4,6 +4,7 @@ import java.io.UnsupportedEncodingException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,8 +18,12 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.globalin.domain.BoardVO;
 import com.globalin.domain.Criteria;
+import com.globalin.domain.LikeVO;
+import com.globalin.domain.MemberVO;
 import com.globalin.domain.pageMakerDTO;
 import com.globalin.service.BoardService;
+import com.globalin.service.LikeService;
+import com.globalin.service.MemberService;
 
 @Controller
 @RequestMapping("/board/*")
@@ -26,6 +31,12 @@ public class BoardController {
 	
 	@Autowired
 	private BoardService service;
+	
+	@Autowired
+	private MemberService mservice;
+	
+	@Autowired
+	private LikeService likeservice;
 	
 	private static Logger log = LoggerFactory.getLogger(BoardController.class);
 	/* 게시글 리스트 페이지 접속(임시) */
@@ -66,11 +77,32 @@ public class BoardController {
 	
 	/* 게시글 조회 */
 	@GetMapping("/get")
-	public void boardGetPageGET(int bno, Model model, Criteria cri) throws Exception {
+	public void boardGetPageGET(int bno, Model model, Criteria cri, HttpSession session) throws Exception {
+		MemberVO mem = (MemberVO) session.getAttribute("login_user");
+		
 		
 		service.boardHit(bno);
 		model.addAttribute("pageInfo", service.getpage(bno));
 		model.addAttribute("cri",cri);
+		
+//		LikeVO likebean = new LikeVO();
+//		likebean.setItbid(bno);
+//		likebean.setItmid(mem.getId());
+//		
+//		int ltlike = 0;
+//		
+//		int check = likeservice.ltlikecount(likebean);
+//		
+//		if(check ==0) {
+//			
+//			likeservice.likeinsert(likebean);
+//			
+//		}else if(check==1) {
+//			
+//			ltlike = likeservice.ltlikegetinfo(likebean);
+//		}
+//		
+//		model.addAttribute("ltlike",ltlike);	
 		
 	}
 	

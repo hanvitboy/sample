@@ -27,7 +27,10 @@
 	<!-- 수정하기 -->
 	<update id="update">
 		UPDATE tbl_board 
-		SET title=#{title},content=#{content},writer=#{writer},updateDate =sysdate
+		SET title=#{title},
+			content=#{content},
+			writer=#{writer},
+			updateDate =sysdate
 		WHERE bno=#{bno}
 		
 	</update>
@@ -71,6 +74,6 @@
         SELECT count(*)
         FROM tbl_board
     
-    </select>
+   </select>
 
 </mapper>

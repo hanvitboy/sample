@@ -81,22 +81,24 @@ textarea{
 		<label>게시판 수정일</label>
 		<input name="updateDate" readonly="readonly" value='<fmt:formatDate pattern="yyyy/MM/dd" value="${pageInfo.updateDate}"/>' >
 	</div>
-	<!-- 추천 기능 -->
+	
+	<c:if test="${login_user.id == null }">
+	<img src="/resources/img/좋아요전.png" id="likeimg" width="60px" height="60px"
+		class="rounded-circle mt-2">
+		${b.like_count} <br><br>
+	추천 기능은 <a href="/member/login" type="button" id="newLogin"
+	class="btn btn-outline-success">로그인</a> 후 사용 가능합니다.
+	</c:if>
+	<c:if test="${login_user.id != null}">
 		<div>
-			<div class="w3-border w3-center w3-padding">
-				<c:if test="${ login_user.name == null }">
-					추천 기능은 <button type="button" id="newLogin"><b class="w3-text-blue">로그인</b></button> 후 사용 가능합니다.<br />
-					<i class="fa fa-heart" style="font-size:16px;color:red"></i>
-					<span class="rec_count"></span>					
-				</c:if>
-				<c:if test="${ login_user.name != null }">
-					<button class="w3-button w3-black w3-round" id="rec_update">
-						<i class="fa fa-heart" style="font-size:16px;color:red"></i>
-						&nbsp;<span class="rec_count"></span>
-					</button> 
-				</c:if>
-			</div>
-		</div>		
+	<input type="hidden" id="like_check" value="${like.like_check}">
+	<img class="rounded-circle likeimg" id="likeimg" src="/resources/img/좋아요전.png"
+	width="60px" height="60px"> ${b.like_count}
+	</div>
+	</c:if>
+	
+	
+	
 	<div class="btn_wrap">
 		<a class="btn" id="list_btn">목록 페이지</a>
 		<form id="infoForm1" method="get">

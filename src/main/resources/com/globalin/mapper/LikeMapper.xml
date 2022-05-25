@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.globalin.mapper.LikeMapper">
+
+ <select id="ltlikecount" resultType="Integer" parameterType="com.globalin.domain.LikeVO">
+		select count(ltlike)
+		from liketable
+		where ltmid=#{ltmid}
+			and ltbid=#{ltbid}
+	</select>
+	
+	<insert id="likeinsert" parameterType="com.globalin.domain.LikeVO">
+		INSERT INTO liketable(ltmid,ltbid)
+		values (#{ltmid},#{ltbid})
+	</insert>
+	
+	<select id="ltlikegetinfo" resultType="Integer" parameterType="com.globalin.domain.LikeVO">
+		select ltlike from liketable where ltmid=#{ltmid} and ltbid=#{ltbid}
+	</select>
+	
+	<update id="likeupdate" parameterType="com.globalin.domain.LikeVO">
+		update liketable
+		set <include refid="cal"></include>
+		where ltmid=#{ltmid} and ltbid=#{ltbid}
+	</update>
+	
+	<sql id="cal">
+		<if test="count == 1">
+			ltlike = 0
+		</if> 
+		
+		<if test="count == 0">
+			ltlike = ltlike + 1 
+		</if>
+	</sql>
+	</mapper>
