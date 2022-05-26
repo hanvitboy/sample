@@ -71,6 +71,7 @@
 								<th>UPDATEDATE</th>
 								<th>REPLYCOUNT</th>
 								<th>Hit</th>
+								<th>좋아요</th>
 							</tr>
 						</thead>
 
@@ -90,6 +91,7 @@
 								<td><fmt:formatDate pattern="yyyy/MM/dd"
 										value="${board.updateDate }" /></td>
 								<td><c:out value="${board.hit }" /></td>
+								<td><c:out value="${board.like_count }" /></td>
 
 							</tr>
 

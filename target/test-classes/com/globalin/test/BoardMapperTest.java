@@ -31,7 +31,7 @@ public class BoardMapperTest {
          
          cri.setPageNum(1);
                           
-         log.info(mapper.getListPaging(cri).toString());
+         //log.info(mapper.getListPaging(cri).toString());
          
      }
 

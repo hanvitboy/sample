@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.globalin.domain.BoardVO;
 import com.globalin.domain.Criteria;
+import com.globalin.domain.LikeVO;
 
 public interface BoardService {
 	
@@ -30,4 +31,10 @@ public interface BoardService {
 	
 	// 전체 게시글 갯수 
 	public int getTotal();
+	
+	//좋아요 체크+1
+	public int likeTotal(int bno);
+	
+	//좋아요 체크-1
+	public int likeTotalM(int bno);
 }

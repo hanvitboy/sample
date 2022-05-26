@@ -2,8 +2,11 @@ package com.globalin.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.globalin.domain.BoardVO;
 import com.globalin.domain.Criteria;
+import com.globalin.domain.LikeVO;
 
 public interface BoardMapper {
 
@@ -30,4 +33,10 @@ public interface BoardMapper {
 
 	// 전체 게시글 갯수 
 	public int getTotal();
+	
+	// 전체 좋아요 갯수 +1
+	public int likeTotal(int bno);
+	
+	// 전체 좋아요 갯수 +1
+	public int likeTotalM(int bno);
 }
