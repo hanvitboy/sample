@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.globalin.domain.BoardVO;
 import com.globalin.domain.Criteria;
+import com.globalin.domain.LikeVO;
 import com.globalin.mapper.BoardMapper;
 
 @Service
@@ -72,6 +73,18 @@ public class BoardServiceImpl implements BoardService {
 	public int getTotal() {
 		log.info("getTotal...");
 		return mapper.getTotal();
+	}
+
+	@Override
+	public int likeTotal(int bno) {
+		log.info("likeTotal...");
+		return mapper.likeTotal(bno);
+	}
+
+	@Override
+	public int likeTotalM(int bno) {
+		log.info("likeTotalM...");
+		return mapper.likeTotalM(bno);
 	}
 
 }

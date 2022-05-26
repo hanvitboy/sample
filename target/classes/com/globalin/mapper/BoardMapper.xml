@@ -4,7 +4,15 @@
 
 	<!-- 하나 가져오기 -->
 	<select id="getpage" resultType="com.globalin.domain.BoardVO">
-		SELECT * 
+		SELECT BNO,
+			   TITLE,
+			   CONTENT,
+		 	   WRITER,
+		   	   REGDATE,
+			   UPDATEDATE,
+			   REPLYCNT,
+			   HIT,
+			   LIKE_COUNT
 		FROM tbl_board 
 		WHERE bno=#{bno}
 		
@@ -44,13 +52,13 @@
 				
 	</select>
 	
-	<!-- 리스트가져오기 (페이징 처리) -->
+		<!-- 리스트가져오기 (페이징 처리) -->
 	<select id="getListPaging" resultType="com.globalin.domain.BoardVO">    
     <![CDATA[
         
-        SELECT bno, title, content, writer, regdate, updatedate, hit
+        SELECT bno, title, content, writer, regdate, updatedate, hit,like_count
         FROM(
-        	SELECT /*+INDEX_DESC(tbl_board) */ rownum  as rn, bno, title, content, writer, regdate, updatedate, hit
+        	SELECT /*+INDEX_DESC(tbl_board) */ rownum  as rn, bno, title, content, writer, regdate, updatedate, hit,like_count
             FROM tbl_board
             WHERE rownum <= #{pageNum} * #{amount}
             ) 
@@ -75,5 +83,20 @@
         FROM tbl_board
     
    </select>
+   
+   <!-- 게시판 총좋아요 +1 -->
+   <update id="likeTotal" parameterType="int">
+       UPDATE tbl_board 
+    	SET like_count = like_count+1
+    	WHERE BNO = #{bno}
+       
+   </update>
+   <!-- 게시판 총좋아요 -1 -->
+   <update id="likeTotalM" parameterType="int">
+       UPDATE tbl_board 
+    	SET like_count = like_count-1
+    	WHERE BNO = #{bno}
+       
+   </update>
 
 </mapper>

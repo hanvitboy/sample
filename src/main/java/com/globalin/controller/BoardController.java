@@ -47,8 +47,12 @@ public class BoardController {
 	
 	/* 게시글 리스트 페이지 접속(페이징 처리) */
     @GetMapping("/boardpage")
-    public void boardListGET(Model model, Criteria cri) {
+    public void boardListGET(Model model, Criteria cri, LikeVO lv) {
         
+    	lv = new LikeVO();
+    	
+    	System.out.println(lv);
+    	
         model.addAttribute("list",service.getListPaging(cri));
         int total = service.getTotal();        
         pageMakerDTO pm = new pageMakerDTO(cri, total);        
@@ -101,11 +105,13 @@ public class BoardController {
 		
 		int check = likeservice.ltlikecount(likebean);
 		log.info("wtf "+check);
+		//기존에 좋아요를 하지않았다면 ltlike 1
 		if(check ==0) {
-			
 			likeservice.likeinsert(likebean);
 			
-		}else if(check==1) {
+			
+		}//기존에 좋아요를 했다면 ltlike 0
+		else if(check==1) {
 			
 			ltlike = likeservice.ltlikegetinfo(likebean);
 		}

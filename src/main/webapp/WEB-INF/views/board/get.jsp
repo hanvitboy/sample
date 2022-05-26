@@ -134,17 +134,20 @@ function likeupdate(){
 $.ajax({
 	url : root + likeurl,
 	type : 'POST',
+	contentType: 'application/json',
 	data : JSON.stringify(data),
 	success : function(result){
 		console.log("수정" + result.result);
 		if(count == 1){
 			console.log("좋아요 취소");
 			 $('#likecheck').val(0);
+			 console.log($('#likecheck').val());
 			 $('#likebtn').attr('class','btn btn-light');
 			 $('#likebtn').css('background-color', 'white');
 		}else if(count == 0){
 			console.log("좋아요!");
 			$('#likecheck').val(1);
+			console.log($('#likecheck').val());
 			$('#likebtn').attr('class','btn btn-danger');
 			$('#likebtn').css('background-color', '#db0d36');
 		}
