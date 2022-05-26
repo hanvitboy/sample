@@ -233,6 +233,31 @@ public class MemberController {
 		return "kcalcalpage";
 	
 	}
+	
+	
+	@RequestMapping("/checkId")
+	public void checkId(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		
+		String id = req.getParameter("id");
+		MemberVO member = service.get(id);
+		String result = "";
+		if(member != null) {
+			//아이디중복 (사용불가)
+			result = "{\"result\" : false}";
+		}else {
+			//사용가능
+			result = "{\"result\" : true}";
+		}
+		resp.getWriter().print(result);
+		
+		
+		
+		
+	}
+	
+	
+	
+	
 	@PostMapping("/findpw")
 	public String findpw(HttpServletRequest req, HttpServletResponse resp, HttpSession session) throws Exception {
 		String id = req.getParameter("id");

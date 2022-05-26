@@ -1,8 +1,6 @@
 package com.globalin.controller;
 
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,15 +11,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.globalin.service.BoardService;
-import com.globalin.service.MemberService;
 
 
 @Controller
 @RequestMapping("/*")
 public class CommonController {
 	
-	@Autowired
-	private MemberService service;
 	
 	@Autowired
 	private BoardService bservice;
@@ -41,12 +36,13 @@ public class CommonController {
 	
 	@PostMapping("/withdrawalpage")
 	public void withdrawalpage() {
-		
 	}
+	
+	@RequestMapping("/training")
+	public void training() {}
 	
 	@PostMapping("/infopage")
 	public void infopage() {
-		
 	}
 	
 

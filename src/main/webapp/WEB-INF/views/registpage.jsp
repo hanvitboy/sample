@@ -22,6 +22,22 @@
     
     
     <link rel="stylesheet" href="resources/css/signup-form1.css" />
+  <style>
+  
+  .signup-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url(resources/assets/login.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+  
+  </style>
   </head>
  
   <body>
@@ -43,7 +59,7 @@
         </div>
         <div class="int-area">
           <input type="text" name="id" id="id" autocomplete="off" required />
-          <label for="id">USER ID</label>
+          <label for="id">USER ID<small>&nbsp; &nbsp; &nbsp;<span id="idResult"></span></small></p></label>
         </div>
         <div class="int-area">
           <input
@@ -62,16 +78,58 @@
     </section>
       <script type="text/javascript">
      
+     var dup; //중복 검사 변수
      var actionForm = $(".actionForm");
             	$(document).ready(function(){
             		$(".btn-next").on("click",function(e){
             			e.preventDefault();
+            			if(dup){
+            				alert("正しいIDを入力お願いします。")
+            				return false;
+            			}
+            			
             			actionForm.attr("action", "/controller/addinfo")
             			.attr("method", "post");
             			actionForm.submit();
-            		})
+            	            		})
             		
             	})
+            	
+            
+		$(function(){ 
+		
+		//blur 이벤트는 요소에 포커싱이 해제 되었을때 발생하는 이벤트
+	$("#id").on("blur" , function(){
+			$.ajax({
+				url : "checkId",
+				type : "post",
+				data : {"id" : $(this).val()},
+				dataType : "json",
+				success : function(data){
+					let result = "";
+					if(data.result){
+						if(("#id") == null){
+							result= "※IDを入力してください。";
+							dup = true;}
+						else{
+						result= "※このIDは使用できます。";
+						dup = false;}
+						}else{ 
+								result= "※すでに登録されているIDです。";
+								dup = true;
+					}
+					$("#idResult").text(result);
+				}
+			})
+		
+	})		
+	
+	
+	
+		
+	})
+	
+	
             	</script>
     
   </body>

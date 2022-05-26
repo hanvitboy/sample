@@ -20,12 +20,26 @@
     />
     <link rel="stylesheet" href="resources/css/signup-form2.css" />
   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+ <style>
+ .signup-form2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url(resources/assets/login.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
  
+ </style>
   </head>
   <body>
     <section class="signup-form2">
       <h1>
-        <strong><span>fit</span>ness</strong>
+       <a href="http://localhost:9090/controller/"><strong><span>fit</span>ness</strong></a>
       </h1>
       <h2>SIGNUP</h2>
       <form class="actionForm" action="">

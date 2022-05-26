@@ -1,34 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri ="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix="c"%>      
+<%@ include file="header.jsp" %>
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-
-
-<!DOCTYPE html>
-<html lang="ko">
-  <head>
-   <link href="resources/css/style.css" rel="stylesheet">
-  
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Project</title>
-    <link
+   <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="resources/css/style.css" />
+    
+   <link href="resources/css/style.css" rel="stylesheet">
      <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <style>
@@ -46,262 +28,6 @@
   background-size: cover;
   
   
-}
-.header {
-  display: flex;
-  align-items: center;
-  justify-content:space-between;
-  padding: 15px 0;
-margin-right: 50px;
-margin-left:50px;
-}
-
-.button-group .button-login {
-  color: #000;
-  cursor: pointer;
-  display: block;
-  position: relative;
-  border: 2px solid #f7ca18;
-  border-radius: 4px;
-  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
-  text-align: center;
-  padding: 4px 8px;
-  font-size: 14px;
-  margin-right: 8px;
-}
-
-.button-group .button-login:hover {
-  color: #fff !important;
-  background-color: transparent;
-  text-shadow: none;
-}
-
-.button-group .button-login:hover:before {
-  top: 0%;
-  bottom: auto;
-  height: 100%;
-}
-
-.button-group .button-login:before {
-  display: block;
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  height: 0px;
-  width: 100%;
-  z-index: -1;
-  content: "";
-  color: #000 !important;
-  background: #f7ca18;
-  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
-}
-
-.button-group .button-logout {
-  color: #000;
-  cursor: pointer;
-  display: block;
-  position: relative;
-  border: 2px solid #f7ca18;
-  border-radius: 4px;
-  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
-  text-align: center;
-  padding: 4px 8px;
-  font-size: 14px;
-  margin-right: 8px;
-}
-
-.button-group .button-logout:hover {
-  color: #fff !important;
-  background-color: transparent;
-  text-shadow: ntwo;
-}
-.button-group .button-logout:hover:before {
-  bottom: 0%;
-  top: auto;
-  height: 100%;
-}
-.button-group .button-logout:before {
-  display: block;
-  position: absolute;
-  left: 0px;
-  bottom: 0px;
-  height: 0px;
-  width: 100%;
-  z-index: -1;
-  content: "";
-  color: #000 !important;
-  background: #f7ca18;
-  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
-}
-
-.button-group .button-info {
-  color: #000;
-  cursor: pointer;
-  display: block;
-  position: relative;
-  border: 2px solid #f7ca18;
-  border-radius: 4px;
-  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
-  text-align: center;
-  padding: 4px 8px;
-  font-size: 14px;
-  margin-right: 8px;
-}
-
-.button-group .button-info:hover {
-  color: #fff !important;
-  background-color: transparent;
-  text-shadow: none;
-}
-
-.button-group .button-info:hover:before {
-  top: 0%;
-  bottom: auto;
-  height: 100%;
-}
-
-.button-group .button-info:before {
-  display: block;
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  height: 0px;
-  width: 100%;
-  z-index: -1;
-  content: "";
-  color: #000 !important;
-  background: #f7ca18;
-  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
-}
-
-.button-group .button-list {
-  color: #000;
-  cursor: pointer;
-  display: block;
-  position: relative;
-  border: 2px solid #f7ca18;
-  border-radius: 4px;
-  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
-  text-align: center;
-  padding: 4px 8px;
-  font-size: 14px;
-  margin-right: 8px;
-}
-
-.button-group .button-list:hover {
-  color: #fff !important;
-  background-color: transparent;
-  text-shadow: none;
-}
-
-.button-group .button-list:hover:before {
-  top: 0%;
-  bottom: auto;
-  height: 100%;
-}
-
-.button-group .button-list:before {
-  display: block;
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  height: 0px;
-  width: 100%;
-  z-index: -1;
-  content: "";
-  color: #000 !important;
-  background: #f7ca18;
-  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
-}
-
-.button-group .button-signup {
-  color: #000;
-  cursor: pointer;
-  display: block;
-  position: relative;
-  border: 2px solid #f7ca18;
-  border-radius: 4px;
-  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
-  text-align: center;
-  padding: 4px 8px;
-  font-size: 14px;
-  margin-right: 8px;
-}
-
-.button-group .button-signup:hover {
-  color: #fff !important;
-  background-color: transparent;
-  text-shadow: ntwo;
-}
-.button-group .button-signup:hover:before {
-  bottom: 0%;
-  top: auto;
-  height: 100%;
-}
-.button-group .button-signup:before {
-  display: block;
-  position: absolute;
-  left: 0px;
-  bottom: 0px;
-  height: 0px;
-  width: 100%;
-  z-index: -1;
-  content: "";
-  color: #000 !important;
-  background: #f7ca18;
-  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
-}
-
-
-.message{
-    width:180px;
-   margin-right: 20px;
- 	display : flex;
- 	align-items: center;
- 	font-weight:bold;
- 	color:gray;
-   animation: notificationAnimation 1s ease-in-out;
-  }
-.message span{
-width: 180px;
-}
-.nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-}
-
-
-  @keyframes notificationAnimation {
-    0% {
-      transform: scale(0.5);
-    }
-    40% {
-      transform: scale(1.2);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-
-	.header-left,
-	.header-right{
-	display: flex;
-	}
-
-.logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 30px;
-  width: 200px;
-}
-
-.nav .nav-list li
-{	display: flex;
-	justify-content: center;
-	width:120px;
 }
 .card {
   background: #000000d0;
@@ -387,72 +113,7 @@ font-size: 12px;
   </head>
   <body>
   
-    <section class="header-top">
-
-<div class="header">
-            <div class="header-left">
-              <div class="logo">
-               <form class="actionForm" action="home" method="get">
-                <a class="button-home" href="#">
-                <img src="resources/assets/Logo.png" alt="Logo" />
-                  <p>
-                    <strong><span>fit</span>ness</strong>
-                  </p>
-                </a>
-                </form>
-              </div>
-              <div class="nav">
-                <ul>
-                <form class="actionForm" method="post">
-                  <a id="calo" class="nav-list" href="#"><li>体重管理</li></a>
-                  </form>
-                 
-                  <a class="nav-list" href="http://localhost:9090/controller/"><li>献立管理</li></a>
-                  
-                  <a class="nav-list" href="#"><li>運動情報</li></a>
-               	
-               	<a id="nav-listboard" class="nav-list" href="#"><li>掲示板</li></a>
-               	
-                </ul>
-              </div>
-              </div>
-             <div class="header-right">
-         <c:if test="${not empty login_user.name}">
-         <div class="message">
-	<span>Welcome, ${login_user.name}様<i class="fas fa-birthday-cake"></i></span>
-	</div> </c:if>
-<c:if test="${not empty login_user.name}">
-</c:if>
-             
-              <div class="button-group">
-              
-           <c:if test="${empty login_user.name}">
-              <form class="actionForm" action="loginpage" method="post">
-                <a class="button-login" href="#" role="button">LOGIN</a>
-                </form>
-                <a class="button-signup" href="#">SIGNUP</a>
-                 </c:if>
-                 
-                 <c:if test="${not empty login_user.name}">
-                 <form class="actionForm" action="infopage" method="post">
-                   <a class="button-info" href="#">Mypage</a>
-                   </form>
-<form class="actionForm" action="logout" method="get">
-<a class="button-logout" href="#" role="button">LOGOUT</a>
-</form></c:if>
- <c:if test="${login_user.id == 'admin'}">
-<form class="actionForm" action="listpage" method="get">
- <a class="button-list" href="#" role="button">LIST</a>
-</form> </c:if>
-</div>
-
-</div>
-</div>
-
-           
-          
-    </section>
-
+ 
     <section class="main">
      <div class="card">
         <div class="weather loading">
@@ -497,9 +158,12 @@ font-size: 12px;
 そんなあなたのためにカロリー計算をサポートします。
 
             </p>
+            <form class="yapi" method="post">
             <div class="btn-area">
-              <a class="btn-next" href="#" role="button">体重管理</a>
-            </div>
+            
+              <a id="yaps" class="btn-next" href="#" role="button">体重管理</a>
+                        </div>
+          </form>
           </div>
         </div>
         <div data-aos="fade-left">
@@ -527,7 +191,7 @@ font-size: 12px;
               あなたの美しい体のために、健康的な食べ物情報を提供します。
             </p>
             <div class="btn-area">
-              <a class="btn-next" href="#" role="button">献立管理</a>
+              <a class="btn-next" href="http://localhost:9090/controller/diet" role="button">献立管理</a>
             </div>
           </div>
         </div>
@@ -546,7 +210,7 @@ font-size: 12px;
 素敵なあなたの体のために運動方法の映像を提供します。
             </p>
             <div class="btn-area">
-              <a class="btn-next" href="#" role="button">運動情報</a>
+              <a class="btn-next" href="http://localhost:9090/controller/training" role="button">運動情報</a>
             </div>
           </div>
         </div>
@@ -574,7 +238,6 @@ font-size: 12px;
       </div>
     </footer>
 
-    </section>
     
      <script type="text/javascript">
      let weather = {
@@ -616,7 +279,16 @@ font-size: 12px;
  		  
  		  weather.fetchWeather("Tokyo");
  		  
- 		
+ 	var yapi = $(".yapi");	
+ 	
+	$(document).ready(function(){
+		$("#yaps").on("click",function(e){
+			e.preventDefault();
+			actionForm.attr("action", "/controller/kcalcalpage").attr("method", "post");
+			actionForm.submit();
+		})
+		})
+
  		  
      var actionForm = $(".actionForm");
             	$(document).ready(function(){
