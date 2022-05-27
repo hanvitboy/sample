@@ -100,6 +100,7 @@ textarea{
 		<input type="hidden" name="keyword" value="${cri.keyword }">
 		<input type="hidden" name="type" value="${pageMaker.cri.type }">
 		    
+		    
 	</form>		
 <script>
 	let form = $("#infoForm");
