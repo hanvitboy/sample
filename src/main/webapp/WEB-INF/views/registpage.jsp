@@ -36,6 +36,23 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+.btn-area .btn-next {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  border: 2px solid #f7ca18;
+  border-radius: 5px;
+  margin: 15px auto;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+  color: #999;
+ background-color : rgb(99,98,80);
+  transition: all 0.9s, color 0.3;
+}
   
   </style>
   </head>
@@ -72,7 +89,7 @@
           <label for="pw">PASSWORD</label>
         </div>
         <div class="btn-area">
-          <a class="btn-next" href="#" role="button">next</a>
+          <button class="btn-next" type="submit">next</button>
         </div>
       </form>
     </section>
@@ -81,24 +98,32 @@
      var dup; //중복 검사 변수
      var actionForm = $(".actionForm");
             	$(document).ready(function(){
-            		$(".btn-next").on("click",function(e){
+            		
+            	            		
+            	    $(".btn-next").on("submit",function(e){
             			e.preventDefault();
-            			if(dup){
-            				alert("正しいIDを入力お願いします。")
-            				return false;
-            			}
             			
             			actionForm.attr("action", "/controller/addinfo")
             			.attr("method", "post");
             			actionForm.submit();
             	            		})
             		
+            		$(".btn-next").on("click",function(e){
+            			if(dup){
+            				alert("他のIDを入力お願いします。")
+            				return false;
+            			}
+            			
+            	            		})
+            	
             	})
             	
             
 		$(function(){ 
 		
 		//blur 이벤트는 요소에 포커싱이 해제 되었을때 발생하는 이벤트
+		
+		var id = $(id).val();
 	$("#id").on("blur" , function(){
 			$.ajax({
 				url : "checkId",
@@ -108,15 +133,10 @@
 				success : function(data){
 					let result = "";
 					if(data.result){
-						if(("#id") == null){
-							result= "※IDを入力してください。";
-							dup = true;}
-						else{
-						result= "※このIDは使用できます。";
-						dup = false;}
-						}else{ 
-								result= "※すでに登録されているIDです。";
-								dup = true;
+							dup = false;
+						}else{
+							result= "※すでに登録されているIDです。";
+							dup = true;
 					}
 					$("#idResult").text(result);
 				}
