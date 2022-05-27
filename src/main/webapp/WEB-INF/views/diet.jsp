@@ -44,7 +44,7 @@
           <div class="card">
             <a href="#">
               <img
-                src="https://c.wallhere.com/photos/62/94/tomatoes_tomato_tasty_many-1019357.jpg!d"
+                src="https://cdn.pixabay.com/photo/2020/09/12/21/14/tomatoes-5566744_960_720.jpg"
                 alt="tomato"
               />
               <div class="card-content">
