@@ -108,12 +108,13 @@ textarea{
 		<c:if test="${login_user.name eq pageInfo.writer}"> 
 		<a class="btn" id="modify_btn">수정 하기</a>
 		</c:if>
+		<!-- 목록페이지 눌렀을 시 기준 데이터를 유지하여 기존의 bno, pageNum, amount, keyword, type를 갖고있게 하기위해 -->
 	<form id="infoForm2" action="/board/modify" method="get" >
 		<input type="hidden" id="bno" name="bno" value='<c:out value="${pageInfo.bno }"/>'>
 		<input type="hidden" name="pageNum" value='<c:out value="${cri.pageNum }"/>'>
 		<input type="hidden" name="amount" value='<c:out value="${cri.amount }"/>'> 
 		<input type="hidden" name="keyword" value="${cri.keyword }">    
-			
+		<input type="hidden" name="type" value="${pageMaker.cri.type }">
 	</form>
 	
 	

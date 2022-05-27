@@ -2,6 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.globalin.mapper.BoardMapper">
 
+
+
 	<!-- 하나 가져오기 -->
 	<select id="getpage" resultType="com.globalin.domain.BoardVO">
 		SELECT BNO,
@@ -52,6 +54,28 @@
 				
 	</select>
 	
+	<!-- 검색 조건문 -->
+    <sql id="criteria">
+        <trim prefix="AND (" suffix=")" prefixOverrides="OR">
+            <foreach collection="typeArr" item="type">
+                <trim prefix="OR">
+                    <choose>
+                        <when test="type == 'T'.toString()">
+                            title like '%'||#{keyword}||'%' 
+                        </when>
+                        <when test="type == 'C'.toString()">
+                            content like '%'||#{keyword}||'%' 
+                        </when>
+                        <when test="type == 'W'.toString()">
+                            writer like '%'||#{keyword}||'%' 
+                        </when>
+                    </choose>
+                </trim>
+            </foreach>
+        </trim>
+    
+    </sql>
+	
 		<!-- 리스트가져오기 (페이징 처리) -->
 	<select id="getListPaging" resultType="com.globalin.domain.BoardVO">    
     <![CDATA[
@@ -64,7 +88,7 @@
               
                 ]]>     
                 <if test="keyword != null">
-                    and title like '%'||#{keyword}||'%' 
+                    <include refid="criteria"></include>  
                 </if>
                 
       <![CDATA[
@@ -90,7 +114,8 @@
         FROM tbl_board
         <!-- 검색하면 검색 키워드로	 -->
         <if test="keyword != null">
-            where title like '%'||#{keyword}||'%'
+        <!-- where bno > 0은 아무의미 없는 조건이지만 뒤에 붙는 criteria의 시작이 and 구문이기때문에 오류방지를위해 붙여준다. -->
+            where bno > 0 <include refid="criteria"></include> 
         </if>
     
    </select>
@@ -109,5 +134,7 @@
     	WHERE BNO = #{bno}
        
    </update>
+   
+   
 
 </mapper>

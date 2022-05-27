@@ -51,7 +51,9 @@
      width: 100px;
     height: 36px;
   }
-	
+   .search_area select{
+   height: 35px;
+  }
 	
 	</style>
 </head>
@@ -82,7 +84,6 @@
 								<th>WRITER</th>
 								<th>REGDATE</th>
 								<th>UPDATEDATE</th>
-								<th>REPLYCOUNT</th>
 								<th>Hit</th>
 								<th>좋아요</th>
 							</tr>
@@ -103,6 +104,7 @@
 										value="${board.regdate }" /></td>
 								<td><fmt:formatDate pattern="yyyy/MM/dd"
 										value="${board.updateDate }" /></td>
+										
 								<td><c:out value="${board.hit }" /></td>
 								<td><c:out value="${board.like_count }" /></td>
 
@@ -110,11 +112,20 @@
 
 						</c:forEach>
 					</table>
-					
+					<!-- 검색 제약 조건 기능 -->
 					<div class="search_wrap">
         				<div class="search_area">
-				            <input type="text" name="keyword" value="${pageMaker.cri.keyword }">
-				            <button>Search</button>
+        				<select name="type">
+			                <option value="" <c:out value="${pageMaker.cri.type == null?'selected':'' }"/>>--</option>
+			                <option value="T" <c:out value="${pageMaker.cri.type eq 'T'?'selected':'' }"/>>タイトル</option>
+			                <option value="C" <c:out value="${pageMaker.cri.type eq 'C'?'selected':'' }"/>>コンテンツ</option>
+			                <option value="W" <c:out value="${pageMaker.cri.type eq 'W'?'selected':'' }"/>>作成者</option>
+			                <option value="TC" <c:out value="${pageMaker.cri.type eq 'TC'?'selected':'' }"/>>タイトル + コンテンツ</option>
+			                <option value="TW" <c:out value="${pageMaker.cri.type eq 'TW'?'selected':'' }"/>>タイトル + 作成者</option>
+			                <option value="TCW" <c:out value="${pageMaker.cri.type eq 'TCW'?'selected':'' }"/>>タイトル + コンテンツ + 作成者</option>
+			            </select>
+				      <input type="text" name="keyword" value="${pageMaker.cri.keyword }">
+				      <button>Search</button>
 				        </div>
 				    </div>    
 
@@ -143,6 +154,7 @@
 						<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum }">
 						<input type="hidden" name="amount" value="${pageMaker.cri.amount }">
 						 <input type="hidden" name="keyword" value="${pageMaker.cri.keyword }">
+						 <input type="hidden" name="type" value="${pageMaker.cri.type }">
 						
 				</form>
 
@@ -167,8 +179,22 @@
 	})
 	$(".search_area button").on("click", function(e){
         e.preventDefault();
-        let val = $("input[name='keyword']").val();
-        moveForm.find("input[name='keyword']").val(val);
+        
+        let type = $(".search_area select").val();
+        let keyword = $(".search_area input[name='keyword']").val();
+        
+        if(!type){
+            alert("検索タイプを選択してください。");
+            return false;
+        }
+        
+        if(!keyword){
+            alert("キーワードを入力してください。");
+            return false;
+        }        
+        
+        moveForm.find("input[name='type']").val(type);
+        moveForm.find("input[name='keyword']").val(keyword);
         moveForm.find("input[name='pageNum']").val(1);
         moveForm.submit();
     });
