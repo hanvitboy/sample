@@ -33,7 +33,7 @@ public class MemberController {
 	
 	private static Logger log = LoggerFactory.getLogger(MemberController.class); 
 	
-	@GetMapping("/list")
+	@RequestMapping("/list")
 	public void list(Model model) {
 		System.out.println(service.getList());
 		model.addAttribute("list" , service.getList());

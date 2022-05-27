@@ -1,6 +1,6 @@
-alter session set "_oracle_script"=true; --1.À¯Àú »ı¼ºÀ» ÀÌ¸§Á¦¾à¾øÀÌ °¡´ÉÅä·ÏÇÑ´Ù.
-create user MainDB identified by 1234; --2.À¯Àú¸¦ »ı¼ºÇÑ´Ù.
-grant connect, dba, resource to MainDB; --3.MainDB¿¡ ¸ğµç ±ÇÇÑÀ» ÁØ´Ù.
+alter session set "_oracle_script"=true; --1.ìœ ì € ìƒì„±ì„ ìœ„í•´ ì„¸ì…˜ ì¡°ì‘.
+create user MainDB identified by 1234; --2.MainDB ìœ ì € ìƒì„±.
+grant connect, dba, resource to MainDB; --3.MainDBì— ê¶Œí•œì„ ë¶€ì—¬.
 
 create table tbl_member
 (IDX number (10) constraint PK_MEM primary key, 
@@ -11,9 +11,9 @@ age number(10) not null,
 height number(10) not null, 
 weight number(10) not null, 
 gender varchar2(50) not null, 
-actindex number(10) not null); 	--4.tbl_member Å×ÀÌºí »ı¼ºÇÑ´Ù
+actindex number(10) not null); 	--4.tbl_member í…Œì´ë¸” ìƒì„±
 
-ALTER TABLE tbl_member ADD onedaykcal AS ((HEIGHT - 100) * 0.9 * ACTINDEX); --4-1.tbl_member¿¡ ÀÏÀÏÄ®·Î¸®°è»ê ÄÃ·³À» Ãß°¡ÇÑ´Ù.
+ALTER TABLE tbl_member ADD onedaykcal AS ((HEIGHT - 100) * 0.9 * ACTINDEX); --4-1.tbl_member í…Œì´ë¸”ì— ì¹¼ë¡œë¦¬ê³„ì‚° ì»¬ëŸ¼ ì¶”ê°€
 
 create table TBL_BOARD(
 BNO number(10,0) constraint PK_BOARD primary key, 
@@ -24,7 +24,7 @@ regdate date default sysdate,
 updatedate date default sysdate, 
 replycnt number default 0, 
 hit number default 0, 
-like_count number default 0); --5.tbl_board Å×ÀÌºí »ı¼ºÇÑ´Ù
+like_count number default 0); --5.tbl_board í…Œì´ë¸” ìƒì„±
 
 create table tbl_member_rec
 (IDX number (10) constraint PK_MEM_REC primary key,
@@ -35,27 +35,27 @@ d4 number(10) default 0,
 d5 number(10) default 0,
 d6 number(10) default 0,
 d7 number(10) default 0,
-next number(10) default 1); --6.tbl_member_rec Å×ÀÌºí »ı¼ºÇÑ´Ù
+next number(10) default 1); --6.tbl_member_rec í…Œì´ë¸” ìƒì„±
 
 create table liketable(
 ltmid varchar2(100) not null, 
 ltbid number not null, 
 ltlike number default 0,
 FOREIGN KEY(ltmid) REFERENCES tbl_member(id),
-FOREIGN KEY(ltbid) REFERENCES tbl_board(bno) ); --7.tbl_member_rec Å×ÀÌºí »ı¼ºÇÑ´Ù
+FOREIGN KEY(ltbid) REFERENCES tbl_board(bno) ); --7.tbl_member_rec í…Œì´ë¸” ìƒì„±
 
 
 CREATE SEQUENCE member_seq START WITH 1 INCREMENT BY 1 MAXVALUE 99999999 CYCLE;
 CREATE SEQUENCE member_rec_seq START WITH 1 INCREMENT BY 1 MAXVALUE 99999999 CYCLE;
-CREATE SEQUENCE seq_board START WITH 1 INCREMENT BY 1 MAXVALUE 99999999 CYCLE;  --8.ÇÙ½ÉÅ×ÀÌºíÀÇ ½ÃÄö½º¸¦ ¸¸µç´Ù
+CREATE SEQUENCE seq_board START WITH 1 INCREMENT BY 1 MAXVALUE 99999999 CYCLE;  --8.ë©”ì¸ í…Œì´ë¸” ì‹œí€€ìŠ¤ ìƒì„±
 
 
 insert into tbl_board(bno,title,content,writer)
-(select seq_board.nextval,title,content, writer from tbl_board); --9.°Ô½Ã±ÛÀ» ±âÇÏ±Ş¼ö·Î ´Ã¸®´Â Äõ¸®
+(select seq_board.nextval,title,content, writer from tbl_board); --9.ê²Œì‹œê¸€ ê¸°í•˜ê¸‰ìˆ˜ë¡œ ëŠ˜ë¦¬ê¸°
 
 select * from tbl_member;
 select * from tbl_board;
 select * from liketable;
-select * from tbl_member_rec; --10. °¢ Å×ÀÌºí Á¶È¸
+select * from tbl_member_rec; --10. ê° ë©”ì¸í…Œì´ë¸” ì¡°íšŒ
 
 
