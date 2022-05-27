@@ -61,11 +61,18 @@
         	SELECT /*+INDEX_DESC(tbl_board) */ rownum  as rn, bno, title, content, writer, regdate, updatedate, hit,like_count
             FROM tbl_board
             WHERE rownum <= #{pageNum} * #{amount}
-            ) 
+              
+                ]]>     
+                <if test="keyword != null">
+                    and title like '%'||#{keyword}||'%' 
+                </if>
                 
+      <![CDATA[
+            ) 
         WHERE rn > (#{pageNum} -1) * #{amount}
     
     ]]>
+    
     
     </select>
 	
@@ -81,6 +88,10 @@
    <select id="getTotal" resultType="int">    
         SELECT count(*)
         FROM tbl_board
+        <!-- 검색하면 검색 키워드로	 -->
+        <if test="keyword != null">
+            where title like '%'||#{keyword}||'%'
+        </if>
     
    </select>
    

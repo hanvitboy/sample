@@ -30,7 +30,7 @@ public interface BoardService {
 	public void boardHit(int bno) throws Exception;
 	
 	// 전체 게시글 갯수 
-	public int getTotal();
+	public int getTotal(Criteria cri);
 	
 	//좋아요 체크+1
 	public int likeTotal(int bno);

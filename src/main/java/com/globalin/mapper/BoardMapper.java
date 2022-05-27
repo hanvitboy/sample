@@ -32,7 +32,7 @@ public interface BoardMapper {
 	public void boardHit(int bno) throws Exception;
 
 	// 전체 게시글 갯수 
-	public int getTotal();
+	public int getTotal(Criteria cri);
 	
 	// 전체 좋아요 갯수 +1
 	public int likeTotal(int bno);
