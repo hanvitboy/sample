@@ -121,6 +121,128 @@ overflow: hidden;
 }
 
 
+@keyframes stack{
+  0%{ opacity:0; }
+  100%{ opacity:1; }
+}
+
+.fixedGraphBox{
+  display:flex;  
+  justify-content: center;
+  border-radius: 30px;
+  box-shadow:10px 20px 50px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.10);
+  border: 4px solid yellow;
+  height: 30vh;
+  width: 50vh;
+  background-color: black;
+  color: white;
+
+  position:fixed;
+  bottom:40px;
+  left:50px;
+  overflow: hidden;
+
+}
+
+.graph-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10px;
+  
+
+}
+
+.emoticon__day1,
+.emoticon__day2,
+.emoticon__day3,
+.emoticon__day4,
+.emoticon__day5,
+.emoticon__day6,
+.emoticon__day7{
+display: flex;
+justify-content: center;
+font-size: 18px;
+margin-bottom: 10px;
+
+
+}
+
+
+.graph-stack1,
+.graph-stack2,
+.graph-stack3,
+.graph-stack4,
+.graph-stack5,
+.graph-stack6,
+.graph-stack7
+ {
+  background-color:#ccc;
+  height: 100vh;
+  border-radius: 10px;
+  height:100px;
+  width:30px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+
+}
+
+.graph-day1,
+.graph-day2,
+.graph-day3,
+.graph-day4,
+.graph-day5,
+.graph-day6,
+.graph-day7{
+  display: flex;
+ align-items:flex-end;
+   /* span to top. very important!!! */
+  background: #07afd9;
+border-radius: 10px;
+height:5%;
+width:30px;
+animation:stack 2s 1;
+overflow: hidden;
+
+}
+
+.cal-day1,
+.cal-day2,
+.cal-day3,
+.cal-day4,
+.cal-day5,
+.cal-day6,
+.cal-day7
+{
+  display:flex;
+ justify-content: center;
+ font-size: 12px;
+ font-weight: 600;
+ margin-top: 10px;
+
+  }
+
+
+  .cal-date__day1,
+  .cal-date__day2,
+  .cal-date__day3,
+  .cal-date__day4,
+  .cal-date__day5,
+  .cal-date__day6,
+  .cal-date__day7
+  {
+    display:flex;
+   justify-content: center;
+   font-size: 8px;
+   font-weight: 600;
+   margin-top: 3px;
+
+    }
+
+
+
+
 
 </style>
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
@@ -982,41 +1104,116 @@ $(document).ready(function() {
         <input class="calSumit_btn" type="submit" value="SAVE" />
       </div>  
     </div> </form>
+    
+    
+    <section class="fixedGraphBox">
+      <div class="graph-wrapper">
+        <div class="emoticon__day1"></div>
+        <div class="graph-stack1">
+          <div class="graph-day1"></div>
+        </div>
+        <div class="cal-day1">0%</div>
+        <div class="cal-date__day1">Day1</div>
+      </div>
+
+      <div class="graph-wrapper">
+        <div class="emoticon__day2"></div>
+        <div class="graph-stack2">
+          <div class="graph-day2"></div>
+        </div>
+        <span class="cal-day2">0%</span>
+        <div class="cal-date__day2">Day2</div>
+      </div>
+
+      <div class="graph-wrapper">
+        <div class="emoticon__day3"></div>
+        <div class="graph-stack3">
+          <div class="graph-day3"></div>
+        </div>
+        <span class="cal-day3">0%</span>
+        <div class="cal-date__day3">Day3</div>
+      </div>
+
+      <div class="graph-wrapper">
+        <div class="emoticon__day4"></div>
+        <div class="graph-stack4">
+          <div class="graph-day4"></div>
+        </div>
+        <span class="cal-day4">0%</span>
+        <div class="cal-date__day4">Day4</div>
+      </div>
+
+      <div class="graph-wrapper">
+        <div class="emoticon__day5"></div>
+        <div class="graph-stack5">
+          <div class="graph-day5"></div>
+        </div>
+        <span class="cal-day5">0%</span>
+        <div class="cal-date__day5">Day5</div>
+      </div>
+
+      <div class="graph-wrapper">
+        <div class="emoticon__day6"></div>
+        <div class="graph-stack6">
+          <div class="graph-day6"></div>
+        </div>
+        <span class="cal-day6">0%</span>
+        <div class="cal-date__day6">Day6</div>
+      </div>
+
+      <div class="graph-wrapper">
+        <div class="emoticon__day7"></div>
+        <div class="graph-stack7">
+          <div class="graph-day7"></div>
+        </div>
+        <span class="cal-day7">0%</span>
+        <div class="cal-date__day7">Day7</div>
+      </div>
+    </section>
       
-      <div class="exampleBox">
-      <div class="recommendedKcal">
-         <span>結果値がプラスならダイエット成功</span>
-      </div>
-      <div class="recommendedKcal">
-        <span>１回目やせたカロリー</span> <input type="text" id="kcalFromBack1" value="${user_kcal.d1}"   <c:if test='${user_kcal.next == 2}'>style="background-color: #f7ca18;"</c:if> readonly/>
-        <span>kcals</span>
-      </div>
-      <div class="TodayKcal">
-        <span>２回目やせたカロリー</span> <input type="text" id="kcalFromBack2" name="cal" value="${user_kcal.d2}"   <c:if test='${user_kcal.next == 3}'>style="background-color: #f7ca18;"</c:if> readonly/>
-        <span>kcals</span>
-      </div>
-      <div class="TodayKcal">
-        <span>３回目やせたカロリー</span> <input type="text" id="kcalFromBack2" name="cal" value="${user_kcal.d3}"   <c:if test='${user_kcal.next == 4}'>style="background-color: #f7ca18;"</c:if>  readonly/>
-        <span>kcals</span>
-      </div>
-      <div class="TodayKcal">
-        <span>４回目やせたカロリー</span> <input type="text" id="kcalFromBack2" name="cal" value="${user_kcal.d4}"   <c:if test='${user_kcal.next == 5}'>style="background-color: #f7ca18;"</c:if> readonly/>
-        <span>kcals</span>
-      </div>
-      <div class="TodayKcal">
-        <span>５回目やせたカロリー</span> <input type="text" id="kcalFromBack2" name="cal" value="${user_kcal.d5}"   <c:if test='${user_kcal.next == 6}'>style="background-color: #f7ca18;"</c:if> readonly/>
-        <span>kcals</span>
-      </div>
-      <div class="TodayKcal">
-        <span>６回目やせたカロリー</span> <input type="text" id="kcalFromBack2" name="cal" value="${user_kcal.d6}"    <c:if test='${user_kcal.next == 7}'>style="background-color: #f7ca18;"</c:if> readonly/>
-        <span>kcals</span>
-      </div>
-      <div class="TodayKcal">
-        <span>７回目やせたカロリー</span> <input type="text" id="kcalFromBack2" name="cal" value="${user_kcal.d7}"   <c:if test='${user_kcal.next == 1}'>style="background-color: #f7ca18;"</c:if> readonly/>
-        <span>kcals</span>
-      </div>
-   
-    </div>
+      <input id="day1" type="hidden" value="${user_kcal.d1}"/>
+      <input id="day2" type="hidden" value="${user_kcal.d2}"/>
+      <input id="day3" type="hidden" value="${user_kcal.d3}"/>
+      <input id="day4" type="hidden" value="${user_kcal.d4}"/>
+      <input id="day5" type="hidden" value="${user_kcal.d5}"/>
+      <input id="day6" type="hidden" value="${user_kcal.d6}"/>
+      <input id="day7" type="hidden" value="${user_kcal.d7}"/>
+     
+<!-- 
+<div class="exampleBox">
+  <div class="recommendedKcal">
+     <span>結果値がプラスならダイエット成功</span>
+  </div>
+  <div class="recommendedKcal">
+    <span>１回目やせたカロリー</span> <input type="text" id="kcalFromBack1" value="${user_kcal.d1}"   <c:if test='${user_kcal.next == 2}'>style="background-color: #f7ca18;"</c:if> readonly/>
+    <span>kcals</span>
+  </div>
+  <div class="TodayKcal">
+    <span>２回目やせたカロリー</span> <input type="text" id="kcalFromBack2" name="cal" value="${user_kcal.d2}"   <c:if test='${user_kcal.next == 3}'>style="background-color: #f7ca18;"</c:if> readonly/>
+    <span>kcals</span>
+  </div>
+  <div class="TodayKcal">
+    <span>３回目やせたカロリー</span> <input type="text" id="kcalFromBack2" name="cal" value="${user_kcal.d3}"   <c:if test='${user_kcal.next == 4}'>style="background-color: #f7ca18;"</c:if>  readonly/>
+    <span>kcals</span>
+  </div>
+  <div class="TodayKcal">
+    <span>４回目やせたカロリー</span> <input type="text" id="kcalFromBack2" name="cal" value="${user_kcal.d4}"   <c:if test='${user_kcal.next == 5}'>style="background-color: #f7ca18;"</c:if> readonly/>
+    <span>kcals</span>
+  </div>
+  <div class="TodayKcal">
+    <span>５回目やせたカロリー</span> <input type="text" id="kcalFromBack2" name="cal" value="${user_kcal.d5}"   <c:if test='${user_kcal.next == 6}'>style="background-color: #f7ca18;"</c:if> readonly/>
+    <span>kcals</span>
+  </div>
+  <div class="TodayKcal">
+    <span>６回目やせたカロリー</span> <input type="text" id="kcalFromBack2" name="cal" value="${user_kcal.d6}"    <c:if test='${user_kcal.next == 7}'>style="background-color: #f7ca18;"</c:if> readonly/>
+    <span>kcals</span>
+  </div>
+  <div class="TodayKcal">
+    <span>７回目やせたカロリー</span> <input type="text" id="kcalFromBack2" name="cal" value="${user_kcal.d7}"   <c:if test='${user_kcal.next == 1}'>style="background-color: #f7ca18;"</c:if> readonly/>
+    <span>kcals</span>
+  </div>
+
+</div> -->
  
     <script
       src="https://kit.fontawesome.com/99b96296a9.js"
@@ -1076,6 +1273,244 @@ $(document).ready(function() {
             			actionForm.submit();
             		})
             	})
+            	
+    
+
+const totalCal = 2500;
+            	
+/*var plusStyle = document.createElement('style');
+sytle.type = "text/css";
+
+var plus-motion-var1 = '\
+@keyframes motion-var1{
+0%{ height: 0; opacity:0;};\
+100%{ height: 100%; opacity:1;}\'
+};
+
++가 소비*/
+
+const calFromDB__day1 = $(day1).val(); 
+const calFromDB__day2 = $(day2).val(); 
+const calFromDB__day3 = $(day3).val(); 
+const calFromDB__day4 = $(day4).val(); 
+const calFromDB__day5 = $(day5).val(); 
+const calFromDB__day6 = $(day6).val(); 
+const calFromDB__day7 = $(day7).val(); 
+
+
+
+var barFraction__calFromDB__day1 = calFromDB__day1 / totalCal;
+var barFraction__calFromDB__day2 = calFromDB__day2 / totalCal;
+var barFraction__calFromDB__day3 = calFromDB__day3 / totalCal;
+var barFraction__calFromDB__day4 = calFromDB__day4 / totalCal;
+var barFraction__calFromDB__day5 = calFromDB__day5 / totalCal;
+var barFraction__calFromDB__day6 = calFromDB__day6 / totalCal;
+var barFraction__calFromDB__day7 = calFromDB__day7 / totalCal;
+
+
+
+
+
+
+
+
+var calConvert__day1 = barFraction__calFromDB__day1 * 100;
+var barPercentage__day1 = calConvert__day1.toFixed(0) + "%";
+document.querySelector(".graph-day1").style.height = barPercentage__day1;
+document.querySelector(".cal-day1").textContent = calFromDB__day1;
+
+var calConvert__day2 = barFraction__calFromDB__day2 * 100;
+var barPercentage__day2 = calConvert__day2.toFixed(0) + "%";
+document.querySelector(".graph-day2").style.height = barPercentage__day2;
+document.querySelector(".cal-day2").textContent = calFromDB__day2;
+
+var calConvert__day3 = barFraction__calFromDB__day3 * 100;
+var barPercentage__day3 = calConvert__day3.toFixed(0) + "%";
+document.querySelector(".graph-day3").style.height = barPercentage__day3;
+document.querySelector(".cal-day3").textContent = calFromDB__day3;
+
+var calConvert__day4 = barFraction__calFromDB__day4 * 100;
+var barPercentage__day4 = calConvert__day4.toFixed(0) + "%";
+document.querySelector(".graph-day4").style.height = barPercentage__day4;
+document.querySelector(".cal-day4").textContent = calFromDB__day4;
+
+var calConvert__day5 = barFraction__calFromDB__day5 * 100;
+var barPercentage__day5 = calConvert__day5.toFixed(0) + "%";
+document.querySelector(".graph-day5").style.height = barPercentage__day5;
+document.querySelector(".cal-day5").textContent = calFromDB__day5;
+
+var calConvert__day6 = barFraction__calFromDB__day6 * 100;
+var barPercentage__day6 = calConvert__day6.toFixed(0) + "%";
+document.querySelector(".graph-day6").style.height = barPercentage__day6;
+document.querySelector(".cal-day6").textContent = calFromDB__day6;
+
+var calConvert__day7 = barFraction__calFromDB__day7 * 100;
+var barPercentage__day7 = calConvert__day7.toFixed(0) + "%";
+document.querySelector(".graph-day7").style.height = barPercentage__day7;
+document.querySelector(".cal-day7").textContent = calFromDB__day7;
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*var plusStyle = document.createElement('style');
+sytle.type = "text/css";
+
+var plus-motion-var1 = '\
+@keyframes motion-var1{
+0%{ height: 0; opacity:0;};\
+100%{ height: 100%; opacity:1;}\'
+};
+*/
+
+
+
+
+if(calFromDB__day1 < 0){
+    var calConvert__negative__day1 = barFraction__calFromDB__day1 * -100;
+    var barPercentage__negative__day1 = calConvert__negative__day1.toFixed(0) + "%";
+    document.querySelector(".graph-day1").style.height = barPercentage__negative__day1;
+    document.querySelector(".graph-day1").style.background = "#c23616";
+    
+    document.querySelector(".emoticon__day1").innerHTML = `<i class="fas fa-frown"></i>`;
+    document.querySelector(".emoticon__day1").style.color = "red";
+}else if(calFromDB__day1 > 0 || calFromDB__day1 == 0){
+    document.querySelector(".emoticon__day1").innerHTML = `<i class="fas fa-grin-alt"></i>`;
+    document.querySelector(".emoticon__day1").style.color = "green";
+}else{
+    document.querySelector(".graph-stack1").style.background = "gray";
+}
+
+
+
+if(calFromDB__day2 < 0){
+    var calConvert__negative__day2 = barFraction__calFromDB__day2 * -100;
+    var barPercentage__negative__day2 = calConvert__negative__day2.toFixed(0) + "%";
+    document.querySelector(".graph-day2").style.height = barPercentage__negative__day2;
+    document.querySelector(".graph-day2").style.background = "#c23616";
+    
+    document.querySelector(".emoticon__day2").innerHTML = `<i class="fas fa-frown"></i>`;
+    document.querySelector(".emoticon__day2").style.color = "red";
+}else if(calFromDB__day2 > 0 || calFromDB__day2 == 0){
+    document.querySelector(".emoticon__day2").innerHTML = `<i class="fas fa-grin-alt"></i>`;
+    document.querySelector(".emoticon__day2").style.color = "green";
+}else{
+    document.querySelector(".graph-stack2").style.background = "gray";
+}
+
+
+if(calFromDB__day3 < 0){
+    var calConvert__negative__day3 = barFraction__calFromDB__day3 * -100;
+    var barPercentage__negative__day3 = calConvert__negative__day3.toFixed(0) + "%";
+    document.querySelector(".graph-day3").style.height = barPercentage__negative__day3;
+    document.querySelector(".graph-day3").style.background = "#c23616";
+    
+    document.querySelector(".emoticon__day3").innerHTML = `<i class="fas fa-frown"></i>`;
+    document.querySelector(".emoticon__day3").style.color = "red";
+}else if(calFromDB__day3 > 0 || calFromDB__day3 == 0){
+    document.querySelector(".emoticon__day3").innerHTML = `<i class="fas fa-grin-alt"></i>`;
+    document.querySelector(".emoticon__day3").style.color = "green";
+}else{
+    document.querySelector(".graph-stack3").style.background = "gray";
+}
+
+
+
+
+if(calFromDB__day4 < 0){
+    var calConvert__negative__day4 = barFraction__calFromDB__day4 * -100;
+    var barPercentage__negative__day4 = calConvert__negative__day4.toFixed(0) + "%";
+    document.querySelector(".graph-day4").style.height = barPercentage__negative__day4;
+    document.querySelector(".graph-day4").style.background = "#c23616";
+    
+    document.querySelector(".emoticon__day4").innerHTML = `<i class="fas fa-frown"></i>`;
+    document.querySelector(".emoticon__day4").style.color = "red";
+}else if(calFromDB__day4 > 0 || calFromDB__day4 == 0){
+    document.querySelector(".emoticon__day4").innerHTML = `<i class="fas fa-grin-alt"></i>`;
+    document.querySelector(".emoticon__day4").style.color = "green";
+}else{
+    document.querySelector(".graph-stack4").style.background = "gray";
+}
+
+if(calFromDB__day5 < 0){
+    var calConvert__negative__day5 = barFraction__calFromDB__day5 * -100;
+    var barPercentage__negative__day5 = calConvert__negative__day5.toFixed(0) + "%";
+    document.querySelector(".graph-day5").style.height = barPercentage__negative__day5;
+    document.querySelector(".graph-day5").style.background = "#c23616";
+    
+    document.querySelector(".emoticon__day5").innerHTML = `<i class="fas fa-frown"></i>`;
+    document.querySelector(".emoticon__day5").style.color = "red";
+}else if(calFromDB__day5 > 0 || calFromDB__day5 == 0){
+    document.querySelector(".emoticon__day5").innerHTML = `<i class="fas fa-grin-alt"></i>`;
+    document.querySelector(".emoticon__day5").style.color = "green";
+}else{
+    document.querySelector(".graph-stack5").style.background = "gray";
+}
+
+
+
+if(calFromDB__day6 < 0){
+    var calConvert__negative__day6 = barFraction__calFromDB__day6 * -100;
+    var barPercentage__negative__day6 = calConvert__negative__day6.toFixed(0) + "%";
+    document.querySelector(".graph-day6").style.height = barPercentage__negative__day6;
+    document.querySelector(".graph-day6").style.background = "#c23616";
+    
+    document.querySelector(".emoticon__day6").innerHTML = `<i class="fas fa-frown"></i>`;
+    document.querySelector(".emoticon__day6").style.color = "red";
+}else if(calFromDB__day6 > 0 || calFromDB__day6 == 0){
+    document.querySelector(".emoticon__day6").innerHTML = `<i class="fas fa-grin-alt"></i>`;
+    document.querySelector(".emoticon__day6").style.color = "green";
+}else{
+    document.querySelector(".graph-stack6").style.background = "gray";
+}
+
+
+
+if(calFromDB__day7 < 0){
+    var calConvert__negative__day7 = barFraction__calFromDB__day7 * -100;
+    var barPercentage__negative__day7 = calConvert__negative__day7.toFixed(0) + "%";
+    document.querySelector(".graph-day7").style.height = barPercentage__negative__day7;
+    document.querySelector(".graph-day7").style.background = "#c23616";
+    
+    document.querySelector(".emoticon__day7").innerHTML = `<i class="fas fa-frown"></i>`;
+    document.querySelector(".emoticon__day7").style.color = "red";
+}else if(calFromDB__day7 > 0 || calFromDB__day7 == 0){
+    document.querySelector(".emoticon__day7").innerHTML = `<i class="fas fa-grin-alt"></i>`;
+    document.querySelector(".emoticon__day7").style.color = "green";
+}else{
+    document.querySelector(".graph-stack7").style.background = "gray";
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             	</script>
   </body>
 </html>
