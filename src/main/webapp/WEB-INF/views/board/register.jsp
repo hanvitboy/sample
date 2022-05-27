@@ -31,7 +31,7 @@
 		<button type="reset" class="btn btn-default">reset</button>
 		
 		<!-- 리스트 -->
-		<button type="button" onclick="location.href='/controller/boardpage'">list</button>
+		<button type="button" onclick="location.href='/controller/board/boardpage'">list</button>
 	</form>
 	
 
