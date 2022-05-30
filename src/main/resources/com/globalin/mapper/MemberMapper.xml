@@ -3,7 +3,16 @@
 <mapper namespace="com.globalin.mapper.MemberMapper">
 
 <select id="getList" resultType="com.globalin.domain.MemberVO">
-	select * from tbl_member where IDX > 0
+	select /*+INDEX_ASC(tbl_member pk_mem) */
+	       idx, 
+		   age,
+		   height,
+		   weight,
+		   id,
+		   name,
+		   pw,
+		   gender
+	from tbl_member where IDX > 0
 </select>
 
 <insert id="insert">

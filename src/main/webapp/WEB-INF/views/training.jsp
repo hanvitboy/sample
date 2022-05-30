@@ -20,9 +20,9 @@
     <link rel="stylesheet" href="resources/css/media.css" />
 <section class="video-main">
       <div class="video-wrap">
-        <video muted autoplay loop>
+        <video autoplay loop muted>
           <source
-            src="https://vod-progressive.akamaized.net/exp=1653548450~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F3208%2F10%2F266043652%2F984271706.mp4~hmac=f748a8e6150f9dbedd1608c253b2f9bb335bde3b651f71d682ecb640b3f575af/vimeo-prod-skyfire-std-us/01/3208/10/266043652/984271706.mp4?filename=Run+-+15748.mp4"
+            src="//player.vimeo.com/external/266043652.sd.mp4?s=98fbd5b5cbcc37404bb3bc1e63c85e1b7f2b6017&profile_id=164"
             type="video/mp4"
           />
         </video>

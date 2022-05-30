@@ -55,12 +55,8 @@ public class CommonController {
 	
 	@PostMapping("/home")
 	public void homepage() {
-		
 	}
-	@RequestMapping("/listpage")
-	public void listpage() {
-		
-	}
+	
 	@GetMapping("/home")
 	public void homepage2() {
 	}

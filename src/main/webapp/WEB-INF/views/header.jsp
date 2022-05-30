@@ -47,7 +47,7 @@ var actionForm = $(".actionForm");
        		})
        		$(".button-list").on("click",function(e){
        			e.preventDefault();
-       			actionForm.attr("action", "/controller/listpage");
+       			actionForm.attr("action", "/controller/listpage").attr("method", "post");
        			actionForm.submit();
        		})
        		
