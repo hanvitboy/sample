@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.globalin.mapper.ReplyMapper">
+
+<!-- 댓글 조회 -->
+<select id="readReply" resultType="com.globalin.domain.ReplyVO">
+	SELECT rno, content, writer, regdate
+	FROM tbl_reply
+	WHERE bno=#{bno}
+</select>
+
+<!-- 댓글 작성 -->
+<insert id="registReply">
+	INSERT INTO tbl_reply(bno,
+						  rno,
+						  content,
+						  writer					  
+						  
+						  )
+	VALUES (#{bno},
+			tbl_reply_seq.nextval,
+			#{content},
+			#{writer}
+				)
+</insert>
+
+<!-- 댓글 수정 -->
+	<update id="updateReply" parameterType="com.globalin.domain.ReplyVO">
+		UPDATE tbl_reply SET content = #{content}
+		WHERE rno = #{rno}
+	</update>
+
+<!-- 댓글 삭제 -->
+	<delete id="deleteReply" parameterType="com.globalin.domain.ReplyVO">
+		DELETE FROM tbl_reply
+		WHERE rno = #{rno}
+	</delete>
+	
+<!-- 선택된 댓글 조회 -->
+	<select id="selectReply" resultType="com.globalin.domain.ReplyVO">
+		SELECT
+				bno
+			  , rno
+			  , content
+			  , writer
+			  , regdate
+		  FROM tbl_reply
+		 WHERE rno = #{rno}
+	</select>
+
+
+
+
+
+
+
+
+
+</mapper>

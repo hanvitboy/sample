@@ -81,8 +81,43 @@ textarea{
 		<label>게시판 수정일</label>
 		<input name="updateDate" readonly="readonly" value='<fmt:formatDate pattern="yyyy/MM/dd" value="${pageInfo.updateDate}"/>' >
 	</div>
+	<form name="replyForm" method="post">
+	  <input type="hidden" id="bno" name="bno" value="${pageInfo.bno}" />
+	  <input type="hidden" id="page" name="page" value="${cri.pageNum}"> 
+	  <input type="hidden" id="perPageNum" name="perPageNum" value="${cri.amount}"> 
+	  <input type="hidden" id="searchType" name="searchType" value="${pageMaker.cri.type}"> 
+	  <input type="hidden" id="keyword" name="keyword" value="${cri.keyword}"> 
+
+  <div>
+    <label for="writer">댓글 작성자</label><input type="text" id="writer" name="writer" value="${login_user.name}"readonly/>
+    <br/>
+    <label for="content">댓글 내용</label><input type="text" id="content" name="content" />
+  </div>
+  <div>
+ 	 <button type="button" class="replyWriteBtn">작성</button>
+  </div>
+</form>
 	
-	<td id="like">
+	<!-- 댓글 -->
+	<div id="reply">
+	  <ol class="replyList">
+	    <c:forEach items="${replyList}" var="replyList">
+	      <li>
+	        <p>
+	        	작성자 : ${replyList.writer}<br/>
+	      		 작성 날짜 : <fmt:formatDate value="${replyList.regdate}" pattern="yyyy-MM-dd" />
+	   	     </p>
+	
+	        <p>${replyList.content}</p>
+	        <div>	
+			  <button type="button" class="replyUpdateBtn" data-rno="${replyList.rno}">수정</button>
+			  <button type="button" class="replyDeleteBtn" data-rno="${replyList.rno}">삭제</button>
+			</div>
+	      </li>
+	    </c:forEach>   
+	  </ol>
+	</div>
+				<td id="like">
 					<c:choose>
 						<c:when test="${ltlike ==0}">
 							<button type="button" class="btn btn-light" id="likebtn">좋아요</button>
@@ -159,6 +194,34 @@ $.ajax({
 	
 	});
 };
+
+$(".replyWriteBtn").on("click", function(){
+	  var formObj = $("form[name='replyForm']");
+	  formObj.attr("action", "/controller/board/replyWrite");
+	  formObj.submit();
+	});
+
+	
+	
+//댓글 수정 View
+$(".replyUpdateBtn").on("click", function(){
+	location.href = "replyUpdateView?pageNum=${cri.pageNum}"
+					+ "&amount=${cri.amount}"
+					+ "&keyword=${cri.keyword}"
+					+ "&type=${cri.type}"
+					+ "&bno=${pageInfo.bno}"
+					+ "&rno="+$(this).attr("data-rno");
+});	
+		
+//댓글 삭제 View
+$(".replyDeleteBtn").on("click", function(){
+	location.href = "replyDeleteView?pageNum=${pageInfo.bno}"
+		+ "&amount=${cri.amount}"
+		+ "&keyword=${cri.keyword}"
+		+ "&type=${cri.type}"
+		+ "&bno=${pageInfo.bno}"
+		+ "&rno="+$(this).attr("data-rno");
+});
 
 function getContextPath() {
     var hostIndex = location.href.indexOf( location.host ) + location.host.length;

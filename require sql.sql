@@ -42,7 +42,7 @@ ltmid varchar2(100) not null,
 ltbid number not null, 
 ltlike number default 0,
 FOREIGN KEY(ltmid) REFERENCES tbl_member(id),
-FOREIGN KEY(ltbid) REFERENCES tbl_board(bno) ); --7.tbl_member_rec 테이블 생성
+FOREIGN KEY(ltbid) REFERENCES tbl_board(bno) ); --7.liketable 테이블 생성
 
 
 CREATE SEQUENCE member_seq START WITH 1 INCREMENT BY 1 MAXVALUE 99999999 CYCLE;
@@ -60,3 +60,20 @@ select * from tbl_member_rec; --10. 각 메인테이블 조회
 
 
 --데이터베이스 셋팅후 최초아이디를 id 를 admin 으로 회원가입 권장
+
+create table tbl_reply (
+bno number not null,
+rno number not null,
+content varchar2(1000) not null,
+writer varchar2(50) not null,
+regdate date default sysdate,
+primary key(bno, rno) --11.tbl_reply 테이블 생성
+
+
+);
+
+alter table tbl_reply add constraint tbl_reply_bno foreign key(bno)
+references tbl_board(bno); --12.tbl_reply 테이블의 bno에 tbl_board 테이블의 bno 참조 
+
+create sequence tbl_reply_seq START WITH 1 MINVALUE 0; --13.tbl_reply 테이블 rno부여를 위한 시퀀스 생성
+

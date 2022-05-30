@@ -1,6 +1,7 @@
 package com.globalin.controller;
 
 import java.io.UnsupportedEncodingException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,16 +15,19 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.globalin.domain.BoardVO;
 import com.globalin.domain.Criteria;
 import com.globalin.domain.LikeVO;
 import com.globalin.domain.MemberVO;
+import com.globalin.domain.ReplyVO;
 import com.globalin.domain.pageMakerDTO;
 import com.globalin.service.BoardService;
 import com.globalin.service.LikeService;
 import com.globalin.service.MemberService;
+import com.globalin.service.ReplyService;
 
 @Controller
 @RequestMapping("/board/*")
@@ -37,6 +41,9 @@ public class BoardController {
 	
 	@Autowired
 	private LikeService likeservice;
+	
+	@Autowired
+	private ReplyService rservice;
 	
 	private static Logger log = LoggerFactory.getLogger(BoardController.class);
 	/* 게시글 리스트 페이지 접속(임시) */
@@ -84,11 +91,18 @@ public class BoardController {
 	public String boardGetPageGET(int bno, Model model, Criteria cri, HttpSession session) throws Exception {
 		MemberVO mem = (MemberVO) session.getAttribute("login_user");
 		
-		
+		//조회수
 		service.boardHit(bno);
+		
+		//게시글 정보들
 		model.addAttribute("pageInfo", service.getpage(bno));
 		model.addAttribute("cri",cri);
 		
+		//댓글 관련
+		List<ReplyVO> replyList = rservice.readReply(bno);
+		model.addAttribute("replyList",replyList);
+		
+		//좋아요 관련
 		LikeVO likebean = new LikeVO();
 		likebean.setLtbid(bno);
 		try {
@@ -153,9 +167,74 @@ public class BoardController {
         return "redirect:/board/boardpage";
         
     }
-	
-	
-	
-	
-	
+  //댓글 작성
+  	@RequestMapping(value="/replyWrite", method = RequestMethod.POST)
+  	public String replyWrite(ReplyVO vo, Criteria cri, RedirectAttributes rttr) throws Exception {
+  		log.info("reply Write");
+  		
+  		rservice.registReply(vo);
+  		
+//  		rttr.addAttribute("bno", vo.getBno());
+//  		rttr.addAttribute("page", cri.getPageNum());
+//  		rttr.addAttribute("perPageNum", cri.getAmount());
+//  		rttr.addAttribute("searchType", cri.getType());
+//  		rttr.addAttribute("keyword", cri.getKeyword());
+  		
+  		return "redirect:/board/get?pageNum="+cri.getPageNum()+"&amount="+cri.getAmount()+"&keyword="+cri.getKeyword()+"&type="+cri.getType()+"&bno=0"+vo.getBno();
+  	}
+  //댓글 수정 GET
+  	@RequestMapping(value="/replyUpdateView", method = RequestMethod.GET)
+  	public String replyUpdateView(ReplyVO vo, Criteria cri, Model model) throws Exception {
+  		log.info("reply Write");
+  		
+  		
+  		model.addAttribute("replyUpdate", rservice.selectReply(vo.getRno()));
+  		model.addAttribute("cri", cri);
+  		
+  		return "board/replyUpdateView";
+  	}
+  	
+  	//댓글 수정 POST
+  	@RequestMapping(value="/replyUpdate", method = RequestMethod.POST)
+  	public String replyUpdate(ReplyVO vo, Criteria cri, RedirectAttributes rttr) throws Exception {
+  		log.info("reply Write");
+  		
+  		rservice.updateReply(vo);
+  		
+//  		rttr.addAttribute("bno", vo.getBno());
+//  		rttr.addAttribute("page", cri.getPageNum());
+//  		rttr.addAttribute("perPageNum", cri.getAmount());
+//  		rttr.addAttribute("searchType", cri.getType());
+//  		rttr.addAttribute("keyword", cri.getKeyword());
+  		
+  		return "redirect:/board/get?pageNum="+cri.getPageNum()+"&amount="+cri.getAmount()+"&keyword="+cri.getKeyword()+"&type="+cri.getType()+"&bno=0"+vo.getBno();
+  	}
+  //댓글 삭제 GET
+  	@RequestMapping(value="/replyDeleteView", method = RequestMethod.GET)
+  	public String replyDeleteView(ReplyVO vo, Criteria cri, Model model) throws Exception {
+  		log.info("reply Write");
+  		
+  		
+  		model.addAttribute("replyDelete", rservice.selectReply(vo.getRno()));
+  		model.addAttribute("cri", cri);
+  		
+
+  		return "board/replyDeleteView";
+  	}
+  	
+  	//댓글 삭제
+  	@RequestMapping(value="/replyDelete", method = RequestMethod.POST)
+  	public String replyDelete(ReplyVO vo, Criteria cri, RedirectAttributes rttr) throws Exception {
+  		log.info("reply Write");
+  		
+  		rservice.deleteReply(vo);
+//  	rttr.addAttribute("bno", vo.getBno());
+//		rttr.addAttribute("page", cri.getPageNum());
+//		rttr.addAttribute("perPageNum", cri.getAmount());
+//		rttr.addAttribute("searchType", cri.getType());
+//		rttr.addAttribute("keyword", cri.getKeyword());
+  		return "redirect:/board/readView";
+  	}
 }
+	
+
