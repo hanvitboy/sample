@@ -481,9 +481,8 @@ $(document).ready(function() {
               <input type="checkbox" class="checkbox-input" value="-350"/>
               <span class="checkbox-tile">
                 <span class="checkbox-icon">
-                  <i class="fas fa-venus-mars"></i
-                ></span>
-                <span class="checkbox-label">yas</span>
+                 <i class="fas fa-dog"></i></span>
+                <span class="checkbox-label">dog walking</span>
                 <div class="showUp">350 kcls</div></span
               >
             </label>
