@@ -59,7 +59,6 @@ public class MemberController {
 	
 	@GetMapping("/register")
 	public void register() {
-		
 	}
 	
 	@PostMapping("/register")
@@ -139,6 +138,60 @@ public class MemberController {
 		return "kcalcalpage";
 	}
   
+	@PostMapping("/deletekcal")
+	public String deletekcal(HttpServletRequest req, HttpServletResponse resp, HttpSession session) throws IOException {
+	
+		MemberRecVO mv = (MemberRecVO)session.getAttribute("user_kcal");
+		//MemberVO member = (MemberVO) session.getAttribute("login_user");
+		
+		//int idx = member.getIdx();
+		
+		if(mv.getNext() == 1) {
+			mv.setNext(7);
+		    mv.setD7(0);
+		}
+		else if(mv.getNext() == 2) {
+			mv.setNext(1);
+			mv.setD1(0);
+		}
+		else if(mv.getNext() == 3) {
+			mv.setNext(2);
+			mv.setD2(0);
+		}
+		else if(mv.getNext() == 4) {
+			mv.setNext(3);
+			mv.setD3(0);
+		}
+		else if(mv.getNext() == 5) {
+			mv.setNext(4);
+			mv.setD4(0);
+		}
+		else if(mv.getNext() == 6) {
+			mv.setNext(5);
+			mv.setD5(0);
+		}
+		else if(mv.getNext() == 7) {
+			mv.setNext(6);
+			mv.setD6(0);
+		}
+
+		service2.modify(mv);
+		
+		int result = 0;
+		if(mv.getNext()==2) 
+			{result = 7;}
+				else{
+				result=	mv.getNext()-2;}
+				
+		
+		resp.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = resp.getWriter();
+		out.println("<script>alert('"+mv.getNext()+"回目のスロットのカロリーデーターをリセットしました!'); </script>");
+		out.flush();
+		
+		
+		return "kcalcalpage";
+	}
 	
  
  @PostMapping("/modify")

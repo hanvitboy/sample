@@ -18,6 +18,20 @@
     />
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
     <link rel="stylesheet" href="resources/css/media.css" />
+    <style>
+    .video-card {
+  width: 400px;
+  margin-right: 30px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+  transition-duration: 0.2s;
+}
+
+.video-card:hover {
+  transform: scale(1.04);
+  transition: 0.2s;
+}
+    </style>
 <section class="video-main">
       <div class="video-wrap">
         <video autoplay loop muted>
@@ -29,7 +43,7 @@
         <div class="text">
           <h1>運動サポート</h1>
           <p>
-            運動は初心者に難しいかもしれません。私たちから、提供した動画を見て一緒に運動しましょう。
+            初心者にとってトレーニングとなると、接近が難しいかも知れません。こちらから、提供している動画を見て一緒に運動しましょう。
           </p>
         </div>
       </div>
@@ -39,10 +53,10 @@
       <div class="video-container">
         <div class="video-title">
           <span>運動サポート</span>
-          <h1>代表運動３つ</h1>
+          <h1>代表ウエイト運動３つ</h1>
           <p>
-            運動は姿勢が大事です。姿勢が間違ったら、<br />
-            大けがになるかもしれません。次の動画を見ながら正しい姿勢しませんか。
+            ウエイトトレーニングは姿勢が大事です。姿勢が間違ったら、<br />
+            大けがになる恐れがあります。次の動画を見ながら正しい姿勢で運動してみましょう。
           </p>
         </div>
         <div class="video-cards">
@@ -61,11 +75,10 @@
                 allowfullscreen
               ></iframe>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Deserunt soluta, obcaecati eos dolore perferendis, sit
-                perspiciatis ducimus, quasi expedita optio magni maiores
-                doloremque aut voluptatibus? Commodi vero dolores quisquam
-                maiores!
+                スクワットはバーベルもしくはダンベルを持ち、膝の関節を曲げて開く行動を繰り返すことで、下半身の筋肉を成長させる運動です。
+                間違った姿勢、または無理な重量で行うと膝のケガの恐れがある運動でもあります。膝を曲げる際は
+                膝が前に出てきて重さの中心が前にだけ行かないように注意し、腰を曲げずお尻を後方に出した姿勢で行うべきです。
+               
               </p>
             </a>
           </div>
@@ -84,11 +97,9 @@
                 allowfullscreen
               ></iframe>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Deserunt soluta, obcaecati eos dolore perferendis, sit
-                perspiciatis ducimus, quasi expedita optio magni maiores
-                doloremque aut voluptatibus? Commodi vero dolores quisquam
-                maiores!
+               デッドリフトは床においてあるバーベルを握り、腕を曲げないままお尻の高さまで持ち上げる形で行います。
+               お腹の筋肉、背中の筋肉、お尻の筋肉、脚の筋肉など、関連のある筋肉が幅広くて数多く行われます。ダンベルを使ったり、
+               片足だけ使うなど他の運動効果のための様々なバリエーションがあります。
               </p>
             </a>
           </div>
@@ -107,11 +118,8 @@
                 allowfullscreen
               ></iframe>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Deserunt soluta, obcaecati eos dolore perferendis, sit
-                perspiciatis ducimus, quasi expedita optio magni maiores
-                doloremque aut voluptatibus? Commodi vero dolores quisquam
-                maiores!
+               ベンチプレスは背中を固定して寝そべた姿勢で、バーベルを胸の高さまでおろして、曲げた肘を伸ばしながら持ち上げる形で行います。
+               ベンチプレスをすると、一番は胸の筋肉の発達です。また腕も刺激され、肩の筋肉も肩の関節を安静させるため動作するので、ともに筋肉が発達します。
               </p>
             </a>
           </div>

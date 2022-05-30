@@ -106,7 +106,7 @@ overflow: hidden;
 #kcalFromBack2{
  
   height: 100%;
-  width: 16%;
+  width: 19%;
   background: none;
    color: inherit;
    border: none;
@@ -132,7 +132,7 @@ overflow: hidden;
   border-radius: 30px;
   box-shadow:10px 20px 50px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.10);
   border: 4px solid yellow;
-  height: 30vh;
+  height: 40vh;
   width: 50vh;
   background-color: black;
   color: white;
@@ -1097,7 +1097,7 @@ $(document).ready(function() {
         <span>kcals</span>
       </div>
       <div class="TodayKcal">
-        <span>まだ食べれるカロリー:</span> <input type="text" id="kcalFromBack2" name="cal" value="${login_user.onedaykcal}" readonly/>
+        <span>まだ食べれる熱量:</span> <input type="text" id="kcalFromBack2" name="cal" value="${login_user.onedaykcal}" readonly/>
         <span>kcals</span>
       </div>
       <div class="calSubmit">
@@ -1168,6 +1168,11 @@ $(document).ready(function() {
         </div>
         <span class="cal-day7">0%</span>
         <div class="cal-date__day7">Day7</div>
+      </div><br>
+      <div>
+      <form action="deletekcal" method="post">
+      <input type="submit" value="1"/>
+       </form>
       </div>
     </section>
       

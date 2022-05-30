@@ -401,12 +401,12 @@ video {
   margin-right: 30px;
   background-color: rgba(0, 0, 0, 0.7);
   border-radius: 5px;
-  transition-duration: 1s;
+  transition-duration: 0.2s;
 }
 
 .video-card:hover {
   transform: scale(1.04);
-  transition: 1s;
+  transition: 0.2s;
 }
 
 .video-card:hover h1 {
