@@ -42,7 +42,7 @@
 
         <div class="food-cards">
           <div class="card">
-            <a href="#">
+            <a href="https://www.amazon.co.jp/s?k=%E3%83%88%E3%83%9E%E3%83%88+%E3%81%8F%E3%81%A0%E3%82%82%E3%81%AE&rh=n%3A70943051&__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&ref=nb_sb_noss" target='_blank'>
               <img
                 src="https://cdn.pixabay.com/photo/2020/09/12/21/14/tomatoes-5566744_960_720.jpg"
                 alt="tomato"
@@ -56,7 +56,7 @@
             </a>
           </div>
           <div class="card">
-            <a href="#">
+            <a href="https://www.amazon.co.jp/s?k=%E3%82%A2%E3%83%9C%E3%82%AB%E3%83%89+%E9%87%8E%E8%8F%9C&i=food-beverage&rh=n%3A57239051%2Cn%3A70993051&dc&ds=v1%3ATw2%2BNXzi4RIdRXmDfeojbfNMnuMDVoxWaWAqbo7UX8w&__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&crid=16CPYEZCFIOYG&qid=1653891430&rnid=57239051&sprefix=%E3%82%A2%E3%83%9C%E3%82%AB%E3%83%89+%E9%87%8E%E8%8F%9C%2Cfood-beverage%2C203&ref=sr_nr_n_14" target='_blank'>
               <img
                 src="https://c.wallhere.com/photos/79/e5/avocado_fruit_stone-563812.jpg!d"
                 alt=""
@@ -71,7 +71,7 @@
             </a>
           </div>
           <div class="card">
-            <a href="#">
+            <a href="https://www.amazon.co.jp/s?k=%E3%82%AD%E3%83%A3%E3%83%99%E3%83%84&rh=n%3A57239051%2Cn%3A3964634051&dc&ds=v1%3AQpozAZngb3Zyt1kDz51UNuSlnxUmFHZIyQtEIlIm1aQ&__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&qid=1653891687&refresh=1&rnid=2321267051&ref=sr_nr_n_2" target='_blank'>
               <img
                 src="https://cdn.pixabay.com/photo/2016/11/24/16/56/brussels-sprouts-1856711_960_720.jpg"
                 alt=""

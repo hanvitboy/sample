@@ -14,6 +14,17 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <style>
 
+.Box1{
+height:100vh;
+background: 
+    url(https://wallpaperaccess.com/full/480568.jpg); 
+  background-repeat: no-repeat;
+  background-size: cover;
+border-radius: 20px;
+box-shadow: 0 24px 38px rgba(0,0,0,0.10), 0 20px 20px rgba(0,0,0,0.10);
+scroll-snap-align: start;
+}
+
 .TodayKcal,
 .recommendedKcal{
   display: flex;
@@ -128,7 +139,8 @@ overflow: hidden;
 
 .fixedGraphBox{
   display:flex;  
-  justify-content: center;
+  justify-content: space-evenly;
+  flex-direction: column;
   border-radius: 30px;
   box-shadow:10px 20px 50px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.10);
   border: 4px solid yellow;
@@ -241,7 +253,52 @@ overflow: hidden;
     }
 
 
-
+ .graph-whole-wrapper{
+    display: flex;
+  
+  }
+  
+  .cal-refresh{
+    display: flex;
+    align-items: center;
+    width: 90%;
+    justify-content: space-around;
+  
+   
+  }
+  
+  
+  
+  .cal-refresh-detail{
+  font-size: 16px;
+   font-family: "Noto Sans JP", sans-serif;
+  }
+  
+  
+  .cal-refresh__btn{
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 40px;
+    border: 3px solid #f7ca18;
+    border-radius: 5px;
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+    color: #999;
+    transition: all 0.9s, color 0.3;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  
+  
+  .cal-refresh__btn:hover {
+    color: #fff;
+    box-shadow: 200px 0 0 0 #f7ca18 inset;
+    background-color: #f7ca18;
+    transition: all 0.5s;
+  }
 
 
 </style>
@@ -266,14 +323,13 @@ $(document).ready(function() {
 			value -= parseInt($(this).val());
 			
 		})
-		/*
-		$("input[type='checkbox']:checked").each(function(){
-			value += parseInt($(this).val());
-			
-		})
-		*/
+	
 		var saveData = $("#kcalFromBack2").val(value);
-		
+
+		console.log($("#kcalFromBack2").val());
+		if($("#kcalFromBack2").val() < 0){
+			$("#kcalFromBack2").css("text-shadow", "2px 2px tomato");
+		}
 	})
 	
 })
@@ -1107,6 +1163,7 @@ $(document).ready(function() {
     
     
     <section class="fixedGraphBox">
+    <div class="graph-whole-wrapper">
       <div class="graph-wrapper">
         <div class="emoticon__day1"></div>
         <div class="graph-stack1">
@@ -1169,11 +1226,14 @@ $(document).ready(function() {
         <span class="cal-day7">0%</span>
         <div class="cal-date__day7">Day7</div>
       </div><br>
-      <div>
+    </div>
       <form action="deletekcal" method="post">
-      <input type="submit" value="1"/>
-       </form>
+           <div class="cal-refresh">
+        <div class="cal-refresh-detail">直前回のデーターを削除</div>
+        <input class="cal-refresh__btn" type="submit" value="DELETE" />
       </div>
+       </form>
+      
     </section>
       
       <input id="day1" type="hidden" value="${user_kcal.d1}"/>
@@ -1361,11 +1421,6 @@ document.querySelector(".cal-day7").textContent = calFromDB__day7;
 
 
 
-
-
-
-
-
 /*var plusStyle = document.createElement('style');
 sytle.type = "text/css";
 
@@ -1497,6 +1552,16 @@ if(calFromDB__day7 < 0){
 
 
 
+
+
+
+	if($("#kcalFromBack2").val() < 0){
+		$("#kcalFromBack2").css("text-shadow", "2px 2px tomato");
+	}
+	if($("#kcalFromBack2").val() > 0){
+		  $("#kcalFromBack2").css("text-shadow", "2px 2px #44bd32");
+	}
+	 $("#kcalFromBack1").css("text-shadow", "2px 2px #44bd32");
 
 
 
