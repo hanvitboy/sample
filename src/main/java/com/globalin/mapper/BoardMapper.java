@@ -39,4 +39,7 @@ public interface BoardMapper {
 	
 	// 전체 좋아요 갯수 +1
 	public int likeTotalM(int bno);
+	
+	// 전체 댓글 갯수
+	public int commentTotal(int bno);
 }

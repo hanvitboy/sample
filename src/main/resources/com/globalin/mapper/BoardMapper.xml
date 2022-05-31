@@ -134,7 +134,15 @@
     	WHERE BNO = #{bno}
        
    </update>
+   <update id="commentTotal" parameterType="int">
+   		UPDATE tbl_board 
+   		SET replycnt = (SELECT COUNT(rno)
+   						FROM tbl_reply
+   						WHERE bno=#{bno})
+   		WHERE bno = #{bno}
    
+   
+   </update>
    
 
 </mapper>

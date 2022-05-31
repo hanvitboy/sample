@@ -22,7 +22,7 @@
 		</div>
 		<div class="form-group">
 			<label>Writer</label><input class="form-control" name="writer"
-				value="${login_user.name}"readonly>
+				value="${login_user.id}"readonly>
 		</div>
 		<!-- 제출 -->
 		<button type="submit" class="btn btn-default">submit</button>

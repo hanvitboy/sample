@@ -4,10 +4,16 @@ import java.util.Date;
 
 public class BoardVO {
 	
-	private int bno,replyCnt,hit,like_count;
+	private int bno,hit,like_count,reply_count;
 	private String title,content,writer;
 	private Date regdate, updateDate;
 	
+	public int getReply_count() {
+		return reply_count;
+	}
+	public void setReply_count(int reply_count) {
+		this.reply_count = reply_count;
+	}
 	public int getLike_count() {
 		return like_count;
 	}
@@ -25,12 +31,6 @@ public class BoardVO {
 	}
 	public void setBno(int bno) {
 		this.bno = bno;
-	}
-	public int getReplyCnt() {
-		return replyCnt;
-	}
-	public void setReplyCnt(int replyCnt) {
-		this.replyCnt = replyCnt;
 	}
 	public String getTitle() {
 		return title;
@@ -64,7 +64,7 @@ public class BoardVO {
 	}
 	@Override
 	public String toString() {
-		return "BoardVO [bno=" + bno + ", replyCnt=" + replyCnt + ", hit=" + hit + ", like_count=" + like_count
+		return "BoardVO [bno=" + bno + ", hit=" + hit + ", like_count=" + like_count + ", reply_count=" + reply_count
 				+ ", title=" + title + ", content=" + content + ", writer=" + writer + ", regdate=" + regdate
 				+ ", updateDate=" + updateDate + "]";
 	}

@@ -32,9 +32,11 @@ public interface BoardService {
 	// 전체 게시글 갯수 
 	public int getTotal(Criteria cri);
 	
-	//좋아요 체크+1
+	// 좋아요 체크+1
 	public int likeTotal(int bno);
 	
-	//좋아요 체크-1
+	// 좋아요 체크-1
 	public int likeTotalM(int bno);
+	
+	//
 }

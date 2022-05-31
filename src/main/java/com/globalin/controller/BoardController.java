@@ -94,6 +94,7 @@ public class BoardController {
 		//조회수
 		service.boardHit(bno);
 		
+		
 		//게시글 정보들
 		model.addAttribute("pageInfo", service.getpage(bno));
 		model.addAttribute("cri",cri);

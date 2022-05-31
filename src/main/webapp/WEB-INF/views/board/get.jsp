@@ -89,7 +89,7 @@ textarea{
 	  <input type="hidden" id="keyword" name="keyword" value="${cri.keyword}"> 
 
   <div>
-    <label for="writer">댓글 작성자</label><input type="text" id="writer" name="writer" value="${login_user.name}"readonly/>
+    <label for="writer">댓글 작성자</label><input type="text" id="writer" name="writer" value="${login_user.id}"readonly/>
     <br/>
     <label for="content">댓글 내용</label><input type="text" id="content" name="content" />
   </div>
@@ -109,7 +109,7 @@ textarea{
 	   	     </p>
 	
 	        <p>${replyList.content}</p>
-	        <c:if test="${login_user.name  eq replyList.writer }">
+	        <c:if test="${login_user.id  eq replyList.writer }">
 	        <div>	
 			  <button type="button" class="replyUpdateBtn" data-rno="${replyList.rno}">수정</button>
 			  <button type="button" class="replyDeleteBtn" data-rno="${replyList.rno}">삭제</button>
@@ -142,7 +142,7 @@ textarea{
 		<input type="hidden" id="bno" name="bno" value='<c:out value="${pageInfo.bno}"/>'>
 		</form>
 	</div> 	
-		<c:if test="${login_user.name eq pageInfo.writer}"> 
+		<c:if test="${login_user.id eq pageInfo.writer}"> 
 		<a class="btn" id="modify_btn">수정 하기</a>
 		</c:if>
 		<!-- 목록페이지 눌렀을 시 기준 데이터를 유지하여 기존의 bno, pageNum, amount, keyword, type를 갖고있게 하기위해 -->
