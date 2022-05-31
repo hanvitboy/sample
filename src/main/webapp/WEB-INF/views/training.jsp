@@ -17,20 +17,108 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="stylesheet" href="resources/css/media.css" />
     <style>
-    .video-card {
+    
+    .video-wrap {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0px auto;
+  position: relative;
+}
+ .video-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  padding: 30px;
+  background-color: #424242;
+}
+
+.video-title {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.video-title span {
+  color: #f7ca18;
+}
+
+.video-title h1 {
+  color: rgb(187, 187, 187);
+}
+
+.video-title p {
+  color: #fff;
+}
+
+.video-cards {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 60px;
+}
+
+.video-card {
   width: 400px;
   margin-right: 30px;
   background-color: rgba(0, 0, 0, 0.7);
   border-radius: 5px;
-  transition-duration: 0.2s;
+  transition-duration: 1s;
 }
 
 .video-card:hover {
-  transform: scale(1.04);
-  transition: 0.2s;
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
+    rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+  transition: all 0.25s;
 }
+
+.video-card:hover h1 {
+  color: #f7ca18;
+  transition: all 0.5s;
+}
+
+.video-card:last-child {
+  margin-right: 0;
+}
+
+.video-card h1 {
+  font-size: 30px;
+  padding: 10px 20px 0 20px;
+  color: rgb(187, 187, 187);
+}
+
+.video-card p {
+  padding: 10px 20px 0 20px;
+  color: #fff;
+}
+.video-container-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  padding: 30px;
+  background-color: #5e5e5e;
+}
+
+.video-container-2 .h1-color {
+  color: rgb(17, 17, 17);
+}
+
+.video-container-3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  padding: 30px;
+  background-color: #696969;
+}
+
+.video-container-3 .h1-color {
+  color: #262626;
+}
+
     </style>
 <section class="video-main">
       <div class="video-wrap">
@@ -60,7 +148,8 @@
           </p>
         </div>
         <div class="video-cards">
-          <div class="video-card">
+          <div class="video-card" data-aos="fade-left" data-aos-duration="1000"
+          >
             <a
               href="https://www.youtube.com/watch?v=U3HlEF_E9fo&t=2s&ab_channel=JeremyEthier"
             >
@@ -82,7 +171,7 @@
               </p>
             </a>
           </div>
-          <div class="video-card">
+          <div class="video-card" data-aos="fade-down" data-aos-duration="1250">
             <a
               href="https://www.youtube.com/watch?v=ytGaGIn3SjE&ab_channel=JeremyEthier"
             >
@@ -103,7 +192,9 @@
               </p>
             </a>
           </div>
-          <div class="video-card">
+          <div class="video-card"
+            data-aos="fade-right"
+            data-aos-duration="1000">
             <a
               href="https://www.youtube.com/watch?v=WODztEweakQ&ab_channel=JeremyEthier"
             >
@@ -126,7 +217,189 @@
         </div>
       </div>
     </section>
+<section class="video-desc">
+      <div class="video-container-2">
+        <div class="video-title" data-aos="zoom-out" data-aos-duration="1000">
+          <span>運動サポート</span>
+          <h1 class="h1-color">ストレッチング</h1>
+          <p>
+            ストレッチングは運動の前後にする方がいいです。<br />
+            筋肉の緊張を緩和させ、柔らかく楽にします。また、運動遂行能力を向上させ、<br />けがを予防する効果があります。一緒にしてみませんか。
+          </p>
+        </div>
+        <div class="video-cards">
+          <div
+            class="video-card"
+            data-aos="fade-down-left"
+            data-aos-duration="1000"
+          >
+            <a
+              href="https://www.youtube.com/watch?v=nm-fxV-bwWg&ab_channel=ToneandTighten"
+            >
+              <h1>股関節</h1>
+              <iframe
+                width="100%"
+                height="200"
+                src="https://www.youtube.com/embed/nm-fxV-bwWg?controls=0"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Deserunt soluta, obcaecati eos dolore perferendis, sit
+                perspiciatis ducimus, quasi expedita optio magni maiores
+                doloremque aut voluptatibus? Commodi vero dolores quisquam
+                maiores!
+              </p>
+            </a>
+          </div>
+          <div
+            class="video-card"
+            data-aos="zoom-in-down"
+            data-aos-duration="1250"
+          >
+            <a
+              href="https://www.youtube.com/watch?v=0wAw1-1MHa4&ab_channel=ToneandTighten"
+            >
+              <h1>腰</h1>
+              <iframe
+                width="100%"
+                height="200"
+                src="https://www.youtube.com/embed/0wAw1-1MHa4?controls=0"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Deserunt soluta, obcaecati eos dolore perferendis, sit
+                perspiciatis ducimus, quasi expedita optio magni maiores
+                doloremque aut voluptatibus? Commodi vero dolores quisquam
+                maiores!
+              </p>
+            </a>
+          </div>
+          <div
+            class="video-card"
+            data-aos="fade-down-right"
+            data-aos-duration="1000"
+          >
+            <a
+              href="https://www.youtube.com/watch?v=1PdyCdtkcGk&ab_channel=ToneandTighten"
+            >
+              <h1>肩</h1>
+              <iframe
+                width="100%"
+                height="200"
+                src="https://www.youtube.com/embed/1PdyCdtkcGk?controls=0"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Deserunt soluta, obcaecati eos dolore perferendis, sit
+                perspiciatis ducimus, quasi expedita optio magni maiores
+                doloremque aut voluptatibus? Commodi vero dolores quisquam
+                maiores!
+              </p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <section class="video-desc">
+      <div class="video-container-3">
+        <div class="video-title" data-aos="zoom-out" data-aos-duration="1000">
+          <span>運動サポート</span>
+          <h1 class="h1-color">生活運動</h1>
+          <p>
+            生活の中で、簡単に運動できる運動を<br />
+            準備してみました。一緒にしてみませんか。
+          </p>
+        </div>
+        <div class="video-cards">
+          <div
+            class="video-card"
+            data-aos="fade-up-left"
+            data-aos-duration="1000"
+          >
+            <a
+              href="https://www.youtube.com/watch?v=Y1-uwSGuD5w&ab_channel=HollyDolke"
+            >
+              <h1>階段の上り</h1>
+              <iframe
+                width="100%"
+                height="200"
+                src="https://www.youtube.com/embed/Y1-uwSGuD5w?controls=0"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+              <p>
+                日常生活に簡単にできる運動です。<br />
+                膝の関節周辺の筋肉だけでなく、よくコア筋肉と呼ばれる脊椎周辺、お尻、太ももなどの筋肉発達にも役立ちます。
+                また、階段登りは一般的なウォーキングや早歩きのような運動よりも多くのカロリーを消費することができ、有酸素運動としても効果的です。
+              </p>
+            </a>
+          </div>
+          <div class="video-card" data-aos="fade-up" data-aos-duration="1250">
+            <a
+              href="https://www.youtube.com/watch?v=KPWBUYpsWSY&ab_channel=BackIntelligence"
+            >
+              <h1>オフィスの運動</h1>
+              <iframe
+                width="100%"
+                height="200"
+                src="https://www.youtube.com/embed/KPWBUYpsWSY"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+              <p>
+                オフィスの運動は、一日中、体と心が緊張状態にある現代人のための運動法です。
+                時間や場所に関係なく、通話中やコピーをしながら簡単に楽しむことができます。
+                簡単な動作だけでも体が軽くなるのを感じることができます。
+              </p>
+            </a>
+          </div>
+          <div
+            class="video-card"
+            data-aos="fade-up-right"
+            data-aos-duration="1000"
+          >
+            <a
+              href="https://www.youtube.com/watch?v=CAq9vV7gkrs&ab_channel=AskDoctorJo"
+            >
+              <h1>オフィスの運動</h1>
+              <iframe
+                width="100%"
+                height="200"
+                src="https://www.youtube.com/embed/CAq9vV7gkrs?controls=0"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Deserunt soluta, obcaecati eos dolore perferendis, sit
+                perspiciatis ducimus, quasi expedita optio magni maiores
+                doloremque aut voluptatibus? Commodi vero dolores quisquam
+                maiores!
+              </p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
     <footer>
       <div class="property">
         <p>
@@ -215,6 +488,10 @@ var actionForm = $(".actionForm");
        			actionForm.submit();
        		})
        	})
+       	
+       	AOS.init({
+  duration: 500,
+});
        	
 </script>
   
