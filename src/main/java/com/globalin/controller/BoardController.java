@@ -146,13 +146,15 @@ public class BoardController {
     
     /* 페이지 수정 */
     @RequestMapping("/modify")
-    public void boardModifyPOST(BoardVO board, RedirectAttributes rttr, HttpServletRequest req, Model model, int bno) throws Exception {
+    public String boardModifyPOST(BoardVO vo, Criteria cri,RedirectAttributes rttr, HttpServletRequest req, Model model, int bno) throws Exception {
     	
-        service.modify(board);
+        service.modify(vo);
         
         //rttr.addFlashAttribute("result", "modify success");
         
         model.addAttribute("pageInfo", service.getpage(bno));
+        
+        return "redirect:/board/get?pageNum="+cri.getPageNum()+"&amount="+cri.getAmount()+"&keyword="+cri.getKeyword()+"&type="+cri.getType()+"&bno=0"+vo.getBno();
         
     }
     
@@ -212,7 +214,7 @@ public class BoardController {
   //댓글 삭제 GET
   	@RequestMapping(value="/replyDeleteView", method = RequestMethod.GET)
   	public String replyDeleteView(ReplyVO vo, Criteria cri, Model model) throws Exception {
-  		log.info("reply Write");
+  		log.info("reply delete");
   		
   		
   		model.addAttribute("replyDelete", rservice.selectReply(vo.getRno()));
@@ -233,7 +235,7 @@ public class BoardController {
 //		rttr.addAttribute("perPageNum", cri.getAmount());
 //		rttr.addAttribute("searchType", cri.getType());
 //		rttr.addAttribute("keyword", cri.getKeyword());
-  		return "redirect:/board/readView";
+  		return "redirect:/board/get?pageNum="+cri.getPageNum()+"&amount="+cri.getAmount()+"&keyword="+cri.getKeyword()+"&type="+cri.getType()+"&bno="+vo.getBno();
   	}
 }
 	

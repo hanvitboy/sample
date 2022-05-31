@@ -109,10 +109,12 @@ textarea{
 	   	     </p>
 	
 	        <p>${replyList.content}</p>
+	        <c:if test="${login_user.name  eq replyList.writer }">
 	        <div>	
 			  <button type="button" class="replyUpdateBtn" data-rno="${replyList.rno}">수정</button>
 			  <button type="button" class="replyDeleteBtn" data-rno="${replyList.rno}">삭제</button>
 			</div>
+			</c:if>
 	      </li>
 	    </c:forEach>   
 	  </ol>

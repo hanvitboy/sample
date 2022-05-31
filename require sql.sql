@@ -73,7 +73,7 @@ primary key(bno, rno) --11.tbl_reply 테이블 생성
 );
 
 alter table tbl_reply add constraint tbl_reply_bno foreign key(bno)
-references tbl_board(bno); --12.tbl_reply 테이블의 bno에 tbl_board 테이블의 bno 참조 
+references tbl_board(bno) on delete cascade; --12.tbl_reply 테이블의 bno에 tbl_board 테이블의 bno 참조 
 
 create sequence tbl_reply_seq START WITH 1 MINVALUE 0; --13.tbl_reply 테이블 rno부여를 위한 시퀀스 생성
 
