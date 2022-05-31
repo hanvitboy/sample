@@ -84,8 +84,9 @@
 								<th>WRITER</th>
 								<th>REGDATE</th>
 								<th>UPDATEDATE</th>
-								<th>Hit</th>
+								<th>조회수</th>
 								<th>좋아요</th>
+								<th>댓글수</th>
 							</tr>
 						</thead>
 
@@ -107,6 +108,7 @@
 										
 								<td><c:out value="${board.hit }" /></td>
 								<td><c:out value="${board.like_count }" /></td>
+								<td><c:out value="${board.reply_count }" /></td>
 
 							</tr>
 

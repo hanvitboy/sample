@@ -22,7 +22,7 @@ content varchar2(2000) not null,
 writer varchar2(50) not null, 
 regdate date default sysdate, 
 updatedate date default sysdate, 
-replycnt number default 0, 
+reply_count number default 0, 
 hit number default 0, 
 like_count number default 0); --5.tbl_board 테이블 생성
 
@@ -42,7 +42,7 @@ ltmid varchar2(100) not null,
 ltbid number not null, 
 ltlike number default 0,
 FOREIGN KEY(ltmid) REFERENCES tbl_member(id),
-FOREIGN KEY(ltbid) REFERENCES tbl_board(bno) ); --7.liketable 테이블 생성
+FOREIGN KEY(ltbid) REFERENCES tbl_board(bno) on delete cascade; ); --7.liketable 테이블 생성
 
 
 CREATE SEQUENCE member_seq START WITH 1 INCREMENT BY 1 MAXVALUE 99999999 CYCLE;
@@ -67,7 +67,7 @@ rno number not null,
 content varchar2(1000) not null,
 writer varchar2(50) not null,
 regdate date default sysdate,
-primary key(bno, rno) --11.tbl_reply 테이블 생성
+primary key(rno) --11.tbl_reply 테이블 생성
 
 
 );

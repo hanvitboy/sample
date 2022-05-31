@@ -12,9 +12,11 @@
 		 	   WRITER,
 		   	   REGDATE,
 			   UPDATEDATE,
-			   REPLYCNT,
+			   reply_count,
 			   HIT,
 			   LIKE_COUNT
+			   
+			   
 		FROM tbl_board 
 		WHERE bno=#{bno}
 		
@@ -80,9 +82,9 @@
 	<select id="getListPaging" resultType="com.globalin.domain.BoardVO">    
     <![CDATA[
         
-        SELECT bno, title, content, writer, regdate, updatedate, hit,like_count
+        SELECT bno, title, content, writer, regdate, updatedate, hit,like_count,reply_count
         FROM(
-        	SELECT /*+INDEX_DESC(tbl_board) */ rownum  as rn, bno, title, content, writer, regdate, updatedate, hit,like_count
+        	SELECT /*+INDEX_DESC(tbl_board) */ rownum  as rn, bno, title, content, writer, regdate, updatedate, hit,like_count,reply_count
             FROM tbl_board
             WHERE rownum <= #{pageNum} * #{amount}
               
@@ -134,12 +136,13 @@
     	WHERE BNO = #{bno}
        
    </update>
+   
    <update id="commentTotal" parameterType="int">
    		UPDATE tbl_board 
-   		SET replycnt = (SELECT COUNT(rno)
+   		SET reply_count = (SELECT COUNT(rno)
    						FROM tbl_reply
    						WHERE bno=#{bno})
-   		WHERE bno = #{bno}
+   		WHERE bno=#{bno}
    
    
    </update>

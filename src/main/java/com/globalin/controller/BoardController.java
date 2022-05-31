@@ -60,6 +60,7 @@ public class BoardController {
     	
     	System.out.println(lv);
     	
+    	
         model.addAttribute("list",service.getListPaging(cri));
         int total = service.getTotal(cri);        
         pageMakerDTO pm = new pageMakerDTO(cri, total);        
@@ -90,6 +91,9 @@ public class BoardController {
 	@GetMapping("/get")
 	public String boardGetPageGET(int bno, Model model, Criteria cri, HttpSession session) throws Exception {
 		MemberVO mem = (MemberVO) session.getAttribute("login_user");
+		
+		//댓글 수 표시
+		service.commentTotal(bno);
 		
 		//조회수
 		service.boardHit(bno);

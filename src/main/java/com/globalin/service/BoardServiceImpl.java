@@ -87,4 +87,10 @@ public class BoardServiceImpl implements BoardService {
 		return mapper.likeTotalM(bno);
 	}
 
+	@Override
+	public int commentTotal(int bno) {
+		log.info("commentTotal...");
+		return mapper.commentTotal(bno);
+	}
+
 }

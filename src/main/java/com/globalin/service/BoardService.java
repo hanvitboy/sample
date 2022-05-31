@@ -38,5 +38,6 @@ public interface BoardService {
 	// 좋아요 체크-1
 	public int likeTotalM(int bno);
 	
-	//
+	// 전체 댓글 갯수
+	public int commentTotal(int bno);
 }
