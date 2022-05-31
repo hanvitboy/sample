@@ -41,8 +41,8 @@ create table liketable(
 ltmid varchar2(100) not null, 
 ltbid number not null, 
 ltlike number default 0,
-FOREIGN KEY(ltmid) REFERENCES tbl_member(id),
-FOREIGN KEY(ltbid) REFERENCES tbl_board(bno) on delete cascade; ); --7.liketable 테이블 생성
+FOREIGN KEY(ltmid) REFERENCES tbl_member(id) on delete cascade ,
+FOREIGN KEY(ltbid) REFERENCES tbl_board(bno) on delete cascade ); --7.liketable 테이블 생성
 
 
 CREATE SEQUENCE member_seq START WITH 1 INCREMENT BY 1 MAXVALUE 99999999 CYCLE;
