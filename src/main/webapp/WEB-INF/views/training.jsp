@@ -21,9 +21,35 @@
     <link rel="stylesheet" href="resources/css/media.css" />
     <style>
     
+    /* video */
+video {
+  width: 100%;
+}
+
+.text {
+  position: absolute;
+  width: 600px;
+  height: 170px;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 20px;
+}
+.text h1 {
+  text-align: center;
+  font-size: 48px;
+  color: #fff;
+}
+
+.text p {
+  font-size: 20px;
+  color: #fff;
+}
+    
     .video-wrap {
   width: 100%;
-  height: 100vh;
+  height: auto;
   overflow: hidden;
   margin: 0px auto;
   position: relative;
@@ -32,7 +58,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
+  height: auto;
+  width:100%;
   padding: 30px;
   background-color: #424242;
 }
@@ -97,7 +124,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
+ height: auto;
+  width:100%;
   padding: 30px;
   background-color: #5e5e5e;
 }
@@ -110,7 +138,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
+  height: auto;
+  width:100%;
   padding: 30px;
   background-color: #696969;
 }
@@ -131,7 +160,7 @@
         <div class="text">
           <h1>運動サポート</h1>
           <p>
-            初心者にとってトレーニングとなると、接近が難しいかも知れません。こちらから、提供している動画を見て一緒に運動しましょう。
+            初心者にとってトレーニングとなるとなかなか難しいかも知れません。提供している動画を見て一緒に運動しましょう。
           </p>
         </div>
       </div>
@@ -143,7 +172,7 @@
           <span>運動サポート</span>
           <h1>代表ウエイト運動３つ</h1>
           <p>
-            ウエイトトレーニングは姿勢が大事です。姿勢が間違ったら、<br />
+            ウエイトトレーニングは姿勢が大事です。間違った姿勢で運動すると、<br />
             大けがになる恐れがあります。次の動画を見ながら正しい姿勢で運動してみましょう。
           </p>
         </div>
@@ -221,10 +250,10 @@
       <div class="video-container-2">
         <div class="video-title" data-aos="zoom-out" data-aos-duration="1000">
           <span>運動サポート</span>
-          <h1 class="h1-color">ストレッチング</h1>
+          <h1 class="h1-color">ストレッチ</h1>
           <p>
-            ストレッチングは運動の前後にする方がいいです。<br />
-            筋肉の緊張を緩和させ、柔らかく楽にします。また、運動遂行能力を向上させ、<br />けがを予防する効果があります。一緒にしてみませんか。
+            ストレッチは運動の前後に必ず行ってください。<br />
+            筋肉の緊張を緩和させ、体が柔らかくなります。また、運動能力を向上させ、<br />怪我を予防する効果があります。一緒にやってみましょう。
           </p>
         </div>
         <div class="video-cards">
@@ -247,11 +276,8 @@
                 allowfullscreen
               ></iframe>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Deserunt soluta, obcaecati eos dolore perferendis, sit
-                perspiciatis ducimus, quasi expedita optio magni maiores
-                doloremque aut voluptatibus? Commodi vero dolores quisquam
-                maiores!
+                歩くときに必要なのは、両足だけじゃありません。　骨盤と大腿骨を繋いでくれる股関節がちゃんと働かないときちんと動けません。
+                それほど大事な股関節のストレッチをしてみましょう。
               </p>
             </a>
           </div>
@@ -274,11 +300,8 @@
                 allowfullscreen
               ></iframe>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Deserunt soluta, obcaecati eos dolore perferendis, sit
-                perspiciatis ducimus, quasi expedita optio magni maiores
-                doloremque aut voluptatibus? Commodi vero dolores quisquam
-                maiores!
+               腰は日常での間違った姿勢と週間で、ディスクを含め様々な疾病を招きます。
+               次の動画を参考し、ストレッチを通して日々腰の管理に気を付けましょう。
               </p>
             </a>
           </div>
@@ -301,11 +324,9 @@
                 allowfullscreen
               ></iframe>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Deserunt soluta, obcaecati eos dolore perferendis, sit
-                perspiciatis ducimus, quasi expedita optio magni maiores
-                doloremque aut voluptatibus? Commodi vero dolores quisquam
-                maiores!
+               人間の体で最も運動範囲が広いところは肩です。体と腕を繋げてくれる連結器官と同時に様々な骨と筋肉を支え
+               体で唯一360度回転が可能な関節です。
+               その分損傷が発生しやすいところなので、ストレッチで毎日管理しておきましょう。
               </p>
             </a>
           </div>
@@ -344,7 +365,7 @@
               ></iframe>
               <p>
                 日常生活に簡単にできる運動です。<br />
-                膝の関節周辺の筋肉だけでなく、よくコア筋肉と呼ばれる脊椎周辺、お尻、太ももなどの筋肉発達にも役立ちます。
+                膝の関節周辺の筋肉だけではなく、コア筋肉と呼ばれる脊椎周辺、お尻、太ももなどの筋肉発達にも役立ちます。
                 また、階段登りは一般的なウォーキングや早歩きのような運動よりも多くのカロリーを消費することができ、有酸素運動としても効果的です。
               </p>
             </a>
@@ -353,7 +374,7 @@
             <a
               href="https://www.youtube.com/watch?v=KPWBUYpsWSY&ab_channel=BackIntelligence"
             >
-              <h1>オフィスの運動</h1>
+              <h1>ITオフィスの運動</h1>
               <iframe
                 width="100%"
                 height="200"
@@ -364,9 +385,9 @@
                 allowfullscreen
               ></iframe>
               <p>
-                オフィスの運動は、一日中、体と心が緊張状態にある現代人のための運動法です。
-                時間や場所に関係なく、通話中やコピーをしながら簡単に楽しむことができます。
-                簡単な動作だけでも体が軽くなるのを感じることができます。
+                ITオフィスの運動は、首や腰、肩が悪くなりやすいIT業界の人にぴったりの運動です。
+         プログラミングが上手く行かない場合や、少しの合間にこの動画を見ながら運動したらいかがでしょう？       
+                数分を投資して作業の能率をあげましょう。
               </p>
             </a>
           </div>
@@ -378,7 +399,7 @@
             <a
               href="https://www.youtube.com/watch?v=CAq9vV7gkrs&ab_channel=AskDoctorJo"
             >
-              <h1>オフィスの運動</h1>
+              <h1>事務オフィスの運動</h1>
               <iframe
                 width="100%"
                 height="200"
@@ -389,11 +410,9 @@
                 allowfullscreen
               ></iframe>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Deserunt soluta, obcaecati eos dolore perferendis, sit
-                perspiciatis ducimus, quasi expedita optio magni maiores
-                doloremque aut voluptatibus? Commodi vero dolores quisquam
-                maiores!
+         事務系オフィスの運動は、一日中、体と心が緊張状態にある現代人のための運動法です。
+                時間や場所に関係なく、通話中やコピーをしながら簡単に行うことができます。
+                簡単な動作で体が軽くなる気分を感じてみてください。
               </p>
             </a>
           </div>
@@ -408,8 +427,8 @@
         </p>
       </div>
       <div class="number">
-        <p>이용약관</p>
-        <p>문의:010-0000-0000</p>
+        <p>利用規約</p>
+        <p>問い合わせ:090-0000-0000</p>
       </div>
     </footer>
   </body>

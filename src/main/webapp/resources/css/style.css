@@ -336,6 +336,8 @@ li {
   position: absolute;
   left: 50%;
   top: 50%;
+  width: 40%;
+  height: auto;
   transform: translate(-50%, -50%);
   text-align: center;
 }
@@ -354,12 +356,18 @@ li {
 
 .main-information.a {
   background-color: #202020;
+  height: auto;
+  width:100%;
 }
 .main-information.b {
   background-color: #2e2e2e;
+  height: auto;
+  width:100%;
 }
 .main-information.c {
   background-color: #3a3a3a;
+  height: auto;
+  width:100%;
 }
 
 .main-information h1 {

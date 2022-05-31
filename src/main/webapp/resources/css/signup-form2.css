@@ -195,7 +195,7 @@ li {
   transition: all 0.5s;
 }
 
-#btn-area .btn-next {
+ .btn-area .btn-next {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -209,9 +209,9 @@ li {
   text-align: center;
   cursor: pointer;
   color: #999;
+ background-color : rgb(99,98,80);
   transition: all 0.9s, color 0.3;
 }
-
 #btn-area .btn-next:hover {
   color: #fff;
   box-shadow: 200px 0 0 0 #f7ca18 inset;

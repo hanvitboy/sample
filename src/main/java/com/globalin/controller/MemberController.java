@@ -15,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.globalin.domain.MemberRecVO;
 import com.globalin.domain.MemberVO;
@@ -57,9 +58,6 @@ public class MemberController {
 		
 	}
 	
-	@GetMapping("/register")
-	public void register() {
-	}
 	
 	@PostMapping("/register")
 	public String register(MemberVO member, MemberRecVO mv, HttpServletRequest req, HttpServletResponse resp, HttpSession session) throws IOException {
@@ -219,19 +217,17 @@ public class MemberController {
  
  
 	@PostMapping("/withdraw")
-	public String remove(HttpSession session, HttpServletResponse resp) throws Exception
+	public String remove(HttpSession session, HttpServletResponse resp, RedirectAttributes rttr) throws Exception
 	{	MemberVO member = (MemberVO) session.getAttribute("login_user");
-		
+	    
 		service.remove(member.getId());
 		service2.remove(member.getIdx());
 		session.invalidate();
-		resp.setContentType("text/html; charset=UTF-8");
-		PrintWriter out = resp.getWriter();
-		out.println("<script>alert('本日までどうもありがとうございました。'); </script>");
-		out.flush();
-		
+				
 		return "home";
 	}
+	
+	
 	
 	@PostMapping("/login")
 	public String login(MemberRecVO mv, HttpServletRequest req, HttpServletResponse resp, HttpSession session) throws Exception {

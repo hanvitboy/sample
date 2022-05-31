@@ -139,7 +139,7 @@
     	    f.setAttribute('action', '/controller/withdraw');
     	    document.body.appendChild(f);
     	    var result = confirm('Are you sure you want to leave?'); 
-    	    if(result) {  f.submit(); } 
+    	    if(result) {  f.submit(); alert('本日までどうもありがとうございました。'); } 
     	    else { return false; }
 
     	   

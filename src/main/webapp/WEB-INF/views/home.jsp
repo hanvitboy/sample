@@ -29,6 +29,19 @@
   
   
 }
+
+
+.main-title {
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 40%;
+  height: auto;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
 .card {
   background: #000000d0;
   color: white;
@@ -107,6 +120,22 @@ condition-box
 .city{
 font-size: 12px;
 
+}
+
+.main-information.a {
+  background-color: #202020;
+  height: auto;
+  width:100%;
+}
+.main-information.b {
+  background-color: #2e2e2e;
+  height: auto;
+  width:100%;
+}
+.main-information.c {
+  background-color: #3a3a3a;
+  height: auto;
+  width:100%;
 }
   </style>
   
@@ -240,6 +269,10 @@ font-size: 12px;
 
     
      <script type="text/javascript">
+     
+   
+     
+     
      let weather = {
  		    apiKey: "04677bb1adfaf876f2efbe954841c0b5",
  		    fetchWeather: function (city) {
@@ -336,6 +369,8 @@ font-size: 12px;
             	})
             	
             	AOS.init({duration: 1500,});
+            	
+            	
             	</script>
             	 <script
  	      src="https://kit.fontawesome.com/99b96296a9.js"

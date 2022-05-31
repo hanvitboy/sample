@@ -21,6 +21,25 @@
     <link rel="stylesheet" href="resources/css/signup-form2.css" />
   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
  <style>
+ 
+ .btn-area .btn-next {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  border: 2px solid #f7ca18;
+  border-radius: 5px;
+  margin: 15px auto;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+  color: #999;
+ background-color : rgb(99,98,80);
+  transition: all 0.9s, color 0.3;
+}
+ 
  .signup-form2 {
   display: flex;
   flex-direction: column;
@@ -42,7 +61,7 @@
        <a href="http://localhost:9090/controller/"><strong><span>fit</span>ness</strong></a>
       </h1>
       <h2>SIGNUP</h2>
-      <form class="actionForm" action="">
+      <form class="actionForm" action="/controller/register" method="post">
       
       <input type="hidden" name="name" value="${member.name }">
       <input type="hidden" name="id" value="${member.id }">
@@ -335,23 +354,13 @@
           </div>
         </div>
         <div id="btn-area">
-          <a class="btn-next" href="#" role="button">complete</a>
+           <button class="btn-next" type="submit">REGIST</button>
         </div>
         </form>
       </div>
     </section>
       <script type="text/javascript">
-     
-     var actionForm = $(".actionForm");
-            	$(document).ready(function(){
-            		$(".btn-next").on("click",function(e){
-            			e.preventDefault();
-            			actionForm.attr("action", "/controller/register").attr("method", "post");
-            			actionForm.submit();
-            		})
-            		
-            	})
-            	
+      
             	 
   const pointAge = document.getElementById("age-info");
   const blankAge = document.querySelector("#age-info input");
@@ -380,6 +389,32 @@
 
   pointweight.addEventListener("click", resetweight);
 
+  
+  
+  $(document).ready(function(){
+	 
+		$(".btn-next").on("click",function(){
+		
+			 if($('input:radio[name=gender]').is(':checked')) {
+				  if($('input:radio[name=actindex]').is(':checked')) {
+					  $(".actionForm").submit();
+					  return true;
+				  }						
+				  alert('必ず全て入力してください。');
+				  return false; 
+				  }
+				  alert('必ず全て入力してください。');
+				  return false;
+				  		
+		})
+	  
+
+
+  })
+		
+  
+  
+  
             	</script>
    
   </body>
