@@ -2,6 +2,7 @@ package com.globalin.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.globalin.domain.MemberRecVO;
@@ -254,6 +256,8 @@ public class MemberController {
 	
 	}
 	
+	
+	
 	@PostMapping("/login2")
 	public String login2(MemberRecVO mv, HttpServletRequest req, HttpServletResponse resp, HttpSession session) throws Exception {
 		String id = req.getParameter("id");
@@ -281,6 +285,55 @@ public class MemberController {
 		return "kcalcalpage";
 	
 	}
+	
+	
+	@GetMapping("/oauth")
+		public String kakaoRegist(@RequestParam(value = "code", required = false) String code, Model model ) throws Exception {
+		System.out.println("#########" + code);
+		
+		String access_Token = service.getAccessToken(code);
+		HashMap<String, Object> userInfo = service.getUserInfo(access_Token);
+		System.out.println("###access_Token#### : " + access_Token);
+		System.out.println("###nickname#### : " + userInfo.get("nickname"));
+		System.out.println("###kakaoid#### : " + userInfo.get("id"));
+		model.addAttribute("nickname" , userInfo.get("nickname"));
+		model.addAttribute("kakaoid",userInfo.get("id"));
+		
+		return "oauth";
+		}
+	
+	
+	@GetMapping("/kakaolog")
+	public String kakaoLog(@RequestParam(value = "code", required = false) String code, Model model, HttpSession session, HttpServletResponse resp) throws Exception {
+	System.out.println("#########" + code);
+	
+	String access_Token = service.getLoginAccessToken(code);
+	HashMap<String, Object> userInfo = service.getLoginUserInfo(access_Token);
+	System.out.println("###access_Token#### : " + access_Token);
+	System.out.println("###kakaoid#### : " + userInfo.get("id"));
+	model.addAttribute("kakaoid",userInfo.get("id"));
+	
+	MemberVO mem = service.kakaologin((String) userInfo.get("id"));
+	
+	if(mem != null) {
+		//id,pw가 검증되었다면
+		MemberRecVO mv2 = service2.get(mem.getIdx());
+		session.setAttribute("login_user", mem);
+		session.setAttribute("user_kcal", mv2);
+		
+		log.warn(mem.toString());			
+	}else {
+		resp.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = resp.getWriter();
+		out.println("<script>alert('情報がございません。加入ページへ移動します。');</script>");
+		out.flush();
+		return "registpage";
+	}
+
+	return "home";
+	
+	}
+	
 	
 	
 	@RequestMapping("/checkId")

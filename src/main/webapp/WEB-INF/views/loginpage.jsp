@@ -3,7 +3,7 @@
 <%@ taglib uri ="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-
+<script type="text/javascript" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 
 
 <!DOCTYPE html>
@@ -184,6 +184,13 @@ li {
         </div>
         <div class="btn-area">
           <button type="submit">LOGIN</button>
+        </div>
+        <div>
+        <form method="get" action="kakaologin">
+        <a id="kakao-login-btn" href="https://kauth.kakao.com/oauth/authorize?client_id=3c29e5973236d66995354c01142b54eb&redirect_uri=http://localhost:9090/controller/kakaolog&response_type=code">
+        <img src="resources/assets/loginimage.png"/></a>
+       
+        </form>
         </div>
         </form>
      <form id="actionForm" action="loginpage" method="post">

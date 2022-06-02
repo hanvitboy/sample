@@ -48,6 +48,23 @@
 	WHERE id=#{id} 
 	  AND pw=#{pw}
 </select>
+
+<select id="kakaologin" resultType="com.globalin.domain.MemberVO" parameterType="String">
+	SELECT idx, 
+		   age,
+		   height,
+		   weight,
+		   id,
+		   name,
+		   pw,
+		   gender,
+		   actindex ,
+		   ONEDAYKCAL
+	FROM tbl_member 
+	WHERE id=#{id}
+</select>
+
+
  <select id="findpw" resultType="com.globalin.domain.MemberVO">
 	SELECT name,
 			pw
