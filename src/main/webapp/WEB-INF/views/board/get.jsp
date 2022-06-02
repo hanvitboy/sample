@@ -89,12 +89,12 @@ textarea{
 	  <input type="hidden" id="keyword" name="keyword" value="${cri.keyword}"> 
 
   <div>
-    <label for="writer">댓글 작성자</label><input type="text" id="writer" name="writer" value="${login_user.id}"readonly/>
+    <label for="writer">댓글 작성자</label><input type="text" name="writer" value="${login_user.id}"readonly id="reply_writer"/>
     <br/>
-    <label for="content">댓글 내용</label><input type="text" id="content" name="content" />
+    <label for="content">댓글 내용</label><input type="text" name="content" id="reply_content"/>
   </div>
   <div>
- 	 <button type="button" class="replyWriteBtn">작성</button>
+ 	 <button type="button" id="replyWriteBtn">작성</button>
   </div>
 </form>
 	
@@ -119,6 +119,10 @@ textarea{
 	    </c:forEach>   
 	  </ol>
 	</div>
+	<div class="replylist">
+	
+	</div>
+	
 				<td id="like">
 					<c:choose>
 						<c:when test="${ltlike ==0}">
@@ -152,10 +156,168 @@ textarea{
 		<input type="hidden" name="amount" value='<c:out value="${cri.amount }"/>'> 
 		<input type="hidden" name="keyword" value="${cri.keyword }">    
 		<input type="hidden" name="type" value="${pageMaker.cri.type }">
+		<input type="hidden" name="reply_bno" id="reply_bno" value="${pageInfo.bno }">
 	</form>
 	
 	
 <script>
+$(document).ready(function(){
+
+	getreplylist();
+	
+});
+
+function getreplylist(){
+	//var replyurl = "/controller/board/a";
+	var reply_bno = $('#reply_bno').val();
+	console.log(reply_bno);
+	//console.log(replyurl)
+	$.ajax({
+		url : "/controller/replylist",
+		type : 'get',
+		data: {bno: reply_bno},
+		dataType: 'json',
+		contentType: 'application/json',
+		success : function(result){
+			console.log(result);
+			var comments = "";
+			if(result < 1){
+				comments = "등록된 댓글이 없습니다.";
+			}else{
+				for(let i=0; i<result.length; i++){
+					comments +='</br>';
+					comments +='<strong>';
+					comments +='작성자 : ' + result[i].writer;
+					comments +='</strong>&nbsp;&nbsp;&nbsp;';
+					comments += '작성 날짜 : '+ result[i].regdate;
+					comments += '<br/><p>';
+					comments += '댓글 내용 : &nbsp;&nbsp;&nbsp';
+					comments += result[i].content;
+					comments += '</p>';
+					comments += '<br/>';
+					comments += '<button type="button" class="btn btn-outline-success" id="replyupdateBtn"';
+					comments += 'data-rno='+ result[i].rno + '>';
+					comments += '댓글 수정';
+					comments += '</button>';
+					comments += '<button type="button" class="btn btn-outline-success" id="replydeletBtn"';
+					comments += 'data-rno='+ result[i].rno + '>';
+					comments += '댓글 삭제';
+					comments += '</button>';
+					comments += '<br/>';
+				}
+			};
+			$(".replylist").html(comments);				
+		}
+	});
+};
+
+$(function(){
+	
+	$('#replyWriteBtn').click(function(){
+		
+		console.log("일미집");
+		var content = $('#reply_content').val();
+			writer = $('#reply_writer').val();
+			bno = (parseInt)($('#reply_bno').val());
+		
+		$.ajax({
+			url : "/controller/replywrite/"+bno+"/"+writer+"/"+content,
+			type : 'POST',
+			dataType : 'json',
+			success: function(result){
+				getreplylist();
+				$('#reply_content').val('');
+				$('#reply_writer').val('');
+			}
+			, error:function(error){
+				console.log("에러: " + error);
+			}
+			
+		})
+		
+		
+		
+	})
+	
+	
+	
+	
+	
+});
+
+function updateviewBtn(rno,regdate,content,writer){
+	
+	var commentview ="";
+	
+	commentsview += '<div id="rno' + rno + '">';
+	commentsview += '<strong>';
+	commentsview += '작성자 : ' + writer;
+	commentsview += '<strong>&nbsp;&nbsp&nbsp&nbsp;';
+	commentsview += '작성 날짜 : ' + regdate;
+	commentsview += '<br><p>';
+	commentsview += '댓글 내용 : &nbsp;&nbsp;&nbsp;';
+	commentsview += '<textarea clas="form-control" id="reply_edit_content">';
+	commentsview += content;
+	commentsview += '</textarea>';
+	commentsview += '</p>';
+	commentsview += '<br/>';
+	commentsview += '<button type="button" class="btn btn-outline-success"';
+	commentsview += 'onclick="updateBtn('+rno+',\''+writer+'\')">댓글 작성</button>';
+	commentsview += '<button type="button" class="btn btn-outline-success" onclick="getreplylist()">';
+	commentsview += '취소';
+	commentsview += '</button>';
+	commentsview += '</div>';
+	commentsview += '<br/>';
+	
+	$('#reply_rno'+rno).replacewith(commentsview);
+	$('#reply_rno'+rno+'#reply_content').focus();
+	
+	
+	
+	
+	
+	
+}
+
+function getFormatDate(data){
+	var year = date.getFullYear();
+	var month = (1+ date.getMonth());
+	month = month >= 10? month : '0' + month;
+	var day = date.getDate();
+	day = day >= 10 ? day : '0' + day;
+return year + '-' + month + '-' + day; 
+
+}
+
+function updateBtn(rno,writer){
+	content = $("reply_edit_content").val();
+	
+	$.ajax({
+	
+		url : "/controller/replyupdate/"+rno + "/"+ content,
+		type : 'POST',
+		dataType : 'JSON',
+		success: function(result){
+			getreplylist();
+			
+		}
+		, error: function(error){
+			console.log("whats going on"+ error);
+		}
+		
+		
+		
+		
+		
+	})
+	
+	
+	
+	
+	
+};
+
+
 $('#likebtn').click(function(){
 	likeupdate();
 });
@@ -197,33 +359,33 @@ $.ajax({
 	});
 };
 
-$(".replyWriteBtn").on("click", function(){
-	  var formObj = $("form[name='replyForm']");
-	  formObj.attr("action", "/controller/board/replyWrite");
-	  formObj.submit();
-	});
+//$(".replyWriteBtn").on("click", function(){
+//	  var formObj = $("form[name='replyForm']");
+//	  formObj.attr("action", "/controller/board/replyWrite");
+//	  formObj.submit();
+//	});
 
 	
 	
 //댓글 수정 View
-$(".replyUpdateBtn").on("click", function(){
-	location.href = "replyUpdateView?pageNum=${cri.pageNum}"
-					+ "&amount=${cri.amount}"
-					+ "&keyword=${cri.keyword}"
-					+ "&type=${cri.type}"
-					+ "&bno=${pageInfo.bno}"
-					+ "&rno="+$(this).attr("data-rno");
-});	
+//$(".replyUpdateBtn").on("click", function(){
+//	location.href = "replyUpdateView?pageNum=${cri.pageNum}"
+//					+ "&amount=${cri.amount}"
+//					+ "&keyword=${cri.keyword}"
+//					+ "&type=${cri.type}"
+//					+ "&bno=${pageInfo.bno}"
+//					+ "&rno="+$(this).attr("data-rno");
+//});	
 		
 //댓글 삭제 View
-$(".replyDeleteBtn").on("click", function(){
-	location.href = "replyDeleteView?pageNum=${pageInfo.bno}"
-		+ "&amount=${cri.amount}"
-		+ "&keyword=${cri.keyword}"
-		+ "&type=${cri.type}"
-		+ "&bno=${pageInfo.bno}"
-		+ "&rno="+$(this).attr("data-rno");
-});
+//$(".replyDeleteBtn").on("click", function(){
+//	location.href = "replyDeleteView?pageNum=${pageInfo.bno}"
+//		+ "&amount=${cri.amount}"
+//		+ "&keyword=${cri.keyword}"
+//		+ "&type=${cri.type}"
+//		+ "&bno=${pageInfo.bno}"
+//		+ "&rno="+$(this).attr("data-rno");
+//});
 
 function getContextPath() {
     var hostIndex = location.href.indexOf( location.host ) + location.host.length;

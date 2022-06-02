@@ -2,10 +2,14 @@ package com.globalin.domain;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class ReplyVO {
 	
 	private int bno, rno; //bno = BoardNumber, rno = ReplyNumber
 	private String content, writer; 
+	
+	@JsonFormat(shape=JsonFormat.Shape.STRING,pattern="yyyy-MM-dd")
 	private Date regdate;
 	public int getBno() {
 		return bno;

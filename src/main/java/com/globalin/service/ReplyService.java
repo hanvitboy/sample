@@ -19,5 +19,5 @@ public interface ReplyService {
 	public void deleteReply(ReplyVO replyVO);
 	
 	// 댓글 선택 
-	public ReplyVO selectReply(int rno);
+	public List<ReplyVO> selectReply(int rno);
 }

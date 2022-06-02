@@ -43,10 +43,12 @@ public class ReplyServiceImpl implements ReplyService {
 	}
 
 	@Override
-	public ReplyVO selectReply(int rno) {
+	public List<ReplyVO> selectReply(int rno) {
 		log.info("selectReply...");
 		return mapper.selectReply(rno);
 	}
+
+	
 
 	
 }

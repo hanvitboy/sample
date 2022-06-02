@@ -42,8 +42,8 @@ public class BoardController {
 	@Autowired
 	private LikeService likeservice;
 	
-	@Autowired
-	private ReplyService rservice;
+//	@Autowired
+//	private ReplyService rservice;
 	
 	private static Logger log = LoggerFactory.getLogger(BoardController.class);
 	/* 게시글 리스트 페이지 접속(임시) */
@@ -103,9 +103,9 @@ public class BoardController {
 		model.addAttribute("pageInfo", service.getpage(bno));
 		model.addAttribute("cri",cri);
 		
-		//댓글 관련
-		List<ReplyVO> replyList = rservice.readReply(bno);
-		model.addAttribute("replyList",replyList);
+//		//댓글 관련
+//		List<ReplyVO> replyList = rservice.readReply(bno);
+//		model.addAttribute("replyList",replyList);
 		
 		//좋아요 관련
 		LikeVO likebean = new LikeVO();
@@ -175,73 +175,73 @@ public class BoardController {
         
     }
   //댓글 작성
-  	@RequestMapping(value="/replyWrite", method = RequestMethod.POST)
-  	public String replyWrite(ReplyVO vo, Criteria cri, RedirectAttributes rttr) throws Exception {
-  		log.info("reply Write");
-  		
-  		rservice.registReply(vo);
-  		
+//  	@RequestMapping(value="/replyWrite", method = RequestMethod.POST)
+//  	public String replyWrite(ReplyVO vo, Criteria cri, RedirectAttributes rttr) throws Exception {
+//  		log.info("reply Write");
+//  		
+//  		rservice.registReply(vo);
+//  		
 //  		rttr.addAttribute("bno", vo.getBno());
 //  		rttr.addAttribute("page", cri.getPageNum());
 //  		rttr.addAttribute("perPageNum", cri.getAmount());
 //  		rttr.addAttribute("searchType", cri.getType());
 //  		rttr.addAttribute("keyword", cri.getKeyword());
   		
-  		return "redirect:/board/get?pageNum="+cri.getPageNum()+"&amount="+cri.getAmount()+"&keyword="+cri.getKeyword()+"&type="+cri.getType()+"&bno=0"+vo.getBno();
-  	}
-  //댓글 수정 GET
-  	@RequestMapping(value="/replyUpdateView", method = RequestMethod.GET)
-  	public String replyUpdateView(ReplyVO vo, Criteria cri, Model model) throws Exception {
-  		log.info("reply Write");
-  		
-  		
-  		model.addAttribute("replyUpdate", rservice.selectReply(vo.getRno()));
-  		model.addAttribute("cri", cri);
-  		
-  		return "board/replyUpdateView";
-  	}
-  	
-  	//댓글 수정 POST
-  	@RequestMapping(value="/replyUpdate", method = RequestMethod.POST)
-  	public String replyUpdate(ReplyVO vo, Criteria cri, RedirectAttributes rttr) throws Exception {
-  		log.info("reply Write");
-  		
-  		rservice.updateReply(vo);
-  		
-//  		rttr.addAttribute("bno", vo.getBno());
-//  		rttr.addAttribute("page", cri.getPageNum());
-//  		rttr.addAttribute("perPageNum", cri.getAmount());
-//  		rttr.addAttribute("searchType", cri.getType());
-//  		rttr.addAttribute("keyword", cri.getKeyword());
-  		
-  		return "redirect:/board/get?pageNum="+cri.getPageNum()+"&amount="+cri.getAmount()+"&keyword="+cri.getKeyword()+"&type="+cri.getType()+"&bno=0"+vo.getBno();
-  	}
-  //댓글 삭제 GET
-  	@RequestMapping(value="/replyDeleteView", method = RequestMethod.GET)
-  	public String replyDeleteView(ReplyVO vo, Criteria cri, Model model) throws Exception {
-  		log.info("reply delete");
-  		
-  		
-  		model.addAttribute("replyDelete", rservice.selectReply(vo.getRno()));
-  		model.addAttribute("cri", cri);
-  		
-
-  		return "board/replyDeleteView";
-  	}
-  	
-  	//댓글 삭제
-  	@RequestMapping(value="/replyDelete", method = RequestMethod.POST)
-  	public String replyDelete(ReplyVO vo, Criteria cri, RedirectAttributes rttr) throws Exception {
-  		log.info("reply Write");
-  		
-  		rservice.deleteReply(vo);
-//  	rttr.addAttribute("bno", vo.getBno());
-//		rttr.addAttribute("page", cri.getPageNum());
-//		rttr.addAttribute("perPageNum", cri.getAmount());
-//		rttr.addAttribute("searchType", cri.getType());
-//		rttr.addAttribute("keyword", cri.getKeyword());
-  		return "redirect:/board/get?pageNum="+cri.getPageNum()+"&amount="+cri.getAmount()+"&keyword="+cri.getKeyword()+"&type="+cri.getType()+"&bno="+vo.getBno();
-  	}
+//  		return "redirect:/board/get?pageNum="+cri.getPageNum()+"&amount="+cri.getAmount()+"&keyword="+cri.getKeyword()+"&type="+cri.getType()+"&bno=0"+vo.getBno();
+//  	}
+//  //댓글 수정 GET
+//  	@RequestMapping(value="/replyUpdateView", method = RequestMethod.GET)
+//  	public String replyUpdateView(ReplyVO vo, Criteria cri, Model model) throws Exception {
+//  		log.info("reply Write");
+//  		
+//  		
+//  		model.addAttribute("replyUpdate", rservice.selectReply(vo.getRno()));
+//  		model.addAttribute("cri", cri);
+//  		
+//  		return "board/replyUpdateView";
+//  	}
+//  	
+//  	//댓글 수정 POST
+//  	@RequestMapping(value="/replyUpdate", method = RequestMethod.POST)
+//  	public String replyUpdate(ReplyVO vo, Criteria cri, RedirectAttributes rttr) throws Exception {
+//  		log.info("reply Write");
+//  		
+//  		rservice.updateReply(vo);
+//  		
+////  		rttr.addAttribute("bno", vo.getBno());
+////  		rttr.addAttribute("page", cri.getPageNum());
+////  		rttr.addAttribute("perPageNum", cri.getAmount());
+////  		rttr.addAttribute("searchType", cri.getType());
+////  		rttr.addAttribute("keyword", cri.getKeyword());
+//  		
+//  		return "redirect:/board/get?pageNum="+cri.getPageNum()+"&amount="+cri.getAmount()+"&keyword="+cri.getKeyword()+"&type="+cri.getType()+"&bno=0"+vo.getBno();
+//  	}
+//  //댓글 삭제 GET
+//  	@RequestMapping(value="/replyDeleteView", method = RequestMethod.GET)
+//  	public String replyDeleteView(ReplyVO vo, Criteria cri, Model model) throws Exception {
+//  		log.info("reply delete");
+//  		
+//  		
+//  		model.addAttribute("replyDelete", rservice.selectReply(vo.getRno()));
+//  		model.addAttribute("cri", cri);
+//  		
+//
+//  		return "board/replyDeleteView";
+//  	}
+//  	
+//  	//댓글 삭제
+//  	@RequestMapping(value="/replyDelete", method = RequestMethod.POST)
+//  	public String replyDelete(ReplyVO vo, Criteria cri, RedirectAttributes rttr) throws Exception {
+//  		log.info("reply Write");
+//  		
+//  		rservice.deleteReply(vo);
+////  	rttr.addAttribute("bno", vo.getBno());
+////		rttr.addAttribute("page", cri.getPageNum());
+////		rttr.addAttribute("perPageNum", cri.getAmount());
+////		rttr.addAttribute("searchType", cri.getType());
+////		rttr.addAttribute("keyword", cri.getKeyword());
+//  		return "redirect:/board/get?pageNum="+cri.getPageNum()+"&amount="+cri.getAmount()+"&keyword="+cri.getKeyword()+"&type="+cri.getType()+"&bno="+vo.getBno();
+//  	}
 }
 	
 
