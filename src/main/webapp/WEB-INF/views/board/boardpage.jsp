@@ -7,641 +7,156 @@
 %>
 
 <!DOCTYPE html>
-<html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html>
 
-    <!-- Google Icons -->
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <title>게시판</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.js"
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>Board List</title>
+<script src="https://code.jquery.com/jquery-3.6.0.js"
 	integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
 	crossorigin="anonymous"></script>
-    <style>
-    * {
-  margin: 0;
-  padding: 0;
-}
-
-.thumb__btn > i,
-.comment__btn > i,
-.total__thumbs{
-  color:gray;
-}
-
-
-body {
-  background: linear-gradient(to right bottom,#0d324d
-  , gray);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-
-
-/* Main Body */
-.body__main {
-  margin-top: 20vh;
-  display: flex;
-  justify-content: center;
-
-}
-/* Sidebar */
-.sidebar {
-  position: sticky;
-  top: 80px;
-  min-width:250px;
-  flex: 0.2;
-  border-radius: 10px;
-  text-align: center;
-  height: fit-content;
-}
-
-.sidebar__top > img {
-  margin-bottom: -20px;
-  width: 100%;
-  height: 60px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  object-fit: cover;
-}
-
-
-
-.sidebar__top {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 1px solid lightgray;
-  border-bottom: 0;
-  border-radius: 10px;
-  background-color: white;
-  padding-bottom: 10px;
-  margin-bottom: 15px;
-}
-
-.sidebar__topAvatar {
-  font-size: 40px;
-}
-
-
-
-
-
-.sidebar__top > h4 {
-  color: gray;
-  font-size: 12px;
-  margin-top: 5px;
-}
-
-.sidebar__top > h2 {
-  font-size: 18px;
-}
-
-.sidebar__submit {
- width:120px;
- height: 50px;
- box-sizing: border-box;
-background-color: transparent;
-color:white;
- transition: all 300ms ease;
- border: 3px solid #e1b12c;
- border-radius: 10px;
- font-weight: 600;
-
-}
-
-.sidebar__submit:hover {
-  color: white;
-  box-shadow: 0 0 12px #e1b12c;
-  background-color: #e1b12c;
-  cursor: pointer;
+	<style>
+	.pageInfo{
+      list-style : none;
+      display: inline-block;
+    margin: 50px 0 0 100px;      
   }
-  
-  
-
-
-/* Feed */
-.feed {
-  flex: 1;
-  margin: 0 20px;
-  min-width: 700px;
-  
-}
-
-.search-box{
- 
-  display: flex;
-  justify-content: center;
-  background-color: white;
-  padding: 15px;
-  border-radius: 10px;
-  margin-bottom: 10px;
- 
-}
-
-.serach-input-scroll{
-
-  
-  display: flex;
-  justify-content: center;
-  background-color: white;
-  padding: 15px;
-  margin-bottom: 10px;
-  border-radius: 10px;
-}
-
-.serach-input-scroll-btn{
-
-  border: 3px solid #e1b12c;
-  border-radius: 5px;
-}
-
-.serach-input-scroll-btn > option{
-
-  border: 3px solid #e1b12c;
-  border-radius: 5px;
-}
-
-
-
-
-.search-input-bar{
-
- 
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  background-color: white;
-  padding: 15px;
-  margin-bottom: 10px;
-  border-radius: 10px;
-
-
-}
-
-.searchTerm {
-  width: 100%;
-  border: 3px solid #e1b12c;
-  border-right: none;
-  border-radius: 5px 0 0 5px;
-  color: black;
-}
-
-
-.searchButton {
-  width: 40px;
-  height: 36px;
-  border: 1px solid #e1b12c;
-  background: #e1b12c;
-  text-align: center;
-  color: #fff;
-  border-radius: 0 5px 5px 0;
-  cursor: pointer;
-  font-size: 20px;
-}
-
-.write__box__for-mobile{
-  display: none;
-  justify-content: center;
-  background-color: white;
-  padding: 15px;
-  border-radius: 10px;
-  margin-bottom: 10px;
-
-}
-
-
-.write__btn__for-mobile{
-  width:120px;
-  height: 50px;
-  box-sizing: border-box;
- background-color: transparent;
- color:gray;
-  transition: all 300ms ease;
-  border: 3px solid #e1b12c;
-  border-radius: 10px;
-  font-weight: 600;
- }
- 
- .write__btn__for-mobile:hover {
-color: white;
-box-shadow: 0 0 12px #e1b12c;
-background-color: #e1b12c;
-}
-
-
-
-.feed__inputContainer {
-  background-color: white;
-  padding: 10px;
-  padding-bottom: 20px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-}
-
-
-
-
-.feed__inputOptions {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  
-}
-
-
-
-.post__body{
-display: flex;
-justify-content: center;
-
-}
-
-.thumb__btn,
-.comment__btn {
-  display: flex;
-  align-items: center;
-  margin-top: 15px;
-  color: gray;
-  padding: 10px;
-  border:none;
-  background-color: transparent;
-  cursor: pointer;
-}
-
-.thumb__btn:hover,
-.comment__btn:hover {
-  background-color: #dcdde1;
-  border-radius: 10px;
-}
-
-.thumb__btn:focus{
-  color: black;
-}
-
-.thumb__btn:focus + .thumb__btn i{
-  color: black;
-}
-
-
-
-.thumb__btn > h4,
-.comment__btn > h4 {
-  margin-left: 5px;
-}
-
-
-
-
-
-.comment__window{
-  display: none;
-}
-
-.show-text .comment__window{
-  display: block;
-  font-size: 13px;
-  font-weight: 600;
-}
-
-
-
-
-/* Post */
-.post {
-  background-color: white;
-  padding: 15px;
-  margin-bottom: 10px;
-  border-radius: 10px;
-  position: relative;
-}
-
-.post:hover {
-  border: 4px solid gray;
-  
-}
-
-.whole-box__click{
-  position:absolute;
-  height:100%;
-  width:100%;
-
-  cursor:pointer;
-  z-index:2;
-  opacity:0;
-
-
-}
-
-
-.post__header {
-  display: flex;
-  justify-content: space-between;
-
-
-}
-
-
-.post__header__left {
-  display: flex;
-
-
-}
-
-.post__info {
-  margin-left: 10px;
-}
-
-.post__info > p {
-  font-size: 12px;
-  color: gray;
-}
-
-.post__info > h2 {
-  font-size: 15px;
-}
-
-
-.board_page {
-  margin-top: 30px;
-  margin-bottom: 30px;
-  text-align: center;
-  font-size: 12px;
-  display:flex;
-  justify-content: center;
-  align-items: center;
-
-  
-}
-
-.board_page a {
-  text-decoration: none;
-  width: 32px;
-  height: 32px;
-  color:  white;
-  box-sizing: border-box;
-  display:flex;
-  justify-content: center;
-  align-items: center;
-  transition: all 300ms ease;
-  border: 2px solid #e1b12c;
-  border-radius: 10px;
-  font-weight: 600;
-  margin-right:5px;
-  margin-left:5px;
-
-
-
-}
-
-.board_page a:hover {
-color: white;
-box-shadow: 0 0 12px #e1b12c;
-background-color: #e1b12c;
-}
-
-
-
-.board_page a:nth-child(3){
-background-color: #e1b12c;
-box-shadow: 0 0 12px #e1b12c;
-color:white
-}
-
-
-
-@media screen and (max-width: 768px){
-
-  .header-top{
-    display: none;
+  .pageInfo li{
+      float: left;
+    font-size: 20px;
+    margin-left: 18px;
+    padding: 7px;
+    font-weight: 500;
   }
-
-  .sidebar{
-
-    display:none;
+ a:link {color:black; text-decoration: none;}
+ a:visited {color:black; text-decoration: none;}
+ a:hover {color:black; text-decoration: underline;}
+ .active{
+      background-color: #cdd5ec;
   }
-  .body{
-    width:100%;
+  .search_area{
+    display: inline-block;
+    margin-top: 30px;
+    margin-left: 260px;
   }
-  .body__main{
-    width:100%;
+  .search_area input{
+      height: 30px;
+    width: 250px;
   }
- 
-  .feed{
-    flex:0.5;
+  .search_area button{
+     width: 100px;
+    height: 36px;
   }
-  
-  .post {
-    max-width: 100%;
-    
-  }
-  .write__box__for-mobile{
-    display:flex;
-  }
-  
-}
+	
+	
+	</style>
+</head>
+
+<body>
+	<div class="row">
+		<div class="col-lg-12">
+			<h1 class="page-header">Tables</h1>
+		</div>
+	</div>
+	<!-- /.row -->
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					Board List Page <a href="http://localhost:9090/controller/"><strong><span>home</span></strong></a>
+					<button id="regBtn" type="button" class="btn btn-xs pull-right">Register
+						New Board</button>
+				</div>
+
+				<div class="panel-body">
+					<table class="table table-striped table-bordered table-hover">
+
+						<thead>
+							<tr>
+								<th>BNO</th>
+								<th>TITLE</th>
+								<th>WRITER</th>
+								<th>REGDATE</th>
+								<th>UPDATEDATE</th>
+								<th>REPLYCOUNT</th>
+								<th>Hit</th>
+								<th>좋아요</th>
+							</tr>
+						</thead>
+
+						<!-- 모든 등록된  list 출력 -->
+						<c:forEach items="${list }" var="board">
+							<tr>	
+								<td><c:out value="${board.bno }" /></td>
 
 
-
-
-button,
-  input,
-  textarea {
-  font-family: "DM Sans", sans-serif;
-  font-size: 16px;
-  }
-  
-  button:focus,
-  button:active,
-  input:focus,
-  input:active,
-  textarea:focus,
-  textarea:active {
-  outline: none;
-  box-shadow: none;
-  }
-  
-  ol,
-  ul,
-  li {
-  list-style-type: none;
-  padding-left: 0;
-  margin-left: 0;
-  }
-  
-  
-    
-    </style>
-    
-  </head>
-  <body>
-    <section class="header-top">
-      <div class="header">
-        <div class="logo">
-          <a href="#">
-            <img src="./assets/Logo.png" alt="Logo" />
-            <p>
-              <strong><span>fit</span>ness</strong>
-            </p>
-          </a>
-          <div class="nav">
-            <ul>
-              <a class="nav-list" href="#"><li>체중관리</li></a>
-              <a class="nav-list" href="#"><li>운동도우미</li></a>
-              <a class="nav-list" href="#"><li>음식</li></a>
-            </ul>
-          </div>
-        </div>
-
-        <div class="button-group">
-          <a class="button-login" href="#" role="button">LOGIN</a>
-          <a class="button-logout" href="#" role="button">LOGOUT</a>
-          <a class="button-info" href="#">Mypage</a>
-          <a class="button-list" href="#" role="button">LIST</a>
-          <a class="button-signup" href="#">SIGNUP</a>
-        </div>
-      </div>
-    </section>
-    <div class="body__main">
-      <div class="sidebar">
-        <div class="sidebar__top">
-          <img
-            src="https://th.bing.com/th/id/OIP.hqJRscdDB4clU5YPhGeFvQHaEN?pid=ImgDet&rs=1"
-            alt=""
-          />
-          <i class="material-icons sidebar__topAvatar"> account_circle </i>
-          <h2><c:out value="${login_user.name }" /></h2>
-        </div>
-
-        <div class="sidebar__bottom">
-          <button id="regBtn" class="sidebar__submit">글쓰기</button>
-        </div>
-      </div>
-      <!-- Sidebar Ends -->
-
-      <!-- Feed Starts -->
-      <div class="feed">
-        <div class="search-box">
-          <div class="serach-input-scroll">
-            <select class="serach-input-scroll-btn" name="type">
-              <option value="" <c:out value="${pageMaker.cri.type == null?'selected':'' }"/>>--</option>
-			                <option value="T" <c:out value="${pageMaker.cri.type eq 'T'?'selected':'' }"/>>タイトル</option>
-			                <option value="C" <c:out value="${pageMaker.cri.type eq 'C'?'selected':'' }"/>>内容</option>
-			                <option value="W" <c:out value="${pageMaker.cri.type eq 'W'?'selected':'' }"/>>作成者</option>
-			                <option value="TC" <c:out value="${pageMaker.cri.type eq 'TC'?'selected':'' }"/>>タイトル + 内容</option>
-			                <option value="TW" <c:out value="${pageMaker.cri.type eq 'TW'?'selected':'' }"/>>タイトル + 作成者</option>
-            </select>
-          </div>
-          <div class="search-input-bar">
-            <input
-              type="text"
-              class="searchTerm"
-              placeholder="What are you looking for?"
-            />
-            <button type="submit" class="searchButton">
-              <i class="fas fa-search"></i>
-            </button>
-          </div>
-        </div>
-
-        <div class="write__box__for-mobile">
-          <button class="write__btn__for-mobile">글쓰기</button>
-        </div>
-      
-
-        <!-- Post Starts -->
-        	<c:forEach items="${list }" var="board">
-        <div class="post">
-          <input type="button" class="whole-box__click" />
-          <div class="post__header">
-            <div class="post__header__left">
-              <i class="material-icons sidebar__topAvatar"> account_circle </i>
-              <div class="post__info">
-                <h2><c:out value="${board.writer }" /></h2>
-              </div>
-            </div>
-            <div class="post__header__right"><fmt:formatDate pattern="yyyy/MM/dd"
-										value="${board.updateDate }" /></div>
-          </div>
-
-          <div class="post__body">
-            <a class="move"	href='<c:out value="${board.bno}"/>'>
+								<td><a class="move"	href='<c:out value="${board.bno}"/>'>
 										<c:out value="${board.title}" />
 								</a>
-          </div>
+								</td>
+								<td><c:out value="${board.writer }" /></td>
+								<td><fmt:formatDate pattern="yyyy/MM/dd"
+										value="${board.regdate }" /></td>
+								<td><fmt:formatDate pattern="yyyy/MM/dd"
+										value="${board.updateDate }" /></td>
+								<td><c:out value="${board.hit }" /></td>
+								<td><c:out value="${board.like_count }" /></td>
 
-          <div class="feed__inputOptions">
-            <div class="thumb__btn">
-              <i class="material-icons"> visibility </i>
-              <h4><c:out value="${board.hit }" /></h4>
-            </div>
-            <div class="thumb__btn">
-              <i class="material-icons"> thumb_up </i>
-              <h4><c:out value="${board.like_count }" /></h4>
-            </div>
+							</tr>
 
-            <div class="comment__btn">
-              <i class="material-icons"> comment </i>
-              <h4><c:out value="${board.reply_count }" /></h4>
-            </div>
-          </div>
-        </div>
-        </c:forEach>
-        <!-- Post Ends -->
+						</c:forEach>
+					</table>
+					
+					<div class="search_wrap">
+        				<div class="search_area">
+				            <input type="text" name="keyword" value="${pageMaker.cri.keyword }">
+				            <button>Search</button>
+				        </div>
+				    </div>    
 
-        
-        <div class="board_page">
-          <a href="#" class="bt first"><<</a>
-          <a href="#" class="bt prev"><</a>
-          <a href="#" class="num on">1</a>
-          <a href="#" class="num">2</a>
-          <a href="#" class="num">3</a>
-          <a href="#" class="num">4</a>
-          <a href="#" class="num">5</a>
-          <a href="#" class="bt next">></a>
-          <a href="#" class="bt last">>></a>
-        </div>
-      </div>
 
-      <!-- Feed Ends -->
-    </div>
-    <!-- Main Body Ends -->
-    <script src="app.js"></script>
-    <script
-      src="https://kit.fontawesome.com/99b96296a9.js"
-      crossorigin="anonymous"
-    ></script>
-    <script>
-  //using selectors inside the element
-    const posts = document.querySelectorAll(".post");
+					<div class="pageInfo_wrap">
+						<div class="pageInfo_area">
+							<ul id="pageInfo" class="pageInfo">
+							 <!-- 이전페이지 버튼 -->
+				                <c:if test="${pageMaker.prev}">
+				                <li class="pageInfo_btn previous"><a href="${pageMaker.startPage-1}">Previous</a></li>
+				                </c:if>
+							<!-- 각 번호 페이지 버튼 -->
+								<c:forEach var="num" begin="${pageMaker.startPage}"	end="${pageMaker.endPage}">
+								<li class="pageInfo_btn ${pageMaker.cri.pageNum == num ? "active":"" }"><a	 href="${num}">${num}</a></li>
+								</c:forEach>
+							<!-- 다음페이지 버튼 -->
+				                <c:if test="${pageMaker.next}">
+				                <li class="pageInfo_btn next"><a href="${pageMaker.endPage + 1 }">Next</a></li>
+				                </c:if>   
+							</ul>
+						</div>
+					</div>
+					
+					
+					<form id="moveForm" method="get">
+						<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum }">
+						<input type="hidden" name="amount" value="${pageMaker.cri.amount }">
+						 <input type="hidden" name="keyword" value="${pageMaker.cri.keyword }">
+						
+				</form>
 
-    posts.forEach(function (post) {
-      const btn = post.querySelector(".comment__btn");
-       console.log(btn);
 
-      btn.addEventListener("click", function () {
-        // console.log(question);
+				</div>
+			</div>
+		</div>
+	</div>
 
-        posts.forEach(function (item) {
-          if (item !== post) {
-            item.classList.remove("show-text");
-          }
-        });
 
-        post.classList.toggle("show-text");
-      });
-    });
-    
-    </script>
-    
-    <script type="text/javascript">
+
+</body>
+
+<script type="text/javascript">
 	$(document).ready(function() {
 		$("#regBtn").on("click", function() {
 			//controller한테 get방식으로 /board/register 요청
@@ -652,22 +167,8 @@ button,
 	})
 	$(".search_area button").on("click", function(e){
         e.preventDefault();
-        
-        let type = $(".search_area select").val();
-        let keyword = $(".search_area input[name='keyword']").val();
-        
-        if(!type){
-            alert("検索タイプを選択してください。");
-            return false;
-        }
-        
-        if(!keyword){
-            alert("キーワードを入力してください。");
-            return false;
-        }        
-        
-        moveForm.find("input[name='type']").val(type);
-        moveForm.find("input[name='keyword']").val(keyword);
+        let val = $("input[name='keyword']").val();
+        moveForm.find("input[name='keyword']").val(val);
         moveForm.find("input[name='pageNum']").val(1);
         moveForm.submit();
     });
@@ -730,6 +231,4 @@ button,
 		}
 	}
 </script>
-    
-  </body>
 </html>

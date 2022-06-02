@@ -195,8 +195,7 @@ function getreplylist(){
 					comments += result[i].content;
 					comments += '</p>';
 					comments += '<br/>';
-					comments += '<button type="button" class="btn btn-outline-success" id="replyupdateBtn"';
-					comments += 'data-rno='+ result[i].rno + '>';
+					comments += '<button type="button" class="btn btn-outline-success" id="replyupdateBtn" onclick="updateviewBtn('+result[i].rno +',\''+result[i].regdate+'\',\''+result[i].content+'\',\''+result[i].writer+'\')">';
 					comments += '댓글 수정';
 					comments += '</button>';
 					comments += '<button type="button" class="btn btn-outline-success" id="replydeletBtn"';
@@ -246,8 +245,9 @@ $(function(){
 });
 
 function updateviewBtn(rno,regdate,content,writer){
+	console.log("들입");
 	
-	var commentview ="";
+	var commentsview ="";
 	
 	commentsview += '<div id="rno' + rno + '">';
 	commentsview += '<strong>';
@@ -269,8 +269,8 @@ function updateviewBtn(rno,regdate,content,writer){
 	commentsview += '</div>';
 	commentsview += '<br/>';
 	
-	$('#reply_rno'+rno).replacewith(commentsview);
-	$('#reply_rno'+rno+'#reply_content').focus();
+	$('#rno'+rno).replaceWith(commentsview);
+	$('#rno'+rno+'#reply_content').focus();
 	
 	
 	
@@ -298,6 +298,7 @@ function updateBtn(rno,writer){
 		type : 'POST',
 		dataType : 'JSON',
 		success: function(result){
+			console.log("되는중?")
 			getreplylist();
 			
 		}
