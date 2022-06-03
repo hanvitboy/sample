@@ -9,6 +9,11 @@
 </head>
 <body>
 
+Error Error!!! Mayday-!
+
+Because of ...
+
+
 <h4><c:out value="${exception.getMessage() }"></c:out></h4>
 
 <ul>

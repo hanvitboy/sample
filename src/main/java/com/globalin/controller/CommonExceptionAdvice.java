@@ -40,7 +40,6 @@ public class CommonExceptionAdvice {
 	public String handle404(NoHandlerFoundException ex) {
 		
 		
-		//return 값은 jsp 파일이름(접두사접미사붙여서실행됨)
 		return "custom404";
 		
 	}

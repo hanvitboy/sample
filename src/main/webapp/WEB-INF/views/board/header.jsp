@@ -47,7 +47,7 @@ var actionForm = $(".actionForm");
        		})
        		$(".button-list").on("click",function(e){
        			e.preventDefault();
-       			actionForm.attr("action", "/controller/listpage");
+       			actionForm.attr("action", "/controller/listpage").attr("method", "post");
        			actionForm.submit();
        		})
        		
@@ -408,9 +408,11 @@ footer {
   margin-bottom: 0;
   width: 100%;
   height: 15px;
+  padding : 0 10px;
   clear: both;
   font-size: 13px;
   background: #f7ca18;
+
 }
 
 footer p {

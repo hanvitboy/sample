@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <% request.setCharacterEncoding("UTF-8"); %>
+<%@ include file="header.jsp" %>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -202,35 +203,7 @@ box-shadow: 0 0 12px #353b48;
 </style>
   </head>
   <body>
-    <section class="header-top">
-     
-      <div class="header">
-        <div class="logo">
-          <a href="#">
-            <img src="./assets/Logo.png" alt="Logo" />
-            <p>
-              <strong><span>fit</span>ness</strong>
-            </p>
-          </a>
-          <div class="nav">
-            <ul>
-              <a class="nav-list" href="#"><li>체중관리</li></a>
-              <a class="nav-list" href="#"><li>운동도우미</li></a>
-              <a class="nav-list" href="#"><li>음식</li></a>
-            </ul>
-          </div>
-        </div>
-
-        <div class="button-group">
-          <a class="button-login" href="#" role="button">LOGIN</a>
-          <a class="button-logout" href="#" role="button">LOGOUT</a>
-          <a class="button-info" href="#">Mypage</a>
-          <a class="button-list" href="#" role="button">LIST</a>
-          <a class="button-signup" href="#">SIGNUP</a>
-        </div>
-      </div>
-    </section>
-    
+       
      <form action="/controller/board/register" method="post">
     <div class="body__main">
       <!-- Feed Starts -->
@@ -275,4 +248,55 @@ box-shadow: 0 0 12px #353b48;
     src="https://kit.fontawesome.com/99b96296a9.js"
     crossorigin="anonymous"
   ></script>
+  <script>
+
+	var actionForm = $(".actionForm");
+	       	$(document).ready(function(){
+	       		$(".button-login").on("click",function(e){
+	       			e.preventDefault();
+	       			actionForm.attr("action", "/controller/loginpage").attr("method", "post");
+	       			actionForm.submit();
+	       		})
+	       		$(".button-signup").on("click",function(e){
+	       			e.preventDefault();
+	       			actionForm.attr("action", "/controller/registpage").attr("method", "post");
+	       			actionForm.submit();
+	       		})
+	       		$(".button-logout").on("click",function(e){
+	       			e.preventDefault();
+	       			actionForm.attr("action", "/controller/logout");
+	       			actionForm.submit();
+	       		})
+	       		$(".button-info").on("click",function(e){
+	       			e.preventDefault();
+	       			actionForm.attr("action", "/controller/infopage").attr("method", "post");
+	       			actionForm.submit();
+	       		})
+	       		$(".button-list").on("click",function(e){
+	       			e.preventDefault();
+	       			actionForm.attr("action", "/controller/listpage").attr("method", "post");
+	       			actionForm.submit();
+	       		})
+	       		
+	       			$(".button-home").on("click",function(e){
+	       			e.preventDefault();
+	       			actionForm.attr("action", "/controller/home").attr("method", "post");
+	       			actionForm.submit();
+	       		})
+	       		$("#calo").on("click",function(e){
+	       			e.preventDefault();
+	       			actionForm.attr("action", "/controller/kcalcalpage").attr("method", "post");
+	       			actionForm.submit();
+	       		})
+	       		$("#nav-listboard").on("click",function(e){
+	       			e.preventDefault();
+	       			actionForm.attr("action", "/controller/board/boardpage").attr("method", "get");
+	       			actionForm.submit();
+	       		})
+	       	})
+	       	
+
+
+  
+  </script>
 </html>

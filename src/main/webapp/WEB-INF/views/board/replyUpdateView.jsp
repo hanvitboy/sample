@@ -28,6 +28,8 @@
 					<input type="hidden" id="perPageNum" name="perPageNum" value="${cri.amount}"> 
 					<input type="hidden" id="searchType" name="searchType" value="${cri.type}"> 
 					<input type="hidden" id="keyword" name="keyword" value="${cri.keyword}"> 
+					<input type="hidden" id="user" value="${login_user.id }">
+					<input type="hidden" id="writer" value="${replyList}">
 					<table>
 						<tbody>
 							<tr>
@@ -38,10 +40,12 @@
 							
 						</tbody>			
 					</table>
+				
 					<div>
 						<button type="submit" class="update_btn">저장</button>
 						<button type="button" class="cancel_btn">취소</button>
 					</div>
+					
 				</form>
 				</section>
 			<hr />
@@ -60,6 +64,8 @@
 			
 		})
 		
+		console.log($(user).val());
+		console.log($(writer).val());
 	</script>
 			
 	</body>
