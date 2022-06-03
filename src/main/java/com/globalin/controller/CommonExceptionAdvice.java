@@ -35,15 +35,16 @@ public class CommonExceptionAdvice {
 			return "error_page";
 	}
 	
+	
 	@ExceptionHandler(NoHandlerFoundException.class)
 	@ResponseStatus(HttpStatus.NOT_FOUND)
 	public String handle404(NoHandlerFoundException ex) {
 		
-		
+		System.out.println("get");
+		//return 값은 jsp 파일이름(접두사접미사붙여서실행됨)
 		return "custom404";
 		
 	}
-
 	
 	
 	

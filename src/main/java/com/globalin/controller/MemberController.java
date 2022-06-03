@@ -40,6 +40,7 @@ public class MemberController {
 	public void list(Model model) {
 		System.out.println(service.getList());
 		model.addAttribute("list" , service.getList());
+		
 	}
 	
 	@PostMapping("/addinfo")
