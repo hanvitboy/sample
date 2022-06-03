@@ -523,7 +523,7 @@ footer {
   align-items: center;
   margin-bottom: 0;
   width: 100%;
-  height: 15%;
+  height: 15px;
   clear: both;
   font-size: 13px;
   background: #f7ca18;

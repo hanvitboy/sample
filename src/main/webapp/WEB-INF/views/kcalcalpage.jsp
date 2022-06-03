@@ -10,6 +10,10 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
      <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <style>
@@ -55,6 +59,11 @@ scroll-snap-align: start;
   color: #999;
   transition: all 0.9s, color 0.3;
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
 }
 
 .fixedCalBox{

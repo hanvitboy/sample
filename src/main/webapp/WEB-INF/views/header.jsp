@@ -6,12 +6,12 @@
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nav bar</title>
+    <title>Fitness Page</title>
     <script
       src="https://kit.fontawesome.com/3435530994.js"
       crossorigin="anonymous"
@@ -456,7 +456,7 @@ footer {
   align-items: center;
   margin-bottom: 0;
   width: 100%;
-  height: 15%;
+  height: 15px;
   clear: both;
   font-size: 13px;
   background: #f7ca18;
