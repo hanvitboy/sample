@@ -49,7 +49,15 @@ textarea{
 	padding-left : 80px;
 	margin-top : 50px;
 }
+
+ div.replyModal { position:relative; z-index:1; display:none;}
+ div.modalBackground { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0, 0, 0, 0.8); z-index:-1; }
+ div.modalContent { position:fixed; top:20%; left:calc(50% - 250px); width:500px; height:250px; padding:20px 10px; background:#fff; border:2px solid #666; }
+ div.modalContent textarea { font-size:16px; font-family:'맑은 고딕', verdana; padding:10px; width:500px; height:200px; }
+ div.modalContent button { font-size:20px; padding:5px 10px; margin:10px 0; background:#fff; border:1px solid #ccc; }
+ div.modalContent button.modal_cancel { margin-left:20px; }
 </style>
+
 </head>
 <body>
 <h1>조회 페이지</h1>
@@ -109,12 +117,8 @@ textarea{
 	   	     </p>
 	
 	        <p>${replyList.content}</p>
-	        <c:if test="${login_user.id  eq replyList.writer }">
-	        <div>	
-			  <button type="button" class="replyUpdateBtn" data-rno="${replyList.rno}">수정</button>
-			  <button type="button" class="replyDeleteBtn" data-rno="${replyList.rno}">삭제</button>
-			</div>
-			</c:if>
+	         
+	       
 	      </li>
 	    </c:forEach>   
 	  </ol>
@@ -158,6 +162,24 @@ textarea{
 		<input type="hidden" name="type" value="${pageMaker.cri.type }">
 		<input type="hidden" name="reply_bno" id="reply_bno" value="${pageInfo.bno }">
 	</form>
+	<div class="replyModal">
+
+ <div class="modalContent">
+  <h3>댓글내용</h3>
+  <div>
+   <textarea class="modal_repCon" name="modal_repCon"></textarea>
+  </div>
+  
+  <div>
+   <button type="button" class="modal_modify_btn">수정</button>
+   <button type="button" class="modal_cancel">취소</button>
+  </div>
+  
+ </div>
+
+ <div class="modalBackground"></div>
+ 
+</div>
 	
 	
 <script>
@@ -165,6 +187,66 @@ $(document).ready(function(){
 
 	getreplylist();
 	
+});
+
+$(document).on("click", ".modify", function(){
+	 //$(".replyModal").attr("style", "display:block;");
+	$(".replyModal").fadeIn(200);
+	
+	var repNum = $(this).attr("data-repNum");
+	 var repCon = $(this).parent().parent().children(".replyContent").text();
+	 
+	 $(".modal_repCon").val(repCon);
+	 $(".modal_modify_btn").attr("data-repNum", repNum);
+	 console.log(repNum);
+	
+});
+$(".modal_cancel").click(function(){
+	
+	$(".replyModal").fadeOut(200);
+	
+	
+});
+$(".modal_modify_btn").click(function(){
+	 var modifyConfirm = confirm("정말로 수정하시겠습니까?");
+	 
+	 if(modifyConfirm) {
+	  var data = {
+	     rno : $(this).attr("data-repNum"),
+	     content : $(".modal_repCon").val()
+	     
+	    };  // ReplyVO 형태로 데이터 생성
+	  console.log(data.rno);
+	  console.log(data.content);
+	  $.ajax({
+	   url : "/controller/modifyReply",
+	   type : "post",
+	   data : data,
+	   success : function(result){	    
+	    
+	    	getreplylist();
+	     $(".replyModal").fadeOut(200);
+	    
+	      },
+	      
+	     });
+	    }
+	    
+	   });
+
+
+$(document).on("click", ".delete", function(){
+ 
+ var data = {rno : $(this).attr("data-repNum")};
+  
+ $.ajax({
+  url : "/controller/deleteReply",
+  type : "post",
+  data : data,
+  success : function(){
+	  getreplylist();
+  }
+ });
 });
 
 function getreplylist(){
@@ -187,21 +269,29 @@ function getreplylist(){
 				for(let i=0; i<result.length; i++){
 					comments +='</br>';
 					comments +='<strong>';
+					console.log(result[i].rno);
+					comments += '<li data-repNum="'+ result[i].rno +'">';
 					comments +='작성자 : ' + result[i].writer;
 					comments +='</strong>&nbsp;&nbsp;&nbsp;';
 					comments += '작성 날짜 : '+ result[i].regdate;
-					comments += '<br/><p>';
-					comments += '댓글 내용 : &nbsp;&nbsp;&nbsp';
+					comments += '<br/><p>댓글내용</p><div class="replyContent">';
 					comments += result[i].content;
-					comments += '</p>';
+					comments += '</div>';
 					comments += '<br/>';
-					comments += '<button type="button" class="btn btn-outline-success" id="replyupdateBtn" onclick="updateviewBtn('+result[i].rno +',\''+result[i].regdate+'\',\''+result[i].content+'\',\''+result[i].writer+'\')">';
-					comments += '댓글 수정';
-					comments += '</button>';
-					comments += '<button type="button" class="btn btn-outline-success" id="replydeletBtn"';
-					comments += 'data-rno='+ result[i].rno + '>';
-					comments += '댓글 삭제';
-					comments += '</button>';
+					let uid = '' + ${login_user.id};
+					if(uid == result[i].writer){
+						comments += '<div>';
+						comments += '<button type="button" class="modify" id="replyupdateBtn"'; 
+						comments += 'data-repNum='+ result[i].rno +'>';
+						comments += '댓글 수정';
+						comments += '</button>';
+						comments += '<button type="button" class="delete" id="replydeletBtn"';
+						comments += 'data-repNum='+ result[i].rno +'>';
+						comments += '댓글 삭제';
+						comments += '</button>';					
+						comments += '</div>';
+					}
+					comments += '</li>';
 					comments += '<br/>';
 				}
 			};
@@ -232,52 +322,12 @@ $(function(){
 				console.log("에러: " + error);
 			}
 			
-		})
-		
-		
+		})		
 		
 	})
 	
-	
-	
-	
-	
 });
 
-function updateviewBtn(rno,regdate,content,writer){
-	console.log("들입");
-	
-	var commentsview ="";
-	
-	commentsview += '<div id="rno' + rno + '">';
-	commentsview += '<strong>';
-	commentsview += '작성자 : ' + writer;
-	commentsview += '<strong>&nbsp;&nbsp&nbsp&nbsp;';
-	commentsview += '작성 날짜 : ' + regdate;
-	commentsview += '<br><p>';
-	commentsview += '댓글 내용 : &nbsp;&nbsp;&nbsp;';
-	commentsview += '<textarea clas="form-control" id="reply_edit_content">';
-	commentsview += content;
-	commentsview += '</textarea>';
-	commentsview += '</p>';
-	commentsview += '<br/>';
-	commentsview += '<button type="button" class="btn btn-outline-success"';
-	commentsview += 'onclick="updateBtn('+rno+',\''+writer+'\')">댓글 작성</button>';
-	commentsview += '<button type="button" class="btn btn-outline-success" onclick="getreplylist()">';
-	commentsview += '취소';
-	commentsview += '</button>';
-	commentsview += '</div>';
-	commentsview += '<br/>';
-	
-	$('#rno'+rno).replaceWith(commentsview);
-	$('#rno'+rno+'#reply_content').focus();
-	
-	
-	
-	
-	
-	
-}
 
 function getFormatDate(data){
 	var year = date.getFullYear();
@@ -288,37 +338,6 @@ function getFormatDate(data){
 return year + '-' + month + '-' + day; 
 
 }
-
-function updateBtn(rno,writer){
-	content = $("reply_edit_content").val();
-	
-	$.ajax({
-	
-		url : "/controller/replyupdate/"+rno + "/"+ content,
-		type : 'POST',
-		dataType : 'JSON',
-		success: function(result){
-			console.log("되는중?")
-			getreplylist();
-			
-		}
-		, error: function(error){
-			console.log("whats going on"+ error);
-		}
-		
-		
-		
-		
-		
-	})
-	
-	
-	
-	
-	
-};
-
-
 $('#likebtn').click(function(){
 	likeupdate();
 });
