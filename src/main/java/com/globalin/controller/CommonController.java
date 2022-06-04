@@ -34,6 +34,9 @@ public class CommonController {
 	public void registpage() {
 	}
 	
+	@RequestMapping("/rspage")
+	public void rspage() {}
+	
 	@PostMapping("/withdrawalpage")
 	public void withdrawalpage() {
 	}

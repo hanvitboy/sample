@@ -512,10 +512,12 @@ button,
           <i class="material-icons sidebar__topAvatar"> account_circle </i>
           <h2><c:out value="${login_user.name }" /></h2>
         </div>
-
+<c:if test="${not empty login_user}">
+ 
         <div class="sidebar__bottom">
           <button id="regBtn" class="sidebar__submit">글쓰기</button>
         </div>
+ </c:if>
       </div>
       <!-- Sidebar Ends -->
 
@@ -548,10 +550,11 @@ button,
           </div>
         </div>
 
+ <c:if test="${not empty login_user}">
         <div class="write__box__for-mobile">
           <button class="write__btn__for-mobile">글쓰기</button>
         </div>
-      
+      </c:if>
 
         <!-- Post Starts -->
         	<c:forEach items="${list }" var="board">

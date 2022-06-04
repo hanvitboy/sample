@@ -312,7 +312,9 @@ public class MemberController {
 	HashMap<String, Object> userInfo = service.getLoginUserInfo(access_Token);
 	System.out.println("###access_Token#### : " + access_Token);
 	System.out.println("###kakaoid#### : " + userInfo.get("id"));
+	System.out.println("###nickname#### : " + userInfo.get("nickname"));
 	model.addAttribute("kakaoid",userInfo.get("id"));
+	model.addAttribute("nickname" , userInfo.get("nickname"));
 	
 	MemberVO mem = service.kakaologin((String) userInfo.get("id"));
 	
@@ -328,7 +330,7 @@ public class MemberController {
 		PrintWriter out = resp.getWriter();
 		out.println("<script>alert('情報がございません。加入ページへ移動します。');</script>");
 		out.flush();
-		return "registpage";
+		return "rspage";
 	}
 
 	return "home";

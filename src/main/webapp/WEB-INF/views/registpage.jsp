@@ -63,9 +63,7 @@
        <a href="http://localhost:9090/controller/"><strong><span>fit</span>ness</strong></a>
       </h1>
       <h2>SIGNUP</h2>
-      <a id="kakao-login-btn" href="https://kauth.kakao.com/oauth/authorize?client_id=3c29e5973236d66995354c01142b54eb&redirect_uri=http://localhost:9090/controller/oauth&response_type=code">
-       <img src="resources/assets/registimage.png"/></a>
-        
+      
       <form class="actionForm" method="post" action="/controller/addinfo">
         <div class="int-area">
           <input

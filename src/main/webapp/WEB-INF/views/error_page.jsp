@@ -8,6 +8,9 @@
 <title>에러 페이지</title>
 </head>
 <body>
+ <a href="http://localhost:9090/controller/">
+TO HOME</a>
+
 
 Error Error!!! Mayday-!
 

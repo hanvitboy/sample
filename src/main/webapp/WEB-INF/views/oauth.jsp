@@ -1,16 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
-<% request.setCharacterEncoding("UTF-8"); %>
-
-    <%@ taglib uri ="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-    
-<!DOCTYPE html>
+    pageEncoding="UTF-8"%>
+	<!DOCTYPE html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>mypage</title>
+    <title>signup-form1</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -21,133 +19,185 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="resources/css/mypage.css" />
-   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
- 
+    
+    
+    <link rel="stylesheet" href="resources/css/signup-form1.css" />
+  <style>
   
-  
-  </head>
-  <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <section class="mypage-form">
-            <div class="logo">
-              <div class="logo-mypage">
-                <p>
-               <a href="http://localhost:9090/controller/"><strong><span>fit</span>ness</strong></a>
-                </p>
-              </div>
-            </div>
-          </section>
-        </div>
-      </div>
+  .signup-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url(resources/assets/login.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.btn-area .btn-next {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  border: 2px solid #f7ca18;
+  border-radius: 5px;
+  margin: 15px auto;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+  color: #999;
+ background-color : rgb(99,98,80);
+  transition: all 0.9s, color 0.3;
+}
 
-      <div class="row align-items-center" style="height: 500px">
-        <div class="col-12">
-          <div class="member-infos">
-            <div class="member-info">
-       <form class="actionForm" method="post" action="">
-              <div id="user-form">
-                <div class="user-name">USER NAME<input type="text" name="name" value="${nickname }" /></div>
-                <div class="user-id">USER ID<input type="text" name="id" value="${kakaoid }" readonly/></div>
-                <div class="user-pw">PASSWORD<input type="password" name="pw" value=""/></div>
-              </div>
-            </div>
-            <div class="member-info">
-              <div id="user-form">
-                <div class="user-age">AGE<input type="number" name="age" value=""/></div>
-                <div class="user-height">
-                  HEIGHT<input type="number" name="height" value="" /><span>cm</span>
-                </div>
-                <div class="user-weight">
-                  WEIGHT<input type="number" name="weight" value=""/> <span>kg</span>
-                </div>
-                <div class="user-activity">
-                  ACTIVITY
-                  <input
-                    id="few"
-                    type="radio"
-                    name="actindex"
-                    class="input-radio"
-                    value="25"
-                      <c:if test="${login_user.actindex == 25}"> checked </c:if>
-                  />
-                  <label for="few" class="form-radio">few</label>
-                  <input
-                    id="usual"
-                    type="radio"
-                    name="actindex"
-                    class="input-radio"
-                    value="33"
-                      <c:if test="${login_user.actindex == 33}"> checked </c:if>
-                  />
-                  <label for="usual" class="form-radio">usual</label>
-                  <input
-                    id="many"
-                    type="radio"
-                    name="actindex"
-                    class="input-radio"
-                    value="40"
-                    <c:if test="${login_user.actindex == 40}"> checked </c:if>
-                  />
-                  <label for="many" class="form-radio">many</label>
-                </div>
-                <div class="user-gender">
-                  GENDER
-                  <input
-                    id="man"
-                    type="radio"
-                    name="gender"
-                    class="input-radio"
-                    value="MAN"
-                      <c:if test="${login_user.gender == 'MAN'}"> checked </c:if>
-                  />
-                  <label for="man" class="form-radio">man</label>
-                  <input
-                    id="woman"
-                    type="radio"
-                    name="gender"
-                    class="input-radio"
-                    value="WOMAN"
-                    <c:if test="${login_user.gender == 'WOMAN'}"> checked </c:if>
-                  />
-                  <label for="woman" class="form-radio">woman</label>
-            </form>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div>
-            <div id="btn-form">
-              <div class="button-area">
-                <a id="registerkakao" class="btn-next" href="#" role="button">Register</a>
-                <a id="home" class="btn-next" href="http://localhost:9090/controller/" role="button">home</a>
-              </div>
-            </div>
-          </div>
+#btn-next {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  border: 2px solid #f7ca18;
+  border-radius: 5px;
+  margin: 15px auto;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+  color: #999;
+ background-color : rgb(99,98,80);
+  transition: all 0.9s, color 0.3;
+}
+  
+  #btn-next:hover {
+  color: #fff;
+  box-shadow: 200px 0 0 0 #f7ca18 inset;
+  background-color: #f7ca18;
+  transition: all 0.5s;
+}
+
+  .int-area label {
+ 
+  left: 10px;
+  top: 0px;
+  font-size: 15px;
+color: #f7ca18;
+}
+
+.int-area input:focus + label,
+.int-area input:valid + label {
+  top: 0px;
+  font-size: 14px;
+  color: #f7ca18;
+}
+  </style>
+  </head>
+ 
+  <body>
+    <section class="signup-form">
+      <h1>
+       <a href="http://localhost:9090/controller/"><strong><span>fit</span>ness</strong></a>
+      </h1>
+      <h2>SIGNUP</h2>
+      
+      <form class="actionForm" method="post" action="/controller/addinfo">
+        <div class="int-area">
+          <input
+            type="text"
+            name="name"
+            id="name"
+            value="${nickname }"
+            autocomplete="off"
+            
+          />
+          <label for="id">USER NAME</label>
         </div>
-      </div>
-    </div>
-     <script type="text/javascript">
+        <div class="int-area">
+          <input type="text" name="id" id="id" autofocus="autofocus" value="${kakaoid}" readonly autocomplete="off" required />
+          <label for="id">USER ID<small>&nbsp; &nbsp; &nbsp;<span id="idResult"></span></small></p></label>
+        </div>
+        <div class="int-area">
+          <input
+            type="password"
+            name="pw"
+            id="pw"
+            autocomplete="off"
+            required
+          />
+          <label for="pw">PASSWORD</label>
+        </div>
+        <div class="btn-area">
+          <button class="btn-next" type="submit">next</button>
+         </div>
+      </form>
+     <br>
+          <a id="btn-next" href="http://localhost:9090/controller/">home</a>
+         <div>
+        </div>
+      
+    </section>
+      <script type="text/javascript">
      
-     
-     
+     var dup; //중복 검사 변수
      var actionForm = $(".actionForm");
             	$(document).ready(function(){
-            		$("#registerkakao").on("click",function(e){
+            		
+            		
+            	    $(".btn-next").on("submit",function(e){
             			e.preventDefault();
-            			actionForm.attr("action", "/controller/register").attr("method", "post");
+            			
+            			actionForm.attr("action", "/controller/addinfo")
+            			.attr("method", "post");
             			actionForm.submit();
-            		})
+            	            		})
             		
-            		
-            		
+            		$(".btn-next").on("click",function(e){
+            			if(dup){
+            				alert("すでに加入されています。homeへお戻りください。")
+            				return false;
+            			}
+            			
+            	            		})
+            	
             	})
+            	
+            
+		$(function(){ 
+		
+		//blur 이벤트는 요소에 포커싱이 해제 되었을때 발생하는 이벤트
+		
+		var id = $(id).val();
+	$("#id").on("blur" , function(){
+			$.ajax({
+				url : "checkId",
+				type : "post",
+				data : {"id" : $(this).val()},
+				dataType : "json",
+				success : function(data){
+					let result = "";
+					if(data.result){
+							dup = false;
+						}else{
+							result= "※すでに登録されているIDです。";
+							dup = true;
+					}
+					$("#idResult").text(result);
+				}
+			})
+		
+	})		
+	
+	
+	
+		
+	})
+	
+	
             	</script>
-    
     
   </body>
 </html>
-    
+	

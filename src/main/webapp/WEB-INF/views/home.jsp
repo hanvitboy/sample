@@ -765,8 +765,7 @@ footer .number p:first-child {
   /* footer */
 
   footer {
-    display: flex;
-    flex-direction: column;
+    display: none;
   }
 
 }
@@ -820,11 +819,13 @@ footer .number p:first-child {
 しかし、摂取量だけで500kcalを減らすと栄養不足、空腹感が激しくなる可能性があります。
 なので、運動で消耗するカロリーは増やし、食べ物で増されるカロリーは減らすことを共に行うべきです。
 そんなあなたのためにカロリー計算をサポートします。
-
             </p>
+             <form class="yapi" method="post">
             <div class="btn-area">
-              <a class="btn-next" href="#" role="button">体重管理</a>
-            </div>
+            
+              <a id="yaps" class="btn-next" href="#" role="button">体重管理</a>
+                        </div>
+          </form>
           </div>
         </div>
         <div data-aos="fade-left">
@@ -852,7 +853,7 @@ footer .number p:first-child {
           あなたの美しい体のために、健康的な食べ物情報を提供します。
            </p>
             <div class="btn-area">
-              <a class="btn-next" href="#" role="button">献立管理</a>
+              <a class="btn-next" href="http://localhost:9090/controller/diet" role="button">献立管理</a>
             </div>
           </div>
         </div>
@@ -870,8 +871,8 @@ footer .number p:first-child {
 素敵なあなたの体のために運動方法の映像を提供します。
             </p>
             <div class="btn-area">
-              <a class="btn-next" href="#" role="button">運動サポート</a>
-            </div>
+          <a class="btn-next" href="http://localhost:9090/controller/diet" role="button">献立管理</a>
+               </div>
           </div>
         </div>
         <div data-aos="zoom-in">
@@ -966,7 +967,7 @@ footer .number p:first-child {
             		})
             		$(".button-signup").on("click",function(e){
             			e.preventDefault();
-            			actionForm.attr("action", "/controller/registpage").attr("method", "post");
+            			actionForm.attr("action", "/controller/rspage").attr("method", "post");
             			actionForm.submit();
             		})
             		$(".button-logout").on("click",function(e){
