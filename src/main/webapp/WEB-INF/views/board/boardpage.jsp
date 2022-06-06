@@ -636,11 +636,11 @@ button,
     ></script>
     
 <script>
-
+/*
 window.history.forward();		
 function noBack() {			
 	window.history.forward();
-	}      
+	}      */
 
 let moveForm = $("#moveForm");
 let moveObj = moveForm.clone();

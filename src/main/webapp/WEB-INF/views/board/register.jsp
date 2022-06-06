@@ -242,6 +242,23 @@ box-shadow: 0 0 12px #353b48;
     <!-- Main Body Ends -->
 </form>
   
+  <!-- 
+  <form action="/controller/uploadFormAction" method="post" enctype="multipart/form-data">
+  <input type="file" name="uploadFile" multiple>
+  <button>Submit</button>
+  </form>
+   -->
+  <form>
+  <div class="uploadDiv">
+  	<input type="file" name = "uploadFile" multiple>
+  </div>
+  <div class="uploadResult">
+  	<ul>
+  	
+  	</ul>
+  </div>
+  <button id="uploadBtn">Upload </button>
+  </form>
   </body>
 
     <script
@@ -249,6 +266,91 @@ box-shadow: 0 0 12px #353b48;
     crossorigin="anonymous"
   ></script>
   <script>
+  $(document).ready(function() {
+	  let regex = new RegExp("(.*?)\.(exe|sh|zip|alz)$");
+	  let maxSize = 5242880;//파일 크기 5mb
+	  
+	//파일을 검사하는 함수
+		function checkFile(fileName, fileSize) {
+			if (fileSize > maxSize) {
+				alert("파일 최대크기 초과");
+				return false;
+			}
+			//파일 확장자 검사 : 정규식과 파일 이름이 일치하는 패턴이면 false 를 리턴
+			if (regex.test(fileName)) {
+				alert("해당 종류의 파일은 업로드 불가!");
+
+				return false;
+			}
+			//두개 모두 통과했다면 return true;
+			return true;
+
+		}
+	  
+		//첨부파일 결과
+		  var uploadResult = $(".uploadResult ul");
+		  
+	  function showUploadFile(uploadResultArr){
+		  console.log("fuck");
+		  var str = "";
+		  
+		  $(uploadResultArr).each(function(i,obj){
+			  if(!obj.image){
+				  var fileCellPath = encodeURIComponent("/"+obj.uploadPath+"/"+obj.uuid+"_"+obj.fileName);
+			  str += "<li><a href='/controller/download?fileName="+fileCellPath+"'><img src='/controller/resources/img/attach.png' width='20' height='20'>" + obj.fileName + "</li>";
+				  		
+			  }
+			  else{
+				  //str +="<li>"+obj.fileName + "</li>";	
+				  var fileCellPath = encodeURIComponent("/"+obj.uploadPath+"/s_"+obj.uuid+"_"+obj.fileName);
+				  str += "<li><img src='/controller/display?fileName="+fileCellPath+"'></li>";
+			  }
+				  
+		  });
+		  uploadResult.append(str);
+		  
+	  }
+	  var cloneOjb = $(".uploadDiv").clone();
+	  
+	  $("#uploadBtn").on("click",function(e){
+		  
+		  console.log("sexy");
+		  var formData = new FormData();		  
+		  var inputFile = $("input[name='uploadFile']");		  
+		  var files = inputFile[0].files;
+		  
+		  console.log(files);
+		  
+		//formData에 파일 추가
+			for (let i = 0; i < files.length; i++) {
+				if(!checkFile(files[i].name, files[i].size)){
+					return false;
+					
+				}
+				formData.append("uploadFile",files[i]);
+			}
+		  
+		  $.ajax({
+			  url : "/controller/uploadAjaxAction",
+				processData : false,
+				contentType : false,
+				data : formData,
+				type : "POST",
+				success : function(result){
+					console.log(result);
+					$(".uploadDiv").html(cloneOjb.html());
+					showUploadFile(result);
+				}
+		  
+		  });
+		  return false;
+		  
+	  });
+});
+	  
+	  
+	  
+ 
 
 	var actionForm = $(".actionForm");
 	       	$(document).ready(function(){
