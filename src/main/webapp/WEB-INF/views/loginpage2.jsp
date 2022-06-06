@@ -185,6 +185,12 @@ li {
         <div class="btn-area">
           <button type="submit">LOGIN</button>
         </div>
+        <div>
+        <form method="get" action="kakaologin">
+        <a id="kakao-login-btn" href="https://kauth.kakao.com/oauth/authorize?client_id=3c29e5973236d66995354c01142b54eb&redirect_uri=http://localhost:9090/controller/kakaolog&response_type=code">
+        <img src="resources/assets/loginimage.png"/></a>
+        </form>
+        </div>
         </form>
      <form id="actionForm" action="loginpage" method="post">
         <div class="caption">
