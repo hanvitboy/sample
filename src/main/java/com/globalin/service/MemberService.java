@@ -30,6 +30,8 @@ public interface MemberService {
 		
 	public String getLoginAccessToken(String authorize_code);
 
+	public String getLogin2AccessToken(String authorize_code);
+
 	public HashMap<String, Object> getUserInfo(String access_Token);
 	
 	public HashMap<String, Object> getLoginUserInfo(String access_Token);

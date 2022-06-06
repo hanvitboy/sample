@@ -337,6 +337,40 @@ public class MemberController {
 	
 	}
 	
+
+	@GetMapping("/kakaolog2")
+	public String kakaoLog2(@RequestParam(value = "code", required = false) String code, Model model, HttpSession session, HttpServletResponse resp) throws Exception {
+	System.out.println("#########" + code);
+	
+	String access_Token = service.getLogin2AccessToken(code);
+	HashMap<String, Object> userInfo = service.getLoginUserInfo(access_Token);
+	System.out.println("###access_Token#### : " + access_Token);
+	System.out.println("###kakaoid#### : " + userInfo.get("id"));
+	System.out.println("###nickname#### : " + userInfo.get("nickname"));
+	model.addAttribute("kakaoid",userInfo.get("id"));
+	model.addAttribute("nickname" , userInfo.get("nickname"));
+	
+	MemberVO mem = service.kakaologin((String) userInfo.get("id"));
+	
+	if(mem != null) {
+		//id,pw가 검증되었다면
+		MemberRecVO mv2 = service2.get(mem.getIdx());
+		session.setAttribute("login_user", mem);
+		session.setAttribute("user_kcal", mv2);
+		
+		log.warn(mem.toString());			
+	}else {
+		resp.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = resp.getWriter();
+		out.println("<script>alert('情報がございません。加入ページへ移動します。');</script>");
+		out.flush();
+		return "rspage";
+	}
+
+	return "kcalcalpage";
+	
+	}
+	
 	
 	
 	@RequestMapping("/checkId")
