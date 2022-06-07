@@ -379,33 +379,6 @@ $.ajax({
 	});
 };
 
-//$(".replyWriteBtn").on("click", function(){
-//	  var formObj = $("form[name='replyForm']");
-//	  formObj.attr("action", "/controller/board/replyWrite");
-//	  formObj.submit();
-//	});
-
-	
-	
-//댓글 수정 View
-//$(".replyUpdateBtn").on("click", function(){
-//	location.href = "replyUpdateView?pageNum=${cri.pageNum}"
-//					+ "&amount=${cri.amount}"
-//					+ "&keyword=${cri.keyword}"
-//					+ "&type=${cri.type}"
-//					+ "&bno=${pageInfo.bno}"
-//					+ "&rno="+$(this).attr("data-rno");
-//});	
-		
-//댓글 삭제 View
-//$(".replyDeleteBtn").on("click", function(){
-//	location.href = "replyDeleteView?pageNum=${pageInfo.bno}"
-//		+ "&amount=${cri.amount}"
-//		+ "&keyword=${cri.keyword}"
-//		+ "&type=${cri.type}"
-//		+ "&bno=${pageInfo.bno}"
-//		+ "&rno="+$(this).attr("data-rno");
-//});
 
 function getContextPath() {
     var hostIndex = location.href.indexOf( location.host ) + location.host.length;

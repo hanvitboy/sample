@@ -34,6 +34,7 @@ public class ReplyController {
 	@Autowired
 	ReplyService rservice;
 	
+	// 댓글 리스트
 	@GetMapping("/replylist")
 	public List<ReplyVO> replyList(@RequestParam("bno")int bno) throws Exception {
 		System.out.println("fuck");
@@ -42,10 +43,10 @@ public class ReplyController {
 		
 	}
 	
+	// 댓글 작성
 	@PostMapping("/replywrite/{reply_bno}/{reply_writer}/{reply_content}")
 	public Map<String,Object> replywrite(@PathVariable("reply_bno") String bno, @PathVariable("reply_writer") String writer, @PathVariable("reply_content") String content){
 		Map<String,Object> map = new HashMap<String,Object>();		
-		System.out.println("일미집체인점");
 		try {
 			ReplyVO vo = new ReplyVO();
 			vo.setBno(Integer.parseInt(bno));
@@ -64,7 +65,7 @@ public class ReplyController {
 		
 	}
 	
-	// 상품 소감(댓글) 수정
+	// 댓글 수정
 	@ResponseBody
 	@RequestMapping(value = "/modifyReply", method = RequestMethod.POST)
 	public void modifyReply(ReplyVO reply, HttpSession session) throws Exception {
@@ -80,7 +81,7 @@ public class ReplyController {
 	 
 	 
 
-	// 상품 소감(댓글) 삭제
+	// 댓글 삭제
 	@ResponseBody
 	@RequestMapping(value = "/deleteReply", method = RequestMethod.POST)
 	public void getReplyList(ReplyVO reply) throws Exception {	
@@ -90,41 +91,4 @@ public class ReplyController {
 	 rservice.deleteReply(reply);
 	}
 }
-	
-//	@PostMapping("/replyupdate/{rno}/{content}")
-//	public Map<String, Object> replyupdate(@PathVariable int rno,@PathVariable String content ){
-//		Map<String, Object> map = new HashMap<String,Object>();
-//		try {
-//			ReplyVO replyvo = new ReplyVO();
-//			replyvo.setRno(rno);
-//			replyvo.setContent(content);
-//			rservice.updateReply(replyvo);
-//			
-//			map.put("result", "success");
-//		}catch (Exception e) {
-//			e.printStackTrace();
-//			map.put("result", "fail");
-//		}
-//		return map;
-//	}
-	// 상품 소감(댓글) 수정
-//	@ResponseBody
-//	@RequestMapping(value = "/view/modifyReply", method = RequestMethod.POST)
-//	public int modifyReply(ReplyVO reply, HttpSession session) throws Exception {
-//	 log.info("modify reply");
-//	 
-//	 int result = 0;
-//	 
-//	 MemberVO member = (MemberVO)session.getAttribute("member");
-//	 String userId = service.idCheck(reply.getRepNum());
-//	 
-//	 if(member.getUserId().equals(userId)) {
-//	  
-//	  reply.setUserId(member.getUserId());
-//	  service.modifyReply(reply);
-//	  result = 1;
-//	 }
-//	 
-//	 return result;
-//	} 
 

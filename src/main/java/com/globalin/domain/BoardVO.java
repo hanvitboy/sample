@@ -1,6 +1,7 @@
 package com.globalin.domain;
 
 import java.util.Date;
+import java.util.List;
 
 public class BoardVO {
 	
@@ -8,6 +9,16 @@ public class BoardVO {
 	private String title,content,writer;
 	private Date regdate, updateDate;
 	
+	private List<BoardAttachVO> attachList;
+	
+	
+	
+	public List<BoardAttachVO> getAttachList() {
+		return attachList;
+	}
+	public void setAttachList(List<BoardAttachVO> attachList) {
+		this.attachList = attachList;
+	}
 	public int getReply_count() {
 		return reply_count;
 	}
@@ -66,7 +77,7 @@ public class BoardVO {
 	public String toString() {
 		return "BoardVO [bno=" + bno + ", hit=" + hit + ", like_count=" + like_count + ", reply_count=" + reply_count
 				+ ", title=" + title + ", content=" + content + ", writer=" + writer + ", regdate=" + regdate
-				+ ", updateDate=" + updateDate + "]";
+				+ ", updateDate=" + updateDate + ", attachList=" + attachList + "]";
 	}
 
 }

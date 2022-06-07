@@ -211,7 +211,22 @@ box-shadow: 0 0 12px #353b48;
         <div class="feed__inputContainer">
           <input type="text" name="title" class="input-title" placeholder="제목을 입력하세요"/>
           <textarea name="content" class="input-mainText"  placeholder="내용을 입력하세요"></textarea>
+			 <!-- 첨부파일  -->
+  <form>
+  <div class="uploadDiv">
+  	<input type="file" name = "uploadFile" multiple>
+  </div>
+  <div class="uploadResult">
+  	<ul>
+  	
+  	</ul>
+  </div>
 
+  
+  <div class="oImg">
+  </div>
+  </form>
+  <!-- 첨부파일  끝-->
 <input type="hidden" name="writer" value="${login_user.id}"/>
 
           <div class="feed__inputOptions">
@@ -248,17 +263,7 @@ box-shadow: 0 0 12px #353b48;
   <button>Submit</button>
   </form>
    -->
-  <form>
-  <div class="uploadDiv">
-  	<input type="file" name = "uploadFile" multiple>
-  </div>
-  <div class="uploadResult">
-  	<ul>
-  	
-  	</ul>
-  </div>
-  <button id="uploadBtn">Upload </button>
-  </form>
+  
   </body>
 
     <script
@@ -267,6 +272,12 @@ box-shadow: 0 0 12px #353b48;
   ></script>
   <script>
   $(document).ready(function() {
+	  
+	  var formObj = $("form[role='form']");
+	  $("button[type='submit']").on("click",function(e){
+		 e.preventDefault(); 
+	  })
+	  
 	  let regex = new RegExp("(.*?)\.(exe|sh|zip|alz)$");
 	  let maxSize = 5242880;//파일 크기 5mb
 	  
@@ -297,19 +308,52 @@ box-shadow: 0 0 12px #353b48;
 		  $(uploadResultArr).each(function(i,obj){
 			  if(!obj.image){
 				  var fileCellPath = encodeURIComponent("/"+obj.uploadPath+"/"+obj.uuid+"_"+obj.fileName);
-			  str += "<li><a href='/controller/download?fileName="+fileCellPath+"'><img src='/controller/resources/img/attach.png' width='20' height='20'>" + obj.fileName + "</li>";
+			  		var fileLink = fileCellPath.replace(new RegExp(/\\/g),"/");
+			  		console.log("/"+obj.uploadPath+"/"+obj.uuid+"_"+obj.fileName);
+				  str += "<div id='attach'><li><a href='/controller/download?fileName="+fileLink+"'><img src='/controller/resources/img/attach.png' width='20' height='20'>" + obj.fileName + "</a><span data-file=\'"+fileCellPath+"\' data-type='file'>X</span></li></div>";
 				  		
 			  }
 			  else{
 				  //str +="<li>"+obj.fileName + "</li>";	
 				  var fileCellPath = encodeURIComponent("/"+obj.uploadPath+"/s_"+obj.uuid+"_"+obj.fileName);
-				  str += "<li><img src='/controller/display?fileName="+fileCellPath+"'></li>";
+				  var originPath = "/" + obj.uploadPath+"/"+obj.uuid+"_"+obj.fileName;
+				  originPath = originPath.replace(new RegExp(/\\/g),"/");
+				  console.log(originPath);
+				  str += "<div id='attach'><li><a href=\"javascript:showImage(\'"+originPath+"\')\"><img src='/controller/display?fileName="+fileCellPath+"'></a><span data-file=\'"+fileCellPath+"\' data-type='image'>X</span></li></div>";
+				  //<a onClick='javascript:showImage(\""+originPath+"\");'>
 			  }
 				  
 		  });
 		  uploadResult.append(str);
 		  
 	  }
+	  
+	  
+	  
+	  $(".uploadResult").on("click","span",function(e){
+		  alert("삭제하겠습니다");
+		  var targetFile = $(this).data("file");
+		  console.log(targetFile);
+		  var type = $(this).data("type");
+		  console.log(type);
+		  const div = document.getElementById('attach');
+		  div.remove();
+		  $.ajax({
+			  url:'/controller/deleteFile',
+			  data:{fileName:targetFile,type:type},
+			  dataType:'text',
+			  type:'POST',
+			  success : function(result)
+			  {
+				  
+			  }
+		  });
+		  
+		  
+		  
+		  
+	  });
+	  
 	  var cloneOjb = $(".uploadDiv").clone();
 	  
 	  $("#uploadBtn").on("click",function(e){
@@ -347,6 +391,10 @@ box-shadow: 0 0 12px #353b48;
 		  
 	  });
 });
+  
+  function showImage(fileCellPath) {	
+	  $(".oImg").html("<img src='/controller/display?fileName="+fileCellPath+"' style='width:600px; height:600px;'>");
+  }
 	  
 	  
 	  

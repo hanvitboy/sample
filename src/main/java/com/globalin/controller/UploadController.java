@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.nio.file.Files;
 import java.text.SimpleDateFormat;
@@ -26,6 +27,7 @@ import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -78,7 +80,7 @@ public class UploadController {
 		
 		String uploadFolderPath = getFolder();
 		//폴더 만들기
-		File uploadPath = new File(uploadFolder,getFolder());
+		File uploadPath = new File(uploadFolder, getFolder());
 		log.info("upload path : " + uploadPath);
 		
 		if(uploadPath.exists() == false) {
@@ -107,13 +109,14 @@ public class UploadController {
 				File savefile = new File(uploadPath,uploadFileName);
 				file.transferTo(savefile);
 				attachVO.setUuid(uuid.toString());
-				attachVO.setUploadPath(uploadFolderPath);
+				attachVO.setUploadPath(uploadPath.toString());
 				
 				//image파일인지 확인
 				if(checkImageType(savefile)) {
 					attachVO.setImage(true);
 					FileOutputStream thumbnail = new FileOutputStream(new File(uploadPath,"s_"+uploadFileName));
 					Thumbnailator.createThumbnail(file.getInputStream(),thumbnail,100,100);
+					thumbnail.close();
 				}
 				list.add(attachVO);
 			} catch (IllegalStateException e) {
@@ -148,7 +151,7 @@ public class UploadController {
 	@ResponseBody
 	public ResponseEntity<byte[]>getFile(String fileName){
 		log.info("fileName : " + fileName);
-		File file = new File("C:\\tmp" + fileName);
+		File file = new File(fileName);
 		log.info("file : " + file);
 		ResponseEntity<byte[]> result = null;
 		
@@ -168,8 +171,9 @@ public class UploadController {
 	//파일 다운로드
 	@GetMapping(value="/download", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
 	@ResponseBody
-	public ResponseEntity<Resource> downloadFile(String fileName){
-		Resource resource = new FileSystemResource("c:\\tmp\\" + fileName);
+	public ResponseEntity<Resource> downloadFile(@RequestHeader("user-Agent") String userAgent, String fileName){
+		Resource resource = new FileSystemResource(fileName);
+		System.out.println(fileName);
 		if(resource.exists() == false) {
 			return new ResponseEntity<Resource>(HttpStatus.NOT_FOUND);
 		}
@@ -181,8 +185,17 @@ public class UploadController {
 		
 		try {
 			String downloadName = null;
-			downloadName = URLEncoder.encode(resourceOriginalName,"UTF-8");
-			header.add("Content-Disposition", "attachment; filename="+new String(downloadName.getBytes("UTF-8"),"ISO-8859-1"));
+			if(userAgent.contains("Trident")) {
+				log.info("IE Browser");
+				downloadName = URLEncoder.encode(resourceOriginalName,"UTF-8").replaceAll("\\", " ");
+			}else if(userAgent.contains("Edge")) {
+				log.info("Edge");
+				downloadName = URLEncoder.encode(resourceOriginalName,"UTF-8");
+			}else {
+				log.info("Chrome");
+				downloadName = new String(resourceOriginalName.getBytes("UTF-8"),"ISO-8859-1");
+		}
+			header.add("Content-Disposition", "attachment; filename="+downloadName);
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
@@ -190,7 +203,28 @@ public class UploadController {
 		return new ResponseEntity<Resource>(resource,header,HttpStatus.OK);
 	}
 	
+	@PostMapping("/deleteFile")
+	@ResponseBody
+	public ResponseEntity<String> deleteFile(String fileName,String type){
+	log.info("sijinping");
+		File file;
+		try {
+			file = new File(URLDecoder.decode(fileName,"UTF-8"));
+			log.info("지울꺼");
+			log.info(file.toString());
+			System.out.println(file.delete());
+			if(type.equals("image")) {
+				String largeFileName = file.getAbsolutePath().replace("s_", "");
+				log.info("지울꺼2");
+				log.info(largeFileName.toString());
+				file = new File(largeFileName);
+				file.delete();
+			}
+		}catch(UnsupportedEncodingException e) {
+			e.printStackTrace();
+			return new ResponseEntity<String>(HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<String>(HttpStatus.OK);	
 	
-	
-	
+	}
 }
