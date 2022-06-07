@@ -1,0 +1,587 @@
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  align-items: inherit;
+ }
+
+.Box1{
+height:100vh;
+background: 
+    url(https://wallpaperaccess.com/full/480568.jpg); 
+  background-repeat: no-repeat;
+  background-size: cover;
+border-radius: 20px;
+box-shadow: 0 24px 38px rgba(0,0,0,0.10), 0 20px 20px rgba(0,0,0,0.10);
+scroll-snap-align: start;
+}
+
+.TodayKcal,
+.recommendedKcal{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ font-family: "Noto Sans JP", sans-serif;
+}
+
+.calSubmit{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.calSumit_btn {
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 40px;
+
+  border: 3px solid #f7ca18;
+  border-radius: 5px;
+  margin: 15px auto;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+  color: #999;
+  transition: all 0.9s, color 0.3;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+.fixedCalBox{
+      display: flex;
+      width:230px;
+      height: 240px;
+      font-size: 12px;
+      font-weight: 600;
+      flex-direction: column;
+     justify-content: space-evenly;
+      align-items: center;
+      background-color: black;
+      color:white;
+      border-radius: 30px;
+      box-shadow:10px 20px 50px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.10);
+      border: 4px solid yellow;
+      position:fixed;
+      bottom:10px;
+      right:18px;
+      overflow: hidden;}
+      
+      
+.exampleBox{
+width:250px;
+height: 350px;
+
+
+font-size: 13px;
+font-weight: 600;
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+align-items: center;
+background-color: black;
+color:white;
+border-radius: 30px;
+box-shadow:10px 20px 50px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.10);
+border: 4px solid yellow;
+
+position:fixed;
+bottom:50px;
+left:50px;
+overflow: hidden;
+
+}
+
+
+.calSumit_btn:hover {
+  color: #fff;
+  box-shadow: 200px 0 0 0 #f7ca18 inset;
+  background-color: #f7ca18;
+  transition: all 0.5s;
+}
+
+
+#kcalFromBack1,
+#kcalFromBack2{
+ 
+  height: 100%;
+  width: 19%;
+  background: none;
+   color: inherit;
+   border: none;
+   padding: 0;
+   font: inherit;
+   cursor:default;
+  pointer-events: none;
+   outline: inherit;
+  font-weight: 700;
+  font-size: 17px;
+  text-shadow: 2px 2px blueviolet;
+}
+
+
+@keyframes stack{
+  0%{ opacity:0; }
+  100%{ opacity:1; }
+}
+
+.fixedGraphBox{
+  display:flex;  
+  justify-content: space-evenly;
+  flex-direction: column;
+  border-radius: 30px;
+  box-shadow:10px 20px 50px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.10);
+  border: 4px solid yellow;
+  height: 280px;
+  width: 370px;
+  background-color: black;
+  color: white;
+
+  position:fixed;
+  bottom:40px;
+  left:50px;
+  overflow: hidden;
+
+}
+
+.graph-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10px;
+  
+
+}
+
+.emoticon__day1,
+.emoticon__day2,
+.emoticon__day3,
+.emoticon__day4,
+.emoticon__day5,
+.emoticon__day6,
+.emoticon__day7{
+display: flex;
+justify-content: center;
+font-size: 18px;
+margin-bottom: 10px;
+
+
+}
+
+
+.graph-stack1,
+.graph-stack2,
+.graph-stack3,
+.graph-stack4,
+.graph-stack5,
+.graph-stack6,
+.graph-stack7
+ {
+  background-color:#ccc;
+  height: 100vh;
+  border-radius: 10px;
+  height:100px;
+  width:30px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+
+}
+
+.graph-day1,
+.graph-day2,
+.graph-day3,
+.graph-day4,
+.graph-day5,
+.graph-day6,
+.graph-day7{
+  display: flex;
+ align-items:flex-end;
+   /* span to top. very important!!! */
+  background: #07afd9;
+border-radius: 10px;
+height:5%;
+width:30px;
+animation:stack 2s 1;
+overflow: hidden;
+
+}
+
+.cal-day1,
+.cal-day2,
+.cal-day3,
+.cal-day4,
+.cal-day5,
+.cal-day6,
+.cal-day7
+{
+  display:flex;
+ justify-content: center;
+ font-size: 12px;
+ font-weight: 600;
+ margin-top: 10px;
+
+  }
+
+
+  .cal-date__day1,
+  .cal-date__day2,
+  .cal-date__day3,
+  .cal-date__day4,
+  .cal-date__day5,
+  .cal-date__day6,
+  .cal-date__day7
+  {
+    display:flex;
+   justify-content: center;
+   font-size: 8px;
+   font-weight: 600;
+   margin-top: 3px;
+
+    }
+
+
+ .graph-whole-wrapper{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+  }
+  
+
+  
+  .reset-row{
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+  }
+  
+  
+  
+  .cal-refresh-detail{
+  font-size: 16px;
+   font-family: "Noto Sans JP", sans-serif;
+   display: inline;
+  }
+  
+  
+  .cal-refresh__btn{
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 40px;
+    border: 3px solid #f7ca18;
+    border-radius: 5px;
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+    color: #999;
+    transition: all 0.9s, color 0.3;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  
+  
+  .cal-refresh__btn:hover {
+    color: #fff;
+    box-shadow: 200px 0 0 0 #f7ca18 inset;
+    background-color: #f7ca18;
+    transition: all 0.5s;
+  }
+  
+  
+  
+    .hidden-btn-calBox{
+      position:absolute;
+      border:none;
+      bottom:10px;
+      right:40px;
+     display: none;
+     justify-content: center;
+     align-items: center;
+     height:50px;
+     width:50px;
+     font-size: 22px;
+     border-radius: 20px;
+     background-color: orange;
+     cursor:pointer;
+
+    }
+
+
+
+    .hidden-btn-graphBox{
+      position:absolute;
+      border:none;
+      bottom:10px;
+      left:20px;
+     display: none;
+     justify-content: center;
+     align-items: center;
+     height:50px;
+     width:50px;
+     font-size: 22px;
+     border-radius: 20px;
+     background-color: orange;
+     cursor:pointer;
+    }
+  
+
+    .kcalFromBack1-hidden,
+    .kcalFromBack2-hidden{
+  font-family: "Avenir Next", sans-serif;
+  font-weight: 900;
+  height: 100%;
+  width: 53px;
+  background: none;
+    color: inherit;
+border: none;
+    font: inherit;
+    cursor:default;
+  pointer-events: none;
+    outline: inherit;
+  font-size: 17px;
+  text-shadow: 2px 2px #fbc531;
+}
+
+
+
+    .hidden-calBox__back-btn,
+    .hidden-GraphBox__back-btn
+    {
+      border-radius: 10px;
+      width:28px;
+      height:28px;
+      position: absolute;
+      left:7px;
+      top:7px;
+      border: 2px solid yellow;
+      background-color: black;
+      color:white;
+      cursor: pointer;
+   }
+
+   .hidden-calBox__back-btn:hover,
+   .hidden-GraphBox__back-btn:hover {
+    color: #fff;
+    box-shadow: 200px 0 0 0 #f7ca18 inset;
+    background-color: #f7ca18;
+    transition: all 0.7s;
+  }
+
+
+
+    .hidden-calBox__back-btn{
+      display:none;
+      border-radius: 10px;
+      width:28px;
+      height:28px;
+      position: absolute;
+      left:7px;
+      top:7px;
+      border: 2px solid yellow;
+      background-color: black;
+      color:white;
+      cursor: pointer;
+
+    }
+    .hidden-GraphBox__back-btn
+    {display:none;
+      border-radius: 10px;
+      width:28px;
+      height:28px;
+      position: absolute;
+      left:7px;
+      top:7px;
+      border: 2px solid yellow;
+      background-color: black;
+      color:white;
+      cursor: pointer;
+   }
+
+   .hidden-calBox__back-btn:hover,
+   .hidden-GraphBox__back-btn:hover {
+    color: #fff;
+    box-shadow: 200px 0 0 0 #f7ca18 inset;
+    background-color: #f7ca18;
+    transition: all 0.7s;
+  }
+
+
+
+
+    .ad-box1{
+      width:6em;
+      height: 4em;
+      font-size: 60px;
+      font-weight: 600;
+      display: flex;
+      flex-direction: column;
+     justify-content: center;
+      align-items: center;
+      background-color: white;
+      color:black;
+      border-radius: 10px;
+      box-shadow:10px 20px 50px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.10);
+      border: 2px solid gray;
+      position:fixed;
+      top:150px;
+      left:50px;
+      overflow: hidden;
+
+    }
+    .ad-box2{
+      width:6em;
+      height: 4em;
+      font-size: 60px;
+      font-weight: 600;
+      display: flex;
+      flex-direction: column;
+     justify-content: center;
+      align-items: center;
+      background-color: white;
+      color:black;
+      border-radius: 10px;
+      box-shadow:10px 20px 50px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.10);
+      border: 2px solid gray;
+      position:fixed;
+      top:150px;
+      right:50px;
+      overflow: hidden;
+
+
+
+    }
+
+    .ad__back-btn{
+      border-radius: 5px;
+      width:25px;
+      height:25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      left:7px;
+      top:7px;
+      border: 2px solid gray;
+      background-color: white;
+      color:gray;
+      cursor: pointer;
+
+
+
+
+    }
+
+
+
+
+
+      @media screen and (max-width: 768px){
+
+        .button-group .button-logout {
+    border: none;
+    border-bottom: 2px solid #f7ca18;
+    border-radius: 0;
+    margin-right: 0;
+    } 
+
+         .button-group .button-info {
+    border: none;
+    border-bottom: 2px solid #f7ca18;
+    border-radius: 0;
+    margin-right: 0;
+      } 
+   
+    
+        .Boxes{
+    
+          width: 100%;
+        }
+
+    
+        .ad-box1,
+        .ad-box2{
+
+          display: none;
+        }
+    
+
+        .hidden-btn-calBox,
+        .hidden-btn-graphBox{
+            display: flex;
+        }
+
+        .fixedGraphBox{
+        display: none;
+          flex-direction: column;
+          justify-content:space-around;
+          align-items: center;
+          border-radius: 30px;
+          box-shadow:10px 20px 50px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.10);
+          border: 4px solid yellow;
+          height: 300px;
+          width: 300px;
+          background-color: black;
+          color: white;
+          position:fixed;
+          bottom:10px;
+          left:10px;
+          overflow: hidden;
+          z-index:99;
+        }
+
+    
+
+        .fixedCalBox{
+          display: none;
+          width:200px;
+          height: 240px;
+          font-size: 12px;
+          font-weight: 600;
+          flex-direction: column;
+         justify-content: space-evenly;
+          align-items: center;
+          background-color: black;
+          color:white;
+          border-radius: 30px;
+          box-shadow:10px 20px 50px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.10);
+          border: 4px solid yellow;
+          position:fixed;
+          bottom:10px;
+          right:18px;
+          overflow:visible;
+          z-index:99;
+
+
+        }
+
+        .hidden-GraphBox__back-btn{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .hidden-calBox__back-btn{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        
+        .graph-wrapper{
+            margin: 4px;
+ 
+}
+      }
+ @media screen and (min-width: 768px){
+ .fixedCalBox{
+ display: flex;}
+ .fixedGraphBox{
+ display:flex;}
+ }
+
