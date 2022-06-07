@@ -6,7 +6,7 @@ import java.util.List;
 public class BoardVO {
 	
 	private int bno,hit,like_count,reply_count;
-	private String title,content,writer;
+	private String title,content,writer,uuid;
 	private Date regdate, updateDate;
 	
 	private List<BoardAttachVO> attachList;
@@ -76,8 +76,14 @@ public class BoardVO {
 	@Override
 	public String toString() {
 		return "BoardVO [bno=" + bno + ", hit=" + hit + ", like_count=" + like_count + ", reply_count=" + reply_count
-				+ ", title=" + title + ", content=" + content + ", writer=" + writer + ", regdate=" + regdate
-				+ ", updateDate=" + updateDate + ", attachList=" + attachList + "]";
+				+ ", title=" + title + ", content=" + content + ", writer=" + writer + ", uuid=" + uuid + ", regdate="
+				+ regdate + ", updateDate=" + updateDate + ", attachList=" + attachList + "]";
+	}
+	public String getUuid() {
+		return uuid;
+	}
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
 	}
 
 }

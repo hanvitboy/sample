@@ -1,6 +1,6 @@
 package com.globalin.controller;
 
-import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,19 +15,18 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.globalin.domain.AttachFileVO;
 import com.globalin.domain.BoardVO;
 import com.globalin.domain.Criteria;
 import com.globalin.domain.LikeVO;
 import com.globalin.domain.MemberVO;
-import com.globalin.domain.ReplyVO;
 import com.globalin.domain.pageMakerDTO;
+import com.globalin.service.BoardAttachService;
 import com.globalin.service.BoardService;
 import com.globalin.service.LikeService;
 import com.globalin.service.MemberService;
-import com.globalin.service.ReplyService;
 
 @Controller
 @RequestMapping("/board/*")
@@ -41,6 +40,9 @@ public class BoardController {
 	
 	@Autowired
 	private LikeService likeservice;
+	
+	@Autowired
+	private BoardAttachService bas; 
 	
 //	@Autowired
 //	private ReplyService rservice;
@@ -67,7 +69,7 @@ public class BoardController {
         model.addAttribute("pageMaker", pm);
     }
 	
-	/* 게시글 등록 기능 */
+	/* 게시글 등록 기능 
 	@PostMapping("/register")
 	public String register(BoardVO board, RedirectAttributes rttr, HttpServletRequest req, HttpServletResponse resp) throws UnsupportedEncodingException {
 		req.setCharacterEncoding("UTF-8");
@@ -78,7 +80,7 @@ public class BoardController {
 		rttr.addFlashAttribute("result", "regist success");
 		return "redirect:/board/boardpage";
 		
-	}
+	}*/
 	
 	/* 게시글 등록 접속 */
 	@GetMapping("/registpage")
@@ -97,10 +99,18 @@ public class BoardController {
 		
 		//조회수
 		service.boardHit(bno);
+			
+		BoardVO board = service.getpage(bno);
 		
+		List<AttachFileVO> fileList = new ArrayList<AttachFileVO>();
+		
+		fileList = bas.findByBno(bno);
+		
+		System.out.println(fileList.toString());
 		
 		//게시글 정보들
-		model.addAttribute("pageInfo", service.getpage(bno));
+		model.addAttribute("pageInfo", board);
+		model.addAttribute("fileList", fileList);
 		model.addAttribute("cri",cri);
 		
 //		//댓글 관련

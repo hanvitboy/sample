@@ -89,6 +89,12 @@ textarea{
 		<label>게시판 수정일</label>
 		<input name="updateDate" readonly="readonly" value='<fmt:formatDate pattern="yyyy/MM/dd" value="${pageInfo.updateDate}"/>' >
 	</div>
+	<div class="input_wrap">
+		<label>첨부파일</label>
+		<c:forEach items="${fileList}" var="fileList">
+		<img src='/controller/resources/img/attach.png' width='20' height='20'><input class="filedown" name="writer" readonly="readonly" value='<c:out value="${fileList.fileName}"/>' data-link='<c:out value="${fileList.uuid}"/>' data-path='<c:out value="${fileList.uploadPath}"/>'>
+		</c:forEach>
+	</div>
 	<form name="replyForm" method="post">
 	  <input type="hidden" id="bno" name="bno" value="${pageInfo.bno}" />
 	  <input type="hidden" id="page" name="page" value="${cri.pageNum}"> 
@@ -181,11 +187,37 @@ textarea{
  
 </div>
 	
-	
 <script>
-$(document).ready(function(){
 
+
+$(document).ready(function(){
+	
 	getreplylist();
+	
+	var fileList = new Array();
+	
+	<c:forEach items="${fileList}" var="result">
+	   fileList.push({
+		   uuid:"${result.uuid}",
+		   fileType:"${result.fileType}",
+		   fileName:"${result.fileName}",
+		   uploadPath:"${result.uploadPath}",
+		   bno:"${result.bno}"
+	   })
+	</c:forEach>
+	
+	$(".filedown").on('click',function(){
+		var uuid = $(this).attr("data-link");
+		var uploadPath = $(this).attr("data-path");
+		
+		$.each(fileList, function(idx, item){
+			if(uuid == item.uuid){
+				var filepath = encodeURIComponent("/"+uploadPath+"/"+item.uuid+"_"+item.fileName);
+				var real = filepath.replace(new RegExp(/\\/g),"/");
+				location.href="/controller/download?fileName="+real;
+			}
+		})
+	})
 	
 });
 

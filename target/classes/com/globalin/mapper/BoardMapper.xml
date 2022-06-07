@@ -15,8 +15,6 @@
 			   reply_count,
 			   HIT,
 			   LIKE_COUNT
-			   
-			   
 		FROM tbl_board 
 		WHERE bno=#{bno}
 		
@@ -26,14 +24,15 @@
 	<insert id="insert" parameterType="com.globalin.domain.BoardVO">
 		INSERT INTO tbl_board (bno,title, content, writer)
 		VALUES (seq_board.nextval,#{title},#{content},#{writer})
-		
+		<selectKey resultType="int" keyProperty="bno" order="AFTER">
+			SELECT seq_board.currval FROM DUAL
+		</selectKey>
 	</insert>
 	
 	<!-- 삭제하기 -->
 	<delete id="delete">
 		DELETE FROM tbl_board
 		WHERE bno=#{bno}
-		
 	</delete>
 	
 	<!-- 수정하기 -->

@@ -4,7 +4,7 @@
 	
 	<insert id="insert">
 		INSERT INTO tbl_attach (uuid,uploadpath,filename,filetype,bno)
-		VALUES (#{uuid},#{uploadpath},#{filename},#{filetype},#{bno})
+		VALUES (#{uuid},#{uploadPath},#{fileName},#{fileType},#{bno})
 	</insert>
 
 	<delete id="delete">
@@ -13,11 +13,16 @@
 		
 	</delete>
 	
-	<select id="findByBno" resultType="com.globalin.domain.BoardAttachVO">
+	<select id="findByBno" resultType="com.globalin.domain.AttachFileVO">
 		SELECT *
 		FROM tbl_attach
 		WHERE bno = #{bno}
+	</select>
 	
+	<select id="findByUuid" resultType="com.globalin.domain.AttachFileVO">
+		SELECT *
+		FROM tbl_attach
+		WHERE uuid = #{uuid}
 	</select>
 
 </mapper>

@@ -2,7 +2,21 @@ package com.globalin.domain;
 
 public class AttachFileVO {
 	private String fileName,uploadPath,uuid;
-	private boolean image;
+	private boolean fileType;
+	private int bno;
+	
+	public boolean isFileType() {
+		return fileType;
+	}
+	public void setFileType(boolean fileType) {
+		this.fileType = fileType;
+	}
+	public int getBno() {
+		return bno;
+	}
+	public void setBno(int bno) {
+		this.bno = bno;
+	}
 	public String getFileName() {
 		return fileName;
 	}
@@ -21,16 +35,11 @@ public class AttachFileVO {
 	public void setUuid(String uuid) {
 		this.uuid = uuid;
 	}
-	public boolean isImage() {
-		return image;
-	}
-	public void setImage(boolean image) {
-		this.image = image;
-	}
+	
 	@Override
 	public String toString() {
-		return "AttachFileVO [fileName=" + fileName + ", uploadPath=" + uploadPath + ", uuid=" + uuid + ", image="
-				+ image + "]";
+		return "AttachFileVO [fileName=" + fileName + ", uploadPath=" + uploadPath + ", uuid=" + uuid + ", fileType="
+				+ fileType + ", bno=" + bno + "]";
 	}
 	
 	

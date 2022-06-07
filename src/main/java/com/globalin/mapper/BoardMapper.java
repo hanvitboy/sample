@@ -14,7 +14,7 @@ public interface BoardMapper {
 	public BoardVO getpage(int bno);
 
 	// 삽입하기
-	public void insert(BoardVO board);
+	public int insert(BoardVO board);
 
 	// 수정하기
 	public int update(BoardVO board);

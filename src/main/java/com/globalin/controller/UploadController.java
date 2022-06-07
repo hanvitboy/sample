@@ -11,11 +11,15 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
-import org.junit.jupiter.params.shadow.com.univocity.parsers.annotations.Headers;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -30,8 +34,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.globalin.domain.AttachFileVO;
+import com.globalin.domain.BoardVO;
+import com.globalin.service.BoardAttachService;
+import com.globalin.service.BoardService;
 
 import net.coobird.thumbnailator.Thumbnailator;
 
@@ -39,6 +47,25 @@ import net.coobird.thumbnailator.Thumbnailator;
 public class UploadController {
 	
 	private static Logger log = LoggerFactory.getLogger(UploadController.class); 
+	@Autowired
+	private BoardAttachService bas;
+	@Autowired
+	private BoardService service;
+	
+	@PostMapping("/board/register")
+	public String register(BoardVO board, RedirectAttributes rttr, HttpServletRequest req, HttpServletResponse resp) throws UnsupportedEncodingException {
+		req.setCharacterEncoding("UTF-8");
+		log.info("############### "+ board.toString());	
+		
+		
+		return null;
+		//service.register(board);
+//		rttr.addFlashAttribute("result", "regist success");
+//		return "redirect:/board/boardpage";
+		
+	}	
+	
+	
 	
 	@GetMapping("/uploadForm")
 	public void uploadForm() {
@@ -73,10 +100,25 @@ public class UploadController {
 	
 	@PostMapping(value = "/uploadAjaxAction", produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
-	public ResponseEntity<List<AttachFileVO>> uploadAjaxPost(MultipartFile[] uploadFile)
+	public ResponseEntity<List<AttachFileVO>> uploadAjaxPost(MultipartFile[] uploadFile, String writer, String content, String title)
 	{
 		List<AttachFileVO> list = new ArrayList<AttachFileVO>();
 		String uploadFolder = "c:\\tmp";
+		
+		System.out.println(writer);
+		System.out.println(content);
+		System.out.println(title);
+		
+		//게시판 insert
+		BoardVO board = new BoardVO();
+		
+		board.setWriter(writer);
+		board.setContent(content);
+		board.setTitle(title);
+		
+		int bno = service.register(board);
+		
+		System.out.println("bno : "+board.getBno());
 		
 		String uploadFolderPath = getFolder();
 		//폴더 만들기
@@ -87,12 +129,16 @@ public class UploadController {
 			uploadPath.mkdirs();
 		}
 		
+		List<String> uuid_list = new ArrayList<String>();
+		
 		for(MultipartFile file : uploadFile) {
 			log.info("------------");
 			log.info("파일 이름 : " + file.getOriginalFilename());
 			log.info("파일 크기 : " + file.getSize());
 			
 			AttachFileVO attachVO = new AttachFileVO();			
+			
+			attachVO.setBno(board.getBno());
 			
 			String uploadFileName = file.getOriginalFilename();
 			
@@ -104,7 +150,7 @@ public class UploadController {
 			UUID uuid = UUID.randomUUID();
 			uploadFileName = uuid.toString() + "_" + uploadFileName;
 			//파일 저장
-			
+		
 			try {
 				File savefile = new File(uploadPath,uploadFileName);
 				file.transferTo(savefile);
@@ -113,12 +159,16 @@ public class UploadController {
 				
 				//image파일인지 확인
 				if(checkImageType(savefile)) {
-					attachVO.setImage(true);
+					attachVO.setFileType(true);
 					FileOutputStream thumbnail = new FileOutputStream(new File(uploadPath,"s_"+uploadFileName));
 					Thumbnailator.createThumbnail(file.getInputStream(),thumbnail,100,100);
 					thumbnail.close();
 				}
+				bas.insert(attachVO);
 				list.add(attachVO);
+				//데이라베이스 업로드
+				uuid_list.add(attachVO.getUuid());
+				
 			} catch (IllegalStateException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
@@ -126,6 +176,14 @@ public class UploadController {
 				
 			}//end catch
 		}//end for
+		
+		
+		
+
+		
+		//rttr.addFlashAttribute("result", "regist success");
+		//return "redirect:/board/boardpage";
+		
 		return new ResponseEntity<List<AttachFileVO>>(list,HttpStatus.OK);
 		
 	}

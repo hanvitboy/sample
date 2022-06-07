@@ -12,7 +12,7 @@ public interface BoardService {
 	public BoardVO getpage(int bno) throws Exception;
 	
 	// 삽입하기
-	public void register(BoardVO board);
+	public int register(BoardVO board);
 	
 	// 수정하기
 	public int modify(BoardVO board);

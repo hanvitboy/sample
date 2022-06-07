@@ -204,21 +204,21 @@ box-shadow: 0 0 12px #353b48;
   </head>
   <body>
        
-     <form action="/controller/board/register" method="post">
+     <form action="/controller/board/register" method="post" name="MyForm">
     <div class="body__main">
       <!-- Feed Starts -->
       <div class="feed">
         <div class="feed__inputContainer">
-          <input type="text" name="title" class="input-title" placeholder="제목을 입력하세요"/>
-          <textarea name="content" class="input-mainText"  placeholder="내용을 입력하세요"></textarea>
+          <input type="text" name="title" id="mytitle" class="input-title" placeholder="제목을 입력하세요"/>
+          <textarea name="content" id="mycontent" class="input-mainText"  placeholder="내용을 입력하세요"></textarea>
 			 <!-- 첨부파일  -->
   <form>
   <div class="uploadDiv">
-  	<input type="file" name = "uploadFile" multiple>
+  	<input type="file" name ="uploadFile" id="uploadFile" multiple>
   </div>
   <div class="uploadResult">
   	<ul>
-  	
+  		
   	</ul>
   </div>
 
@@ -227,8 +227,7 @@ box-shadow: 0 0 12px #353b48;
   </div>
   </form>
   <!-- 첨부파일  끝-->
-<input type="hidden" name="writer" value="${login_user.id}"/>
-
+<input type="hidden" name="writer" id="mywriter" value="${login_user.id}"/>
           <div class="feed__inputOptions">
             <div class="inputOption">
               <button type="button" class="upload-box__btn" onclick="location.href='/controller/board/boardpage'"><i class="fas fa-ban"></i><h4>リストへ</h4>
@@ -266,17 +265,64 @@ box-shadow: 0 0 12px #353b48;
   
   </body>
 
-    <script
-    src="https://kit.fontawesome.com/99b96296a9.js"
-    crossorigin="anonymous"
-  ></script>
+  <script src="https://kit.fontawesome.com/99b96296a9.js" crossorigin="anonymous"></script>
   <script>
   $(document).ready(function() {
+	  var file = null;
+	  $("#uploadFile").on("change",function(){
+		  $(".uploadResult ul").empty();
+		  console.log($(this).val());
+		  var str = "";		  
+		  $.each($(this)[0].files,function(idx, item){
+			  str += "<li><img src='/controller/resources/img/attach.png' width='20' height='20'>"+ item.name +"</li>";
+		  })
+		  $(".uploadResult ul").append(str);
+	  })
 	  
-	  var formObj = $("form[role='form']");
+	  var formObj = $("form[name='MyForm']");
 	  $("button[type='submit']").on("click",function(e){
 		 e.preventDefault(); 
+		 console.log(formObj);
+	  	 var formData = new FormData();		  
+		 
+		 formData.append("writer",$("#mywriter").val());
+		 formData.append("content",$("#mycontent").val());
+		 formData.append("title",$("#mytitle").val());
+		 
+		
+		 
+		 console.log("sexy");
+		 var inputFile = $("input[name='uploadFile']");		  
+		 var files = inputFile[0].files;
+		  
+		//formData에 파일 추가
+			for (let i = 0; i < files.length; i++) {
+				if(!checkFile(files[i].name, files[i].size)){
+					return false;
+				}
+				formData.append("uploadFile",files[i]);
+			}
+		
+		 
+		  $.ajax({
+			  url : "/controller/uploadAjaxAction",
+				processData : false,
+				contentType : false,
+				data : formData,
+				type : "POST",
+				success : function(result){
+					console.log(result);
+					$(".uploadDiv").html(cloneOjb.html());
+					showUploadFile(result);
+					location.href="/controller/board/boardpage";
+				}
+		  
+		  });
+		  return false;
+		 
 	  })
+	  
+	  //파일 업로드 먼저(insert) list로 가져와서 board insert할때 같이 넣어줌
 	  
 	  let regex = new RegExp("(.*?)\.(exe|sh|zip|alz)$");
 	  let maxSize = 5242880;//파일 크기 5mb

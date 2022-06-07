@@ -1,10 +1,10 @@
 package com.globalin.domain;
 
-public class BoardAttachVO {
-	
+public class BoardAttachVO {	
 	private String uuid,uploadPath,fileName;
 	private boolean fileType;
 	private int bno;
+	
 	public String getUuid() {
 		return uuid;
 	}
