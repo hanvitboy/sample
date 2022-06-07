@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix="c"%>      
 <%@ include file="header.jsp" %>
-    <link rel="stylesheet" href="resources/css/style.css" />
+    
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
   <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
@@ -16,7 +16,14 @@
     />
      <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="resources/css/style.css" />
 <style>
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  align-items: inherit;
+ }
 
 .Box1{
 height:100vh;
@@ -47,7 +54,7 @@ scroll-snap-align: start;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 200px;
+  width: 100px;
   height: 40px;
 
   border: 3px solid #f7ca18;
@@ -67,28 +74,25 @@ body {
 }
 
 .fixedCalBox{
-width:250px;
-height: 300px;
-
-
-font-size: 13px;
-font-weight: 600;
-display: flex;
-flex-direction: column;
-justify-content: space-evenly;
-align-items: center;
-background-color: black;
-color:white;
-border-radius: 30px;
-box-shadow:10px 20px 50px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.10);
-border: 4px solid yellow;
-
-position:fixed;
-bottom:40px;
-right:50px;
-overflow: hidden;
-
-}
+      display: flex;
+      width:230px;
+      height: 240px;
+      font-size: 12px;
+      font-weight: 600;
+      flex-direction: column;
+     justify-content: space-evenly;
+      align-items: center;
+      background-color: black;
+      color:white;
+      border-radius: 30px;
+      box-shadow:10px 20px 50px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.10);
+      border: 4px solid yellow;
+      position:fixed;
+      bottom:10px;
+      right:18px;
+      overflow: hidden;}
+      
+      
 .exampleBox{
 width:250px;
 height: 350px;
@@ -264,7 +268,9 @@ overflow: hidden;
 
  .graph-whole-wrapper{
     display: flex;
-  
+    justify-content: center;
+    width: 100%;
+
   }
   
 
@@ -347,27 +353,6 @@ overflow: hidden;
     }
   
 
-
-    #hidden-calBox{
-      width:230px;
-      height: 240px;
-      font-size: 12px;
-      font-weight: 600;
-      display: none;
-      flex-direction: column;
-     justify-content: space-evenly;
-      align-items: center;
-      background-color: black;
-      color:white;
-      border-radius: 30px;
-      box-shadow:10px 20px 50px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.10);
-      border: 4px solid yellow;
-      position:fixed;
-      bottom:10px;
-      right:18px;
-      overflow: hidden;
-    }
-
     .kcalFromBack1-hidden,
     .kcalFromBack2-hidden{
   font-family: "Avenir Next", sans-serif;
@@ -412,33 +397,43 @@ border: none;
 
 
 
-
-    #hidden-GraphBox{
-      display:none;  
-      flex-direction: column;
-      justify-content:space-around;
-      align-items: center;
-      border-radius: 30px;
-      box-shadow:10px 20px 50px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.10);
-      border: 4px solid yellow;
-      height: 300px;
-      width: 250px;
+    .hidden-calBox__back-btn{
+      display:none;
+      border-radius: 10px;
+      width:28px;
+      height:28px;
+      position: absolute;
+      left:7px;
+      top:7px;
+      border: 2px solid yellow;
       background-color: black;
-      color: white;
-      position:fixed;
-      bottom:10px;
-      left:10px;
-      overflow: hidden;
+      color:white;
+      cursor: pointer;
 
     }
+    .hidden-GraphBox__back-btn
+    {display:none;
+      border-radius: 10px;
+      width:28px;
+      height:28px;
+      position: absolute;
+      left:7px;
+      top:7px;
+      border: 2px solid yellow;
+      background-color: black;
+      color:white;
+      cursor: pointer;
+   }
+
+   .hidden-calBox__back-btn:hover,
+   .hidden-GraphBox__back-btn:hover {
+    color: #fff;
+    box-shadow: 200px 0 0 0 #f7ca18 inset;
+    background-color: #f7ca18;
+    transition: all 0.7s;
+  }
 
 
-    .hidden-graph-wrapper{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      margin: 1px;
-    }
 
 
     .ad-box1{
@@ -506,24 +501,31 @@ border: none;
 
 
 
+
+
       @media screen and (max-width: 768px){
- 
+
+        .button-group .button-logout {
+    border: none;
+    border-bottom: 2px solid #f7ca18;
+    border-radius: 0;
+    margin-right: 0;
+    } 
+
+         .button-group .button-info {
+    border: none;
+    border-bottom: 2px solid #f7ca18;
+    border-radius: 0;
+    margin-right: 0;
+      } 
+   
     
         .Boxes{
     
           width: 100%;
         }
 
-        
-        .fixedGraphBox{
-          display: none;
-        }
-        
-        .fixedCalBox
-        {
-          display: none !important;
-        }
-
+    
         .ad-box1,
         .ad-box2{
 
@@ -536,18 +538,72 @@ border: none;
             display: flex;
         }
 
-        
-      }
-
-      @media screen and (min-width: 768px){
-        #hidden-calBox,
-        #hidden-GraphBox{
-
-          z-index: -1;
+        .fixedGraphBox{
+        display: none;
+          flex-direction: column;
+          justify-content:space-around;
+          align-items: center;
+          border-radius: 30px;
+          box-shadow:10px 20px 50px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.10);
+          border: 4px solid yellow;
+          height: 300px;
+          width: 300px;
+          background-color: black;
+          color: white;
+          position:fixed;
+          bottom:10px;
+          left:10px;
+          overflow: hidden;
+          z-index:99;
         }
 
+    
+
+        .fixedCalBox{
+          display: none;
+          width:200px;
+          height: 240px;
+          font-size: 12px;
+          font-weight: 600;
+          flex-direction: column;
+         justify-content: space-evenly;
+          align-items: center;
+          background-color: black;
+          color:white;
+          border-radius: 30px;
+          box-shadow:10px 20px 50px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.10);
+          border: 4px solid yellow;
+          position:fixed;
+          bottom:10px;
+          right:18px;
+          overflow:visible;
+          z-index:99;
+
+
+        }
+
+        .hidden-GraphBox__back-btn{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .hidden-calBox__back-btn{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
         
+        .graph-wrapper{
+            margin: 4px;
+ 
+}
       }
+ @media screen and (min-width: 768px){
+ .fixedCalBox{
+ display: flex;}
+ .fixedGraphBox{
+ display:flex;}
+ }
 
   
 
@@ -1399,8 +1455,12 @@ $(document).ready(function() {
       
     </main>
     
-      <form action="/controller/savekcal" method="post">
+      
     <div class="fixedCalBox">
+     <button class="hidden-calBox__back-btn" onclick="hideCalBox()">
+        <i class="fas fa-times"></i>
+      </button>
+      <form action="/controller/savekcal" method="post">
       <div class="recommendedKcal">
         <span>一日摂取可能量:</span> <input type="text" id="kcalFromBack1" value="${login_user.onedaykcal}" readonly/>
         <span>kcals</span>
@@ -1411,11 +1471,15 @@ $(document).ready(function() {
       </div>
       <div class="calSubmit">
         <input class="calSumit_btn" type="submit" value="SAVE" />
-      </div>  
-    </div> </form>
-    
+      </div>
+      </form>
+        
+    </div>     
     
     <section class="fixedGraphBox">
+      <button class="hidden-GraphBox__back-btn" onclick="hideGraphHiddenBox()">
+        <i class="fas fa-times"></i>
+      </button>
     <div class="graph-whole-wrapper">
       <div class="graph-wrapper">
         <div class="emoticon__day1"></div>
@@ -1508,106 +1572,9 @@ $(document).ready(function() {
       <i class="fas fa-chart-bar"></i>
     </button>
 
- 
-    <div id="hidden-calBox">
-      <button class="hidden-calBox__back-btn" onclick="hideCalHiddenBox()">
-        <i class="fas fa-times"></i>
-      </button>
-       <form action="/controller/savekcal" method="post">
-      <div class="recommendedKcal">
-        <span>Recommend kcal:</span>
-        <input class="kcalFromBack1-hidden" value="${login_user.onedaykcal}" />
-        <span>kcals</span>
-      </div>
-      <div class="TodayKcal">
-        <span>Kcal disparity:</span>
-        <input class="kcalFromBack2-hidden" name="cal" value="${login_user.onedaykcal}" />
-        <span>kcals</span>
-      </div>
 
-      <div class="calSubmit">
-        <input class="calSumit_btn" type="submit" value="SUBMIT" />
-      </div>
-    </form>
-    </div>
     
-    <section id="hidden-GraphBox">
-      <button class="hidden-GraphBox__back-btn" onclick="hideGraphHiddenBox()">
-        <i class="fas fa-times"></i>
-      </button>
-      <div class="graph-whole-wrapper">
-        <div class="hidden-graph-wrapper">
-          <div class="emoticon__day1"></div>
-          <div class="graph-stack1">
-            <div class="graph-day1"></div>
-          </div>
-          <div class="cal-day1">0%</div>
-          <div class="cal-date__day1">Day1</div>
-        </div>
 
-        <div class="hidden-graph-wrapper">
-          <div class="emoticon__day2"></div>
-          <div class="graph-stack2">
-            <div class="graph-day2"></div>
-          </div>
-          <span class="cal-day2">0%</span>
-          <div class="cal-date__day2">Day2</div>
-        </div>
-
-        <div class="hidden-graph-wrapper">
-          <div class="emoticon__day3"></div>
-          <div class="graph-stack3">
-            <div class="graph-day3"></div>
-          </div>
-          <span class="cal-day3">0%</span>
-          <div class="cal-date__day3">Day3</div>
-        </div>
-
-        <div class="hidden-graph-wrapper">
-          <div class="emoticon__day4"></div>
-          <div class="graph-stack4">
-            <div class="graph-day4"></div>
-          </div>
-          <span class="cal-day4">0%</span>
-          <div class="cal-date__day4">Day4</div>
-        </div>
-
-        <div class="hidden-graph-wrapper">
-          <div class="emoticon__day5"></div>
-          <div class="graph-stack5">
-            <div class="graph-day5"></div>
-          </div>
-          <span class="cal-day5">0%</span>
-          <div class="cal-date__day5">Day5</div>
-        </div>
-
-        <div class="hidden-graph-wrapper">
-          <div class="emoticon__day6"></div>
-          <div class="graph-stack6">
-            <div class="graph-day6"></div>
-          </div>
-          <span class="cal-day6">0%</span>
-          <div class="cal-date__day6">Day6</div>
-        </div>
-
-        <div class="hidden-graph-wrapper">
-          <div class="emoticon__day7"></div>
-          <div class="graph-stack7">
-            <div class="graph-day7"></div>
-          </div>
-          <span class="cal-day7">0%</span>
-          <div class="cal-date__day7">Day7</div>
-        </div>
-      </div>
-  <form action="deletekcal" method="post">
-      <div class="cal-refresh">
-        <div class="cal-refresh-detail" style="font-size: 5px;">直前回のデーターを削除</div>
-        <input class="cal-refresh__btn" type="submit" value="DELETE" />
-      </div>
-      </form>
-    </section>
-      
-    </section>
       
       <input id="day1" type="hidden" value="${user_kcal.d1}"/>
       <input id="day2" type="hidden" value="${user_kcal.d2}"/>
@@ -1936,14 +1903,13 @@ if(calFromDB__day7 < 0){
 	}
 	 $("#kcalFromBack1").css("text-shadow", "2px 2px #44bd32");
 
-
 	 function showCalHiddenBox() {
-		    document.querySelector("#hidden-calBox").style.display = "flex";
-		    document.querySelector("#hidden-calBox").style.animation = "stack 0.3s 1";
+		    document.querySelector(".fixedCalBox").style.display = "flex";
+		    document.querySelector(".fixedCalBox").style.animation = "stack 0.3s 1";
 		 }
 
 		 function hideCalHiddenBox() {
-		    document.querySelector("#hidden-calBox").style.display = "none";
+		    document.querySelector(".fixedCalBox").style.display = "none";
 		 }
 
 
@@ -1951,12 +1917,12 @@ if(calFromDB__day7 < 0){
 
 
 		 function showGraphHiddenBox() {
-		    document.querySelector("#hidden-GraphBox").style.display = "flex";
-		    document.querySelector("#hidden-GraphBox").style.animation = "stack 0.3s 1";
+		    document.querySelector(".fixedGraphBox").style.display = "flex";
+		    document.querySelector(".fixedGraphBox").style.animation = "stack 0.3s 1";
 		 }
 
 		 function hideGraphHiddenBox() {
-		    document.querySelector("#hidden-GraphBox").style.display = "none";
+		    document.querySelector(".fixedGraphBox").style.display = "none";
 		 }
 
 
@@ -1968,6 +1934,18 @@ if(calFromDB__day7 < 0){
 		 function hideAdBox2() {
 		    document.querySelector(".ad-box2").style.display = "none";
 		 }
+
+		 function hideCalBox() {
+		    document.querySelector(".fixedCalBox").style.display = "none";
+		 }
+		 function hideGraphBox() {
+		    document.querySelector(".fixedGraphBox").style.display = "none";
+		 }
+
+
+
+
+
 
 
 
@@ -1998,15 +1976,6 @@ if(calFromDB__day7 < 0){
      	});
 
      	
-
-
-
-
-
-
-
-
-
             	</script>
   </body>
 </html>
