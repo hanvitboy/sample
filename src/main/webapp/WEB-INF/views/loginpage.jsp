@@ -30,6 +30,11 @@
   margin: 0;
 }
 
+.kbt{
+width:100%;
+
+}
+
 body {
   font-family: "DM Sans", sans-serif;
 }
@@ -141,6 +146,7 @@ li {
   letter-spacing: 0.05em;
   border: none;
   border-radius: 25px;
+  margin-bottom: 12px;
 }
 
 .caption {
@@ -158,6 +164,32 @@ li {
   color: #f7ca18;
 }
     
+    
+    
+    /*  <=768px (mobile) */
+@media screen and (max-width:768px){
+  .login-form{
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url(https://mfiles.alphacoders.com/794/thumb-1920-794726.jpg);
+    
+  }
+  
+  form{
+    width: 80%;
+  }
+
+  .int-area{
+    width: 100%;
+  }
+
+  .int-area input{
+    width: 100%;
+  }
+
+  .btn-area {
+    width: 100%;
+  }
+}
     </style>
     <link rel="stylesheet" href="resources/css/login.css" />
     
@@ -188,7 +220,7 @@ li {
         <div>
         <form method="get" action="kakaologin">
         <a id="kakao-login-btn" href="https://kauth.kakao.com/oauth/authorize?client_id=3c29e5973236d66995354c01142b54eb&redirect_uri=http://localhost:9090/controller/kakaolog&response_type=code">
-        <img src="resources/assets/loginimage.png"/></a>
+        <img class="kbt" src="resources/assets/loginimage.png"/></a>
         </form>
         </div>
         </form>

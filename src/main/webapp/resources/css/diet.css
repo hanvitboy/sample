@@ -5,6 +5,7 @@
 
 body {
   font-family: "DM Sans", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
 }
 
 /* Reset CSS */
@@ -38,75 +39,71 @@ li {
   margin-left: 0;
 }
 
-  /* header */
-  .header-top {
-  background-color: #fff;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 99;
-  }
-  
-    
-  .logo a {
+.navbar {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  color: inherit;
-  }
-  
-  .logo img {
+  padding: 8px 12px;
+}
+
+/* logo */
+.navbar-logo {
   display: flex;
-  justify-content: center;
   align-items: center;
-  width: 70px;
-  height: auto;
-  
-  }
-  
-  .logo p {
+}
+
+.navbar-logo a {
   font-size: 30px;
-  text-align: center;
-  text-decoration: none;
-  margin-bottom: 0;
-  }
-  
-  .logo p span {
+}
+
+.navbar-logo span {
   color: #f7ca18;
-  }
-  
-  
-  .nav ul {
+}
+
+.navbar-logo img {
+  max-width: 100%;
+  max-height: 60px;
+}
+
+/* menu */
+.navbar-menu {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 0;
-  }
-  
-  .nav .nav-list {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  left: 230px;
+}
+
+.navbar-menu li {
+  padding: 8px 12px;
   font-size: 18px;
   letter-spacing: 0.2em;
-  margin-right: 30px;
-  }
-  
-  .nav .nav-list:hover {
+}
+
+.navbar-menu li:hover {
   color: #f7ca18;
-  }
-  
-  .nav .nav-list li {
-  width: 120px;
-  }
-    
-   .header {
+  transition: all 0.3s ease;
+}
+
+.navbar-toggleBtn {
+  display: none;
+  position: absolute;
+  top: 25px;
+  right: 55px;
+  color: #f7ca18;
+}
+
+/* logins */
+.navbar-logins {
+  display: flex;
+}
+
+.navbar-logins .message {
   display: flex;
   align-items: center;
-  justify-content:space-between;
-  padding: 15px 0;
-margin-right: 50px;
-margin-left:50px;
+  padding: 4px 8px;
+  margin-right: 8px;
+}
+
+.button-group {
+  display: flex;
 }
 
 .button-group .button-login {
@@ -304,28 +301,24 @@ margin-left:50px;
   background: #f7ca18;
   transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
 }
-.welcome{
-width:100px;
+
+/*.navbar-logins li {
+  padding: 8px 12px;
 }
 
-.message{
-    width:180px;
-   margin-right: 20px;
- 	display : flex;
- 	align-items: center;
- 	font-weight:bold;
- 	color:gray;
-   animation: notificationAnimation 1s ease-in-out;
-  }
-.message span{
-width: 180px;
-}
+.navbar-logins li:hover {
+  background-color: #f7ca18;
+  color: #fff;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}*/
 
-.nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
+.navbar-loginBtn {
+  display: none;
+  position: absolute;
+  top: 25px;
+  right: 20px;
+  color: #f7ca18;
 }
 
 /* food-main */
@@ -507,4 +500,208 @@ width: 180px;
 
 .card-content {
   padding: 20px 20px 25px;
+}
+
+/* footer */
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0;
+  width: 100%;
+  height: 15%;
+  clear: both;
+  font-size: 13px;
+  background: #f7ca18;
+}
+
+footer p {
+  margin-bottom: 0;
+}
+
+footer .number {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer .number p:first-child {
+  margin-right: 10px;
+}
+
+/*  <=768px (mobile) */
+@media screen and (max-width: 768px) {
+  .s30 {
+    font-size: 24px;
+  }
+
+  .navbar {
+    min-width: 360px;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* logo */
+  .navbar-logo img {
+    max-width: 100%;
+    max-height: 50px;
+  }
+
+  /* menu */
+  .navbar-menu {
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+  }
+
+  .navbar-menu li {
+    border-bottom: 2px solid #f7ca18;
+  }
+
+  .navbar-menu.active {
+    display: flex;
+  }
+
+  .navbar-toggleBtn {
+    display: flex;
+  }
+
+  @media (hover: hover) {
+    .navbar-menu li:hover {
+      color: #f7ca18;
+      transition: all 0.3s ease;
+    }
+  }
+
+  /* logins */
+  .navbar-logins {
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+  }
+
+  .navbar-logins .message {
+    flex-direction: column;
+    margin-right: 0;
+    margin-bottom: 3px;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+
+  .button-group li {
+    margin-bottom: 3px;
+  }
+
+  .button-group .button-login {
+    border: none;
+    border-bottom: 2px solid #f7ca18;
+    border-radius: 0;
+    margin-right: 0;
+  }
+
+  .button-group .button-logout {
+    border: none;
+    border-bottom: 2px solid #f7ca18;
+    border-radius: 0;
+    margin-right: 0;
+  }
+
+  .button-group .button-info {
+    border: none;
+    border-bottom: 2px solid #f7ca18;
+    border-radius: 0;
+    margin-right: 0;
+  }
+
+  .button-group .button-list {
+    border: none;
+    border-bottom: 2px solid #f7ca18;
+    border-radius: 0;
+    margin-right: 0;
+  }
+
+  .button-group .button-signup {
+    border: none;
+    border-bottom: 2px solid #f7ca18;
+    border-radius: 0;
+    margin-right: 0;
+  }
+
+  .navbar-logins.active {
+    display: flex;
+  }
+
+  .navbar-loginBtn {
+    display: flex;
+  }
+
+  /* food-main */
+  .food-title {
+    top: 38%;
+  }
+
+  .food-title h1 {
+    font-size: 30px;
+  }
+
+  .food-text {
+    font-size: 14px;
+  }
+
+  /* food-about */
+  .food-about {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+      url(https://fsa.zobj.net/crop.php?r=toWRpkPRDLnPACz1a-aZmk8dIX3qsj1Hizy5PFGaeKuZmI81ot1IJgeqJ0KAde2VKeGzJEYB3Alb30sRFGyrQNXuTLYlV0tQWA15F26vDSGEu4QiJLTmtuE8p-vpkcp5mCdfKSW_kBn_cEIE);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  .food-wrap img {
+    display: none;
+  }
+
+  .food-desc {
+    width: 90%;
+  }
+
+  .food-desc span {
+    color: #f7ca18;
+    font-size: 16px;
+  }
+
+  .food-desc h1 {
+    font-size: 24px;
+  }
+
+  .food-desc p {
+    font-size: 18px;
+  }
+
+  /* food-information */
+  .food-card-title h2 {
+    font-size: 24px;
+  }
+
+  .food-cards {
+    flex-direction: column;
+  }
+
+  .card {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  /* footer */
+  footer {
+    flex-direction: column;
+    height: 1%;
+  }
 }

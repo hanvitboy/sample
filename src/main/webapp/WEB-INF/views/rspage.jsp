@@ -53,6 +53,11 @@
  background-color : rgb(99,98,80);
   transition: all 0.9s, color 0.3;
 }
+
+.cbt{
+width:100%;
+}
+
   
   </style>
   </head>
@@ -66,12 +71,14 @@
      
      <form class="actionForm">
       <a class="button-signup" href="#">
-      <img src="resources/assets/loginippan.png"/>
+      <img class="cbt" src="resources/assets/loginippan.png"/>
       </a>
       </form>
      
+     <form>
       <a id="kakao-login-btn" href="https://kauth.kakao.com/oauth/authorize?client_id=3c29e5973236d66995354c01142b54eb&redirect_uri=http://localhost:9090/controller/oauth&response_type=code">
-       <img src="resources/assets/registimage.png"/></a>
+       <img class="cbt" src="resources/assets/registimage.png"/></a>
+      </form>
       
       </section>
     

@@ -22,6 +22,239 @@
   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
  <style>
  
+ * {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+}
+
+/* Reset CSS */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+}
+
+button:focus,
+button:active,
+input:focus,
+input:active,
+textarea:focus,
+textarea:active {
+  outline: none;
+  box-shadow: none;
+}
+
+ol,
+ul,
+li {
+  list-style-type: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+/* signup-form2 */
+.signup-form2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+       url(resources/assets/login.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.signup-form2 h1 {
+  font-size: 32px;
+  letter-spacing: 0.3em;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.signup-form2 h2 {
+  font-size: 23px;
+  letter-spacing: 0.3em;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.signup-form2 h1 span {
+  color: #f7ca18;
+}
+
+.information {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.information input {
+  color: #fff;
+  border: none;
+  border-bottom: 2px solid #f7ca18;
+  border-radius: 5px;
+  background-color: transparent;
+}
+
+#age-info,
+#height-info,
+#weight-info,
+#activity-info,
+#gender-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  width: 600px;
+  position: relative;
+  margin-top: 20px;
+}
+
+#age-info h4,
+#height-info h4,
+#weight-info h4,
+#activity-info h4,
+#gender-info h4 {
+  color: #999;
+}
+
+#age-info:first-child {
+  margin-top: 0;
+}
+
+#height-info span,
+#weight-info span {
+  color: #fff;
+  position: absolute;
+  right: -35px;
+}
+
+#height-info,
+#weight-info,
+.input-cm-kg {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.activity-option {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 50px;
+}
+
+.activity-option .form-radio {
+  display: flex;
+  align-items: center;
+  color: #999;
+  margin-right: 40px;
+}
+
+.box {
+  height: 20px;
+  width: 160px;
+  color: #17202a;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  padding: 9px;
+}
+
+.signup-form2 .sub1 {
+  width: 20%;
+  height: 50px;
+  background: #166cea;
+  color: #fff;
+  font-size: 20px;
+  letter-spacing: 0.05em;
+  border: none;
+  border-radius: 25px;
+}
+
+.genderForm {
+  width: 268px;
+}
+.genderoption {
+  display: flex;
+  justify-content: space-between;
+}
+
+.genderoption label {
+  color: #999;
+}
+
+.manoption {
+  margin-right: 40px;
+}
+
+.form-radio::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  margin-right: 8px;
+}
+.form-radio::before {
+  border-radius: 50%;
+}
+.input-chek,
+.input-radio {
+  display: none;
+}
+.input-chek:checked + .form-chek::before,
+.input-radio:checked + .form-radio::before {
+  background: #f7ca18;
+  transition: all 0.5s;
+}
+.input-chek:checked + .form-chek,
+.input-radio:checked + .form-radio {
+  color: #f7ca18;
+  transition: all 0.5s;
+}
+
+#btn-area .btn-next {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  border: 2px solid #f7ca18;
+  border-radius: 5px;
+  margin: 15px auto;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+  color: #999;
+  transition: all 0.9s, color 0.3;
+}
+
+#btn-area .btn-next:hover {
+  color: #fff;
+  box-shadow: 200px 0 0 0 #f7ca18 inset;
+  background-color: #f7ca18;
+  transition: all 0.5s;
+}
+ 
  #btn-area .btn-next {
   display: flex;
   justify-content: center;
@@ -40,18 +273,27 @@
   transition: all 0.9s, color 0.3;
 }
  
- .signup-form2 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-    url(resources/assets/login.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
+
+ /* <=786px (mobile) */
+
+@media screen and (max-width:768px) {
+  #age-info h4,
+  #height-info h4,
+  #weight-info h4,
+  #activity-info h4,
+  #gender-info h4 {
+    font-size: 18px;
+    text-align: center;
+  }
+  
+  #height-info span,
+  #weight-info span{
+    position: absolute;
+    right: -15%;
+    font-size: 15px;
+  }
 }
+ 
  
  </style>
   </head>
@@ -61,6 +303,7 @@
        <a href="http://localhost:9090/controller/"><strong><span>fit</span>ness</strong></a>
       </h1>
       <h2>SIGNUP</h2>
+      <div class="information">
       <form class="actionForm" action="/controller/register" method="post">
       
       <input type="hidden" name="name" value="${member.name }">

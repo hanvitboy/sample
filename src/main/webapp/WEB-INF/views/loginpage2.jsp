@@ -3,7 +3,7 @@
 <%@ taglib uri ="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-
+<script type="text/javascript" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 
 
 <!DOCTYPE html>
@@ -28,6 +28,11 @@
     * {
   box-sizing: border-box;
   margin: 0;
+}
+
+.kbt{
+width:100%;
+
 }
 
 body {
@@ -141,6 +146,7 @@ li {
   letter-spacing: 0.05em;
   border: none;
   border-radius: 25px;
+  margin-bottom: 12px;
 }
 
 .caption {
@@ -158,6 +164,32 @@ li {
   color: #f7ca18;
 }
     
+    
+    
+    /*  <=768px (mobile) */
+@media screen and (max-width:768px){
+  .login-form{
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url(https://mfiles.alphacoders.com/794/thumb-1920-794726.jpg);
+    
+  }
+  
+  form{
+    width: 80%;
+  }
+
+  .int-area{
+    width: 100%;
+  }
+
+  .int-area input{
+    width: 100%;
+  }
+
+  .btn-area {
+    width: 100%;
+  }
+}
     </style>
     <link rel="stylesheet" href="resources/css/login.css" />
     
@@ -165,7 +197,7 @@ li {
   <body>
     <section class="login-form">
       <h1>
-        <a href="http://localhost:9090/controller/"><strong><span>fit</span>ness</strong></a>
+           <a href="http://localhost:9090/controller/"><strong><span>fit</span>ness</strong></a>
       </h1>
       <form method="post" action="/controller/login2">
         <div class="int-area">
@@ -187,8 +219,8 @@ li {
         </div>
         <div>
         <form method="get" action="kakaologin">
-        <a id="kakao-login-btn" href="https://kauth.kakao.com/oauth/authorize?client_id=3c29e5973236d66995354c01142b54eb&redirect_uri=http://localhost:9090/controller/kakaolog2&response_type=code">
-        <img src="resources/assets/loginimage.png"/></a>
+        <a id="kakao-login-btn" href="https://kauth.kakao.com/oauth/authorize?client_id=3c29e5973236d66995354c01142b54eb&redirect_uri=http://localhost:9090/controller/kakaolog&response_type=code">
+        <img class="kbt" src="resources/assets/loginimage.png"/></a>
         </form>
         </div>
         </form>

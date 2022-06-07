@@ -761,7 +761,7 @@ var actionForm = $(".actionForm");
         <!--로고-->
         <form class="actionForm" action="home" method="get">
         <div class="navbar-logo">
-          <img src="resources/assets/Logo.png" alt="logo" />
+          <img src="../resources/assets/Logo.png" alt="logo" />
           <a class="button-home" href="#">
             <strong> <span>fit</span>ness</strong>
           </a>
