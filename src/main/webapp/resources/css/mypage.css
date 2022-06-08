@@ -5,6 +5,7 @@
 
 body {
   font-family: "DM Sans", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
 }
 
 /* Reset CSS */
@@ -38,7 +39,6 @@ li {
   margin-left: 0;
 }
 
-/* mypage-form */
 body {
   width: 100%;
   height: 100vh;
@@ -47,11 +47,21 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+/* mypage-form */
+.mypage-form {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+}
 
 .logo {
   display: flex;
   justify-content: left;
   align-items: center;
+  margin-top: 10px;
+  margin-left: 20px;
 }
 
 .logo .logo-mypage p {
@@ -59,36 +69,30 @@ body {
   flex-direction: column;
   letter-spacing: 0.3em;
   color: #fff;
+  padding: 8px 12px;
 }
 
 .logo .logo-mypage strong {
   font-size: 30px;
   margin-bottom: -15px;
-  padding-top: 20px;
 }
 
 .logo .logo-mypage strong span {
   color: #f7ca18;
 }
 
-/* common */
-#user-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-}
+/* member-information */
 
 .member-infos {
-  width: 100%;
-  height: auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
+  height: 100vh;
 }
 
+/* member-info */
 .member-info {
-  width: 600px;
+  width: 500px;
   height: 300px;
   display: flex;
   justify-content: center;
@@ -98,8 +102,6 @@ body {
   text-align: center;
   border-radius: 5px;
 }
-
-/* member-info one */
 
 #user-form .user-id input {
   margin-left: 60px;
@@ -119,7 +121,6 @@ body {
 .user-name input,
 .user-id input,
 .user-pw input {
-  /*position: relative;*/
   margin-left: 30px;
   border: none;
   border-bottom: 2px solid #999;
@@ -139,7 +140,7 @@ body {
   border-color: #f7ca18;
 }
 
-/*  member-info two*/
+/*  member-info age*/
 
 .user-age,
 .user-height,
@@ -152,12 +153,16 @@ body {
 .user-age,
 .user-height,
 .user-weight,
-.user-activity {
+.user-activity,
+.user-gender {
+  display: flex;
   margin-bottom: 20px;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .user-age input {
-  margin-left: 59px;
+  margin-right: 22px;
   border: none;
   border-bottom: 2px solid #999;
   border-radius: 5px;
@@ -185,7 +190,7 @@ body {
   border: none;
   border-bottom: 2px solid #999;
   border-radius: 5px;
-  cursor: auto;
+  cursor: pointer;
   background-color: transparent;
   color: #fff;
   transition: all 0.7s;
@@ -205,10 +210,10 @@ body {
 }
 
 .form-radio {
-  margin-left: 20px;
+  cursor: pointer;
 }
 
-.form-radio::before {
+/*.form-radio::before {
   content: "";
   display: inline-block;
   width: 10px;
@@ -217,32 +222,94 @@ body {
   border: 1px solid #e0e0e0;
   margin-right: 8px;
 }
+
 .form-radio::before {
   border-radius: 50%;
 }
+
 .input-chek,
 .input-radio {
   display: none;
 }
+
 .input-chek:checked + .form-chek::before,
 .input-radio:checked + .form-radio::before {
   background: #f7ca18;
   transition: all 0.5s;
 }
+
 .input-chek:checked + .form-chek,
 .input-radio:checked + .form-radio {
   color: #f7ca18;
   transition: all 0.5s;
+}*/
+
+.member-info.two .user-activity input[type="radio"] {
+  display: none;
+}
+
+.member-info.two .user-activity input[type="radio"] + label {
+  display: inline-block;
+  cursor: pointer;
+  height: 24px;
+  width: 53px;
+  border-radius: 5px;
+  line-height: 24px;
+  text-align: center;
+  font-size: 13px;
+  transition: all 0.3s ease-in-out;
+}
+
+.member-info.two .user-activity input[type="radio"] + label {
+  color: #999;
+}
+
+.member-info.two .user-activity input[type="radio"]:checked + label {
+  background-color: #f7ca18;
+  color: #fff;
+}
+
+.member-info.two .user-gender input[type="radio"] {
+  display: none;
+}
+
+.member-info.two .user-gender input[type="radio"] + label {
+  display: inline-block;
+  cursor: pointer;
+  height: 24px;
+  width: 53px;
+  border-radius: 5px;
+  line-height: 24px;
+  text-align: center;
+  font-size: 13px;
+  transition: all 0.3s ease-in-out;
+}
+.member-info.two .user-gender input[type="radio"] + label {
+  color: #999;
+}
+.member-info.two .user-gender input[type="radio"]:checked + label {
+  background-color: #f7ca18;
+  color: #fff;
+}
+
+/* member-information two */
+.member-information.two {
+  display: none;
 }
 
 /* button */
 #btn-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
 }
 
 #btn-form .button-area {
+  display: flex;
   position: absolute;
-  right: 0;
+  right: -105px;
+  top: 155px;
 }
 
 #btn-form .button-area .btn-next {
@@ -254,12 +321,18 @@ body {
   line-height: 40px;
   border: 2px solid #f7ca18;
   border-radius: 5px;
-  margin: 15px auto;
-  font-size: 14px;
+  padding: 8px 12px;
+  margin-top: 15px;
+  margin-right: 10px;
+  font-size: 12px;
   text-align: center;
   cursor: pointer;
   color: #999;
   transition: all 0.9s, color 0.3;
+}
+
+#btn-form .button-area .btn-next:last-child {
+  margin-right: 0;
 }
 
 #btn-form .button-area .btn-next:hover {
@@ -267,4 +340,112 @@ body {
   box-shadow: 200px 0 0 0 #f7ca18 inset;
   background-color: #f7ca18;
   transition: all 0.5s;
+}
+
+/*  <=768px (mobile) */
+@media screen and (max-width: 768px) {
+  /* mypage-form */
+  .mypage-form {
+    justify-content: center;
+    top: 70px;
+  }
+
+  /* member-information one*/
+  .member-information.one {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+      url(./assets/login.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .member-info {
+    width: 91%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #f7ca18;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+  }
+
+  .user-name,
+  .user-id,
+  .user-pw {
+    font-size: 15px;
+  }
+
+  .member-information.one .member-info.two {
+    display: none;
+  }
+
+  /* member-infomation two */
+  .member-information.two {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+      url(https://wallpapercave.com/wp/wp5412909.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .member-information.two .member-info {
+    width: 340px;
+  }
+
+  .member-information.two .member-infos {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .user-age,
+  .user-height,
+  .user-weight,
+  .user-activity,
+  .user-gender {
+    font-size: 15px;
+  }
+
+  .user-age input {
+    margin-left: 14px;
+  }
+
+  .user-height input {
+    margin-left: 13px;
+  }
+
+  .user-weight input,
+  .user-activity input,
+  .user-gender input {
+    margin-left: 12px;
+  }
+
+  /* button */
+  .member-information.one #btn-form {
+    display: none;
+  }
+
+  #btn-form {
+    display: flex;
+  }
+
+  #btn-form .button-area {
+    display: flex;
+    top: 5px;
+    left: -58px;
+  }
+  #btn-form .button-area .btn-next {
+    padding: 8px 12px;
+    margin-top: 15px;
+    margin-right: 10px;
+  }
+
+  #btn-form .button-area .btn-next:last-child {
+    margin-right: 0;
+  }
 }
