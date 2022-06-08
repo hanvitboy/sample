@@ -997,13 +997,13 @@ justify-content: center;
   
   
   .replyModal {
+  
   flex: 1;
   position: fixed;
   top: 40%;
   left: 36%;
   z-index:1; 
   display:none;
- 
 }
 
 
@@ -1049,10 +1049,8 @@ justify-content: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 15px;
   color: gray;
   padding: 10px;
-  width: 70%;
 }
 
 
@@ -1211,7 +1209,12 @@ box-shadow: 0 0 12px #353b48;
           <i class="material-icons sidebar__topAvatar"> account_circle </i>
           <h2><c:out value="${login_user.id }"/></h2>
         </div>
-
+ <div class="btn_wrap">
+		<a class="sidebar__submit" id="list_btn"><i class="fas fa-undo"></i>&nbsp;リストへ戻る</a>
+		<form id="infoForm1" method="get">
+		<input type="hidden" id="bno" name="bno" value='<c:out value="${pageInfo.bno}"/>'>
+		</form>
+	</div>
       
       </div>
       <!-- Sidebar Ends -->
@@ -1222,18 +1225,18 @@ box-shadow: 0 0 12px #353b48;
         <div class="post">
         <div class="replyModal">
       <div class="modalContent">
-        <textarea class="modal_repCon" name="modal_repCon" placeholder="덧글 내용"></textarea>
+        <textarea class="modal_repCon" name="modal_repCon" placeholder="コメント欄"></textarea>
 
         <div class="comment-modify__btns">
           <div class="comment-modify__btn">
-            <button class="modal_cancel"><i class="fas fa-ban"></i><h4>취소하기</h4>
+            <button class="modal_cancel"><i class="fas fa-ban"></i><h4>取消し</h4>
          </button>
         </div>
 
 
         <div class="comment-modify__btn">
           <button class="modal_modify_btn"><i class="fas fa-pencil-alt"></i>
-          <h4>수정하기</h4>
+          <h4>修正</h4>
         </button>
         </div>
       </div>
@@ -1328,7 +1331,8 @@ box-shadow: 0 0 12px #353b48;
         </div>
         </div>
         
-           
+           	
+		
 
 
 	<!-- 목록페이지 눌렀을 시 기준 데이터를 유지하여 기존의 bno, pageNum, amount, keyword, type를 갖고있게 하기위해 -->
@@ -1421,8 +1425,8 @@ box-shadow: 0 0 12px #353b48;
     });
 
     $(document).on("click", ".comment-modify__btn", function(){
-    	 //$(".replyModal").attr("style", "display:block;");
-    	$(".replyModal").fadeIn(200);
+    	 $(".replyModal").attr("style", "display:block;");
+    	//$(".replyModal").fadeIn(200);
     	
     	var repNum = $(this).attr("data-repNum");
     	 var repCon = $(this).parent().parent().children(".replyContent").text();
@@ -1434,8 +1438,9 @@ box-shadow: 0 0 12px #353b48;
     });
     $(".modal_cancel").click(function(){
     	
-    	$(".replyModal").fadeOut(200);
     	
+    $(".replyModal").fadeOut(200);
+  	      	
     	
     });
     $(".modal_modify_btn").click(function(){
@@ -1495,7 +1500,7 @@ box-shadow: 0 0 12px #353b48;
     			console.log(result);
     			var comments = "";
     			if(result < 1){
-    				comments = "등록된 댓글이 없습니다.";
+    				comments = "登録されているコメントがございません。";
     			}else{
     				for(let i=0; i<result.length; i++){
     					

@@ -1142,6 +1142,8 @@ button,
   input,
   textarea {
   font-family: "DM Sans", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
+  
   font-size: 16px;
   }
   
@@ -1277,7 +1279,7 @@ button,
 <c:if test="${not empty login_user}">
  
         <div class="sidebar__bottom">
-          <button id="regBtn" class="sidebar__submit">글쓰기</button>
+          <button id="regBtn" class="sidebar__submit">書き込み</button>
         </div>
  </c:if>
       </div>
