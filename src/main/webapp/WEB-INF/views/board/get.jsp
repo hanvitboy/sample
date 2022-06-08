@@ -1249,7 +1249,11 @@ box-shadow: 0 0 12px #353b48;
                 <h2><c:out value="${pageInfo.writer}"/></h2>
               </div>
             </div>
-            <div class="post__header__right"><button class="post-modify__btn"><i class="fas fa-pen"></i></button>
+            <div class="post__header__right">
+            <c:if test="${login_user.id eq pageInfo.writer}"> 
+		    <button class="post-modify__btn" id="modify_btn">
+            <i class="fas fa-pen"></i></button>
+        </c:if>
             <fmt:formatDate pattern="yyyy/MM/dd" value="${pageInfo.updateDate}"/></div>
           
           </div>

@@ -1197,8 +1197,7 @@ button,
     </style>
     
   </head>
-  <body onkeydown="javascript:onEnterLogin();" 
-  onload="noBack();" onpageshow="if(event.persisted) noBack();">
+  <body onkeydown="javascript:onEnterLogin();">
         
         
           <section class="header-top">
