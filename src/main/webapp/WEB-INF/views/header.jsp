@@ -743,6 +743,16 @@ var actionForm = $(".actionForm");
        			actionForm.attr("action", "/controller/kcalcalpage").attr("method", "post");
        			actionForm.submit();
        		})
+       		$("#daieto").on("click",function(e){
+       			e.preventDefault();
+       			actionForm.attr("action", "/controller/diet").attr("method", "post");
+       			actionForm.submit();
+       		})
+       		$("#torei").on("click",function(e){
+       			e.preventDefault();
+       			actionForm.attr("action", "/controller/training").attr("method", "post");
+       			actionForm.submit();
+       		})
        		$("#nav-listboard").on("click",function(e){
        			e.preventDefault();
        			actionForm.attr("action", "/controller/board/boardpage").attr("method", "get");
@@ -771,10 +781,11 @@ var actionForm = $(".actionForm");
         <ul class="navbar-menu">
         <form class="actionForm" method="post">
           <li><a id="calo" class="nav-list" href="#">体重管理</a></li>
-          </form>
-          <li><a class="nav-list" href="http://localhost:9090/controller/diet">献立管理</a></li>
-          <li><a class="nav-list" href="http://localhost:9090/controller/training">運動情報</a></li>
+        </form>
+          <li><a id="daieto" class="nav-list" href="http://localhost:9090/controller/diet">献立管理</a></li>
+          <li><a id="torei" class="nav-list" href="http://localhost:9090/controller/training">運動情報</a></li>
           <li><a id="nav-listboard" class="nav-list" href="#">掲示板</a></li>
+        
         </ul>
         <a href="#" class="navbar-toggleBtn">
           <i class="fa-solid fa-bars s30"></i>

@@ -241,6 +241,16 @@
          			actionForm.attr("action", "/controller/kcalcalpage").attr("method", "post");
          			actionForm.submit();
          		})
+$("#daieto").on("click",function(e){
+       			e.preventDefault();
+       			actionForm.attr("action", "/controller/diet").attr("method", "post");
+       			actionForm.submit();
+       		})
+       		$("#torei").on("click",function(e){
+       			e.preventDefault();
+       			actionForm.attr("action", "/controller/training").attr("method", "post");
+       			actionForm.submit();
+       		})
          		$("#nav-listboard").on("click",function(e){
          			e.preventDefault();
          			actionForm.attr("action", "/controller/board/boardpage").attr("method", "get");
