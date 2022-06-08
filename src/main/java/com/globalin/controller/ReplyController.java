@@ -46,6 +46,7 @@ public class ReplyController {
 	// 댓글 작성
 	@PostMapping("/replywrite/{reply_bno}/{reply_writer}/{reply_content}")
 	public Map<String,Object> replywrite(@PathVariable("reply_bno") String bno, @PathVariable("reply_writer") String writer, @PathVariable("reply_content") String content){
+		
 		Map<String,Object> map = new HashMap<String,Object>();		
 		try {
 			ReplyVO vo = new ReplyVO();

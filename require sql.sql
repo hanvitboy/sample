@@ -77,3 +77,14 @@ references tbl_board(bno) on delete cascade; --12.tbl_reply 테이블의 bno에 
 
 create sequence tbl_reply_seq START WITH 1 MINVALUE 0; --13.tbl_reply 테이블 rno부여를 위한 시퀀스 생성
 
+
+create table tbl_attach (
+    uuid varchar2(100) not null,
+    uploadPath varchar2(200) not null,
+    fileName varchar2(200) not null,
+    filetype char(1) default '1',
+    bno number(10,0)
+);  --14.tbl_attach 테이블 생성 (첨부파일)
+
+
+ALTER TABLE tbl_board ADD uuid varchar2(200); --15. tbl_board에 uuid 컬럼 생성
