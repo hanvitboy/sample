@@ -71,7 +71,7 @@ body {
   width: 100%;
   height: 100vh;
   background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-    url(assets/login.jpg);
+    url(resources/assets/login.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -383,7 +383,7 @@ body {
     width: 100%;
     height: 100vh;
     background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-      url(./assets/login.jpg);
+      url(resources/assets/login.jpg);
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -496,14 +496,15 @@ body {
     <section class="member-information one">
       <div class="member-infos">
         <div class="member-info">
-          <form id="user-form">
-            <div class="user-name">USER NAME<input type="text" name="name" value="${login_user.name}" /></div>
-            <div class="user-id">USER ID<input type="text" name="id" value="${login_user.id }" readonly/></div>
-            <div class="user-pw">PASSWORD<input type="password" name="pw" value="${login_user.pw }"/></div>
-          </form>
+        <form class="actionForm" method="post" action="">
+          <div id="user-form">
+            <div class="user-name">USER NAME<input type="text" id="namae" name="name" value="${login_user.name}" /></div>
+            <div class="user-id">USER ID<input type="text" name="id" id="aidi" value="${login_user.id }" readonly/></div>
+            <div class="user-pw">PASSWORD<input type="password" name="pw" id="pasowado" value="${login_user.pw }"/></div>
+          </div>
         </div>
         <div class="member-info two">
-          <form id="user-form" action="">
+          <div id="user-form" action="">
             <div class="user-age">AGE<input type="number"  name="age" value="${login_user.age }"/></div>
             <div class="user-height">
               HEIGHT<input type="number" name="height" value="${login_user.height }" /><span>cm</span>
@@ -516,7 +517,7 @@ body {
               <input
                 id="few"
                 type="radio"
-                name="activity"
+                name="actindex"
                 class="input-radio"
                 value="25"
                 <c:if test="${login_user.actindex == 25}"> checked </c:if>
@@ -525,7 +526,7 @@ body {
               <input
                 id="usual"
                 type="radio"
-                name="activity"
+                name="actindex"
                 class="input-radio"
                 value="33"
                 <c:if test="${login_user.actindex == 33}"> checked </c:if>
@@ -534,7 +535,7 @@ body {
               <input
                 id="many"
                 type="radio"
-                name="activity"
+                name="actindex"
                 class="input-radio"
                 value="40"
                 <c:if test="${login_user.actindex == 40}"> checked </c:if>
@@ -561,39 +562,42 @@ body {
                 <c:if test="${login_user.gender == 'WOMAN'}"> checked </c:if>
               />
               <label for="woman" class="form-radio">woman</label>
+               </form>
             </div>
-          </form>
+          </div>
           
-          <form id="btn-form">
+          <div id="btn-form">
             <div class="button-area">
               <a id="modify" class="btn-next" href="#" role="button">modify</a>
                 <a id="withdrawal" class="btn-next" href="javascript:void(0)" onClick="javascript:goPost()" role="button" >withdrawal</a>
                 <a id="home" class="btn-next" href="http://localhost:9090/controller/" role="button">home</a>
             </div>
-          </form>
+          </div>
         </div>
-        </form>
+       
         
       </div>
+     
     </section>
 
     <section class="member-information two">
       <div class="member-infos">
         <div class="member-info two">
-          <form id="user-form" action="">
-            <div class="user-age">AGE<input type="number" /></div>
+        <form class="actionForm2" method="post" action="">
+          <div id="user-form" action="">
+            <div class="user-age">AGE<input type="number" name="age" value="${login_user.age }"/></div>
             <div class="user-height">
-              HEIGHT<input type="number" /><span>cm</span>
+              HEIGHT<input type="number" name="height" value="${login_user.height }"/><span>cm</span>
             </div>
             <div class="user-weight">
-              WEIGHT<input type="number" /> <span>kg</span>
+              WEIGHT<input type="number" name="weight" value="${login_user.weight }"/> <span>kg</span>
             </div>
             <div class="user-activity">
               ACTIVITY
               <input
                 id="few"
                 type="radio"
-                name="activity"
+                name="actindex"
                 class="input-radio"
                 value="25"
                       <c:if test="${login_user.actindex == 25}"> checked </c:if>
@@ -602,7 +606,7 @@ body {
               <input
                 id="usual"
                 type="radio"
-                name="activity"
+                name="actindex"
                 class="input-radio"
                 value="33"
                       <c:if test="${login_user.actindex == 33}"> checked </c:if>
@@ -611,7 +615,7 @@ body {
               <input
                 id="many"
                 type="radio"
-                name="activity"
+                name="actindex"
                 class="input-radio"
                 value="40"
                     <c:if test="${login_user.actindex == 40}"> checked </c:if>
@@ -638,20 +642,25 @@ body {
                     <c:if test="${login_user.gender == 'WOMAN'}"> checked </c:if>
               />
               <label for="woman" class="form-radio">woman</label>
+              <input type="hidden" id="irum" name="name" value="${login_user.name}" />
+            <input type="hidden" id="adi" name="id" value="${login_user.id }" />
+           <input type="hidden" id="bibon" name="pw" value="${login_user.pw }"/> 
+              </form>
             </div>
-          </form>
+          </div>
         </div>
-        <form id="btn-form">
+        <div id="btn-form">
           <div class="button-area">
-            	<a id="modify" class="btn-next" href="#" role="button">modify</a>
+            	<a id="modify2" class="btn-next" href="#" role="button">modify</a>
                 <a id="withdrawal" class="btn-next" href="javascript:void(0)" onClick="javascript:goPost()" role="button" >withdrawal</a>
                 <a id="home" class="btn-next" href="http://localhost:9090/controller/" role="button">home</a>
           </div>
-        </form>
+        </div>
       </div>
     </section>
     
      <script type="text/javascript">
+     
      
      function goPost(){
     	    let f = document.createElement('form');
@@ -665,8 +674,17 @@ body {
     	   
     	}
 
+    	
+     var namae= document.getElementById("namae").value;          	
+     var pasowado = document.getElementById("pasowado").value;   
+   //  $("#irum").attr("value" , $("#namae").val());
+    // $("#bibon").attr("value" , document.getElementById("pasowado").value);
+     document.getElementById("irum").setAttribute('value', document.getElementById("namae").value);
+    document.getElementById("bibon").setAttribute('value', document.getElementById("pasowado").value);
+     
      
      var actionForm = $(".actionForm");
+     var actionForm2 = $(".actionForm2");
             	$(document).ready(function(){
             		$("#modify").on("click",function(e){
             			e.preventDefault();
@@ -674,9 +692,17 @@ body {
             			actionForm.submit();
             		})
             		
+            		$("#modify2").on("click",function(e){
+            			e.preventDefault();
+            			actionForm2.attr("action", "/controller/modify").attr("method", "post");
+            			actionForm2.submit();
+            		})
             		
+					
             		
             	})
+            	
+            	
             	</script>
     
     
