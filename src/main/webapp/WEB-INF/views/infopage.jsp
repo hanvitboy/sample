@@ -595,53 +595,53 @@ body {
             <div class="user-activity">
               ACTIVITY
               <input
-                id="few"
+                id="few2"
                 type="radio"
                 name="actindex"
                 class="input-radio"
                 value="25"
                       <c:if test="${login_user.actindex == 25}"> checked </c:if>
               />
-              <label for="few" class="form-radio">few</label>
+              <label for="few2" class="form-radio">few</label>
               <input
-                id="usual"
+                id="usual2"
                 type="radio"
                 name="actindex"
                 class="input-radio"
                 value="33"
                       <c:if test="${login_user.actindex == 33}"> checked </c:if>
               />
-              <label for="usual" class="form-radio">usual</label>
+              <label for="usual2" class="form-radio">usual</label>
               <input
-                id="many"
+                id="many2"
                 type="radio"
                 name="actindex"
                 class="input-radio"
                 value="40"
                     <c:if test="${login_user.actindex == 40}"> checked </c:if>
               />
-              <label for="many" class="form-radio">many</label>
+              <label for="many2" class="form-radio">many</label>
             </div>
             <div class="user-gender">
               GENDER
               <input
-                id="man"
+                id="man2"
                 type="radio"
                 name="gender"
                 class="input-radio"
                  value="MAN"
                       <c:if test="${login_user.gender == 'MAN'}"> checked </c:if>
               />
-              <label for="man" class="form-radio">man</label>
+              <label for="man2" class="form-radio">man</label>
               <input
-                id="woman"
+                id="woman2"
                 type="radio"
                 name="gender"
                 class="input-radio"
                  value="WOMAN"
                     <c:if test="${login_user.gender == 'WOMAN'}"> checked </c:if>
               />
-              <label for="woman" class="form-radio">woman</label>
+              <label for="woman2" class="form-radio">woman</label>
               <input type="hidden" id="irum" name="name" value="${login_user.name}" />
             <input type="hidden" id="adi" name="id" value="${login_user.id }" />
            <input type="hidden" id="bibon" name="pw" value="${login_user.pw }"/> 

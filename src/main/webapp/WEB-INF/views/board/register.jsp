@@ -27,7 +27,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+   
   }
 
 .body__main{
@@ -72,12 +72,12 @@ padding: 10px;
   min-height: 300px;
   max-width: 90%;
   padding: 10px;
-
   padding-left: 15px;
   display: block;
   width: 100%;
   height: 300px;
   resize:none;
+  margin-bottom:20px;
 
 }
 
@@ -140,21 +140,26 @@ box-shadow: 0 0 12px #353b48;
 }
 
 
-
-#uploadFile{
-
-width: 300px;
-    padding: 10px;
-    border-radius: 20px;
-    border: 2px solid #dcdde1;
-    cursor: pointer;
-    align-content: center;
-    display: flex;
-
+label{
+width: 100px;
+padding: 10px;
+border-radius: 20px;
+border:2px solid #dcdde1;
+cursor: pointer;
+background-color: antiquewhite;
 }
 
+label i{
+color: #4cd137;
+}
 
+label:hover{
 
+background-color: antiquewhite;
+border-color:gray;
+box-shadow: 0 0 8px #353b48;
+  
+  }
 
 
 
@@ -215,6 +220,12 @@ width: 300px;
 .header-top{
 width:100%;
 background-color: white;}
+
+.uploadResult{
+margin-top: 18px;
+border:2px solid black;}
+
+
 </style>
   </head>
   <body>
@@ -229,7 +240,8 @@ background-color: white;}
 			 <!-- 첨부파일  -->
   <form>
   <div class="uploadDiv">
-  	<input type="file" name ="uploadFile" id="uploadFile" multiple>
+  	<input type="file" name ="uploadFile" id="uploadFile" multiple hidden/>
+  	<label for="uploadFile"><i class="fas fa-folder-plus"></i>AttachFile</label>
   </div>
   <div class="uploadResult">
   	<ul>

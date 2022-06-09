@@ -21,6 +21,45 @@
     <link href="resources/css/calstyle2.css" rel="stylesheet">
     
     <style>
+    
+    .fixedCalBox{
+      display: none;
+      width:230px;
+      height: 240px;
+      font-size: 12px;
+      font-weight: 600;
+      flex-direction: column;
+     justify-content: space-evenly;
+      align-items: center;
+      background-color: black;
+      color:white;
+      border-radius: 30px;
+      box-shadow:10px 20px 50px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.10);
+      border: 4px solid yellow;
+      position:fixed;
+      bottom:40px;
+      right:50px;
+      overflow: hidden;}
+      
+      .fixedGraphBox{
+  display:none;  
+  justify-content: space-evenly;
+  flex-direction: column;
+  border-radius: 30px;
+  box-shadow:10px 20px 50px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.10);
+  border: 4px solid yellow;
+  height: 350px;
+  width: 370px;
+  background-color: black;
+  color: white;
+
+  position:fixed;
+  bottom:40px;
+  left:50px;
+  overflow: hidden;
+
+}
+    
     .checkbox-tile::before {
   content: "";
   position: absolute;
@@ -36,6 +75,186 @@
   background-position: 50%;
   transform: scale(0);
 }
+ 
+ 
+     .hidden-btn-calBox{
+      position:absolute;
+      border:none;
+      bottom:50px;
+      right:50px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height:80px;
+     width:80px;
+     font-size: 40px;
+     border-radius: 20px;
+     background-color: orange;
+     cursor:pointer;
+
+    }
+
+
+
+    .hidden-btn-graphBox{
+      position:absolute;
+      border:none;
+      bottom:50px;
+      left:50px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height:80px;
+     width:80px;
+     font-size: 40px;
+     border-radius: 20px;
+     background-color: orange;
+     cursor:pointer;
+   
+    
+    }
+    
+    
+        .hidden-calBox__back-btn{
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+      width:28px;
+      height:28px;
+      position: absolute;
+      left:7px;
+      top:7px;
+      border: 2px solid yellow;
+      background-color: black;
+      color:white;
+      cursor: pointer;
+
+    }
+    .hidden-GraphBox__back-btn
+    {display:flex;
+    justify-content: center;
+    align-items: center;
+      border-radius: 10px;
+      width:28px;
+      height:28px;
+      position: absolute;
+      left:7px;
+      top:7px;
+      border: 2px solid yellow;
+      background-color: black;
+      color:white;
+      cursor: pointer;
+   }
+
+   .hidden-calBox__back-btn:hover,
+   .hidden-GraphBox__back-btn:hover {
+    color: #fff;
+    box-shadow: 200px 0 0 0 #f7ca18 inset;
+    background-color: #f7ca18;
+    transition: all 0.7s;
+  }
+          @media screen and (max-width: 768px){
+     
+    
+        .Boxes{
+    
+          width: 100%;
+        }
+
+     
+
+        .ad-box1,
+        .ad-box2{
+
+          display: none;
+        }
+    
+
+ 
+
+        .fixedGraphBox{
+          flex-direction: column;
+          justify-content:space-evenly;
+          align-items: center;
+          border-radius: 30px;
+          box-shadow:10px 20px 50px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.10);
+          border: 4px solid yellow;
+          height: 350px;
+          width: 270px;
+          background-color: black;
+          color: white;
+          position:fixed;
+          bottom:10px;
+          left:10px;
+          overflow: hidden;
+          z-index: 99;
+  
+        }
+
+    
+
+        .fixedCalBox{
+          width:200px;
+          height: 240px;
+          font-size: 12px;
+          font-weight: 600;
+          flex-direction: column;
+         justify-content: space-evenly;
+          align-items: center;
+          background-color: black;
+          color:white;
+          border-radius: 30px;
+          box-shadow:10px 20px 50px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.10);
+          border: 4px solid yellow;
+          position:fixed;
+          bottom:10px;
+          right:18px;
+          overflow:visible;
+          z-index:99;
+      
+
+
+        }
+
+
+
+        .hidden-btn-graphBox{
+        position:absolute;
+        border:none;
+        bottom:10px;
+        left:20px;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       height:50px;
+       width:50px;
+       font-size: 22px;
+       border-radius: 20px;
+       background-color: orange;
+       cursor:pointer;
+
+        }
+
+
+        .hidden-btn-calBox{
+          position:absolute;
+          border:none;
+          bottom:10px;
+          right:40px;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         height:50px;
+         width:50px;
+         font-size: 22px;
+         border-radius: 20px;
+         background-color: orange;
+         cursor:pointer;
+    
+      }
+      }
+  
     
     </style>
 
@@ -907,7 +1126,7 @@ $(document).ready(function() {
     </div>     
     
     <section class="fixedGraphBox">
-      <button class="hidden-GraphBox__back-btn" onclick="hideGraphHiddenBox()">
+      <button class="hidden-GraphBox__back-btn" onclick="hideGraphBox()">
         <i class="fas fa-times"></i>
       </button>
     <div class="graph-whole-wrapper">
@@ -1338,12 +1557,6 @@ if(calFromDB__day7 < 0){
 		    document.querySelector(".fixedCalBox").style.animation = "stack 0.3s 1";
 		 }
 
-		 function hideCalHiddenBox() {
-		    document.querySelector(".fixedCalBox").style.display = "none";
-		 }
-
-
-
 
 
 		 function showGraphHiddenBox() {
@@ -1351,12 +1564,6 @@ if(calFromDB__day7 < 0){
 		    document.querySelector(".fixedGraphBox").style.animation = "stack 0.3s 1";
 		 }
 
-		 function hideGraphHiddenBox() {
-		    document.querySelector(".fixedGraphBox").style.display = "none";
-		 }
-
-
-		 
 
 		 function hideAdBox1() {
 		    document.querySelector(".ad-box1").style.display = "none";
