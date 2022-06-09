@@ -104,9 +104,11 @@
             <p>
           あなたの美しい体のために、健康的な食べ物情報を提供します。
            </p>
+             <form class="yapi" method="post">
             <div class="btn-area">
-              <a class="btn-next" href="http://localhost:9090/controller/diet" role="button">献立管理</a>
+              <a id="yaps2" class="btn-next" href="#" role="button">献立管理</a>
             </div>
+          </form>
           </div>
         </div>
       </div>
@@ -122,9 +124,11 @@
 また、同じ部位の運動ばかりすると身体がアンバランスになります。
 素敵なあなたの体のために運動方法の映像を提供します。
             </p>
+             <form class="yapi" method="post">
             <div class="btn-area">
-          <a class="btn-next" href="http://localhost:9090/controller/diet" role="button">献立管理</a>
+          <a id="yaps3" class="btn-next" href="#" role="button">運動情報</a>
                </div>
+          </form>
           </div>
         </div>
         <div data-aos="zoom-in">
@@ -200,7 +204,21 @@
 			actionForm.attr("action", "/controller/kcalcalpage").attr("method", "post");
 			actionForm.submit();
 		})
+		
+			$("#yaps2").on("click",function(e){
+			e.preventDefault();
+			actionForm.attr("action", "/controller/diet").attr("method", "post");
+			actionForm.submit();
 		})
+		
+		$("#yaps3").on("click",function(e){
+			e.preventDefault();
+			actionForm.attr("action", "/controller/training").attr("method", "post");
+			actionForm.submit();
+		})
+
+	
+	})
 
 		  
   var actionForm = $(".actionForm");
@@ -241,7 +259,7 @@
          			actionForm.attr("action", "/controller/kcalcalpage").attr("method", "post");
          			actionForm.submit();
          		})
-$("#daieto").on("click",function(e){
+             $("#daieto").on("click",function(e){
        			e.preventDefault();
        			actionForm.attr("action", "/controller/diet").attr("method", "post");
        			actionForm.submit();

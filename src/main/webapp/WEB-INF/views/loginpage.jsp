@@ -248,7 +248,7 @@ li {
         </div>
         <div class="wrap">
          <form method="get" action="kakaologin">
-          <a class="kakao" href="https://kauth.kakao.com/oauth/authorize?client_id=3c29e5973236d66995354c01142b54eb&redirect_uri=http://localhost:9090/controller/oauth&response_type=code">
+          <a class="kakao" href="https://kauth.kakao.com/oauth/authorize?client_id=3c29e5973236d66995354c01142b54eb&redirect_uri=http://localhost:9090/controller/kakaolog&response_type=code">
            <img class="cbt-kakao" src="resources/assets/registimage.png"/>
            <div class="kakaoparty">カカオトークでログイン</div>
           </a>

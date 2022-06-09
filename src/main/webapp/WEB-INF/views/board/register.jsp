@@ -242,8 +242,8 @@ margin-top: 18px;
       <!-- Feed Starts -->
       <div class="feed">
         <div class="feed__inputContainer">
-          <input type="text" name="title" id="mytitle" class="input-title" placeholder="タイトルを記入してください。"/>
-          <textarea name="content" id="mycontent" class="input-mainText"  placeholder="内容を記入してください。"></textarea>
+          <input type="text" name="title" id="mytitle" class="input-title" placeholder="タイトルを記入してください。" required="required"/>
+          <textarea name="content" id="mycontent" class="input-mainText"  placeholder="内容を記入してください。" required="required"></textarea>
 			 <!-- 첨부파일  -->
   <form>
   <div class="uploadDiv">
@@ -325,7 +325,6 @@ margin-top: 18px;
 		 
 		
 		 
-		 console.log("sexy");
 		 var inputFile = $("input[name='uploadFile']");		  
 		 var files = inputFile[0].files;
 		  
@@ -382,7 +381,6 @@ margin-top: 18px;
 		  var uploadResult = $(".uploadResult ul");
 		  
 	  function showUploadFile(uploadResultArr){
-		  console.log("fuck");
 		  var str = "";
 		  
 		  $(uploadResultArr).each(function(i,obj){
@@ -438,7 +436,6 @@ margin-top: 18px;
 	  
 	  $("#uploadBtn").on("click",function(e){
 		  
-		  console.log("sexy");
 		  var formData = new FormData();		  
 		  var inputFile = $("input[name='uploadFile']");		  
 		  var files = inputFile[0].files;

@@ -1094,6 +1094,10 @@ box-shadow: 0 0 12px #353b48;
   font-size: 25px;
 }
 
+#mobilewrite{
+display: none;
+}
+
 
 
 
@@ -1106,6 +1110,33 @@ box-shadow: 0 0 12px #353b48;
 
 
   @media screen and (max-width: 768px){
+	
+#mobilewrite{
+display: flex;
+align-content: space-around;
+    justify-content: center;
+}
+
+
+.mobasend{
+
+ box-sizing: border-box;
+ background-color: transparent;
+ color:white;
+  transition: all 300ms ease;
+  border: 3px solid #e1b12c;
+  border-radius: 10px;
+  font-weight: 600;
+ }
+ 
+ .mobasend:hover {
+   color: white;
+   box-shadow: 0 0 12px #e1b12c;
+   background-color: #e1b12c;
+   cursor:pointer;
+   }
+
+
     .header-top{
       display: none;
     }
@@ -1349,6 +1380,12 @@ box-shadow: 0 0 12px #353b48;
 		<input type="hidden" name="reply_bno" id="reply_bno" value="${pageInfo.bno }">
 	</form>
 
+<div id="mobilewrite" class="btn_wrap">
+		<a class="mobasend" id="list_bts"><i class="fas fa-undo"></i>&nbsp;戻る</a>
+		<form id="infoForm3" method="get">
+		<input type="hidden" id="bno" name="bno" value='<c:out value="${pageInfo.bno}"/>'>
+		</form>
+	</div>
 
 
       <!-- Feed Ends -->
@@ -1530,7 +1567,6 @@ box-shadow: 0 0 12px #353b48;
     	
     	$('#replyWriteBtn').click(function(){
     		
-    		console.log("일미집");
     		var content = $('#reply_content').val();
     			writer = $('#reply_writer').val();
     			bno = (parseInt)($('#reply_bno').val());
@@ -1617,6 +1653,16 @@ box-shadow: 0 0 12px #353b48;
     		form.submit();
     		
     	});
+    	
+       $("#list_bts").on("click", function(e){
+    		
+    		form.find("#bno").remove();
+    		form.attr("action", "/controller/board/boardpage");
+    		form.submit();
+    		
+    	});
+    	
+    	
     	
     	$("#modify_btn").on("click", function(e){
     		form.attr("action", "/controller/board/modifyenter").attr("method","post");		
