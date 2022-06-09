@@ -23,6 +23,10 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
     
     * {
@@ -37,7 +41,9 @@ width:100%;
 
 body {
   font-family: "DM Sans", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
 }
+
 
 /* Reset CSS */
 a {
@@ -164,6 +170,21 @@ li {
   color: #f7ca18;
 }
     
+.wrap{
+  display:flex;
+  width:100%;
+  justify-content: center;
+}
+
+.cbt-kakao{
+  width:100px;
+}
+
+.kakaoparty{
+  font-size:24px;
+  display: contents;
+  color:#fff;
+}
     
     
     /*  <=768px (mobile) */
@@ -189,6 +210,14 @@ li {
   .btn-area {
     width: 100%;
   }
+  
+  .cbt-kakao{
+  width:80px;
+}
+  
+  .kakaoparty{
+  font-size:20px;
+}
 }
     </style>
     <link rel="stylesheet" href="resources/css/login.css" />
@@ -217,11 +246,13 @@ li {
         <div class="btn-area">
           <button type="submit">LOGIN</button>
         </div>
-        <div>
-        <form method="get" action="kakaologin">
-        <a id="kakao-login-btn" href="https://kauth.kakao.com/oauth/authorize?client_id=3c29e5973236d66995354c01142b54eb&redirect_uri=http://localhost:9090/controller/kakaolog&response_type=code">
-        <img class="kbt" src="resources/assets/loginimage.png"/></a>
-        </form>
+        <div class="wrap">
+         <form method="get" action="kakaologin">
+          <a class="kakao" href="https://kauth.kakao.com/oauth/authorize?client_id=3c29e5973236d66995354c01142b54eb&redirect_uri=http://localhost:9090/controller/oauth&response_type=code">
+           <img class="cbt-kakao" src="resources/assets/registimage.png"/>
+           <div class="kakaoparty">カカオトークで加入</div>
+          </a>
+         </form>
         </div>
         </form>
      <form id="actionForm" action="loginpage" method="post">
