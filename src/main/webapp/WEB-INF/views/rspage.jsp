@@ -20,10 +20,16 @@
       rel="stylesheet"
     />
     
-    
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="resources/css/signup-form1.css" />
   <style>
-  
+  body {
+  font-family: "DM Sans", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
+}
   .signup-form {
   display: flex;
   flex-direction: column;
@@ -54,10 +60,40 @@
   transition: all 0.9s, color 0.3;
 }
 
-.cbt{
-width:100%;
+.wrap{
+ width:70%;
+ display:flex;
+ justify-content: center;
 }
 
+.cbt-local{
+width:70px;
+margin-right:20px;
+}
+
+.cbt-kakao{
+width:100px;
+}
+
+.party{
+font-size:20px;
+color:white;
+}
+
+.kakaoparty{
+font-size:20px;
+color:white;
+width:180px;
+}
+
+@media screen and (max-width:768px) {
+  .wrap{
+  width:100%;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+ }
+ }
   
   </style>
   </head>
@@ -68,17 +104,23 @@ width:100%;
        <a href="http://localhost:9090/controller/"><strong><span>fit</span>ness</strong></a>
       </h1>
       <h2>SIGNUP</h2>
-     
-     <form class="actionForm">
-      <a class="button-signup" href="#">
-      <img class="cbt" src="resources/assets/loginippan.png"/>
-      </a>
+     <div class="wrap">
+      <form class="actionForm">
+      
+       <a class="button-signup" href="#">
+        <img class="cbt-local" src="resources/assets/loginippan.png"/>
+        <div class="party">一般会員加入</div>
+       </a>
       </form>
      
      <form>
-      <a id="kakao-login-btn" href="https://kauth.kakao.com/oauth/authorize?client_id=3c29e5973236d66995354c01142b54eb&redirect_uri=http://localhost:9090/controller/oauth&response_type=code">
-       <img class="cbt" src="resources/assets/registimage.png"/></a>
+      <a class="kakao" href="https://kauth.kakao.com/oauth/authorize?client_id=3c29e5973236d66995354c01142b54eb&redirect_uri=http://localhost:9090/controller/oauth&response_type=code">
+        <img class="cbt-kakao" src="resources/assets/registimage.png"/>
+        <div class="kakaoparty">カカオトークで加入</div>
+      </a>
       </form>
+      </div>
+     
       
       </section>
     
