@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <% request.setCharacterEncoding("UTF-8"); %>
-<%@ include file="header.jsp" %>
+
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -235,7 +235,7 @@ box-shadow: 0 0 12px #353b48;
           </div>
 
           <div class="inputOption">
-            <button type="reset" class="upload-box__btn"><i class="fas fa-redo"></i><h4>リセット</h4>
+            <button type="reset" class="upload-box__btn"><i class="fas fa-redo"></i><h4>書き直し</h4>
          </button>
         </div>
 

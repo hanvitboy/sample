@@ -22,6 +22,38 @@
     <link rel="stylesheet" href="resources/css/training.css" />
    
 
+<style>
+@media screen and (max-width: 768px) {
+video {
+
+
+  width: 100%;
+}
+
+.text {
+  position: absolute;
+  width: 100%;
+  height: 170px;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 20px;
+}
+.text h1 {
+  text-align: center;
+  font-size: 40px;
+  color: #fff;
+}
+
+.text p {
+  font-size: 16px;
+  color: #fff;
+}
+}
+
+</style>
+
 
     <section class="video-main">
       <div class="video-wrap">
