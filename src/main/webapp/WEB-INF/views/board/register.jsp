@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <% request.setCharacterEncoding("UTF-8"); %>
-
+<%@ include file="header.jsp" %>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -14,7 +14,7 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <title>게시판</title>
+    <title>書き込み</title>
     <style>
 * {
     margin: 0;
@@ -27,10 +27,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100vh;
   }
 
 .body__main{
-  margin-top: 20vh;
+  margin-top: 10vh;
   display: flex;
   min-width: 1200px;
  
@@ -140,6 +141,18 @@ box-shadow: 0 0 12px #353b48;
 
 
 
+#uploadFile{
+
+width: 300px;
+    padding: 10px;
+    border-radius: 20px;
+    border: 2px solid #dcdde1;
+    cursor: pointer;
+    align-content: center;
+    display: flex;
+
+}
+
 
 
 
@@ -199,7 +212,9 @@ box-shadow: 0 0 12px #353b48;
   margin-left: 0;
   }
   
-
+.header-top{
+width:100%;
+background-color: white;}
 </style>
   </head>
   <body>
@@ -209,8 +224,8 @@ box-shadow: 0 0 12px #353b48;
       <!-- Feed Starts -->
       <div class="feed">
         <div class="feed__inputContainer">
-          <input type="text" name="title" id="mytitle" class="input-title" placeholder="제목을 입력하세요"/>
-          <textarea name="content" id="mycontent" class="input-mainText"  placeholder="내용을 입력하세요"></textarea>
+          <input type="text" name="title" id="mytitle" class="input-title" placeholder="タイトルを記入してください。"/>
+          <textarea name="content" id="mycontent" class="input-mainText"  placeholder="内容を記入してください。"></textarea>
 			 <!-- 첨부파일  -->
   <form>
   <div class="uploadDiv">

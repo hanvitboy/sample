@@ -1315,7 +1315,7 @@ button,
 
  <c:if test="${not empty login_user}">
         <div class="write__box__for-mobile">
-          <button class="write__btn__for-mobile">글쓰기</button>
+          <button id="regBtn2" class="write__btn__for-mobile">書き込み</button>
         </div>
       </c:if>
 
@@ -1441,6 +1441,11 @@ $(document).ready(function() {
 		$("#regBtn").on("click", function() {
 			//controller한테 get방식으로 /board/register 요청
 			self.location = "/controller/board/registpage";
+
+		})
+		
+		$("#regBtn2").on("click", function() {
+		self.location = "/controller/board/registpage";
 
 		})
 
