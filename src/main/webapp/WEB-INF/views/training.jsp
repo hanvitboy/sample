@@ -23,9 +23,34 @@
    
 
 <style>
+
+.text {
+  position: absolute;
+  width: 100%;
+  height: 170px;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 20px;
+}
+.text h1 {
+  text-align: center;
+  font-size: 48px;
+  color: #fff;
+}
+
+.text p {
+  font-size: 24px;
+  color: #fff;
+  text-align: center;
+}
+
+
+
+
 @media screen and (max-width: 768px) {
 video {
-
 
   width: 100%;
 }
