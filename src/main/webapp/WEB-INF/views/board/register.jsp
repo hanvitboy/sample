@@ -33,8 +33,7 @@
 .body__main{
   margin-top: 10vh;
   display: flex;
-  min-width: 1200px;
- 
+  min-width: 1000px;
   justify-content: center;
   
 }
@@ -52,6 +51,7 @@ margin-top:20px;
 border-radius: 30px;
 padding: 10px;
 }
+
 
 
 
@@ -77,7 +77,14 @@ padding: 10px;
   width: 100%;
   height: 300px;
   resize:none;
-  margin-bottom:20px;
+  margin-bottom:30px;
+
+}
+
+
+.input-title:focus,
+.input-mainText:focus{
+box-shadow: 0 0 8px gray;
 
 }
 
@@ -223,7 +230,7 @@ background-color: white;}
 
 .uploadResult{
 margin-top: 18px;
-border:2px solid black;}
+}
 
 
 </style>

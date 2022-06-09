@@ -1328,7 +1328,7 @@ box-shadow: 0 0 12px #353b48;
 	  <input type="hidden" id="keyword" name="keyword" value="${cri.keyword}"> 
           <input type="hidden" name="writer" value="${login_user.id}" id="reply_writer"/>
           <div class="comment__input">
-          <input class="comment__input__box" name="content" id="reply_content" type="text" placeholder="덧글 입력">
+          <input class="comment__input__box" name="content" id="reply_content" type="text" placeholder="コメント入力">
         <button class="comment__input__btn" id="replyWriteBtn"> <i class="material-icons"> send </i> </button>
           </div>
           </form>
@@ -1448,9 +1448,9 @@ box-shadow: 0 0 12px #353b48;
     	
     });
     $(".modal_modify_btn").click(function(){
-    	 var modifyConfirm = confirm("정말로 수정하시겠습니까?");
+    	 var modifyConfirm = confirm("本当に修正しますか？");
     	 
-    	 if(modifyConfirm) {
+    	 if(modifyConfirm) 
     	  var data = {
     	     rno : $(this).attr("data-repNum"),
     	     content : $(".modal_repCon").val()
@@ -1472,7 +1472,7 @@ box-shadow: 0 0 12px #353b48;
     	     });
     	    }
     	    
-    	   });
+    	   );
 
 
     $(document).on("click", ".comment-delete__btn", function(){
