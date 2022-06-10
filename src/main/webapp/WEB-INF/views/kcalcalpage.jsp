@@ -317,18 +317,7 @@ $(document).ready(function() {
               </span>
             </label>
           </div>
-          <div class="checkbox">
-            <label class="checkbox-wrapper">
-              <input type="checkbox" class="checkbox-input" value="-100" />
-              <span class="checkbox-tile">
-                <span class="checkbox-icon">
-                  <i class="fas fa-briefcase"></i>
-                </span>
-                <span class="checkbox-label">work</span>
-                <div class="showUp">100 kcls</div></span
-              >
-            </label>
-          </div>
+       
           <div class="checkbox">
             <label class="checkbox-wrapper">
               <input type="checkbox" class="checkbox-input" value="-200" />
@@ -365,42 +354,7 @@ $(document).ready(function() {
               >
             </label>
           </div>
-          <div class="checkbox">
-            <label class="checkbox-wrapper">
-              <input type="checkbox" class="checkbox-input" value="-400"/>
-              <span class="checkbox-tile">
-                <span class="checkbox-icon">
-                  <i class="fas fa-bed"></i>
-                </span>
-                <span class="checkbox-label">sleep</span>
-                <div class="showUp">400 kcls</div></span
-              >
-            </label>
-          </div>
-          <div class="checkbox">
-            <label class="checkbox-wrapper">
-              <input type="checkbox" class="checkbox-input" value="-60" />
-              <span class="checkbox-tile">
-                <span class="checkbox-icon">
-                  <i class="fas fa-mobile-alt"></i>
-                </span>
-                <span class="checkbox-label">phone</span>
-                <div class="showUp">60 kcls</div></span
-              >
-            </label>
-          </div>
-          <div class="checkbox">
-            <label class="checkbox-wrapper">
-              <input type="checkbox" class="checkbox-input" value="-120"/>
-              <span class="checkbox-tile">
-                <span class="checkbox-icon">
-                  <i class="fas fa-book-open"></i>
-                </span>
-                <span class="checkbox-label">study</span>
-                <div class="showUp">120 kcls</div></span
-              >
-            </label>
-          </div>
+          
           <div class="checkbox">
             <label class="checkbox-wrapper">
               <input type="checkbox" class="checkbox-input" value="-600"/>
@@ -472,16 +426,7 @@ $(document).ready(function() {
               >
             </label>
           </div>
-          <div class="checkbox">
-            <label class="checkbox-wrapper">
-              <input type="checkbox" class="checkbox-input" value="-150"/>
-              <span class="checkbox-tile">
-                <span class="checkbox-icon"> <i class="fas fa-music"></i></span>
-                <span class="checkbox-label">sing</span>
-                <div class="showUp">150 kcls</div></span
-              >
-            </label>
-          </div>
+         
           <div class="checkbox">
             <label class="checkbox-wrapper">
               <input type="checkbox" class="checkbox-input" value="-500"/>

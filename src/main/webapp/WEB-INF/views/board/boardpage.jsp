@@ -1546,13 +1546,13 @@ $(document).ready(function() {
 			return;
 		}
 		if (result === 'regist success') {
-			alert("게시글의 등록이 성공적으로 완료되었습니다")
+			alert("書き込み成功しました。")
 		}
 		if (result === 'modify success') {
-			alert("게시글의 수정이 성공적으로 완료되었습니다")
+			alert("書き直し成功しました。")
 		}
 		if (result === 'remove success') {
-			alert("게시글의 삭제가 성공적으로 완료되었습니다")
+			alert("削除成功しました。")
 		}
 	}
 	

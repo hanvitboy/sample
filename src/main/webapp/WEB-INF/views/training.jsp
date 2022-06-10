@@ -51,6 +51,17 @@
 
 
 @media screen and (max-width: 768px) {
+
+
+ .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+
 video {
 
   width: 100%;
