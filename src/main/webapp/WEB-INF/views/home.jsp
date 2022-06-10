@@ -14,6 +14,8 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="stylesheet" href="resources/css/home.css"/>
  <style>
+
+ 
  .main {
   width: 100%;
   height: 100vh;
@@ -22,12 +24,23 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+
+
+/*  <=768px (mobile) */
+@media screen and (max-width: 768px) {
+ html, body{
+overflow-x: hidden;
+
+
+}}
+
+
 </style>
 
   
   </head>
   <body>
-  
    <section class="main">
    <div class="card">
         <div class="weather loading">
@@ -83,7 +96,7 @@
         <div data-aos="fade-left">
           <div class="main-info-img">
             <img
-              src="https://mocah.org/thumbs/589418-3840x2160-blonde.jpg"
+              src="https://rare-gallery.com/thumbs/589418-3840x2160-blonde.jpg"
               alt=""
             />
           </div>
@@ -95,7 +108,7 @@
       <div class="main-info">
         <div data-aos="fade-down-right" data-aos-delay="100">
           <div class="main-info-img">
-            <img src="https://mocah.org/thumbs/542157-vegetables.jpg" alt="" />
+            <img src="https://rare-gallery.com/thumbs/542157-vegetables.jpg" alt="" />
           </div>
         </div>
         <div data-aos="fade-down-left" data-aos-delay="100">
@@ -104,9 +117,11 @@
             <p>
           あなたの美しい体のために、健康的な食べ物情報を提供します。
            </p>
+             <form class="yapi" method="post">
             <div class="btn-area">
-              <a class="btn-next" href="http://localhost:9090/controller/diet" role="button">献立管理</a>
+              <a id="yaps2" class="btn-next" href="#" role="button">献立管理</a>
             </div>
+          </form>
           </div>
         </div>
       </div>
@@ -122,15 +137,17 @@
 また、同じ部位の運動ばかりすると身体がアンバランスになります。
 素敵なあなたの体のために運動方法の映像を提供します。
             </p>
+             <form class="yapi" method="post">
             <div class="btn-area">
-          <a class="btn-next" href="http://localhost:9090/controller/diet" role="button">献立管理</a>
+          <a id="yaps3" class="btn-next" href="#" role="button">運動情報</a>
                </div>
+          </form>
           </div>
         </div>
         <div data-aos="zoom-in">
           <div class="main-info-img">
             <img
-              src="https://mocah.org/thumbs/545292-exercise-female.jpg"
+              src="https://rare-gallery.com/thumbs/545292-exercise-female.jpg"
               alt=""
             />
           </div>
@@ -200,7 +217,21 @@
 			actionForm.attr("action", "/controller/kcalcalpage").attr("method", "post");
 			actionForm.submit();
 		})
+		
+			$("#yaps2").on("click",function(e){
+			e.preventDefault();
+			actionForm.attr("action", "/controller/diet").attr("method", "post");
+			actionForm.submit();
 		})
+		
+		$("#yaps3").on("click",function(e){
+			e.preventDefault();
+			actionForm.attr("action", "/controller/training").attr("method", "post");
+			actionForm.submit();
+		})
+
+	
+	})
 
 		  
   var actionForm = $(".actionForm");
@@ -241,6 +272,16 @@
          			actionForm.attr("action", "/controller/kcalcalpage").attr("method", "post");
          			actionForm.submit();
          		})
+             $("#daieto").on("click",function(e){
+       			e.preventDefault();
+       			actionForm.attr("action", "/controller/diet").attr("method", "post");
+       			actionForm.submit();
+       		})
+       		$("#torei").on("click",function(e){
+       			e.preventDefault();
+       			actionForm.attr("action", "/controller/training").attr("method", "post");
+       			actionForm.submit();
+       		})
          		$("#nav-listboard").on("click",function(e){
          			e.preventDefault();
          			actionForm.attr("action", "/controller/board/boardpage").attr("method", "get");
