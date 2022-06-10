@@ -51,6 +51,9 @@
 
 
 @media screen and (max-width: 768px) {
+footer{
+     	display:none;
+     	}
 
 
  .navbar {
