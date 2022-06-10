@@ -52,7 +52,17 @@ border-radius: 30px;
 padding: 10px;
 }
 
+.button-group .button-info:hover {
+  color: #fff !important;
+  background-color: #f7ca18;
+  text-shadow: none;
+}
 
+.button-group .button-logout:hover {
+  color: #fff !important;
+  background-color: #f7ca18;
+  text-shadow: ntwo;
+}
 
 
 .feed__inputContainer {

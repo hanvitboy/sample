@@ -242,9 +242,13 @@ form{
  
   <body>
     <section class="signup-form">
+     
+      <form id="actionForm" action="loginpage" method="post">
       <h1>
-       <a href="http://localhost:9090/controller/"><strong><span>fit</span>ness</strong></a>
+           <a id="home" href="http://localhost:9090/controller/"><strong><span>fit</span>ness</strong></a>
       </h1>
+      	</form>
+      
       <h2>SIGNUP</h2>
       
       <form class="actionForm" method="post" action="/controller/addinfo">
@@ -282,6 +286,13 @@ form{
      var dup; //중복 검사 변수
      var actionForm = $(".actionForm");
             	$(document).ready(function(){
+            		
+            		$("#home").on("click",function(e){
+            			e.preventDefault();
+            			actionForm.attr("action", "/controller/home").attr("method", "post");
+            			actionForm.submit();
+            		})
+            		
             		
             	            		
             	    $(".btn-next").on("submit",function(e){

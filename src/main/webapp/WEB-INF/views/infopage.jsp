@@ -653,7 +653,7 @@ body {
           <div class="button-area">
             	<a id="modify2" class="btn-next" href="#" role="button">modify</a>
                 <a id="withdrawal" class="btn-next" href="javascript:void(0)" onClick="javascript:goPost()" role="button" >withdrawal</a>
-                <a id="home" class="btn-next" href="http://localhost:9090/controller/" role="button">home</a>
+                <a id="home2" class="btn-next" href="http://localhost:9090/controller/" role="button">home</a>
           </div>
         </div>
       </div>
@@ -698,7 +698,18 @@ body {
             			actionForm2.submit();
             		})
             		
-					
+					$("#home").on("click",function(e){
+            			e.preventDefault();
+            			actionForm.attr("action", "/controller/home").attr("method", "post");
+            			actionForm.submit();
+            		})
+            		
+            		$("#home2").on("click",function(e){
+            			e.preventDefault();
+            			actionForm2.attr("action", "/controller/home").attr("method", "post");
+            			actionForm2.submit();
+            		})
+            		
             		
             	})
             	

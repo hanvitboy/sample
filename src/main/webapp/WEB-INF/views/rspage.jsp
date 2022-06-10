@@ -100,10 +100,15 @@ width:180px;
  
   <body>
     <section class="signup-form">
-      <h1>
-       <a href="http://localhost:9090/controller/"><strong><span>fit</span>ness</strong></a>
-      </h1>
+   
+        <form id="actionForm" action="loginpage" method="post">
+             <h1>
+           <a id="home" href="http://localhost:9090/controller/"><strong><span>fit</span>ness</strong></a>
+      	</h1>
+      </form>
+      	 
       <h2>SIGNUP</h2>
+     
      <div class="wrap">
       <form class="actionForm">
       
@@ -134,6 +139,14 @@ width:180px;
 			actionForm.attr("action", "/controller/registpage").attr("method", "post");
 			actionForm.submit();
 		})
+		
+		
+            			$("#home").on("click",function(e){
+            			e.preventDefault();
+            			actionForm.attr("action", "/controller/home").attr("method", "post");
+            			actionForm.submit();
+            		})
+		
 	})
 
   

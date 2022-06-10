@@ -226,7 +226,9 @@ li {
   <body>
     <section class="login-form">
       <h1>
-           <a href="http://localhost:9090/controller/"><strong><span>fit</span>ness</strong></a>
+  <form id="actionForm" action="loginpage" method="post">
+           <a id="home" href="http://localhost:9090/controller/"><strong><span>fit</span>ness</strong></a>
+      	</form>
       </h1>
       <form method="post" action="/controller/login2">
         <div class="int-area">
@@ -272,6 +274,13 @@ li {
             			e.preventDefault();
             			actionForm.val($(this).attr("href"));
             			actionForm.attr("action", "/controller/findpwpage");
+            			actionForm.submit();
+            		})
+            		
+            		
+            			$("#home").on("click",function(e){
+            			e.preventDefault();
+            			actionForm.attr("action", "/controller/home").attr("method", "post");
             			actionForm.submit();
             		})
             		

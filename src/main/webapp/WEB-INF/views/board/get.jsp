@@ -201,7 +201,7 @@ li {
 
 .button-group .button-logout:hover {
   color: #fff !important;
-  background-color: transparent;
+  background-color:  #f7ca18;
   text-shadow: ntwo;
 }
 .button-group .button-logout:hover:before {
@@ -239,7 +239,7 @@ li {
 
 .button-group .button-info:hover {
   color: #fff !important;
-  background-color: transparent;
+  background-color: #f7ca18;
   text-shadow: none;
 }
 
