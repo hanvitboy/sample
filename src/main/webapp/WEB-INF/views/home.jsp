@@ -27,14 +27,11 @@
 
 
 
-/*  <=768px (mobile) */
-@media screen and (max-width: 768px) {
- html, body{
+html, body{
 overflow-x: hidden;
 
 
-}}
-
+}
 
 </style>
 
