@@ -30,9 +30,27 @@
 html, body{
 overflow-x: hidden;
 
-
 }
 
+::-webkit-scrollbar {
+display: none;
+}
+
+
+
+@media screen and (max-width: 768px) {
+
+ .main {
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+      url(https://r1.ilikewallpaper.net/pic/201504/ee32a11f64_640.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  
+  
+  
+}
 </style>
 
   

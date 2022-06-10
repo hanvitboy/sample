@@ -27,7 +27,9 @@
   background-size: cover;
 }
 
-
+::-webkit-scrollbar {
+display: none;
+}
 
 </style>
 

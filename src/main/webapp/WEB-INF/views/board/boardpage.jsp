@@ -1223,7 +1223,9 @@ button,
 
 
 }  
-  
+  ::-webkit-scrollbar {
+display: none;
+}
     
     </style>
     

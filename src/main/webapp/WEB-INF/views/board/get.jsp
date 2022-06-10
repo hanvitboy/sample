@@ -535,14 +535,13 @@ justify-content: center;
   margin-top:15px;
   margin-bottom: 20px;
   font-weight: 700;
+  overflow: hidden;
 }
 
 .post__maintext{
 padding: 15px;
-overflow:scroll;
-
+white-space: pre-line;
 display:block;
-
 resize:none;
 padding-left:2px;
   
