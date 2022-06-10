@@ -53,7 +53,7 @@ display: none;
              食べ物を変えるだけで、より健康的な体になれます。健康的な食生活で、あなたのライフを変えてみませんか。
           </p>
           <div class="btn-area">
-            <a class="btn-next" href="#" role="button">健康フード</a>
+            <a class="btn-next" href="https://www.healthline.com/nutrition/50-super-healthy-foods#fruit" role="button" target='_blank'>健康フード</a>
           </div>
         </div>
         <img

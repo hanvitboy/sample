@@ -1026,6 +1026,9 @@ justify-content: center;
   background-color: white;
   border-radius: 10px;
   margin-bottom: 20px;
+  border: 3px solid gray;
+  background: linear-gradient(to right bottom,#0d324d
+  , gray);
 }
 
 .modal_repCon {
@@ -1040,6 +1043,12 @@ justify-content: center;
   display: block;
   width: 100%;
   resize:none;
+}
+
+
+.modal_repCon:focus {
+  border-color:gray;
+box-shadow: 0 0 5px #353b48;
 
 }
 
@@ -1059,7 +1068,7 @@ justify-content: center;
   align-items: center;
   justify-content: center;
   color: gray;
-  padding: 10px;
+ 
 }
 
 
@@ -1067,7 +1076,7 @@ justify-content: center;
 .modal_cancel,
 .modal_modify_btn
 {
-
+margin:20px 0 20px 0;
 width: 100px;
 padding: 10px;
 border-radius: 20px;
@@ -1559,10 +1568,12 @@ align-content: space-around;
     				
     					comments += '<p><i class="material-icons sidebar__topAvatar"> account_circle </i><span>'+ result[i].writer+' : &nbsp;</span> <span>'+result[i].content+'</span>'
     				       
-    					let uid = '' + ${login_user.id};
+    					let uid = '${login_user.id}';
     					if(uid == result[i].writer){
-    						comments += '<button id="replyupdateBtn" class="comment-modify__btn" data-repNum="'+result[i].rno+'"><i class="fas fa-pen"></i></button> <button id="replydeletBtn" class="comment-delete__btn" data-repNum="'+ result[i].rno +'"><i class="fas fa-times"></i></button></p><div> '+result[i].regdate+'</div>'
+    						comments += '<button id="replyupdateBtn" class="comment-modify__btn" data-repNum="'+result[i].rno+'"><i class="fas fa-pen"></i></button> <button id="replydeletBtn" class="comment-delete__btn" data-repNum="'+ result[i].rno +'"><i class="fas fa-times"></i></button></p>'
     							}
+    					
+    					comments += '<div>'+result[i].regdate+'</div>';
     					comments += '</li>';
     					comments += '<br/>';
     				}

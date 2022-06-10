@@ -253,8 +253,19 @@
          border-radius: 20px;
          background-color: orange;
          cursor:pointer;
-    
       }
+      
+      .Boxes{
+
+  scroll-snap-type: none;
+  overflow-y:none;
+
+}
+
+.navbar{
+flex-direction: row;
+}
+      
       }
   
     

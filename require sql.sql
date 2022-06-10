@@ -59,7 +59,7 @@ select * from liketable;
 select * from tbl_member_rec; --10. 각 메인테이블 조회
 
 
---데이터베이스 셋팅후 최초아이디를 id 를 admin 으로 회원가입 권장
+--데이터베이스 셋팅후 최초아이디를 id 를 admin 으로 회원가입 권장  // c드라이브에 tmp 폴더 생성
 
 create table tbl_reply (
 bno number not null,

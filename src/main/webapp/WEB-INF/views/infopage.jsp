@@ -667,7 +667,7 @@ body {
     	    f.setAttribute('method', 'post');
     	    f.setAttribute('action', '/controller/withdraw');
     	    document.body.appendChild(f);
-    	    var result = confirm('Are you sure you want to leave?'); 
+    	    var result = confirm('本当に脱退なさいますか?'); 
     	    if(result) {  f.submit(); alert('本日までどうもありがとうございました。'); } 
     	    else { return false; }
 
