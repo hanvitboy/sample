@@ -24,6 +24,8 @@
 
 <style>
 
+
+
 .text {
   position: absolute;
   width: 100%;
@@ -48,12 +50,12 @@
 
 
 
-
 @media screen and (max-width: 768px) {
 video {
 
   width: 100%;
 }
+
 
 .text {
   position: absolute;
@@ -75,6 +77,26 @@ video {
   font-size: 16px;
   color: #fff;
 }
+
+  
+    .video-card {
+    width: 100%;
+    height: auto;
+    margin:0 0 10px 0;
+  }
+      .video-cards {
+      align-items:center;
+ 
+  }
+  
+  .video-desc{
+  align-items:center;
+  }
+  
+  html,body{
+  overflow-x:hidden;
+  }
+  
 }
 
 </style>

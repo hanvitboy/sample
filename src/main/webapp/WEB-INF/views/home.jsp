@@ -14,6 +14,12 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="stylesheet" href="resources/css/home.css"/>
  <style>
+ html, body{
+overflow-x: hidden;
+
+
+}
+ 
  .main {
   width: 100%;
   height: 100vh;
@@ -22,12 +28,14 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+
+
 </style>
 
   
   </head>
   <body>
-  
    <section class="main">
    <div class="card">
         <div class="weather loading">

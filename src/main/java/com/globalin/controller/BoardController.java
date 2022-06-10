@@ -133,7 +133,6 @@ public class BoardController {
 		int ltlike = 0;
 		
 		int check = likeservice.ltlikecount(likebean);
-		log.info("wtf "+check);
 		//기존에 좋아요를 하지않았다면 ltlike 1
 		if(check ==0) {
 			likeservice.likeinsert(likebean);

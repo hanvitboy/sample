@@ -17,7 +17,19 @@
       rel="stylesheet"
     />
 
+<style>
+.food-main {
+  width: 100%;
+  height: 30vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url(https://c.wallhere.com/photos/2a/5e/food_vegetables_tomatoes_salad_Pepper_Garlic_Paprika-1949021.jpg!d);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
+
+
+</style>
 
   <body>
   

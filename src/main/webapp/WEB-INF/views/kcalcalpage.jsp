@@ -23,7 +23,7 @@
     <style>
     
     .fixedCalBox{
-      display: none;
+      display: flex;
       width:230px;
       height: 240px;
       font-size: 12px;
@@ -42,7 +42,7 @@
       overflow: hidden;}
       
       .fixedGraphBox{
-  display:none;  
+  display:flex;  
   justify-content: space-evenly;
   flex-direction: column;
   border-radius: 30px;
@@ -189,6 +189,7 @@
           left:10px;
           overflow: hidden;
           z-index: 99;
+          display: none;
   
         }
 
@@ -212,6 +213,7 @@
           right:18px;
           overflow:visible;
           z-index:99;
+          display: none;
       
 
 

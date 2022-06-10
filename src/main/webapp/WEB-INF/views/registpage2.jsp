@@ -27,8 +27,10 @@
   margin: 0;
 }
 
+
 body {
   font-family: "DM Sans", sans-serif;
+  
 }
 
 /* Reset CSS */
@@ -74,6 +76,12 @@ li {
        url(resources/assets/login.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+html, body{
+overflow-x: hidden;
+overflow-y: hidden;
+
 }
 
 .signup-form2 h1 {

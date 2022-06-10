@@ -234,12 +234,11 @@ justify-content: center;
   margin-bottom: 20px;
   border-radius: 10px;
   max-width: 100%;
-  max-height: 30px;
-  padding-left: 15px;
+  max-height: 25px;
+  padding-left: 4px;
   display: block;
   width: 100%;
   resize:none;
-  
 }
 
 .post__maintext{
@@ -247,17 +246,18 @@ border: 1px solid lightgray;
 border-radius: 10px;
 min-height: 300px;
 max-width: 100%;
-
 display: block;
 width: 100%;
 resize:none;
+padding-left:2px;
 
 }
 
 
-
-
-
+.post__title:focus,
+.post__maintext:focus{
+box-shadow: 0 0 8px #e1b12c;
+}
 
 
 .post-modify__btns{

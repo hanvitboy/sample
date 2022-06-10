@@ -363,12 +363,12 @@ margin-top: 18px;
 	//파일을 검사하는 함수
 		function checkFile(fileName, fileSize) {
 			if (fileSize > maxSize) {
-				alert("파일 최대크기 초과");
+				alert("ファイル最大サイズ超過");
 				return false;
 			}
 			//파일 확장자 검사 : 정규식과 파일 이름이 일치하는 패턴이면 false 를 리턴
 			if (regex.test(fileName)) {
-				alert("해당 종류의 파일은 업로드 불가!");
+				alert("該当種類のファイルはアップロード不可！");
 
 				return false;
 			}
@@ -409,7 +409,7 @@ margin-top: 18px;
 	  
 	  
 	  $(".uploadResult").on("click","span",function(e){
-		  alert("삭제하겠습니다");
+		  alert("削除します。");
 		  var targetFile = $(this).data("file");
 		  console.log(targetFile);
 		  var type = $(this).data("type");

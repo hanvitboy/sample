@@ -398,6 +398,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height:100vh;
 }
 
 
@@ -538,7 +539,12 @@ justify-content: center;
 
 .post__maintext{
 padding: 15px;
+overflow:scroll;
 
+display:block;
+
+resize:none;
+padding-left:2px;
   
 }
 
@@ -744,9 +750,13 @@ align-items:center;
   padding: 15px;
   margin-bottom: 10px;
   border-radius: 10px;
-  max-width: 900px;
+  max-width: 700px;
   box-shadow: 8px 7px 12px -4px rgba(0,0,0,0.75);
   min-width: 700px;
+}
+
+#text{
+max-width: 100%;
 }
 
 .post__header {

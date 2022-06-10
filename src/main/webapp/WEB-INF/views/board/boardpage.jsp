@@ -968,6 +968,7 @@ cursor: pointer;
 .post__body{
 display: flex;
 justify-content: center;
+overflow:hidden;
 
 }
 
@@ -1084,6 +1085,7 @@ justify-content: center;
   display:flex;
   justify-content: center;
   align-items: center;
+  overflow:hidden;
 
   
 }
@@ -1185,13 +1187,41 @@ button,
 
   .feed{
     flex:1;
-    min-width:auto;
+    min-width:200px;
   }
   
   .write__box__for-mobile{
     display:flex;
   }
-  
+
+.board_page {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 12px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  overflow:hidden;
+}
+.board_page a {
+  width: 24px;
+  height: 24px;
+  margin-right:3px;
+  margin-left:3px;
+  border-radius:5px;
+
+}
+
+.active2{
+
+  width: 24px;
+  height: 24px;
+  border-radius:5px;
+}
+
+
+
 }  
   
     
