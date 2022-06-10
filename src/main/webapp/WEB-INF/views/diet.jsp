@@ -117,6 +117,68 @@ display: none;
         </div>
       </div>
     </section>
+    
+      <section class="food-information">
+      <div class="food-info">
+       
+
+        <div class="food-cards">
+          <div class="card">
+            <a href="https://www.amazon.co.jp/s?k=%E3%82%AF%E3%83%AB%E3%83%9F&i=food-beverage&__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&crid=3K0H07GV5GMRL&sprefix=%E3%82%AF%E3%83%AB%E3%83%9F%2Cfood-beverage%2C237&ref=nb_sb_noss_1" target='_blank'>
+              <img
+                src="https://domf5oio6qrcr.cloudfront.net/medialibrary/9531/iStock-481114390.jpg"
+                alt="tomato"
+              />
+              <div class="card-content">
+                <h3>クルミ</h3>
+                <p>
+                   くるみに含まれる不飽和脂肪酸は身体に蓄積されにくい脂質です。
+
+特にくるみには体内で合成することのできない必須脂肪酸である多価不飽和脂肪酸を多く含まれ、動脈硬化や血栓を防ぎ血圧を下げるほかに、
+悪玉コレステロールを減らすなど様々な作用があります。
+    </p>
+              </div>
+            </a>
+          </div>
+          <div class="card">
+            <a href="https://www.amazon.co.jp/s?k=%E3%82%A2%E3%83%BC%E3%83%A2%E3%83%B3%E3%83%89&i=food-beverage&__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&crid=PM38JWQZHOUZ&sprefix=%E3%82%A2%E3%83%BC%E3%83%A2%E3%83%B3%E3%83%89%2Cfood-beverage%2C208&ref=nb_sb_noss_1" target='_blank'>
+              <img
+                src="https://www.prameyanews.com/wp-content/uploads/2021/07/benefits-of-almond.jpg"
+                alt=""
+              />
+              <div class="card-content">
+                <h3>アーモンド</h3>
+                <p>
+                アーモンドは、ビタミンB2が豊富です。
+                 皮膚や髪を美しく保つのに効果があり、肌荒れやニキビの予防にも役立ちます。
+                  また、オレイン酸やビタミンEの抗酸化作用は、アンチエイジング効果を発揮します。 
+               
+                 </p>
+              </div>
+            </a>
+          </div>
+          <div class="card">
+              <a href="https://www.amazon.co.jp/s?k=%E3%83%96%E3%83%AD%E3%83%83%E3%82%B3%E3%83%AA%E3%83%BC&i=food-beverage&__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&crid=15RMQCYPZW56A&sprefix=%E3%83%96%E3%83%AD%E3%83%83%E3%82%B3%E3%83%AA%E3%83%BC%2Cfood-beverage%2C244&ref=nb_sb_noss_1" target='_blank'>
+            <img
+                src="https://www.pressurecookrecipes.com/wp-content/uploads/2018/06/instant-pot-broccoli-1155x770.jpg"
+                alt=""
+              />
+              <div class="card-content">
+                <h3>ブロッコリー</h3>
+                <p>
+                ブロッコリーには、筋トレの効果を高める栄養素が含まれます。
+
+特にビタミンB6は筋肉を作る過程で重要なビタミンであり、ブロッコリーにも含まれます。
+ビタミンCも含まれるなど、ブロッコリーには筋トレの効果を高める栄養素がバランス良く入っています。
+               </p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
     <footer>
       <div class="property">
         <p>
