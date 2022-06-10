@@ -48,7 +48,9 @@
   text-align: center;
 }
 
-
+::-webkit-scrollbar {
+display: none;
+}
 
 @media screen and (max-width: 768px) {
 footer{
