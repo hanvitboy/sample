@@ -27,7 +27,11 @@ public class CommonController {
 	}
 	
 	@RequestMapping("/loginpage2")
-	public void loginpage4() {
+	public void loginpage2() {
+	}
+	
+	@RequestMapping("/loginpage3")
+	public void loginpage3() {
 	}
 		
 	@PostMapping("/registpage")

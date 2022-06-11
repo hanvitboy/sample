@@ -288,6 +288,36 @@ public class MemberController {
 	}
 	
 	
+	
+	@PostMapping("/login3")
+	public String login3(MemberRecVO mv, HttpServletRequest req, HttpServletResponse resp, HttpSession session) throws Exception {
+		String id = req.getParameter("id");
+		String pw = req.getParameter("pw");
+		
+		MemberVO mem = service.login(id, pw);
+		
+		
+		if(mem != null) {
+			//id,pw가 검증되었다면
+			MemberRecVO mv2 = service2.get(mem.getIdx());
+			session.setAttribute("login_user", mem);
+			session.setAttribute("user_kcal", mv2);
+			
+			log.warn(mem.toString());			
+		}else {
+			//없는데?
+			resp.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = resp.getWriter();
+			out.println("<script>alert('IDとPWをもう一度確認お願いします。');</script>");
+			out.flush();
+			return "loginpage3";
+		}
+				
+		return "redirect:/board/boardpage?";
+	
+	}
+	
+	
 	@GetMapping("/oauth")
 		public String kakaoRegist(@RequestParam(value = "code", required = false) String code, Model model ) throws Exception {
 		System.out.println("#########" + code);
@@ -368,6 +398,40 @@ public class MemberController {
 	}
 
 	return "kcalcalpage";
+	
+	}
+	
+	
+	@GetMapping("/kakaolog3")
+	public String kakaoLog3(@RequestParam(value = "code", required = false) String code, Model model, HttpSession session, HttpServletResponse resp) throws Exception {
+	System.out.println("#########" + code);
+	
+	String access_Token = service.getLogin3AccessToken(code);
+	HashMap<String, Object> userInfo = service.getLoginUserInfo(access_Token);
+	System.out.println("###access_Token#### : " + access_Token);
+	System.out.println("###kakaoid#### : " + userInfo.get("id"));
+	System.out.println("###nickname#### : " + userInfo.get("nickname"));
+	model.addAttribute("kakaoid",userInfo.get("id"));
+	model.addAttribute("nickname" , userInfo.get("nickname"));
+	
+	MemberVO mem = service.kakaologin((String) userInfo.get("id"));
+	
+	if(mem != null) {
+		//id,pw가 검증되었다면
+		MemberRecVO mv2 = service2.get(mem.getIdx());
+		session.setAttribute("login_user", mem);
+		session.setAttribute("user_kcal", mv2);
+		
+		log.warn(mem.toString());			
+	}else {
+		resp.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = resp.getWriter();
+		out.println("<script>alert('情報がございません。加入ページへ移動します。');</script>");
+		out.flush();
+		return "rspage";
+	}
+
+	return "redirect:/board/boardpage?";
 	
 	}
 	

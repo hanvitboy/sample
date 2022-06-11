@@ -1601,7 +1601,7 @@ align-content: space-around;
     				$('#reply_writer').val('');
     			}
     			, error:function(error){
-    				console.log("에러: " + error);
+    				alert("リフレッシュ(F5)の後、コメント作成お願いします。");
     			}
     			
     		})		

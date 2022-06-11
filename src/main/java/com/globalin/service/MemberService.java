@@ -31,6 +31,8 @@ public interface MemberService {
 	public String getLoginAccessToken(String authorize_code);
 
 	public String getLogin2AccessToken(String authorize_code);
+	
+	public String getLogin3AccessToken(String authorize_code);
 
 	public HashMap<String, Object> getUserInfo(String access_Token);
 	

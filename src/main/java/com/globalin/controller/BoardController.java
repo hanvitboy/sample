@@ -124,7 +124,7 @@ public class BoardController {
 			if(mem!=null) {
 				likebean.setLtmid(mem.getId());
 			}else {
-				return "redirect:/home";
+				return "redirect:/loginpage3";
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
