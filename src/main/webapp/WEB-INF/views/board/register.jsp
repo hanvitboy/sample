@@ -315,7 +315,6 @@ margin-top: 18px;
 	  var file = null;
 	  $("#uploadFile").on("change",function(){
 		  $(".uploadResult ul").empty();
-		  console.log($(this).val());
 		  var str = "";		  
 		  $.each($(this)[0].files,function(idx, item){
 			  str += "<li><img src='/controller/resources/img/attach.png' width='20' height='20'>"+ item.name +"</li>";
@@ -326,7 +325,6 @@ margin-top: 18px;
 	  var formObj = $("form[name='MyForm']");
 	  $("button[type='submit']").on("click",function(e){
 		 e.preventDefault(); 
-		 console.log(formObj);
 	  	 var formData = new FormData();		  
 		 
 		 formData.append("writer",$("#mywriter").val());
@@ -354,7 +352,6 @@ margin-top: 18px;
 				data : formData,
 				type : "POST",
 				success : function(result){
-					console.log(result);
 					$(".uploadDiv").html(cloneOjb.html());
 					showUploadFile(result);
 					location.href="/controller/board/boardpage";
@@ -397,7 +394,6 @@ margin-top: 18px;
 			  if(!obj.image){
 				  var fileCellPath = encodeURIComponent("/"+obj.uploadPath+"/"+obj.uuid+"_"+obj.fileName);
 			  		var fileLink = fileCellPath.replace(new RegExp(/\\/g),"/");
-			  		console.log("/"+obj.uploadPath+"/"+obj.uuid+"_"+obj.fileName);
 				  str += "<div id='attach'><li><a href='/controller/download?fileName="+fileLink+"'><img src='/controller/resources/img/attach.png' width='20' height='20'>" + obj.fileName + "</a><span data-file=\'"+fileCellPath+"\' data-type='file'>X</span></li></div>";
 				  		
 			  }
@@ -406,7 +402,6 @@ margin-top: 18px;
 				  var fileCellPath = encodeURIComponent("/"+obj.uploadPath+"/s_"+obj.uuid+"_"+obj.fileName);
 				  var originPath = "/" + obj.uploadPath+"/"+obj.uuid+"_"+obj.fileName;
 				  originPath = originPath.replace(new RegExp(/\\/g),"/");
-				  console.log(originPath);
 				  str += "<div id='attach'><li><a href=\"javascript:showImage(\'"+originPath+"\')\"><img src='/controller/display?fileName="+fileCellPath+"'></a><span data-file=\'"+fileCellPath+"\' data-type='image'>X</span></li></div>";
 				  //<a onClick='javascript:showImage(\""+originPath+"\");'>
 			  }
@@ -421,9 +416,7 @@ margin-top: 18px;
 	  $(".uploadResult").on("click","span",function(e){
 		  alert("削除します。");
 		  var targetFile = $(this).data("file");
-		  console.log(targetFile);
 		  var type = $(this).data("type");
-		  console.log(type);
 		  const div = document.getElementById('attach');
 		  div.remove();
 		  $.ajax({
@@ -450,7 +443,6 @@ margin-top: 18px;
 		  var inputFile = $("input[name='uploadFile']");		  
 		  var files = inputFile[0].files;
 		  
-		  console.log(files);
 		  
 		//formData에 파일 추가
 			for (let i = 0; i < files.length; i++) {
@@ -468,7 +460,6 @@ margin-top: 18px;
 				data : formData,
 				type : "POST",
 				success : function(result){
-					console.log(result);
 					$(".uploadDiv").html(cloneOjb.html());
 					showUploadFile(result);
 				}

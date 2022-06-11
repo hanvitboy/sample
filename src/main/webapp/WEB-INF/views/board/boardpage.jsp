@@ -1537,7 +1537,6 @@ $(document).ready(function() {
 	let result = '<c:out value="${result}"/>';
 
 	checkAlert(result);
-	console.log(result);
 	history.replaceState({},null,null);
 
 	function checkAlert(result) {

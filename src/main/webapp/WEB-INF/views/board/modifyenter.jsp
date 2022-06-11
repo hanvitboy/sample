@@ -746,7 +746,6 @@ box-shadow: 0 0 12px #353b48;
 
 	
 <script>
-	console.log($("#bno").val())	
 
 
     let form = $("#infoForm");        // 페이지 이동 form(리스트 페이지 이동, 조회 페이지 이동)

@@ -283,7 +283,6 @@ $(document).ready(function() {
 		e.preventDefault();
 		$("input[type='checkbox']:checked").each(function(){
 			const value = $(this).val();
-			console.log(value);
 			
 		})
 	})*/
@@ -300,7 +299,6 @@ $(document).ready(function() {
 		var saveData = $("#kcalFromBack2").val(value);
 		$(".kcalFromBack2-hidden").val(value);
 
-		console.log($("#kcalFromBack2").val());
 		if($("#kcalFromBack2").val() < 0){
 			$("#kcalFromBack2").css("text-shadow", "2px 2px tomato");
 			$(".kcalFromBack2-hidden").css("text-shadow", "2px 2px tomato");

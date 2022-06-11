@@ -1415,7 +1415,6 @@ align-content: space-around;
 
     posts.forEach(function (post) {
       const btn = post.querySelector(".comment__btn");
-       console.log(btn);
 
       btn.addEventListener("click", function () {
         
@@ -1440,7 +1439,6 @@ align-content: space-around;
     	var lc = document.getElementById("likecheck");
       var wholeThumbBtn = document.querySelector(".thumb__btn");
       var thumbBtnIcon = document.querySelector("#thumb-up__id");
-      console.log(lc.value)
       if (lc.value == '1') {
         wholeThumbBtn.style.color = "gray"
         thumbBtnIcon.style.color = "gray"
@@ -1492,7 +1490,6 @@ align-content: space-around;
     	 
     	 $(".modal_repCon").val(repCon);
     	 $(".modal_modify_btn").attr("data-repNum", repNum);
-    	 console.log(repNum);
     	
     });
     $(".modal_cancel").click(function(){
@@ -1511,8 +1508,6 @@ align-content: space-around;
     	     content : $(".modal_repCon").val()
     	     
     	    };  // ReplyVO 형태로 데이터 생성
-    	  console.log(data.rno);
-    	  console.log(data.content);
     	  $.ajax({
     	   url : "/controller/modifyReply",
     	   type : "post",
@@ -1547,8 +1542,6 @@ align-content: space-around;
     function getreplylist(){
     	//var replyurl = "/controller/board/a";
     	var reply_bno = $('#reply_bno').val();
-    	console.log(reply_bno);
-    	//console.log(replyurl)
     	$.ajax({
     		url : "/controller/replylist",
     		type : 'get',
@@ -1556,14 +1549,12 @@ align-content: space-around;
     		dataType: 'json',
     		contentType: 'application/json',
     		success : function(result){
-    			console.log(result);
     			var comments = "";
     			if(result < 1){
     				comments = "登録されているコメントがございません。";
     			}else{
     				for(let i=0; i<result.length; i++){
     					
-    					console.log(result[i].rno);
     					comments += '<li data-repNum="'+ result[i].rno +'">';
     				
     					comments += '<p><i class="material-icons sidebar__topAvatar"> account_circle </i><span>'+ result[i].writer+' : &nbsp;</span> <span>'+result[i].content+'</span>'
@@ -1640,18 +1631,12 @@ align-content: space-around;
     	contentType: 'application/json',
     	data : JSON.stringify(data),
     	success : function(result){
-    		console.log("수정" + result.result);
     		if(count == 1){
-    			console.log("좋아요 취소");
     			 $('#likecheck').val(0);
-    			 console.log($('#likecheck').val());
     		}else if(count == 0){
-    			console.log("좋아요!");
     			$('#likecheck').val(1);
-    			console.log($('#likecheck').val());
     		}
     	}, error : function(request,status,error){
-    		console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
     	}
     	
     	});
