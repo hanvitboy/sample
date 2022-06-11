@@ -209,20 +209,6 @@ color: #f7ca18;
   margin-top: 30px;
 }
 
-/*.btn-area .btn-next {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100px;
-  height: 30px;
-  color: #999;
-  font-size: 20px;
-  letter-spacing: 0.05em;
-  border: 2px solid #f7ca18;
-  border-radius: 5px;
-  padding: 15px 10px;
-}*/
-
 .btn-area .btn-next {
   display: flex;
   justify-content: center;
@@ -246,6 +232,8 @@ color: #f7ca18;
   background-color: #f7ca18;
   transition: all 0.5s;
 }
+
+
 
 /*  <=768px (mobile) */
 @media screen and (max-width:768px) {
@@ -286,21 +274,22 @@ color: #f7ca18;
             autocomplete="off"
             
           />
-          <label for="id">USER NAME</label>
+          <label for="name">USER NAME</label>
         </div>
         <div class="int-area">
-          <input type="text" name="id" id="id" autofocus="autofocus" value="${kakaoid}" readonly autocomplete="off" required />
-          <label for="id">USER ID<small>&nbsp; &nbsp; &nbsp;<span id="idResult"></span></small></p></label>
-        </div>
+          <input type="password" name="id" id="id" autofocus="autofocus" value="${kakaoid}" readonly autocomplete="off" required />
+          <label for="id">KAKAO CODE</label>
+         </div>
+        
         <div class="int-area">
           <input
-            type="password"
+            type="hidden"
             name="pw"
             id="pw"
             autocomplete="off"
-            required
+            value="masterkey123"
           />
-          <label for="pw">PASSWORD</label>
+        
         </div>
         <div class="btn-area">
           <button class="btn-next" type="submit">next</button>
@@ -356,8 +345,9 @@ color: #f7ca18;
 						}else{
 							result= "※すでに登録されているIDです。";
 							dup = true;
+							alert(result);
 					}
-					$("#idResult").text(result);
+					
 				}
 			})
 		
