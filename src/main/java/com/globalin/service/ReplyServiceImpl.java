@@ -20,31 +20,26 @@ public class ReplyServiceImpl implements ReplyService {
 
 	@Override
 	public List<ReplyVO> readReply(int bno) throws Exception {
-		log.info("readReply...");
 		return mapper.readReply(bno);
 	}
 
 	@Override
 	public void registReply(ReplyVO replyVO) {
-		log.info("registReply...");
 		mapper.registReply(replyVO);
 	}
 
 	@Override
 	public void updateReply(ReplyVO replyVO) {
-		log.info("updateReply...");
 		mapper.updateReply(replyVO);
 	}
 
 	@Override
 	public void deleteReply(ReplyVO replyVO) {
-		log.info("deleteReply...");
 		mapper.deleteReply(replyVO);
 	}
 
 	@Override
 	public List<ReplyVO> selectReply(int rno) {
-		log.info("selectReply...");
 		return mapper.selectReply(rno);
 	}
 

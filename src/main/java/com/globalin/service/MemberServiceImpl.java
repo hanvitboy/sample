@@ -36,37 +36,31 @@ public class MemberServiceImpl implements MemberService {
 	
 	@Override
 	public void register(MemberVO member) {
-		log.info("regist..: " +member);
 		mapper.insert(member);
 			}
 
 	@Override
 	public MemberVO get(String id) {
-		log.info("get..");
 		return mapper.read(id);
 	}
 
 	@Override
 	public boolean modify(MemberVO member) {
-		log.info("modify..");
 		return mapper.update(member)==1;
 	}
 
 	@Override
 	public boolean remove(String id) {
-		log.info("delete..");
 		return mapper.delete(id)==1;
 	}
 
 	@Override
 	public List<MemberVO> getList() {
-		log.info("allmember.."); 
 		return mapper.getList();
 	}
 
 	@Override
 	public MemberVO findpw(String id, String name, String gender) {
-		log.info("findpw..");
 		return mapper.findpw(id, name, gender);
 	}
 
@@ -89,20 +83,16 @@ public class MemberServiceImpl implements MemberService {
 			bw.write(sb.toString());
 			bw.flush();
 			int responseCode = conn.getResponseCode();
-			System.out.println("responseCode : " + responseCode);
 			BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 			String line = "";
 			String result = "";
 			while ((line = br.readLine()) != null) {
 				result += line;
 			}
-			System.out.println("response body : " + result);
 			JsonParser parser = new JsonParser();
 			JsonElement element = parser.parse(result);
 			access_Token = element.getAsJsonObject().get("access_token").getAsString();
 			refresh_Token = element.getAsJsonObject().get("refresh_token").getAsString();
-			System.out.println("access_token : " + access_Token);
-			System.out.println("refresh_token : " + refresh_Token);
 			br.close();
 			bw.close();
 		} catch (IOException e) {
@@ -130,20 +120,16 @@ public class MemberServiceImpl implements MemberService {
 			bw.write(sb.toString());
 			bw.flush();
 			int responseCode = conn.getResponseCode();
-			System.out.println("responseCode : " + responseCode);
 			BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 			String line = "";
 			String result = "";
 			while ((line = br.readLine()) != null) {
 				result += line;
 			}
-			System.out.println("response body : " + result);
 			JsonParser parser = new JsonParser();
 			JsonElement element = parser.parse(result);
 			access_Token = element.getAsJsonObject().get("access_token").getAsString();
 			refresh_Token = element.getAsJsonObject().get("refresh_token").getAsString();
-			System.out.println("access_token : " + access_Token);
-			System.out.println("refresh_token : " + refresh_Token);
 			br.close();
 			bw.close();
 		} catch (IOException e) {
@@ -171,20 +157,16 @@ public class MemberServiceImpl implements MemberService {
 			bw.write(sb.toString());
 			bw.flush();
 			int responseCode = conn.getResponseCode();
-			System.out.println("responseCode : " + responseCode);
 			BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 			String line = "";
 			String result = "";
 			while ((line = br.readLine()) != null) {
 				result += line;
 			}
-			System.out.println("response body : " + result);
 			JsonParser parser = new JsonParser();
 			JsonElement element = parser.parse(result);
 			access_Token = element.getAsJsonObject().get("access_token").getAsString();
 			refresh_Token = element.getAsJsonObject().get("refresh_token").getAsString();
-			System.out.println("access_token : " + access_Token);
-			System.out.println("refresh_token : " + refresh_Token);
 			br.close();
 			bw.close();
 		} catch (IOException e) {
@@ -213,20 +195,16 @@ public class MemberServiceImpl implements MemberService {
 			bw.write(sb.toString());
 			bw.flush();
 			int responseCode = conn.getResponseCode();
-			System.out.println("responseCode : " + responseCode);
 			BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 			String line = "";
 			String result = "";
 			while ((line = br.readLine()) != null) {
 				result += line;
 			}
-			System.out.println("response body : " + result);
 			JsonParser parser = new JsonParser();
 			JsonElement element = parser.parse(result);
 			access_Token = element.getAsJsonObject().get("access_token").getAsString();
 			refresh_Token = element.getAsJsonObject().get("refresh_token").getAsString();
-			System.out.println("access_token : " + access_Token);
-			System.out.println("refresh_token : " + refresh_Token);
 			br.close();
 			bw.close();
 		} catch (IOException e) {
@@ -248,14 +226,12 @@ public class MemberServiceImpl implements MemberService {
 			conn.setRequestMethod("GET");
 			conn.setRequestProperty("Authorization", "Bearer " + access_Token);
 			int responseCode = conn.getResponseCode();
-			System.out.println("responseCode : " + responseCode);
 			BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 			String line = "";
 			String result = "";
 			while ((line = br.readLine()) != null) {
 				result += line;
 			}
-			System.out.println("response body : " + result);
 			JsonParser parser = new JsonParser();
 			JsonElement element = parser.parse(result);
 			JsonElement id = ((JsonObject) element).get("id");
@@ -281,14 +257,12 @@ public class MemberServiceImpl implements MemberService {
 			conn.setRequestMethod("GET");
 			conn.setRequestProperty("Authorization", "Bearer " + access_Token);
 			int responseCode = conn.getResponseCode();
-			System.out.println("responseCode : " + responseCode);
 			BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 			String line = "";
 			String result = "";
 			while ((line = br.readLine()) != null) {
 				result += line;
 			}
-			System.out.println("response body : " + result);
 			JsonParser parser = new JsonParser();
 			JsonElement element = parser.parse(result);
 			JsonElement id = ((JsonObject) element).get("id");
@@ -303,7 +277,6 @@ public class MemberServiceImpl implements MemberService {
 	
 	@Override
 	public MemberVO login(String id, String pw) {
-		log.info("login..");
 		return mapper.login(id, pw);
 	}
 	

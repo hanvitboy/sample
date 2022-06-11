@@ -22,25 +22,21 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public BoardVO getpage(int bno) throws Exception {
-		log.info("get...");
 		return mapper.getpage(bno);
 	}
 
 	@Override
 	public int register(BoardVO board) {
-		log.info("register...:"+board);
 		return mapper.insert(board);
 	}
 
 	@Override
 	public int modify(BoardVO board) {
-		log.info("modify...");
 		return mapper.update(board);
 	}
 
 	@Override
 	public boolean remove(int bno) {
-		log.info("remove...");
 		int updateResult = mapper.delete(bno);
 		boolean result = false;// 리턴해줄값
 		if (updateResult > 0) {
@@ -53,43 +49,36 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public List<BoardVO> getList() {
-		log.info("getlist...");
 		return mapper.getList();
 	}
 
 	@Override
 	public void boardHit(int bno) throws Exception {
-		log.info("boardHit...");
 		mapper.boardHit(bno);
 	}
 
 	@Override
 	public List<BoardVO> getListPaging(Criteria cri) {
-		log.info("getListPaging...");
 		return mapper.getListPaging(cri);
 	}
 
 	@Override
 	public int getTotal(Criteria cri) {
-		log.info("getTotal...");
 		return mapper.getTotal(cri);
 	}
 
 	@Override
 	public int likeTotal(int bno) {
-		log.info("likeTotal...");
 		return mapper.likeTotal(bno);
 	}
 
 	@Override
 	public int likeTotalM(int bno) {
-		log.info("likeTotalM...");
 		return mapper.likeTotalM(bno);
 	}
 
 	@Override
 	public int commentTotal(int bno) {
-		log.info("commentTotal...");
 		return mapper.commentTotal(bno);
 	}
 
