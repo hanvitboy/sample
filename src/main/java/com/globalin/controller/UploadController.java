@@ -11,7 +11,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -55,7 +54,6 @@ public class UploadController {
 	@PostMapping("/board/register")
 	public String register(BoardVO board, RedirectAttributes rttr, HttpServletRequest req, HttpServletResponse resp) throws UnsupportedEncodingException {
 		req.setCharacterEncoding("UTF-8");
-		log.info("############### "+ board.toString());	
 		
 		
 		return null;
@@ -69,17 +67,12 @@ public class UploadController {
 	
 	@GetMapping("/uploadForm")
 	public void uploadForm() {
-		log.info("upload form");
 	}
 	
 	@PostMapping("/uploadFormAction")
 	public void uploadFormPost(MultipartFile[] uploadFile, Model model) {
 		try {
 			for(MultipartFile file : uploadFile) {
-				log.info("-------------------------");
-				log.info("upload File Name : " + file.getOriginalFilename());
-				log.info("upload File Size : " + file.getSize());
-				log.info(file.getName());
 				
 				String uploadPath = "C:\\tmp";
 				File saveFile = new File(uploadPath, file.getOriginalFilename());
@@ -93,7 +86,6 @@ public class UploadController {
 
 	@GetMapping("/uploadAjax")
 	public void uploadAjax() {
-		log.info("upload ajax");
 	}
 
 	
@@ -105,10 +97,6 @@ public class UploadController {
 		List<AttachFileVO> list = new ArrayList<AttachFileVO>();
 		String uploadFolder = "c:\\tmp";
 		
-		System.out.println(writer);
-		System.out.println(content);
-		System.out.println(title);
-		
 		//게시판 insert
 		BoardVO board = new BoardVO();
 		
@@ -118,12 +106,10 @@ public class UploadController {
 		
 		int bno = service.register(board);
 		
-		System.out.println("bno : "+board.getBno());
 		
 		String uploadFolderPath = getFolder();
 		//폴더 만들기
 		File uploadPath = new File(uploadFolder, getFolder());
-		log.info("upload path : " + uploadPath);
 		
 		if(uploadPath.exists() == false) {
 			uploadPath.mkdirs();
@@ -132,9 +118,7 @@ public class UploadController {
 		List<String> uuid_list = new ArrayList<String>();
 		
 		for(MultipartFile file : uploadFile) {
-			log.info("------------");
-			log.info("파일 이름 : " + file.getOriginalFilename());
-			log.info("파일 크기 : " + file.getSize());
+			
 			
 			AttachFileVO attachVO = new AttachFileVO();			
 			
@@ -144,7 +128,6 @@ public class UploadController {
 			
 			// file path
 			uploadFileName = uploadFileName.substring(uploadFileName.lastIndexOf("\\")+1);
-			log.info("only file name : " + uploadFileName);
 			attachVO.setFileName(uploadFileName);
 			
 			UUID uuid = UUID.randomUUID();
@@ -208,9 +191,7 @@ public class UploadController {
 	@GetMapping("/display")
 	@ResponseBody
 	public ResponseEntity<byte[]>getFile(String fileName){
-		log.info("fileName : " + fileName);
 		File file = new File(fileName);
-		log.info("file : " + file);
 		ResponseEntity<byte[]> result = null;
 		
 		try {
@@ -231,7 +212,6 @@ public class UploadController {
 	@ResponseBody
 	public ResponseEntity<Resource> downloadFile(@RequestHeader("user-Agent") String userAgent, String fileName){
 		Resource resource = new FileSystemResource(fileName);
-		System.out.println(fileName);
 		if(resource.exists() == false) {
 			return new ResponseEntity<Resource>(HttpStatus.NOT_FOUND);
 		}
@@ -244,13 +224,10 @@ public class UploadController {
 		try {
 			String downloadName = null;
 			if(userAgent.contains("Trident")) {
-				log.info("IE Browser");
 				downloadName = URLEncoder.encode(resourceOriginalName,"UTF-8").replaceAll("\\", " ");
 			}else if(userAgent.contains("Edge")) {
-				log.info("Edge");
 				downloadName = URLEncoder.encode(resourceOriginalName,"UTF-8");
 			}else {
-				log.info("Chrome");
 				downloadName = new String(resourceOriginalName.getBytes("UTF-8"),"ISO-8859-1");
 		}
 			header.add("Content-Disposition", "attachment; filename="+downloadName);
@@ -264,17 +241,11 @@ public class UploadController {
 	@PostMapping("/deleteFile")
 	@ResponseBody
 	public ResponseEntity<String> deleteFile(String fileName,String type){
-	log.info("sijinping");
 		File file;
 		try {
 			file = new File(URLDecoder.decode(fileName,"UTF-8"));
-			log.info("지울꺼");
-			log.info(file.toString());
-			System.out.println(file.delete());
 			if(type.equals("image")) {
 				String largeFileName = file.getAbsolutePath().replace("s_", "");
-				log.info("지울꺼2");
-				log.info(largeFileName.toString());
 				file = new File(largeFileName);
 				file.delete();
 			}

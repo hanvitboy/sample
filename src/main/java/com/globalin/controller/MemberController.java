@@ -38,7 +38,6 @@ public class MemberController {
 	
 	@RequestMapping("/listpage")
 	public void list(Model model) {
-		System.out.println(service.getList());
 		model.addAttribute("list" , service.getList());
 		
 	}
@@ -64,8 +63,6 @@ public class MemberController {
 	
 	@PostMapping("/register")
 	public String register(MemberVO member, MemberRecVO mv, HttpServletRequest req, HttpServletResponse resp, HttpSession session) throws IOException {
-	 	log.info(req.getParameter("actindex"));
-	 	log.info(member.toString());
 	 	service.register(member);
 	 	service2.register(mv);
 	 	resp.setContentType("text/html; charset=UTF-8");
@@ -243,7 +240,6 @@ public class MemberController {
 			MemberRecVO mv2 = service2.get(mem.getIdx());
 			session.setAttribute("user_kcal", mv2);
 			session.setAttribute("login_user", mem);
-				log.warn(mem.toString());			
 		}else {
 			//없는데?
 			resp.setContentType("text/html; charset=UTF-8");
@@ -273,7 +269,6 @@ public class MemberController {
 			session.setAttribute("login_user", mem);
 			session.setAttribute("user_kcal", mv2);
 			
-			log.warn(mem.toString());			
 		}else {
 			//없는데?
 			resp.setContentType("text/html; charset=UTF-8");
@@ -303,7 +298,6 @@ public class MemberController {
 			session.setAttribute("login_user", mem);
 			session.setAttribute("user_kcal", mv2);
 			
-			log.warn(mem.toString());			
 		}else {
 			//없는데?
 			resp.setContentType("text/html; charset=UTF-8");
@@ -320,13 +314,9 @@ public class MemberController {
 	
 	@GetMapping("/oauth")
 		public String kakaoRegist(@RequestParam(value = "code", required = false) String code, Model model ) throws Exception {
-		System.out.println("#########" + code);
 		
 		String access_Token = service.getAccessToken(code);
 		HashMap<String, Object> userInfo = service.getUserInfo(access_Token);
-		System.out.println("###access_Token#### : " + access_Token);
-		System.out.println("###nickname#### : " + userInfo.get("nickname"));
-		System.out.println("###kakaoid#### : " + userInfo.get("id"));
 		model.addAttribute("nickname" , userInfo.get("nickname"));
 		model.addAttribute("kakaoid",userInfo.get("id"));
 		
@@ -336,13 +326,10 @@ public class MemberController {
 	
 	@GetMapping("/kakaolog")
 	public String kakaoLog(@RequestParam(value = "code", required = false) String code, Model model, HttpSession session, HttpServletResponse resp) throws Exception {
-	System.out.println("#########" + code);
+	
 	
 	String access_Token = service.getLoginAccessToken(code);
 	HashMap<String, Object> userInfo = service.getLoginUserInfo(access_Token);
-	System.out.println("###access_Token#### : " + access_Token);
-	System.out.println("###kakaoid#### : " + userInfo.get("id"));
-	System.out.println("###nickname#### : " + userInfo.get("nickname"));
 	model.addAttribute("kakaoid",userInfo.get("id"));
 	model.addAttribute("nickname" , userInfo.get("nickname"));
 	
@@ -354,7 +341,6 @@ public class MemberController {
 		session.setAttribute("login_user", mem);
 		session.setAttribute("user_kcal", mv2);
 		
-		log.warn(mem.toString());			
 	}else {
 		resp.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = resp.getWriter();
@@ -370,13 +356,9 @@ public class MemberController {
 
 	@GetMapping("/kakaolog2")
 	public String kakaoLog2(@RequestParam(value = "code", required = false) String code, Model model, HttpSession session, HttpServletResponse resp) throws Exception {
-	System.out.println("#########" + code);
 	
 	String access_Token = service.getLogin2AccessToken(code);
 	HashMap<String, Object> userInfo = service.getLoginUserInfo(access_Token);
-	System.out.println("###access_Token#### : " + access_Token);
-	System.out.println("###kakaoid#### : " + userInfo.get("id"));
-	System.out.println("###nickname#### : " + userInfo.get("nickname"));
 	model.addAttribute("kakaoid",userInfo.get("id"));
 	model.addAttribute("nickname" , userInfo.get("nickname"));
 	
@@ -388,7 +370,6 @@ public class MemberController {
 		session.setAttribute("login_user", mem);
 		session.setAttribute("user_kcal", mv2);
 		
-		log.warn(mem.toString());			
 	}else {
 		resp.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = resp.getWriter();
@@ -404,13 +385,9 @@ public class MemberController {
 	
 	@GetMapping("/kakaolog3")
 	public String kakaoLog3(@RequestParam(value = "code", required = false) String code, Model model, HttpSession session, HttpServletResponse resp) throws Exception {
-	System.out.println("#########" + code);
 	
 	String access_Token = service.getLogin3AccessToken(code);
 	HashMap<String, Object> userInfo = service.getLoginUserInfo(access_Token);
-	System.out.println("###access_Token#### : " + access_Token);
-	System.out.println("###kakaoid#### : " + userInfo.get("id"));
-	System.out.println("###nickname#### : " + userInfo.get("nickname"));
 	model.addAttribute("kakaoid",userInfo.get("id"));
 	model.addAttribute("nickname" , userInfo.get("nickname"));
 	
@@ -422,7 +399,6 @@ public class MemberController {
 		session.setAttribute("login_user", mem);
 		session.setAttribute("user_kcal", mv2);
 		
-		log.warn(mem.toString());			
 	}else {
 		resp.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = resp.getWriter();
@@ -466,11 +442,9 @@ public class MemberController {
 		String name = req.getParameter("name");
 		String gender = req.getParameter("gender");
 		
-		log.info("findpw con : " + id + " / " + name + " / " + gender);
 		MemberVO mem = service.findpw(id, name, gender);
 		
 		if(mem != null) {
-			log.info("Member Exist");
 			resp.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = resp.getWriter();
 			out.println("<script>alert('"+ mem.getName()+"様の暗証番号 : "+ mem.getPw() +"');</script>");

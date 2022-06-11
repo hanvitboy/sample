@@ -60,7 +60,6 @@ public class BoardController {
         
     	lv = new LikeVO();
     	
-    	System.out.println(lv);
     	
     	
         model.addAttribute("list",service.getListPaging(cri));
@@ -69,18 +68,6 @@ public class BoardController {
         model.addAttribute("pageMaker", pm);
     }
 	
-	/* 게시글 등록 기능 
-	@PostMapping("/register")
-	public String register(BoardVO board, RedirectAttributes rttr, HttpServletRequest req, HttpServletResponse resp) throws UnsupportedEncodingException {
-		req.setCharacterEncoding("UTF-8");
-		log.info("############### "+ board.toString());	
-		
-		
-		service.register(board);
-		rttr.addFlashAttribute("result", "regist success");
-		return "redirect:/board/boardpage";
-		
-	}*/
 	
 	/* 게시글 등록 접속 */
 	@GetMapping("/registpage")
@@ -106,7 +93,6 @@ public class BoardController {
 		
 		fileList = bas.findByBno(bno);
 		
-		System.out.println(fileList.toString());
 		
 		//게시글 정보들
 		model.addAttribute("pageInfo", board);
@@ -183,6 +169,19 @@ public class BoardController {
         return "redirect:/board/boardpage";
         
     }
+    
+    /* 게시글 등록 기능 
+	@PostMapping("/register")
+	public String register(BoardVO board, RedirectAttributes rttr, HttpServletRequest req, HttpServletResponse resp) throws UnsupportedEncodingException {
+		req.setCharacterEncoding("UTF-8");
+		log.info("############### "+ board.toString());	
+		
+		
+		service.register(board);
+		rttr.addFlashAttribute("result", "regist success");
+		return "redirect:/board/boardpage";
+		
+	}*/
   //댓글 작성
 //  	@RequestMapping(value="/replyWrite", method = RequestMethod.POST)
 //  	public String replyWrite(ReplyVO vo, Criteria cri, RedirectAttributes rttr) throws Exception {

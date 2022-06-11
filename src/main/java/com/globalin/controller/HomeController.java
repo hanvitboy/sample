@@ -41,7 +41,6 @@ public class HomeController {
 	@RequestMapping(value="logout", method=RequestMethod.GET)
     public String logoutMainGET(HttpServletRequest request) throws Exception{
         
-        logger.info("logoutMainGET메서드 진입");
         
         HttpSession session = request.getSession();
         
@@ -53,7 +52,6 @@ public class HomeController {
 	@RequestMapping(value="logout", method=RequestMethod.POST)
     public String logoutMainPOST(HttpServletRequest request) throws Exception{
         
-        logger.info("logoutMainpost메서드 진입");
        
         HttpSession session = request.getSession();
         

@@ -88,7 +88,6 @@ public class CommonController {
 	
 	@RequestMapping("/boardpage")
 	public void boardpage(Model model) {
-		System.out.println("go boardpage");
 		model.addAttribute("list", bservice.getList());
 	}
 	

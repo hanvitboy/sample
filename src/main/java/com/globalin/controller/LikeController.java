@@ -30,11 +30,9 @@ public class LikeController {
 	@ResponseBody
 	@PostMapping("/likeupdate")
 	public Map<String,String> likeupdate(@RequestBody LikeVO likebean){
-		log.info("likeupdate");
 		
 		Map<String,String> map = new HashMap<String, String>();
 		
-		log.info(likebean.toString());
 		
 		try {
 			likeservice.likeupdate(likebean);

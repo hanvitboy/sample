@@ -30,7 +30,6 @@ public class CommonExceptionAdvice {
 	@ExceptionHandler(Exception.class)
 	public String except(Exception ex, Model model) {
 		
-			log.error("Exception ....." + ex.getMessage());
 			model.addAttribute("exception", ex);
 			return "error_page";
 	}
