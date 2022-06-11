@@ -241,36 +241,7 @@ body {
   cursor: pointer;
 }
 
-/*.form-radio::before {
-  content: "";
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  background: #ffffff;
-  border: 1px solid #e0e0e0;
-  margin-right: 8px;
-}
 
-.form-radio::before {
-  border-radius: 50%;
-}
-
-.input-chek,
-.input-radio {
-  display: none;
-}
-
-.input-chek:checked + .form-chek::before,
-.input-radio:checked + .form-radio::before {
-  background: #f7ca18;
-  transition: all 0.5s;
-}
-
-.input-chek:checked + .form-chek,
-.input-radio:checked + .form-radio {
-  color: #f7ca18;
-  transition: all 0.5s;
-}*/
 
 .member-info.two .user-activity input[type="radio"] {
   display: none;
@@ -675,14 +646,7 @@ body {
     	}
 
     	
-     var namae= document.getElementById("namae").value;          	
-     var pasowado = document.getElementById("pasowado").value;   
-   //  $("#irum").attr("value" , $("#namae").val());
-    // $("#bibon").attr("value" , document.getElementById("pasowado").value);
-     document.getElementById("irum").setAttribute('value', document.getElementById("namae").value);
-    document.getElementById("bibon").setAttribute('value', document.getElementById("pasowado").value);
-     
-     
+   
      var actionForm = $(".actionForm");
      var actionForm2 = $(".actionForm2");
             	$(document).ready(function(){
@@ -694,6 +658,11 @@ body {
             		
             		$("#modify2").on("click",function(e){
             			e.preventDefault();
+            			var value= $("#namae").val();
+    					$("#irum").val(value);  
+    					var pasowado = $("#pasowado").val();
+    					$("#bibon").val(value);  
+    					
             			actionForm2.attr("action", "/controller/modify").attr("method", "post");
             			actionForm2.submit();
             		})
@@ -710,7 +679,7 @@ body {
             			actionForm2.submit();
             		})
             		
-            		
+            		         		
             	})
             	
             	
