@@ -15,7 +15,7 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <title>게시판</title>
+    <title>Fitness Board</title>
     
     <style>
     * {

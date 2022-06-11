@@ -14,7 +14,7 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <title>書き込み</title>
+    <title>Fitness Board</title>
     <style>
 * {
     margin: 0;
