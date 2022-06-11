@@ -308,7 +308,9 @@ overflow-y: hidden;
   <body>
     <section class="signup-form2">
       <h1>
-       <a href="http://localhost:9090/controller/"><strong><span>fit</span>ness</strong></a>
+        <form id="actionForm" action="loginpage" method="post">
+           <a id="home" href="http://localhost:9090/controller/"><strong><span>fit</span>ness</strong></a>
+      	</form>
       </h1>
       <h2>SIGNUP</h2>
       <div class="information">
@@ -640,7 +642,7 @@ overflow-y: hidden;
 
   pointweight.addEventListener("click", resetweight);
 
-  
+  var actionForm = $(".actionForm");
   
   $(document).ready(function(){
 	 
@@ -658,6 +660,13 @@ overflow-y: hidden;
 				  return false;
 				  		
 		})
+		
+		
+			$("#home").on("click",function(e){
+            			e.preventDefault();
+            			actionForm.attr("action", "/controller/home").attr("method", "post");
+            			actionForm.submit();
+            		})
 	  
 
 

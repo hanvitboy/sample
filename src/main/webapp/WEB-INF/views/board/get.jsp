@@ -1184,6 +1184,21 @@ align-content: space-around;
       display: flex;
     }
     
+      .replyModal {
+      top:20%;
+  left: 0%;
+  }
+    
+    
+    
+    .modalContent {
+  
+  min-width: 400px;
+  min-height: 160px;
+  
+ 
+}
+    
   }
     </style>
   </head>
@@ -1592,7 +1607,7 @@ align-content: space-around;
     				$('#reply_writer').val('');
     			}
     			, error:function(error){
-    				alert("リフレッシュ(F5)の後、コメント作成お願いします。");
+    				alert("リフレッシュ(F5)の後、空欄無しでコメント作成お願いします。");
     			}
     			
     		})		
