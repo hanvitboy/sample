@@ -1105,8 +1105,7 @@ $(document).ready(function() {
       </button>
       <form action="/controller/savekcal" method="post">
       <div class="recommendedKcal">
-        <span id="redinfo">一日目標:</span><input type="text" id="kcalFromgoal" value="+500" readonly/>
-        <span id="redinfo">kcals以上</span>
+        <span id="redinfo">セーブデーターが✙数値なら成功</span>
       </div>
       <div class="recommendedKcal">
         <span>一日摂取可能量:</span> <input type="text" id="kcalFromBack1" value="${login_user.onedaykcal}" readonly/>

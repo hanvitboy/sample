@@ -161,6 +161,30 @@ li {
   }
 }
    
+    @media screen and (max-width: 768px){
+    
+    .fly-image{
+    display:none;
+    }
+    
+    .error-information {
+    
+    height: 40vh;
+}
+
+.error-info {
+    padding: 0px; 
+    margin-left: 0px; 
+}
+
+.error-desc h1 {
+    font-size: 24px;
+}
+    
+    }
+    
+   
+   
    </style>
    
    </head>
@@ -175,8 +199,13 @@ li {
           <h2>
             ページが存在していないか、アドレスが間違っている可能性がございます。NOT FOUND PAGE。
           </h2>
-          <div class="btn-area">
-            <a class="btn-next" href="http://localhost:9090/controller/" role="button">ホーム</a>
+         
+        
+        
+         <div class="btn-area">
+          <form id="actionForm" action="loginpage" method="post">
+            <a id="home" class="btn-next" href="http://172.30.1.10:9090/controller/" role="button">ホーム</a>
+          </form>
           </div>
         </div>
         <div class="fly-image">
@@ -185,5 +214,7 @@ li {
         </div>
       </div>
     </div>
+    
+   
   </body>
 </html>
