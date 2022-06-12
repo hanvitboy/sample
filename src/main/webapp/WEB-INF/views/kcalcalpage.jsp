@@ -154,6 +154,34 @@
     background-color: #f7ca18;
     transition: all 0.7s;
   }
+  
+  #kcalFromgoal
+  {
+ 
+  height: 100%;
+  width: 22%;
+  background: none;
+   color: inherit;
+   border: none;
+   padding: 0;
+   font: inherit;
+   cursor:default;
+  pointer-events: none;
+   outline: inherit;
+  font-weight: 700;
+  font-size: 17px;
+  text-shadow: 2px 2px blueviolet;
+}
+
+#redinfo{
+color: tomato;
+
+
+}
+  ::-webkit-scrollbar {
+display: none;
+}
+  
           @media screen and (max-width: 768px){
      	
      	footer{
@@ -302,6 +330,12 @@ $(document).ready(function() {
 		if($("#kcalFromBack2").val() < 0){
 			$("#kcalFromBack2").css("text-shadow", "2px 2px tomato");
 			$(".kcalFromBack2-hidden").css("text-shadow", "2px 2px tomato");
+			
+		}
+		
+		if($("#kcalFromBack2").val() > 0){
+			$("#kcalFromBack2").css("text-shadow", "2px 2px #44bd32");
+			$(".kcalFromBack2-hidden").css("text-shadow", "2px 2px #44bd32");
 			
 		}
 	})
@@ -1071,6 +1105,10 @@ $(document).ready(function() {
       </button>
       <form action="/controller/savekcal" method="post">
       <div class="recommendedKcal">
+        <span id="redinfo">一日目標:</span><input type="text" id="kcalFromgoal" value="+500" readonly/>
+        <span id="redinfo">kcals以上</span>
+      </div>
+      <div class="recommendedKcal">
         <span>一日摂取可能量:</span> <input type="text" id="kcalFromBack1" value="${login_user.onedaykcal}" readonly/>
         <span>kcals</span>
       </div>
@@ -1162,11 +1200,11 @@ $(document).ready(function() {
        </section>
        
        <div class="ad-box1" onclick="hideAdBox1()">
-      광고
+      広告
       <button class="ad__back-btn"><i class="fas fa-times"></i></button>
     </div>
     <div class="ad-box2" onclick="hideAdBox2()">
-      광고
+     広告
       <button class="ad__back-btn"><i class="fas fa-times"></i></button>
     </div>
 
@@ -1290,7 +1328,7 @@ $(document).ready(function() {
             	
     
 
-const totalCal = 2500;
+const totalCal = 1000;
             	
 /*var plusStyle = document.createElement('style');
 sytle.type = "text/css";
