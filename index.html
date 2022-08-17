@@ -1,0 +1,1783 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hanvit and Haruka's Wedding Invitation</title>
+    <script
+      src="https://kit.fontawesome.com/3435530994.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+
+ <style>
+
+  
+.replyModal {
+  
+  flex: 1;
+  position: fixed;
+  top: 60%;
+  left: 0%;
+  z-index:1; 
+  display:none;
+}
+
+
+
+.modalContent {
+  display:flex;
+  min-width: 400px;
+  min-height: 150px;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  margin: 5px;
+  background: gray;
+}
+
+.modal_repCon {
+  
+  border: 1px solid lightgray;
+  border-radius: 30px;
+  min-height: 100px;
+  max-width: 300px;
+  padding: 10px;
+  margin-top:30px;
+  padding-left: 15px;
+  display: block;
+  width: 100%;
+  resize:none;
+
+}
+
+
+.modal_repCon:focus {
+  border-color:gray;
+box-shadow: 0 0 5px #353b48;
+
+}
+
+
+
+.comment-modify__btns {
+  width:90%;
+  display: flex;
+  justify-content: space-around;
+
+}
+
+
+
+.comment-modify__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: gray;
+ 
+}
+
+
+
+.modal_cancel,
+.modal_modify_btn
+{
+margin:5px 0 5px 0;
+padding: 10px;
+border-radius: 5px;
+border:2px solid #dcdde1;
+cursor: pointer;
+
+}
+
+.modal_cancel:hover,
+.modal_modify_btn:hover
+{
+
+background-color: antiquewhite;
+border-color:gray;
+box-shadow: 0 0 12px #353b48;
+  
+  }
+
+
+  .modal_cancel i{
+  color: red;
+  font-size: 25px;
+}
+
+.modal_modify_btn i{
+  color: #0097e6;
+  font-size: 25px;
+}
+
+
+.inputOption:last-child .upload-box__btn i{
+  color: #fbc531;
+  font-size: 25px;
+}
+.swiper-container{
+    width: 450px;
+    height: 450px;
+    position:relative;
+}
+
+.swiper-pagination{
+    display: none;
+    position:absolute;
+    top : 400px;
+    outline: none;
+}
+
+.swiper-button-prev,
+.swiper-button-next{
+    position:absolute;
+    top : 230px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+     
+  * {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+/* Reset CSS */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font-family: "DM Sans", sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 16px;
+}
+
+button:focus,
+button:active,
+input:focus,
+input:active,
+textarea:focus,
+textarea:active {
+  outline: none;
+  box-shadow: none;
+}
+
+ol,
+ul,
+li {
+  list-style-type: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  flex-wrap : nowrap;
+    position: fixed;
+  top: 0;
+  width: 100%;
+  left: 0;
+  right: 0;    z-index: 1;
+  background-color: white;
+ 
+}
+
+/* logo */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo a {
+  font-size: 20px;
+}
+
+.navbar-logo span {
+  color: white;
+  text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+}
+
+.navbar-logo img {
+  max-width: 100%;
+  max-height: 60px;
+}
+
+/* menu */
+.navbar-menu {
+  display: flex;
+  margin-bottom: 0;
+}
+
+.navbar-menu li {
+  padding: 8px 12px;
+  
+  letter-spacing: 0.05em;
+}
+
+.navbar-menu li:hover {
+  color: black;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggleBtn {
+  display: none;
+  position: absolute;
+  top: 11px;
+  right: 20px;
+  color: gray;
+}
+
+/* logins */
+.navbar-logins {
+  display: flex;
+  margin-bottom: 0;
+}
+
+.navbar-logins .message {
+  display: flex;
+  align-items: center;
+  padding: 4px 8px;
+  margin-right: 8px;
+}
+
+.button-group {
+  display: flex;
+}
+
+.button-group .button-login {
+  color: #000;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  border: 2px solid black;
+  border-radius: 4px;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+  text-align: center;
+  padding: 4px 8px;
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+.button-group .button-login:hover {
+  color: #fff !important;
+  background-color: transparent;
+  text-shadow: none;
+}
+
+.button-group .button-login:hover:before {
+  top: 0%;
+  bottom: auto;
+  height: 100%;
+}
+
+.button-group .button-login:before {
+  display: block;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 0px;
+  width: 100%;
+  z-index: -1;
+  content: "";
+  color: #000 !important;
+  background: black;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}
+
+.button-group .button-logout {
+  color: #000;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  border: 2px solid #f7ca18;
+  border-radius: 4px;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+  text-align: center;
+  padding: 4px 8px;
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+.button-group .button-logout:hover {
+  color: #fff !important;
+  background-color: transparent;
+  text-shadow: ntwo;
+}
+.button-group .button-logout:hover:before {
+  bottom: 0%;
+  top: auto;
+  height: 100%;
+}
+.button-group .button-logout:before {
+  display: block;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  height: 0px;
+  width: 100%;
+  z-index: -1;
+  content: "";
+  color: #000 !important;
+  background: #f7ca18;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}
+
+.button-group .button-info {
+  color: #000;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  border: 2px solid #f7ca18;
+  border-radius: 4px;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+  text-align: center;
+  padding: 4px 8px;
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+.button-group .button-info:hover {
+  color: #fff !important;
+  background-color: transparent;
+  text-shadow: none;
+}
+
+.button-group .button-info:hover:before {
+  top: 0%;
+  bottom: auto;
+  height: 100%;
+}
+
+.button-group .button-info:before {
+  display: block;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 0px;
+  width: 100%;
+  z-index: -1;
+  content: "";
+  color: #000 !important;
+  background: #f7ca18;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}
+
+.button-group .button-list {
+  color: #000;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  border: 2px solid #f7ca18;
+  border-radius: 4px;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+  text-align: center;
+  padding: 4px 8px;
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+.button-group .button-list:hover {
+  color: #fff !important;
+  background-color: transparent;
+  text-shadow: none;
+}
+
+.button-group .button-list:hover:before {
+  top: 0%;
+  bottom: auto;
+  height: 100%;
+}
+
+.button-group .button-list:before {
+  display: block;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 0px;
+  width: 100%;
+  z-index: -1;
+  content: "";
+  color: #000 !important;
+  background: #f7ca18;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}
+
+.button-group .button-signup {
+  color: #000;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  border: 2px solid #f7ca18;
+  border-radius: 4px;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+  text-align: center;
+  padding: 4px 8px;
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+.button-group .button-signup:hover {
+  color: #fff !important;
+  background-color: transparent;
+  text-shadow: ntwo;
+}
+.button-group .button-signup:hover:before {
+  bottom: 0%;
+  top: auto;
+  height: 100%;
+}
+.button-group .button-signup:before {
+  display: block;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  height: 0px;
+  width: 100%;
+  z-index: -1;
+  content: "";
+  color: #000 !important;
+  background: #f7ca18;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}
+
+
+.navbar-loginBtn {
+  display: none;
+  position: absolute;
+  top: 25px;
+  right: 20px;
+  color: #f7ca18;
+}
+
+/* scroll-main*/
+
+
+
+/* main */
+
+.main-title {
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.main-title p {
+  font-size: 30px;
+}
+
+/* main-infomation */
+.main-information {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.main-information.a {
+  background-size: cover;
+}
+
+.main-information h1 {
+  color: lightgray;
+  justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.main-information p {
+  color: #fff;
+}
+
+.main-info {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}
+
+.main-info1 {
+  margin-top: 50px;
+}
+
+.main-info-explain {
+  padding: 100px;
+  margin-right: 30px;
+  text-align: center;
+}
+
+.main-info-explain h1 {
+  margin-bottom: 20px;
+}
+
+.btn-area .btn-next {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  border: 2px solid #f7ca18;
+  border-radius: 5px;
+  margin: 15px auto;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+  color: #999;
+  transition: all 0.9s, color 0.3;
+}
+
+
+#btn-next {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 40px;
+  line-height: 40px;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  margin: 15px auto;
+  text-align: center;
+  cursor: pointer;
+  color: black;
+  transition: all 0.9s, color 0.3;
+  background-color: white;
+}
+
+.btn-area .btn-next:hover {
+  color: #fff;
+  box-shadow: 200px 0 0 0 #f7ca18 inset;
+  background-color: #f7ca18;
+  transition: all 0.5s;
+}
+
+#btn-next:hover {
+  color: #fff;
+  background-color: black;
+  transition: all 0.5s;
+}
+
+.card {
+  background: #000000d0;
+  color: white;
+  padding: 3px;
+  border-radius: 30px;
+  width: 250px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position:absolute;
+  top: 100px;
+  right:20px;
+  overflow: hidden;
+}
+
+h1.temp {
+  margin: 0;
+ 
+}
+
+.detail-info{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.condition-box {
+  align-items: center;
+}
+
+.description {
+  text-transform: capitalize;
+  margin-left: 8px;
+}
+
+.weather.loading {
+
+  visibility: hidden;
+  max-height: 20px;
+  position: relative;
+}
+
+.weatherBox{
+display:flex;
+
+align-items: center;
+
+}
+.weather-info-box,
+.condition-box{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+condition-box
+
+.weather.loading:after {
+  visibility: visible;
+  content: "Loading...";
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 20px;
+}
+.flex,
+.description,
+.humidity,
+.wind{
+  font-size: 1px;
+}
+
+.temp{
+  font-size:18px;
+}
+.city{
+font-size: 12px;
+
+}
+
+
+
+/* footer */
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0;
+  width: 100%;
+  height: 15px;
+  clear: both;
+  font-size: 13px;
+  background: #f7ca18;
+}
+
+footer p {
+  margin-bottom: 0;
+}
+
+footer .number {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer .number p:first-child {
+  margin-right: 10px;
+}
+
+
+
+
+/*  <=768px (mobile) */
+@media screen and (max-width: 768px) {
+
+ .card {
+ display: none;
+ }
+
+  .s30 {
+    font-size: 24px;
+  }
+
+
+  /* logo */
+  .navbar-logo img {
+    max-width: 100%;
+    max-height: 50px;
+  }
+
+  
+
+  @media (hover: hover) {
+    .navbar-menu li:hover {
+      color: black;
+      transition: all 0.3s ease;
+    }
+  }
+
+ 
+
+  /* main */
+ 
+
+  .main-title p {
+    font-size: 18px;
+  }
+
+  .main-information {
+    height: auto;
+  }
+
+  .main-information.a {
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .main-information.b {
+  
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding:20px;
+  }
+
+  .main-information.c {
+   
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding:20px;
+  
+  }
+
+  .main-info {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .main-info-explain {
+    margin-right: 0;
+    padding: 20px 50px;
+  }
+
+  .main-info-img {
+    display: none;
+  }
+  /*.main-info-img img {
+    max-width: 100%;
+    height: auto;
+  }*/
+
+  /* footer */
+
+  footer {
+    display: none;
+  }
+
+}
+
+
+
+/* main */
+
+
+.main-title {
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.main-title p {
+  font-size: 30px;
+}
+
+/* main-infomation */
+.main-information {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+ 
+}
+
+.main-information.a {
+  background-size: cover;
+}
+
+.main-information h1 {
+  color: lightgray;
+}
+
+.main-information p {
+  color: #fff;
+}
+
+.main-info {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}
+
+.main-info1 {
+  margin-top: 50px;
+}
+
+.main-info-explain {
+  padding: 100px;
+  margin-right: 30px;
+  text-align: center;
+}
+
+.main-info-explain h1 {
+  margin-bottom: 20px;
+}
+
+.btn-area .btn-next {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin: 15px auto;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+  color: #999;
+  transition: all 0.9s, color 0.3;
+}
+
+.btn-area .btn-next:hover {
+  color: #fff;
+  box-shadow: 200px 0 0 0 black inset;
+  background-color: black;
+  transition: all 0.5s;
+}
+
+/* footer */
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0;
+  width: 100%;
+  height: 15px;
+  clear: both;
+  font-size: 13px;
+  background: gray;
+  color:white;
+}
+
+footer p {
+  margin-bottom: 0;
+}
+
+footer .number {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer .number p:first-child {
+  margin-right: 10px;
+}
+
+/*  <=768px (mobile) */
+@media screen and (max-width: 768px) {
+
+
+ .card {
+ display: none;
+ }
+
+
+  .s30 {
+    font-size: 24px;
+  }
+
+  /* logo */
+  
+  /* main */
+ 
+
+  .main-title p {
+    font-size: 18px;
+  }
+
+  .main-information {
+    height: auto;
+  }
+
+  .main-information.a {
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .main-information.b {
+   
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .main-information.c {
+   
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .main-info {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .main-info-explain {
+    margin-right: 0;
+    padding: 20px 50px;
+    
+  }
+
+  .main-info-img {
+    display: none;
+  }
+  /*.main-info-img img {
+    max-width: 100%;
+    height: auto;
+  }*/
+
+  /* footer */
+
+  footer {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.main {
+  width: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+    url();
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+
+html, body{
+overflow-x: hidden;
+
+}
+
+::-webkit-scrollbar {
+display: none;
+}
+
+		.swiper-pagination-bullet {
+			opacity: 1;
+			border: black dotted 1px;
+			background-color: lightgray;
+		}
+		.swiper-pagination-bullet-active {
+			background-color: slategray;
+		}
+        .parallax-bg {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 130%;
+          height: 100%;
+          -webkit-background-size: cover;
+          background-size: cover;
+          background-position: center;
+        }
+		divx {
+			border: red dotted 1px;
+		}
+		p {
+			margin: 0px;
+		}
+
+
+@media screen and (max-width: 768px) {
+
+ .main {
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+      url();
+    background-repeat: no-repeat;
+    background-size: cover;
+
+  }
+  
+  
+  
+  
+}
+
+.note {
+  font-size: calc(0.5vw + 0.75rem);
+  text-align: center;
+  opacity: 0.5;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.5em 1em;
+  color: #fff;
+  font-weight: bold;
+  font-size: 0.6875em;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.0625em;
+  background-color: #37474F;
+  border-radius: 1.5em;
+  cursor: pointer;
+}
+
+.calendar-wrap {
+  width: 100%;
+  padding: 0.65em;
+  margin: auto;
+  font-size: 3vw;
+  background-color: #fff;
+  border-radius: 1.2em;
+  user-select: none;
+  box-shadow:
+    0 0.05em 0.2em rgba(0,20,50,0.2),
+    0 0.45em 0.45em 0.1em rgba(0,20,50,0.1);
+}
+
+@media (min-width: 500px) {
+  .calendar-wrap {
+    width: 400px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .calendar-wrap {
+    width: 400px;
+    font-size: 1rem;
+  }
+}
+
+
+
+.month-year {
+  margin-bottom: 0.75em;
+  font-weight: normal;
+  font-size: 1.25em;
+  text-align: center;
+}
+
+.calendar {
+  table-layout: fixed;
+  width: 100%;
+  margin-bottom: 0.75em;
+  overflow: hidden;
+  border-collapse: collapse;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.day-title {
+  width: 4em;
+  height: 4em;
+  vertical-align: top;
+  font-weight: bold;
+  font-size: 0.75em;
+  text-transform: uppercase;
+  letter-spacing: 0.0625em;
+  box-shadow:
+    inset 0 -0.875em #fff,
+    inset 0 -1em rgba(0,20,50,0.1);
+}
+
+.day {
+  position: relative;
+  height: 3em;
+}
+
+.day:focus {
+  outline: none;
+}
+
+.day:focus .day-number::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  height: 80%;
+  transform: translate(-50%,-50%);
+  border: 0.25em solid #0288d1;
+  border-radius: 50%;
+}
+
+.day.active-a:focus .day-number::after,
+.day.active-b:focus .day-number::after {
+  width: 100%;
+  height: 100%;
+}
+
+.day.today:focus .day-number::after {
+  width: 102%;
+  height: 102%;
+}
+
+.day:hover span.day-number {
+  color: #0288d1;
+}
+
+.day:first-child,
+.day:last-child {
+  color: rgba(0,0,0,0.5);
+}
+
+.day.range {
+  color: #0288d1;
+  background-color: #e1f5fe;
+}
+
+.day.range.active-a,
+.day:not(.range) + .day.range.active-b {
+  background-color: transparent;
+  box-shadow: inset -1.5em 0 #e1f5fe;
+}
+
+.day.range.active-b,
+.day.range + .day.range.active-a {
+  background-color: transparent;
+  box-shadow: inset 1.5em 0 #e1f5fe;
+}
+
+.day.range.active-a:first-child,
+.day.range.active-b:first-child {
+  box-shadow: none;
+}
+
+.day.range.active-a:first-child + .day.range,
+.day.range.active-b:first-child + .day.range {
+  box-shadow: -1.5em 0 #e1f5fe;
+}
+
+.day.range.active-a:first-child + .day:not(.range),
+.day.range.active-b:first-child + .day:not(.range) {
+  box-shadow: -4.5em 0 #e1f5fe;
+}
+
+.day.range.active-a:first-child + .day.range.active-b {
+  box-shadow:
+    -1.5em 0 #e1f5fe,
+    inset 1.5em 0 #e1f5fe;
+}
+
+.day-number {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3em;
+  border-radius: 50%;
+}
+
+.day.active-a span.day-number,
+.day.active-b span.day-number {
+  color: #fff;
+  background-color: #03A9F4;
+}
+
+.day.prev-mon .day-number,
+.day.next-mon .day-number {
+  color: rgba(0,0,0,0.3);
+}
+
+.day.prev-mon[class*="active"] .day-number,
+.day.next-mon[class*="active"] .day-number {
+  color: rgba(255,255,255,0.5);
+  background-color: #81D4FA;
+}
+
+.day.today span.day-number {
+  color: #fff;
+  border: 0.25em solid transparent;
+  box-shadow: inset 0 0 0 2em #37474F;
+}
+
+.calendar-wrap .reset {
+  display: block;
+}
+
+#yasumi{
+  color:rgba(0,0,0,0.5);
+}
+
+.hidekoza{
+  display: none;
+}
+
+ </style>
+ 
+ 
+ 
+  </head>
+  <body>
+    <section class="header-top">
+      <nav class="navbar">
+        <!--로고-->
+        <form class="actionForm" action="home" method="get">
+        <div class="navbar-logo">
+         
+          <a class="button-home" href="#">
+            <strong> <span>Wedding</span>&nbsp;Invitation</strong>
+          </a>
+        </div>
+                </form>
+        <!--메뉴-->
+        <ul class="navbar-menu">
+          <li><a id="daieto" class="nav-list" href="#div1">오시는길</a></li>
+          <li><a id="torei" class="nav-list" href="#div2">사진</a></li>
+        
+        </ul>
+       
+
+       
+        
+      </nav>
+    </section>
+
+    <section class="main">
+      <img src="https://github.com/hanvitboy/sample/blob/master/%EC%9B%90%EB%B3%B8_1%ED%8E%98%EC%9D%B4%EC%A7%80.jpg?raw=true" width="100%">
+              
+        <div class="card">
+             <div class="weather loading">
+               <div class="weatherBox">
+                 <div class="weather-info-box">
+                   <div class="city">현재 서울 날씨</div>
+                   <div class="temp">35°C</div>
+                 </div>
+                 <div class="condition-box">
+                   <img
+                     src="https://openweathermap.org/img/wn/04n.png"
+                     alt=""
+                     class="icon"
+                   />
+                   <div class="description">Cloudy</div>
+                 </div>
+               </div>
+             </div>
+           </div>
+          
+           <div class="container">
+             <div class="row">
+               <div class="col-12">
+                 <div class="main-title">
+                   
+                 </div>
+                  </div>
+             </div>
+           </div>
+         </section>
+     
+         <section class="main-information a">
+           <div class="main-info">
+             <div data-aos="zoom-in" data-aos-delay="400">
+              <img src="https://github.com/hanvitboy/sample/blob/master/%EC%9B%90%EB%B3%B8_2%ED%8E%98%EC%9D%B4%EC%A7%80.jpg?raw=true" width="100%"> 
+                
+               
+             </div>
+             
+             </div>
+           </div>
+         </section>
+     
+         <section class="main-information b">
+         
+             <div data-aos="zoom-in" data-aos-delay="400">
+              <div class="calendar-wrap">
+                <h2 class="month-year">2022년 10월</h2>
+              
+                <table class="calendar">
+                  <thead>
+                    <tr>
+                      <th class="day-title" scope="col">일</th>
+                      <th class="day-title" scope="col">월</th>
+                      <th class="day-title" scope="col">화</th>
+                      <th class="day-title" scope="col">수</th>
+                      <th class="day-title" scope="col">목</th>
+                      <th class="day-title" scope="col">금</th>
+                      <th class="day-title" scope="col">토</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="week">
+                      
+                      <td class="day prev-mon" tabindex="0"><span class="day-number">25</span></td>
+                      <td class="day prev-mon" tabindex="0"><span class="day-number">26</span></td>
+                      <td class="day prev-mon" tabindex="0"><span class="day-number">27</span></td>
+                      <td class="day prev-mon" tabindex="0"><span class="day-number">28</span></td>
+                      <td class="day prev-mon" tabindex="0"><span class="day-number">29</span></td>
+                      <td class="day prev-mon" tabindex="0"><span class="day-number">30</span></td>
+                      <td class="day today" tabindex="0"><span class="day-number"><ruby>1<rt>결혼식</rt></ruby></span></td>
+                    </tr>
+                    <tr class="week">
+                      <td class="day" tabindex="0"><span class="day-number">2</span></td>
+                      <td id="yasumi" class="day" tabindex="0"><span class="day-number">3</span></td>
+                      <td class="day" tabindex="0"><span class="day-number">4</span></td>
+                      <td class="day" tabindex="0"><span class="day-number">5</span></td>
+                      <td class="day" tabindex="0"><span class="day-number">6</span></td>
+                      <td class="day" tabindex="0"><span class="day-number">7</span></td>
+                      <td class="day" tabindex="0"><span class="day-number">8</span></td>
+                    </tr>
+                    <tr class="week">
+                      <td class="day" tabindex="0"><span class="day-number">9</span></td>
+                      <td id="yasumi" class="day" tabindex="0"><span class="day-number">10</span></td>
+                      <td class="day" tabindex="0"><span class="day-number">11</span></td>
+                      <td class="day" tabindex="0"><span class="day-number">12</span></td>
+                      <td class="day" tabindex="0"><span class="day-number">13</span></td>
+                      <td class="day" tabindex="0"><span class="day-number">14</span></td>
+                      <td class="day" tabindex="0"><span class="day-number">15</span></td>
+                    </tr>
+                    <tr class="week">
+                      <td class="day" tabindex="0"><span class="day-number">16</span></td>
+                      <td class="day" tabindex="0"><span class="day-number">17</span></td>
+                      <td class="day" tabindex="0"><span class="day-number">18</span></td>
+                      <td class="day" tabindex="0"><span class="day-number">19</span></td>
+                      <td class="day" tabindex="0"><span class="day-number">20</span></td>
+                      <td class="day" tabindex="0"><span class="day-number">21</span></td>
+                      <td class="day" tabindex="0"><span class="day-number">22</span></td>
+                    </tr>
+                    <tr class="week">
+                      <td class="day" tabindex="0"><span class="day-number">23</span></td>
+                      <td class="day" tabindex="0"><span class="day-number">24</span></td>
+                      <td class="day" tabindex="0"><span class="day-number">25</span></td>
+                      <td class="day" tabindex="0"><span class="day-number">26</span></td>
+                      <td class="day" tabindex="0"><span class="day-number">27</span></td>
+                      <td class="day" tabindex="0"><span class="day-number">28</span></td>
+                      <td class="day next-mon" tabindex="0"><span class="day-number">29</span></td>
+                    </tr>
+                    <tr class="week">
+                      <td class="day" tabindex="0"><span class="day-number">30</span></td>
+                      <td class="day" tabindex="0"><span class="day-number">31</span></td>
+                      <td class="day" tabindex="0"><span class="day-number">1</span></td>
+                      <td class="day" tabindex="0"><span class="day-number">2</span></td>
+                      <td class="day" tabindex="0"><span class="day-number">3</span></td>
+                      <td class="day" tabindex="0"><span class="day-number">4</span></td>
+                      <td class="day next-mon" tabindex="0"><span class="day-number">5</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+                
+              </div>
+              <br>
+              <h1>오시는길</h1>
+               <br>
+               <span style="display: flex; align-items: center;">
+                22년 10월 1일 토요일 오후 2시<br>
+낙성대공원 전통혼례식장<br>
+
+02) 886-1660<br>
+식장 사정상 화환은 정중히 사양하겠습니다.<br>
+
+좋은 마음만 감사히 받겠습니다.<br>
+
+               </span>
+              <a href="https://map.kakao.com/?urlX=491000&urlY=1104000&urlLevel=3&map_type=TYPE_MAP&map_hybrid=false">
+                <img id="div1" src="https://github.com/hanvitboy/sample/blob/master/%EC%9B%90%EB%B3%B8_3%ED%8E%98%EC%9D%B4%EC%A7%80.jpg?raw=true" width="100%">
+               </a>
+              
+              <div class="main-info-explain">
+                
+ 
+              </div>
+             </div>
+           </div>
+         </section>
+     
+         <section class="main-information c">
+           <div class="main-info">
+             <div data-aos="zoom-in" data-aos-delay="400">
+               
+              
+                 <!--
+                   <div id="map" style="width:100%;height:240px;"></div>
+                   <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9cb4f712f96da0859bd7e417e7812245"></script>
+    <script>
+      var container = document.getElementById('map');
+      var options = {
+        center: new kakao.maps.LatLng(37.471970537517656, 126.9625),
+        level: 3
+      };
+  
+      var map = new kakao.maps.Map(container, options);
+    </script>--><br><br>
+                   
+                    
+                  
+                  
+                 <h1 id="div2">갤러리</h1>
+              	
+
+              
+
+
+               <!-- Slider main container -->
+        <div class="swiper-container">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+              <!-- Slides -->
+              <div class="swiper-slide">
+                <img src="https://modo-phinf.pstatic.net/20220715_144/165787116087708O5n_JPEG/mosaIcbKPp.jpeg" width="100%"
+                ></div>
+              <div class="swiper-slide">
+                <img src="https://modo-phinf.pstatic.net/20220816_63/1660639648249JFcTo_JPEG/mosaEsJVmS.jpeg" width="100%"
+                ></div>
+              <div class="swiper-slide">
+                <img src="https://modo-phinf.pstatic.net/20220816_188/1660639649533IYtWk_JPEG/mosaks90b9.jpeg" width="100%"
+                ></div>
+                <div class="swiper-slide">
+                  <img src="https://modo-phinf.pstatic.net/20220816_48/1660639650858x7OvT_JPEG/mosa6mvZhc.jpeg" width="100%"
+                  ></div>
+                  <div class="swiper-slide">
+                    <img src="https://modo-phinf.pstatic.net/20220816_50/166063965197312kbb_JPEG/mosa2LoTKe.jpeg" width="100%"
+                    ></div>
+                    <div class="swiper-slide">
+                      <img src="https://modo-phinf.pstatic.net/20220816_119/1660639655451vHRot_JPEG/mosaF3y7Gq.jpeg" width="100%"
+                      ></div>
+                      <div class="swiper-slide">
+                        <img src="https://modo-phinf.pstatic.net/20220816_20/1660639656216ply8n_JPEG/mosaMAmh6M.jpeg" width="100%"
+                        ></div>
+                        <div class="swiper-slide">
+                          <img src="https://modo-phinf.pstatic.net/20220816_140/16606396594917dIEb_JPEG/mosaWP4abu.jpeg" width="100%"
+                          ></div>
+                          <div class="swiper-slide">
+                            <img src="https://modo-phinf.pstatic.net/20220816_224/1660639729363gCPjz_JPEG/mosafLdFAi.jpeg" width="100%"
+                            ></div>
+                            <div class="swiper-slide">
+                              <img src="https://modo-phinf.pstatic.net/20220816_286/1660639731487LTmL3_JPEG/mosaexQSOg.jpeg" width="100%"
+                              ></div>
+                              
+
+              
+          </div>
+          <!-- If we need pagination -->
+          <div class="swiper-pagination"></div>
+
+          <!-- If we need navigation buttons -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+      </div>
+                
+               </div>
+             
+
+             <h1>연락처</h1>
+                   <p style="color:black">
+                    <span style="color:gray; font-size: 3.2vw;">신랑</span> <a href=Tel:01044674466 style="font-size:4vw;"> 김한빛<i class="fas fa-phone-square"></i></a> &nbsp; &nbsp;
+                    <span style="color:gray; font-size: 3.2vw;">아버지</span> <a href=Tel:01090108939 style="font-size:4vw;">김배근<i class="fas fa-phone-square"></i></a> <br>
+  <br></p>
+
+                      
+                    
+
+                 <h1>마음 전하실 곳</h1>
+                 <br>
+                 <span>코로나로 인해 직접 만나지 못해도</span>
+
+<span>축하해 주시고 싶은 분들을 위해</span>
+
+<span>계좌번호를 기재합니다.</span>
+
+<span>축하해 주시는 마음만으로도</span>
+<span>충분히 감사드립니다.</span><br>
+                  
+                  <!--<div class="btn-area">
+                    <a class="btn-next" role="button">계좌번호 확인하기</a>
+                  </div>
+-->
+
+                  <div>
+
+                    <p class="box01">
+                      <input value="우리 1002939426600 (김한빛)" readonly>
+                        <button onclick="copy_to_clipboard(event)">
+                          <img src="https://moonhouse.co.kr/files/attach/images/2021/12/30/93b96bc01016491edde00987253c3a02.png" alt="복사하기" title="크롬(웨일)브라우즈 복사">
+
+                        </button>
+                    </p>
+                    <p class="box01">
+                      <input value="농협 20708152174061 (김배근)" readonly>
+                        <button onclick="copy_to_clipboard(event)">
+                          <img src="https://moonhouse.co.kr/files/attach/images/2021/12/30/93b96bc01016491edde00987253c3a02.png" alt="복사하기" title="크롬(웨일)브라우즈 복사">
+
+                        </button>
+                    </p> 
+
+                  </div>
+
+
+
+                  <div class="replyModal">
+                    <div class="modalContent">
+                    
+
+                     
+                    
+                    
+                    <style>
+                      .box01{
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                      }
+                        .box01 input 
+                        {   display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 270px;
+  height: 20px;
+  line-height: 40px;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  margin: 5px auto;
+  text-align: center;
+  cursor: pointer;
+  color: black;
+  transition: all 0.9s, color 0.3;
+  background-color: white;
+ }
+                        .box01 button 
+                        {width: 60px; border:none; max-width: 100px; vertical-align: bottom;}
+                        .box01 button 
+                        img { width: 100%; }
+                    </style>
+                    
+                    
+                    <script>
+                        function copy_to_clipboard(event) {
+                            var copyText = event.target.parentNode.previousElementSibling;
+                            copyText.select();
+                            copyText.setSelectionRange(0, 99999);
+                            document.execCommand("Copy");
+                            alert('계좌번호가 복사되었습니다.');
+                        }
+                    </script>
+                      
+
+
+
+                    
+                    <div class="comment-modify__btns">
+                        <div class="comment-modify__btn">
+                          <button class="modal_cancel">
+                            <i class="fas fa-times"></i>
+                       </button>
+                      </div>
+              
+            
+                    </div>
+                  </div>
+                </div>
+
+
+                </div>
+           </div>
+         </section>
+     
+         <footer>
+           <div class="property">
+             <p>
+               © Hanvit♥Haruka 2022.10.01 SAT 2PM 낙성대공원 전통혼례식장
+             </p>
+           </div>
+        
+         </footer>
+
+         <script>
+
+
+$(document).on("click", ".btn-next", function(){
+
+      if($(".hidekoza").css("style","display:none;")){
+   	 $(".hidekoza").attr("style", "display:block;");
+      $(".hidekoza").fadeIn(200);
+    	}
+
+      if($(".hidekoza").css("style","display:block;")){
+   	 $(".hidekoza").attr("style", "display:none;");
+      $(".hidekoza").fadeOut(200);
+    	}
+    	//$(".replyModal").fadeIn(200);
+    	
+    	var repNum = $(this).attr("data-repNum");
+    	 var repCon = $(this).parent().parent().children(".replyContent").text();
+    	 
+    	 $(".modal_repCon").val(repCon);
+    	 $(".modal_modify_btn").attr("data-repNum", repNum);
+    	
+    });
+    $(".modal_cancel").click(function(){
+    	
+    	
+    $(".replyModal").fadeOut(200);
+  	      	
+    	
+    });
+    $(".modal_modify_btn").click(function(){
+    	 var modifyConfirm = confirm("本当に修正しますか？");
+    	 
+    	 if(modifyConfirm) 
+    	  var data = {
+    	     rno : $(this).attr("data-repNum"),
+    	     content : $(".modal_repCon").val()
+    	     
+    	    };  // ReplyVO 형태로 데이터 생성
+    	  $.ajax({
+    	   url : "/controller/modifyReply",
+    	   type : "post",
+    	   data : data,
+    	   success : function(result){	    
+    	    
+    	    	getreplylist();
+    	     $(".replyModal").fadeOut(200);
+    	    
+    	      },
+    	      
+    	     });
+    	    }
+    	    
+    	   );
+
+
+new Swiper('.swiper-container', {
+    direction: 'horizontal',
+    loop: true,
+    pagination: {
+      el : '.swiper-pagination'
+    },
+    navigation: {
+      prevEl: '.swiper-button-prev',
+      nextEl: '.swiper-button-next'
+    }
+});
+
+
+            let weather = {
+                       apiKey: "04677bb1adfaf876f2efbe954841c0b5",
+                       fetchWeather: function (city) {
+                         fetch(
+                           "https://api.openweathermap.org/data/2.5/weather?q=" +
+                             city +
+                             "&units=metric&appid=" +
+                             this.apiKey
+                         )
+                           .then((response) => {
+                             if (!response.ok) {
+                               alert("No weather found.");
+                               throw new Error("No weather found.");
+                             }
+                             return response.json();
+                           })
+                           .then((data) => this.displayWeather(data));
+                       },
+                       displayWeather: function (data) {
+                         const { name } = data;
+                         const { icon, description } = data.weather[0];
+                         const { temp } = data.main;
+                     
+                         document.querySelector(".city").innerText = "현재 서울 날씨";
+                         document.querySelector(".icon").src =
+                           "https://openweathermap.org/img/wn/" + icon + ".png";
+                         document.querySelector(".description").innerText = description;
+                         document.querySelector(".temp").innerText = temp + "°C";
+                         document.querySelector(".weather").classList.remove("loading");
+                       
+                       },
+                     
+                     };
+                     
+                     
+                       ;
+                     
+                     weather.fetchWeather("Seoul");
+                     
+               var yapi = $(".yapi");	
+               
+               $(document).ready(function(){
+                   $("#yaps").on("click",function(e){
+                       e.preventDefault();
+                       actionForm.attr("action", "/controller/kcalcalpage").attr("method", "post");
+                       actionForm.submit();
+                   })
+                   
+                       $("#yaps2").on("click",function(e){
+                       e.preventDefault();
+                       actionForm.attr("action", "/controller/diet").attr("method", "post");
+                       actionForm.submit();
+                   })
+                   
+                   $("#yaps3").on("click",function(e){
+                       e.preventDefault();
+                       actionForm.attr("action", "/controller/training").attr("method", "post");
+                       actionForm.submit();
+                   })
+           
+               
+               })
+           
+                     
+             var actionForm = $(".actionForm");
+                        $(document).ready(function(){
+                          $(".scroll_move").click(function(event){         
+
+event.preventDefault();
+
+$('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
+
+});
+
+});
+
+                        
+                        AOS.init({duration: 1500,});
+                        
+                        
+           
+                
+                        
+            
+            </script>
+                            <script src="https://kit.fontawesome.com/99b96296a9.js" crossorigin="anonymous"></script>
+                  
+             </body>
+           </html>
+           
